@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="연구 & 데이터 | 사단법인 티움" />
+  <meta property="og:description" content="티움의 교육 연구, 학습 데이터, AI 교육 관련 인사이트를 공유합니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/research.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>연구 &amp; 데이터 | 사단법인 티움</title>
+  <meta name="description" content="AI 교육의 효과를 측정하고 개선하기 위한 티움의 데이터 기반 연구를 확인하세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+        <span class="logo-kr">티움</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="index.html#about">소개</a></li>
+        <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
+        <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
+        <li class="nav-item"><a href="news.html">소식</a></li>
+        <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
+        <li class="nav-item"><a href="index.html#support">후원</a></li>
+      </ul>
+      <a href="lms.html" class="btn-lms-shortcut">🎓 러닝센터 바로가기</a>
+      <a href="index.html#support" class="btn-donate">후원하기</a>
+            <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===== MEGA MENU PANEL ===== -->
+    <div class="mega-panel" id="megaPanel">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <p class="mega-col-title">소개</p>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+            <li><a href="index.html#history">연혁</a></li>
+            <li><a href="index.html#partners">함께하는 곳</a></li>
+            <li><a href="index.html#location">찾아오시는 길</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아카데미</p>
+          <ul>
+            <li><a href="index.html#academy">공지사항</a></li>
+            <li><a href="index.html#future-makers">TFM Academy</a></li>
+            <li><a href="index.html#future-academy">제1기 미래아카데미</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 Data</a></li>
+            <li><a href="lms.html">🎓 러닝센터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아웃리치</p>
+          <ul>
+            <li><a href="outreach-tieum-global.html">티움 글로벌</a></li>
+            <li><a href="outreach-vision-camp.html">비전캠프</a></li>
+            <li><a href="outreach-global.html">글로벌 아웃리치</a></li>
+            <li><a href="outreach-gyeonmidan.html">견미단 × 프로라이프</a></li>
+            <li><a href="outreach-prolife2.html">청소년 프로라이프</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">소식</p>
+          <ul>
+            <li><a href="news.html">전체 소식</a></li>
+            <li><a href="news.html">교수학습 소식</a></li>
+            <li><a href="news.html">연구·데이터</a></li>
+            <li><a href="news.html">러닝센터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">뉴스레터</p>
+          <ul>
+            <li><a href="newsletter.html">뉴스레터 전체 보기</a></li>
+          </ul>
+          <p class="mega-col-title" style="margin-top:24px;">후원</p>
+          <ul>
+            <li><a href="index.html#support">정기 후원</a></li>
+            <li><a href="index.html#support">일시 후원</a></li>
+            <li><a href="index.html#contact">파트너 문의</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">홈</a>
+        <span class="sep">›</span>
+        <a href="index.html#academy">아카데미</a>
+        <span class="sep">›</span>
+        <span>연구 &amp; 데이터</span>
+      </nav>
+      <h1 data-i18n-html="res.page.title">연구 &amp; 데이터</h1>
+      <p class="page-sub" data-i18n="res.page.sub">AI 교육의 효과를 측정하고 개선하기 위한 데이터 기반 연구</p>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAM OVERVIEW ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="prog-overview">
+        <div class="prog-desc-text fade-in">
+          <div class="section-tag">프로그램 소개</div>
+          <h2>Research<br/>&amp; Data</h2>
+          <p>
+            티움은 교육 활동의 효과를 데이터로 증명하고, 지속적으로 개선하기 위해
+            체계적인 연구를 수행합니다.
+          </p>
+          <p>
+            AI 교육의 학습 효과, 디지털 교육 격차 현황, 글로벌 교육 트렌드 등
+            교육 현장에서 필요한 근거 기반 데이터를 연구하고 공개합니다.
+            모든 연구 결과는 티움의 교육 프로그램 개선에 직접 반영됩니다.
+          </p>
+          <a href="index.html#contact" class="btn-primary" style="margin-top:10px; display:inline-block;">연구 협력 문의</a>
+        </div>
+        <div class="prog-features fade-in">
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>교육 효과 연구</h4>
+              <p>티움 프로그램 참가자의 학습 성취 및 변화를 측정·분석</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>AI 교육 트렌드 분석</h4>
+              <p>국내외 AI 교육 동향 및 현장 디지털 전환 분석</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>공개 데이터 제공</h4>
+              <p>연구 결과 및 데이터를 교육 기관·연구자에게 공개</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>연구 협력 네트워크</h4>
+              <p>국내외 교육 기관·대학과의 공동 연구 및 학술 교류</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOARD ===== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-tag">연구 자료</div>
+      <h2 class="section-title" style="margin-bottom:32px;">연구 &amp; 데이터 게시판</h2>
+
+      <!-- 관리자 접속 표시 -->
+      <div id="adminIndicator">
+        <span class="ind-dot"></span>
+        <span>관리자 모드 활성화됨</span>
+      </div>
+
+      <div class="board-header">
+        <div class="board-tabs" id="boardTabs">
+          <button class="board-tab-btn active" data-cat="all">전체</button>
+          <button class="board-tab-btn" data-cat="notice">공지</button>
+          <button class="board-tab-btn" data-cat="research">연구</button>
+          <button class="board-tab-btn" data-cat="data">데이터</button>
+          <button class="board-tab-btn" data-cat="resource">자료</button>
+        </div>
+        <div class="board-search-wrap">
+          <input type="text" id="boardSearch" placeholder="제목 검색..." />
+          <button id="searchBtn">검색</button>
+        </div>
+      </div>
+
+      <table class="board-table">
+        <thead>
+          <tr>
+            <th class="col-num">번호</th>
+            <th class="col-cat">구분</th>
+            <th>제목</th>
+            <th class="col-date">날짜</th>
+            <th class="col-views">조회</th>
+          </tr>
+        </thead>
+        <tbody id="boardBody"></tbody>
+      </table>
+
+      <div class="board-pagination" id="boardPagination"></div>
+
+      <!-- 게시판 하단 관리 버튼 -->
+      <div class="board-footer-admin">
+        <button class="btn-write" id="writeBtn" onclick="openWriteModal()" style="display:none;">
+          ✏️ 새 글 쓰기
+        </button>
+        <button class="admin-logout-btn" id="logoutBtn" onclick="adminLogout()" style="display:none;">
+          로그아웃
+        </button>
+        <button class="admin-link-btn" id="adminLink" onclick="openAdminLogin()">
+          관리자
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POST MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-head">
+        <div class="modal-meta" id="modalMeta"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-attachments" id="modalAttachments" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+          </a>
+          <p class="footer-tagline">인공지능 시대의 교육 혁신</p>
+          <p class="footer-desc">사단법인 티움은 AI 기술과 인류의 보편적 가치를 연결하여 다음 세대를 세우는 비영리 교육 기관입니다.</p>
+        </div>
+        <div class="footer-links">
+          <h4>소개</h4>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>프로그램</h4>
+          <ul>
+            <li><a href="index.html#future-makers">퓨처 메이커스</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 &amp; 데이터</a></li>
+            <li><a href="index.html#global">글로벌 아웃리치</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>소식 &amp; 참여</h4>
+          <ul>
+            <li><a href="index.html#news">최신 소식</a></li>
+            <li><a href="index.html#support">후원하기</a></li>
+            <li><a href="index.html#contact">문의하기</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 사단법인 티움(TIEUM). All rights reserved.</p>
+        <p>고유번호: 454-82-00464 | 서울특별시 서초구 효령로 57길 3</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/board-drive-config.js"></script>
+  <script src="assets/js/board-drive.js"></script>
+  <script>
+  /* ── 연구 & 데이터 게시판 설정 ── */
+  window.BOARD_STORAGE_KEY   = 'tieum_research';
+  /* 연구&데이터 게시판 첨부파일 저장 폴더 */
+  window.BOARD_DRIVE_FOLDER_ID = '1vKr0oc0SNsOkgKE6OZyAVMpiemRawmHt';
+  window.BOARD_ADMIN_PW   = 'tieum0421!';
+  window.BOARD_PER_PAGE   = 8;
+  window.BOARD_TABS = [
+    { cat: 'all',      label: '전체' },
+    { cat: 'notice',   label: '공지' },
+    { cat: 'research', label: '연구' },
+    { cat: 'data',     label: '데이터' },
+    { cat: 'resource', label: '자료' }
+  ];
+  window.BOARD_POSTS = [
+    {
+      id: 'n1', pin: true, category: 'notice', categoryLabel: '공지',
+      title: '2025년 상반기 연구 결과 발표회 안내',
+      date: '2025.05.15', author: '티움 연구팀', views: 98,
+      content: `
+        <h3>2025년 상반기 연구 결과 발표회</h3>
+        <p>티움은 2025년 상반기 교육 연구 결과 발표회를 개최합니다. 관심 있는 교육 연구자, 교육자, 교육 전문가 분들의 많은 참여 바랍니다.</p>
+        <h4>행사 개요</h4>
+        <ul>
+          <li><strong>일시:</strong> 2025년 7월 5일(토) 오후 2시 ~ 6시</li>
+          <li><strong>장소:</strong> 서울 서초구 티움 교육센터</li>
+          <li><strong>발표 내용:</strong> AI 교육 효과성 연구, 디지털 교육 격차 현황, 글로벌 아웃리치 데이터 분석</li>
+          <li><strong>참가비:</strong> 무료 (사전 등록 필요)</li>
+        </ul>
+        <p>사전 등록 및 문의: <strong>johnchoi&#64;tieum&#46;org</strong> / 010-6579-0602</p>
+      `
+    },
+    {
+      id: 1, pin: false, category: 'research', categoryLabel: '연구',
+      title: 'AI 교육 효과성 연구 보고서 (2024)',
+      date: '2025.04.30', author: '티움 연구팀', views: 412,
+      content: `
+        <h3>AI 교육 효과성 연구 보고서 (2024)</h3>
+        <p>본 보고서는 티움이 2024년 한 해 동안 진행한 AI 교육 프로그램의 효과를 측정·분석한 결과입니다.</p>
+        <h4>연구 개요</h4>
+        <ul>
+          <li><strong>연구 기간:</strong> 2024년 1월 ~ 12월</li>
+          <li><strong>연구 대상:</strong> 퓨처 메이커스 참가 학생 1,240명</li>
+          <li><strong>측정 지표:</strong> AI 리터러시, 창의적 문제해결력, 자기효능감</li>
+        </ul>
+        <h4>주요 연구 결과</h4>
+        <ul>
+          <li>AI 리터러시 점수 평균 <strong>37% 향상</strong></li>
+          <li>창의적 문제해결력 <strong>28% 향상</strong></li>
+          <li>자기효능감(학습에 대한 자신감) <strong>45% 향상</strong></li>
+          <li>프로그램 만족도 <strong>4.7/5.0</strong></li>
+        </ul>
+        <h4>시사점</h4>
+        <p>AI 교육은 단순한 기술 역량을 넘어 학생들의 자기효능감과 미래 비전 형성에 강력한 영향을 미치는 것으로 나타났습니다.</p>
+        <blockquote>전문 보고서 요청: johnchoi&#64;tieum&#46;org</blockquote>
+      `
+    },
+    {
+      id: 2, pin: false, category: 'research', categoryLabel: '연구',
+      title: '디지털 교육 격차 현황 분석 — 한국과 개도국 비교',
+      date: '2025.03.28', author: '티움 연구팀', views: 287,
+      content: `
+        <h3>디지털 교육 격차 현황 분석</h3>
+        <p>본 연구는 한국과 티움이 활동하는 개발도상국 간의 디지털 교육 격차 현황을 비교 분석한 것입니다.</p>
+        <h4>주요 발견</h4>
+        <ul>
+          <li>개도국 교육 현장의 인터넷 연결률: 평균 34%</li>
+          <li>교사의 디지털 도구 활용 역량: 5점 만점 평균 1.8점</li>
+          <li>AI 교육 경험 있는 학생 비율: 3% 미만</li>
+        </ul>
+        <h4>티움의 대응 방향</h4>
+        <p>오프라인 기반 AI 교육 콘텐츠 개발, 저사양 환경을 위한 교육 도구 확보, 현지 교사 역량 강화를 통한 지속 가능성 확보를 추진합니다.</p>
+        <blockquote>이 연구는 티움 글로벌 아웃리치 전략 수립의 근거 자료로 활용됩니다.</blockquote>
+      `
+    },
+    {
+      id: 3, pin: false, category: 'data', categoryLabel: '데이터',
+      title: '글로벌 AI 교육 트렌드 데이터 (2025 상반기)',
+      date: '2025.03.10', author: '티움 연구팀', views: 356,
+      content: `
+        <h3>글로벌 AI 교육 트렌드 데이터 (2025 상반기)</h3>
+        <p>전 세계 AI 교육 동향을 정리한 트렌드 데이터입니다. 교육 정책 수립 및 프로그램 설계에 참고 자료로 활용하실 수 있습니다.</p>
+        <h4>주요 트렌드</h4>
+        <ul>
+          <li><strong>생성형 AI 도입 확대:</strong> 전 세계 교육 기관의 62%가 2025년 내 생성형 AI 도입 계획</li>
+          <li><strong>AI 윤리 교육 의무화:</strong> OECD 회원국 14개국이 AI 윤리 교육 필수화 추진</li>
+          <li><strong>교사 역량 격차:</strong> 교사의 78%가 AI 도구 활용 교육이 부족하다고 응답</li>
+          <li><strong>개도국 격차 심화:</strong> 고소득·저소득 국가 간 AI 교육 접근성 격차 3배 이상</li>
+        </ul>
+        <h4>글로벌 교육에의 시사점</h4>
+        <p>AI 교육의 보편화가 빠르게 진행되는 만큼, 소외된 지역 아이들이 이 변화에서 뒤처지지 않도록 선제적 교육 지원이 필요합니다.</p>
+      `
+    },
+    {
+      id: 4, pin: false, category: 'research', categoryLabel: '연구',
+      title: '교육 효과 측정 방법론 연구',
+      date: '2025.02.20', author: '최주안 박사', views: 198,
+      content: `
+        <h3>교육 효과 측정 방법론 연구</h3>
+        <p>교육의 효과를 어떻게 측정할 수 있는가? 본 연구는 정량적·정성적 평가를 통합한 교육 효과 측정 모델을 제안합니다.</p>
+        <h4>기존 측정의 한계</h4>
+        <ul>
+          <li>단순 수혜 인원 수 집계에 그치는 경우가 많음</li>
+          <li>영적 변화·가치관 변화 등 질적 지표 부재</li>
+          <li>장기적 변화 추적 시스템 미흡</li>
+        </ul>
+        <h4>티움 교육 효과 측정 모델 (4-D Model)</h4>
+        <ol>
+          <li><strong>Dedication Index: 성장 헌신 지표</li>
+          <li><strong>Digital Competency:</strong> 디지털 역량 향상 지표</li>
+          <li><strong>Dream Formation:</strong> 비전·꿈 형성 지표</li>
+          <li><strong>Deployment Readiness:</strong> 세상을 섬길 준비도 지표</li>
+        </ol>
+        <blockquote>이 연구 방법론은 현재 퓨처 메이커스 프로그램 평가에 시범 적용 중입니다.</blockquote>
+      `
+    },
+    {
+      id: 5, pin: false, category: 'data', categoryLabel: '데이터',
+      title: '2024년 교육 활동 통계 데이터',
+      date: '2025.02.05', author: '티움 사무국', views: 423,
+      content: `
+        <h3>2024년 교육 활동 통계</h3>
+        <p>2024년 한 해 동안 티움이 진행한 교육 활동의 주요 수치를 정리했습니다.</p>
+        <h4>국내 활동</h4>
+        <ul>
+          <li>퓨처 메이커스 캠프: 12회, 참가자 2,240명</li>
+          <li>교수학습법 워크숍: 8회, 참가자 456명</li>
+          <li>협력 학교: 72개교</li>
+          <li>교원 연수 이수자: 384명</li>
+        </ul>
+        <h4>글로벌 활동</h4>
+        <ul>
+          <li>진행 국가: 14개국</li>
+          <li>현지 교육 수혜 학생: 560명</li>
+          <li>현지 교사 역량 강화 프로그램: 6개국</li>
+          <li>파트너 단체: 23개 기관</li>
+        </ul>
+        <h4>디지털 플랫폼</h4>
+        <ul>
+          <li>온라인 강의 수강자: 1,820명</li>
+          <li>YouTube 구독자 증가: +1,240명</li>
+          <li>교육 자료 다운로드: 8,740건</li>
+        </ul>
+      `
+    },
+    {
+      id: 6, pin: false, category: 'resource', categoryLabel: '자료',
+      title: '글로벌 교육자를 위한 AI 활용 가이드',
+      date: '2025.01.20', author: '티움 연구팀', views: 267,
+      content: `
+        <h3>글로벌 교육자를 위한 AI 활용 가이드</h3>
+        <p>교육 현장에서 AI 도구를 어떻게 활용할 수 있는지 실용적 가이드를 제공합니다.</p>
+        <h4>현장에서 즉시 쓸 수 있는 AI 도구 5가지</h4>
+        <ol>
+          <li><strong>ChatGPT:</strong> 수업 계획 작성, 교재 번역, 문화 적응 콘텐츠 제작</li>
+          <li><strong>Canva:</strong> 시각적 교육 자료, 포스터, 프레젠테이션</li>
+          <li><strong>Google Translate + DeepL:</strong> 현지어 교육 자료 번역</li>
+          <li><strong>Khan Academy:</strong> 무료 기초 교육 콘텐츠 활용</li>
+          <li><strong>Scratch:</strong> 인터넷 없이도 가능한 코딩 교육</li>
+        </ol>
+        <h4>저사양 환경을 위한 팁</h4>
+        <ul>
+          <li>오프라인 동작 앱 우선 선택</li>
+          <li>콘텐츠 사전 다운로드 후 활용</li>
+          <li>간단한 디바이스로도 가능한 활동 설계</li>
+        </ul>
+        <blockquote>가이드 전문 파일 요청: johnchoi&#64;tieum&#46;org</blockquote>
+      `
+    },
+    {
+      id: 7, pin: false, category: 'research', categoryLabel: '연구',
+      title: '국내 청소년 AI 리터러시 실태 조사 (2024)',
+      date: '2025.01.08', author: '티움 연구팀', views: 334,
+      content: `
+        <h3>국내 청소년 AI 리터러시 실태 조사 (2024)</h3>
+        <p>2024년 국내 중·고등학생 800명을 대상으로 진행한 AI 리터러시 실태 조사 결과입니다.</p>
+        <h4>조사 결과 요약</h4>
+        <ul>
+          <li>AI가 무엇인지 안다고 응답한 학생: <strong>78%</strong></li>
+          <li>AI 도구를 직접 사용해본 학생: <strong>61%</strong></li>
+          <li>AI의 원리를 이해하는 학생: <strong>23%</strong></li>
+          <li>AI를 창의적으로 활용할 수 있는 학생: <strong>12%</strong></li>
+          <li>AI의 윤리적 문제를 인식하는 학생: <strong>34%</strong></li>
+        </ul>
+        <h4>티움의 시사점</h4>
+        <p>대부분의 학생이 AI 도구를 사용하고 있으나, 깊은 이해와 창의적 활용 역량은 매우 부족합니다. 특히 AI 윤리 교육이 시급한 것으로 나타났습니다.</p>
+        <p>티움은 이 데이터를 바탕으로 <strong>퓨처 메이커스 커리큘럼</strong>에 AI 원리 이해와 윤리 모듈을 강화했습니다.</p>
+      `
+    }
+  ];
+  </script>
+  <script src="assets/js/board.js"></script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

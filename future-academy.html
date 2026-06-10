@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="대한민국역사와미래재단과 티움이 공동 운영하는 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="제1기 미래아카데미 | 티움" />
+  <meta property="og:description" content="대한민국역사와미래재단과 티움이 공동 운영하는 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/future-academy.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>제1기 미래아카데미 — 티움</title>
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .fa-page { max-width: 780px; margin: 0 auto; padding: 0 0 60px; }
+
+    /* 히어로 */
+    .fa-hero {
+      position: relative;
+      overflow: hidden;
+      background: #0f3460;
+      color: #fff;
+    }
+    .fa-hero-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      opacity: .45;
+    }
+    .fa-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px 24px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(15,52,96,.35) 0%, rgba(26,26,46,.7) 100%);
+    }
+    .fa-hero-badge {
+      display: inline-block;
+      background: rgba(255,200,50,.18);
+      border: 1px solid rgba(255,200,50,.45);
+      color: #ffc832;
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .fa-hero-title {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .fa-hero-year {
+      font-size: 1rem;
+      opacity: .6;
+      margin-bottom: 10px;
+    }
+    .fa-hero-slogan {
+      font-size: .88rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+    .fa-hero-partner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      padding: 7px 18px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.85);
+    }
+    .fa-hero-partner span { opacity: .5; }
+    .fa-hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+    .fa-hero-tag {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.88);
+    }
+
+    /* 바디 */
+    .fa-body { padding: 32px 24px 0; }
+    .fa-section { margin-bottom: 36px; }
+    .fa-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #0f3460;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fa-desc { font-size: .93rem; color: var(--text-2); line-height: 1.8; }
+
+    /* 개요 박스 */
+    .fa-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .fa-ov-item {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border-left: 3px solid #0f3460;
+    }
+    .fa-ov-label { font-size: .75rem; color: var(--text-3); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .05em; }
+    .fa-ov-value { font-size: .92rem; color: var(--text); font-weight: 600; }
+
+    /* 가치 그리드 */
+    .fa-value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .fa-value-item {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .fa-value-area { font-size: .75rem; color: #0f3460; font-weight: 700; margin-bottom: 4px; }
+    .fa-value-text { font-size: .83rem; color: var(--text-2); line-height: 1.5; }
+
+    /* 단계 커리큘럼 */
+    .fa-stages { display: flex; flex-direction: column; gap: 12px; }
+    .fa-stage {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .fa-stage-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #0f3460;
+      color: #fff;
+    }
+    .fa-stage-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      font-size: .75rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .fa-stage-info { flex: 1; }
+    .fa-stage-title { font-size: .92rem; font-weight: 700; }
+    .fa-stage-weeks { font-size: .76rem; opacity: .7; margin-top: 2px; }
+    .fa-stage-body { padding: 12px 16px; background: #fff; }
+    .fa-stage-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
+    .fa-stage-items li {
+      font-size: .85rem;
+      color: var(--text-2);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .fa-stage-items li::before {
+      content: '›';
+      position: absolute; left: 0;
+      color: #0f3460; font-weight: 700;
+    }
+    .fa-stage-outcome {
+      margin-top: 10px;
+      background: #f0f4ff;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: .8rem;
+      color: #0f3460;
+    }
+    .fa-stage-outcome strong { display: block; font-weight: 700; margin-bottom: 3px; }
+
+    /* 트랙 */
+    .fa-track-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .fa-track-item {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+      border-top: 3px solid #0f3460;
+    }
+    .fa-track-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .fa-track-name { font-size: .85rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .fa-track-desc { font-size: .76rem; color: var(--text-3); line-height: 1.4; }
+
+    /* 운영 방식 */
+    .fa-method-list { display: flex; flex-direction: column; gap: 8px; }
+    .fa-method-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .88rem; color: var(--text-2);
+    }
+    .fa-method-bullet {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #0f3460;
+      color: #fff;
+      font-size: .68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    /* CTA */
+    .fa-cta {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      color: #fff;
+      margin: 0 24px;
+    }
+    .fa-cta p { font-size: .9rem; opacity: .8; margin-bottom: 16px; line-height: 1.7; }
+    .fa-cta-btn {
+      display: inline-block;
+      background: #ffc832;
+      color: #1a1a2e;
+      border-radius: 28px;
+      padding: 12px 28px;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .fa-cta-btn:hover { opacity: .85; }
+
+    /* 모바일 헤더 */
+    .fa-mobile-header {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .fa-back-btn {
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer;
+      color: #0f3460; padding: 4px; line-height: 1;
+    }
+    .fa-mobile-title { font-size: .95rem; font-weight: 700; color: var(--text); }
+
+    @media (max-width: 768px) {
+      .fa-mobile-header { display: flex; }
+      .fa-overview-grid { grid-template-columns: 1fr 1fr; }
+      .fa-value-grid { grid-template-columns: 1fr 1fr; }
+      .fa-track-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .fa-overview-grid { grid-template-columns: 1fr; }
+      .fa-value-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div style="position:fixed;top:12px;right:16px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:.78rem;">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#1b4f8a;padding:2px 4px;">한국어</button>
+    <span style="color:#ccc;">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#666;padding:2px 4px;">English</button>
+  </div>
+
+<!-- 모바일 뒤로가기 헤더 -->
+<div class="fa-mobile-header">
+  <button class="fa-back-btn" onclick="goBack()">‹</button>
+  <span class="fa-mobile-title">제1기 미래아카데미</span>
+</div>
+
+<div class="fa-page">
+
+  <!-- 히어로 -->
+  <div class="fa-hero">
+    <img src="assets/images/future-academy.jpg" alt="제1기 미래아카데미 현장 사진" class="fa-hero-img" />
+    <div class="fa-hero-overlay">
+      <div class="fa-hero-badge">제1기 청년 리더십 프로그램</div>
+      <h1 class="fa-hero-title" data-i18n="prog.fa.h_plain">제1기 미래아카데미</h1>
+      <p class="fa-hero-year">Future Academy</p>
+      <p class="fa-hero-slogan">
+        "보수적 가치를 기반으로 AI 시대 미래를 준비하고<br>선도하는 각 분야의 Top 리더를 키운다."
+      </p>
+      <div class="fa-hero-partner">
+        재단법인 대한민국역사와미래
+        <span>×</span>
+        사단법인 티움
+      </div>
+      <div class="fa-hero-tags">
+        <span class="fa-hero-tag">보수주의 가치</span>
+        <span class="fa-hero-tag">AI 리터러시</span>
+        <span class="fa-hero-tag">청년 리더십</span>
+        <span class="fa-hero-tag">프로젝트형 교육</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fa-body">
+
+    <!-- 프로그램 소개 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>📌</span> 프로그램 소개</h2>
+      <p class="fa-desc">
+        제1기 미래아카데미는 대한민국역사와미래재단과 사단법인 티움이 공동으로 기획·운영하는
+        청년 리더십 양성 프로그램입니다.<br><br>
+        대한민국의 핵심 가치를 계승하고, AI 시대의 급격한 변화에 능동적으로 대응할 수 있는
+        실천형 미래 리더를 양성합니다. 단순한 지식 전달을 넘어 프로젝트 기반 학습(PBL)을 통해
+        각 분야에서 실질적인 변화를 만들어낼 역량을 키웁니다.
+      </p>
+    </div>
+
+    <!-- 교육 개요 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>📋</span> 교육 개요</h2>
+      <div class="fa-overview-grid">
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">대상</div>
+          <div class="fa-ov-value">2030 대한민국 청년</div>
+        </div>
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">인원</div>
+          <div class="fa-ov-value">20~30명</div>
+        </div>
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">기간</div>
+          <div class="fa-ov-value">총 12주 (4월~7월)</div>
+        </div>
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">참가비</div>
+          <div class="fa-ov-value">10만원</div>
+        </div>
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">선발</div>
+          <div class="fa-ov-value">서류 심사 + 온라인 면접</div>
+        </div>
+        <div class="fa-ov-item">
+          <div class="fa-ov-label">장소</div>
+          <div class="fa-ov-value">서울 테헤란로 (ERA 코리아)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 핵심 가치 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>🏛️</span> 핵심 가치</h2>
+      <div class="fa-value-grid">
+        <div class="fa-value-item">
+          <div class="fa-value-area">개인</div>
+          <div class="fa-value-text">자유·가치관·개인에 대한 신뢰 — 주체성과 도덕적 양심 회복</div>
+        </div>
+        <div class="fa-value-item">
+          <div class="fa-value-area">공동체</div>
+          <div class="fa-value-text">가정·인간 생명의 존엄성 — 건강한 사회 구성원으로서의 책임</div>
+        </div>
+        <div class="fa-value-item">
+          <div class="fa-value-area">국가</div>
+          <div class="fa-value-text">자유주의 수호·제한된 정부 — 시장 경제와 국가 역할 이해</div>
+        </div>
+        <div class="fa-value-item">
+          <div class="fa-value-area">시대정신</div>
+          <div class="fa-value-text">힘을 통한 평화 — 확고한 국가관·역사 의식 기반 전략</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4단계 커리큘럼 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>📚</span> 커리큘럼 (12주)</h2>
+      <div class="fa-stages">
+
+        <div class="fa-stage">
+          <div class="fa-stage-head">
+            <div class="fa-stage-num">Ⅰ</div>
+            <div class="fa-stage-info">
+              <div class="fa-stage-title">공통 모듈</div>
+              <div class="fa-stage-weeks">1~4주 · 기반 다지기</div>
+            </div>
+          </div>
+          <div class="fa-stage-body">
+            <ul class="fa-stage-items">
+              <li>1주: 오리엔테이션 & 비전워크숍 — 아카데미 철학, 리더 목표 설정</li>
+              <li>2주: 미래 리터러시(Future Literacy) — 기술·사회 변화 읽기, AI의 필요성</li>
+              <li>3주: 나의 분야 찾기 — 정치·경제·문화·교육·기술·예술 탐색</li>
+              <li>4주: 나의 철학 정립 — 가치와 분야 연결, 리더십 선언문 초안 워크샵</li>
+            </ul>
+            <div class="fa-stage-outcome">
+              <strong>📄 성과물</strong>
+              나의 분야 찾기 리포트 (AI 도구 기반) · 리더십 선언문
+            </div>
+          </div>
+        </div>
+
+        <div class="fa-stage">
+          <div class="fa-stage-head">
+            <div class="fa-stage-num">Ⅱ</div>
+            <div class="fa-stage-info">
+              <div class="fa-stage-title">분야별 전문 강의</div>
+              <div class="fa-stage-weeks">5~6주 · 전문가 특강 + 토론</div>
+            </div>
+          </div>
+          <div class="fa-stage-body">
+            <ul class="fa-stage-items">
+              <li>[공통특강] AI와 인간의 역할 변화 — 산업 구조 변혁, 직업의 재정의</li>
+              <li>[트랙①] 기술·경제 — 생성형 AI, 자동화, 데이터 경제</li>
+              <li>[트랙②] 교육·문화 — AI 시대 교육 방향, 콘텐츠·예술 융합</li>
+              <li>[트랙③] 정치·사회 — 민주주의, 법치, 여론의 미래, 신뢰의 리더십</li>
+            </ul>
+            <div class="fa-stage-outcome">
+              <strong>📄 성과물</strong>
+              미래 키워드 리서치 리포트 · 분야별 트렌드 인포그래픽
+            </div>
+          </div>
+        </div>
+
+        <div class="fa-stage">
+          <div class="fa-stage-head">
+            <div class="fa-stage-num">Ⅲ</div>
+            <div class="fa-stage-info">
+              <div class="fa-stage-title">팀 프로젝트</div>
+              <div class="fa-stage-weeks">7~11주 · 실천형 미래 설계</div>
+            </div>
+          </div>
+          <div class="fa-stage-body">
+            <ul class="fa-stage-items">
+              <li>7주: 프로젝트 주제 선정 — 분야별 핵심 변화 포인트 발굴</li>
+              <li>8주: 미래 예측 리서치 — 국내외 사례·데이터 기반 시나리오 작성</li>
+              <li>9주: 현재 문제 분석 — 구조적 문제 도출</li>
+              <li>10주: 대안 설계 — 가치 기반 정책·교육·콘텐츠 기획</li>
+              <li>11주: 결과물 제작 — 영상·리포트·정책제안서 완성</li>
+            </ul>
+            <div class="fa-stage-outcome">
+              <strong>📄 성과물</strong>
+              분야별 미래 리포트 · 영상 콘텐츠 · 정책제안서
+            </div>
+          </div>
+        </div>
+
+        <div class="fa-stage">
+          <div class="fa-stage-head">
+            <div class="fa-stage-num">Ⅳ</div>
+            <div class="fa-stage-info">
+              <div class="fa-stage-title">성과 공유 & 포럼</div>
+              <div class="fa-stage-weeks">12주 + α · 수료 및 네트워킹</div>
+            </div>
+          </div>
+          <div class="fa-stage-body">
+            <ul class="fa-stage-items">
+              <li>세대 간 리더십 포럼 — 원로·현직 리더 초청 토크콘서트</li>
+              <li>성과 공유회 — 팀별 결과 발표, 리더 선언문 낭독</li>
+              <li>수료식 & 네트워킹 — 동문 커뮤니티 구축, 후속 연계</li>
+            </ul>
+            <div class="fa-stage-outcome">
+              <strong>📄 성과물</strong>
+              AI 시대 분야별 미래 리포트 · 리더 선언문 디지털북 · 영상 콘텐츠
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3대 트랙 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>🗂️</span> 3대 분야 트랙</h2>
+      <div class="fa-track-grid">
+        <div class="fa-track-item">
+          <div class="fa-track-icon">⚙️</div>
+          <div class="fa-track-name">기술·경제</div>
+          <div class="fa-track-desc">생성형 AI, 자동화, 데이터 경제, 산업 혁신</div>
+        </div>
+        <div class="fa-track-item">
+          <div class="fa-track-icon">🎓</div>
+          <div class="fa-track-name">교육·문화</div>
+          <div class="fa-track-desc">AI 교육 방향, 예술 융합, 미디어 트렌드</div>
+        </div>
+        <div class="fa-track-item">
+          <div class="fa-track-icon">🏛️</div>
+          <div class="fa-track-name">정치·사회</div>
+          <div class="fa-track-desc">민주주의, 법치, 여론, 공동체 리더십</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 학습 운영 방식 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>⚡</span> 학습 운영 방식</h2>
+      <div class="fa-method-list">
+        <div class="fa-method-item">
+          <div class="fa-method-bullet">P</div>
+          <div><strong>PBL (프로젝트 기반 학습)</strong> — '배움 → 탐구 → 실천 → 공유' 구조의 완전 프로젝트형 교육</div>
+        </div>
+        <div class="fa-method-item">
+          <div class="fa-method-bullet">A</div>
+          <div><strong>AI & 디지털 툴 융합</strong> — ChatGPT, Canva, Notion 등 실무 도구 학습 및 활용</div>
+        </div>
+        <div class="fa-method-item">
+          <div class="fa-method-bullet">M</div>
+          <div><strong>분야별 멘토링</strong> — 각 분야 전문가·현직 리더와의 1:1 멘토링 연계</div>
+        </div>
+        <div class="fa-method-item">
+          <div class="fa-method-bullet">J</div>
+          <div><strong>리더십 저널</strong> — 매주 '내가 예측한 미래와 실천할 오늘' 자기 성찰 기록</div>
+        </div>
+        <div class="fa-method-item">
+          <div class="fa-method-bullet">N</div>
+          <div><strong>미디어 확산형 결과물</strong> — 모든 프로젝트 결과를 영상·카드뉴스로 제작·공유</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /fa-body -->
+
+  <!-- CTA -->
+  <div class="fa-cta">
+    <p>제1기 미래아카데미 참가 문의 및<br>자세한 일정은 아래 연락처로 문의해 주세요.</p>
+    <a href="index.html#contact" class="fa-cta-btn">문의하기 →</a>
+  </div>
+
+</div><!-- /fa-page -->
+
+<script>
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    location.href = 'index.html#academy';
+  }
+}
+
+(function() {
+  if (!document.referrer || document.referrer === '') {
+    history.replaceState(null, '', 'index.html#academy');
+    history.pushState(null, '', 'future-academy.html');
+  }
+})();
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

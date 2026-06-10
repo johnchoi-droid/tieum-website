@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="티움 뉴스레터. 티움의 한 달을 담은 소식지를 구독하고 가장 먼저 소식을 받아보세요." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="뉴스레터 | 티움" />
+  <meta property="og:description" content="티움 뉴스레터. 티움의 한 달을 담은 소식지를 구독하고 가장 먼저 소식을 받아보세요." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/newsletter.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>뉴스레터 — 티움(TIEUM)</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">홈</a>
+      <a href="teaching.html">교수학습</a>
+      <a href="research.html">연구·데이터</a>
+      <a href="lms.html">러닝센터</a>
+      <a href="newsletter.html" class="nav-active">뉴스레터</a>
+    </nav>
+          <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="nl-hero">
+  <div class="nl-hero-inner">
+    <div class="nl-hero-badge">📮 정기 뉴스레터</div>
+    <h1 class="nl-hero-title">티움 소식을<br>매달 전합니다</h1>
+    <p class="nl-hero-sub">사단법인 티움이 한 달 동안 걸어온 발자취를 후원자 여러분과 나눕니다.<br>교육 활동 현장 소식, 캠프 이야기, 그리고 감사 보고.</p>
+    <div class="nl-hero-stats">
+      <div class="nl-stat"><span class="nl-stat-num" id="nlStatCount">0</span><span class="nl-stat-label">발행호</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GRID ══════════════ -->
+<main class="nl-main">
+  <div class="nl-grid" id="nlGrid"></div>
+</main>
+
+<!-- ══════════════ DETAIL MODAL ══════════════ -->
+<div class="modal-overlay" id="nlModal" onclick="if(event.target===this)closeNlModal()">
+  <div class="modal-box nl-modal-box">
+    <button class="modal-close" onclick="closeNlModal()">✕</button>
+    <div id="nlModalContent"></div>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </div>
+    <p class="footer-copy">
+      © 2026 사단법인 티움(TIEUM). All rights reserved. ·
+      <a href="terms.html" style="color:inherit;opacity:.7;text-decoration:underline;">이용약관</a> ·
+      <a href="privacy.html" style="color:inherit;opacity:.7;text-decoration:underline;">개인정보 처리방침</a> ·
+      <a href="copyright.html" style="color:inherit;text-decoration:underline;">저작권 보호 정책</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script src="assets/js/newsletter-data.js"></script>
+<script>
+/* ── 렌더링 ── */
+function renderCards() {
+  var data = window.NEWSLETTER_DATA || [];
+  var grid = document.getElementById('nlGrid');
+
+  document.getElementById('nlStatCount').textContent = data.length;
+
+  if (!data.length) {
+    grid.innerHTML = '<div class="nl-empty"><p>아직 발행된 뉴스레터가 없습니다.</p></div>';
+    return;
+  }
+
+  grid.innerHTML = data.map(function(nl) {
+    return [
+      '<article class="nl-card" onclick="openNlModal(\'' + nl.id + '\')">',
+      '  <div class="nl-card-accent" style="background:' + nl.color + '">',
+      '    <span class="nl-issue-badge">통권 ' + nl.issue + '호</span>',
+      '    <div class="nl-card-date">' + nl.label + '</div>',
+      '  </div>',
+      '  <div class="nl-card-body">',
+      '    <h3 class="nl-card-title">' + nl.title + '</h3>',
+      '    <p class="nl-card-summary">' + nl.summary + '</p>',
+      '    <div class="nl-card-foot">',
+      '      <span class="nl-read-link">읽기 →</span>',
+      '    </div>',
+      '  </div>',
+      '</article>'
+    ].join('\n');
+  }).join('');
+}
+
+/* ── 모달 ── */
+function openNlModal(id) {
+  var data = window.NEWSLETTER_DATA || [];
+  var nl   = data.find(function(n){ return n.id === id; });
+  if (!nl) return;
+
+  document.getElementById('nlModalContent').innerHTML = [
+    '<div class="nl-modal-header" style="background:' + nl.color + '">',
+    '  <div class="nl-modal-meta-row">',
+    '    <span class="nl-issue-badge">통권 ' + nl.issue + '호</span>',
+    '    <p class="nl-modal-date">' + nl.label + '</p>',
+    '  </div>',
+    '  <h2 class="nl-modal-title">' + nl.title + '</h2>',
+    '</div>',
+    '<div class="nl-modal-body">' + nl.content + '</div>'
+  ].join('\n');
+
+  document.getElementById('nlModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNlModal() {
+  document.getElementById('nlModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── 초기화 ── */
+document.addEventListener('DOMContentLoaded', function () {
+  renderCards();
+  document.getElementById('hamburger').addEventListener('click', function () {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNlModal();
+});
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

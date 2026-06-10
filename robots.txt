@@ -1,0 +1,20 @@
+# ====================================================
+#  사단법인 티움 (TIEUM) — robots.txt
+#  검색엔진 크롤러 접근 제어 설정
+# ====================================================
+
+User-agent: *
+
+# 수강생 전용 LMS 내부 페이지 — 검색 노출 불필요
+Disallow: /lms.html
+Disallow: /lms-player.html
+Disallow: /lms-workspace.html
+
+# 재정 보고서 — 직접 검색 유입 차단 (후원 페이지를 통해 접근)
+Disallow: /finance-report.html
+
+# 전체 허용 (위 예외 외 모든 페이지 크롤링 허용)
+Allow: /
+
+# 사이트맵 위치 (추후 생성 시 활성화)
+# Sitemap: https://www.tieum.org/sitemap.xml

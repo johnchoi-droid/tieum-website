@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="티움 PBL 워크스페이스. 교육자들이 프로젝트를 공유하고 함께 성장하는 협업 공간입니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="PBL 워크스페이스 | 티움 러닝센터" />
+  <meta property="og:description" content="티움 PBL 워크스페이스. 교육자들이 프로젝트를 공유하고 함께 성장하는 협업 공간입니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/lms-workspace.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>PBL 워크스페이스 — 티움 러닝센터</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">홈</a>
+      <a href="teaching.html">교수학습</a>
+      <a href="research.html">연구·데이터</a>
+      <a href="lms.html">러닝센터</a>
+      <a href="lms-workspace.html" class="nav-active">PBL 워크스페이스</a>
+      <a href="newsletter.html">뉴스레터</a>
+    </nav>
+          <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="ws-hero">
+  <div class="ws-hero-inner">
+    <div class="ws-hero-left">
+      <div class="ws-hero-badge">🗂 PBL 산출물 워크스페이스</div>
+      <h1 class="ws-hero-title">팀 프로젝트 결과물을<br>함께 공유하고 발전시키세요</h1>
+      <p class="ws-hero-sub">칸바, 구글 슬라이드, 패들렛, Figma, YouTube 등 어떤 형식이든<br>링크 하나로 공유할 수 있습니다. 서로의 아이디어에서 영감을 받으세요.</p>
+      <button class="ws-hero-btn" onclick="openWsModal()">+ 산출물 공유하기</button>
+    </div>
+    <div class="ws-hero-stats" id="wsHeroStats">
+      <div class="ws-stat"><span class="ws-stat-num" id="statPosts">0</span><span class="ws-stat-label">프로젝트</span></div>
+      <div class="ws-stat-div"></div>
+      <div class="ws-stat"><span class="ws-stat-num" id="statLikes">0</span><span class="ws-stat-label">좋아요</span></div>
+      <div class="ws-stat-div"></div>
+      <div class="ws-stat"><span class="ws-stat-num" id="statComments">0</span><span class="ws-stat-label">댓글</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TOOLBAR ══════════════════ -->
+<div class="ws-toolbar">
+  <div class="ws-search-wrap">
+    <span class="ws-search-icon">🔍</span>
+    <input type="search" id="wsSearch" class="ws-search-input"
+           placeholder="프로젝트 제목, 태그로 검색..." oninput="filterWs()" />
+  </div>
+  <div class="ws-filter-chips" id="wsFilterChips">
+    <button class="ws-chip active" data-tag="all"   onclick="setWsTag('all',this)">전체</button>
+    <button class="ws-chip"        data-tag="1주차"  onclick="setWsTag('1주차',this)">1주차</button>
+    <button class="ws-chip"        data-tag="2주차"  onclick="setWsTag('2주차',this)">2주차</button>
+    <button class="ws-chip"        data-tag="3주차"  onclick="setWsTag('3주차',this)">3주차</button>
+    <button class="ws-chip"        data-tag="4주차"  onclick="setWsTag('4주차',this)">4주차</button>
+    <button class="ws-chip"        data-tag="기타"   onclick="setWsTag('기타',this)">기타</button>
+  </div>
+  <select class="ws-sort-sel" id="wsSort" onchange="filterWs()">
+    <option value="latest">최신순</option>
+    <option value="likes">좋아요순</option>
+    <option value="comments">댓글순</option>
+  </select>
+</div>
+
+<!-- ══════════════════ GRID ══════════════════ -->
+<main class="ws-main">
+  <div class="ws-grid" id="wsGrid"></div>
+</main>
+
+<!-- ══════════════════ FAB ══════════════════ -->
+<button class="ws-fab" onclick="openWsModal()" aria-label="산출물 공유하기">
+  <span class="ws-fab-plus">+</span>
+  <span class="ws-fab-label">공유하기</span>
+</button>
+
+<!-- ══════════════════ SUBMIT MODAL ══════════════════ -->
+<div class="modal-overlay" id="wsModal" onclick="if(event.target===this)closeWsModal()">
+  <div class="modal-box ws-modal-box">
+    <button class="modal-close" onclick="closeWsModal()">✕</button>
+    <h2 class="ws-modal-title">🗂 PBL 산출물 공유하기</h2>
+    <p class="ws-modal-sub">Canva·Google Slides·Padlet·Figma·YouTube 등 모든 링크를 지원합니다.</p>
+
+    <form class="ws-form" onsubmit="submitWsPost(event)">
+      <div class="ws-form-row">
+        <label class="ws-label">제목 <span class="req">*</span></label>
+        <input type="text" id="wsTitle" class="ws-input" placeholder="프로젝트 제목을 입력하세요" required maxlength="80" />
+      </div>
+      <div class="ws-form-row">
+        <label class="ws-label">설명</label>
+        <textarea id="wsDesc" class="ws-textarea" rows="3" maxlength="300"
+          placeholder="어떤 프로젝트인지 간단히 설명해주세요. (선택사항)"></textarea>
+      </div>
+      <div class="ws-form-row">
+        <label class="ws-label">임베드·공유 링크</label>
+        <input type="url" id="wsEmbedUrl" class="ws-input" oninput="detectEmbedType()"
+          placeholder="https://www.canva.com/design/... 또는 YouTube, Slides, Padlet 등" />
+        <div class="ws-embed-detect" id="wsEmbedDetect" style="display:none;"></div>
+      </div>
+      <div class="ws-form-row">
+        <label class="ws-label">썸네일 이미지 URL <span class="ws-opt">(선택)</span></label>
+        <input type="url" id="wsThumbnailUrl" class="ws-input"
+          placeholder="https://... (이미지 URL — 비워두면 자동 생성)" />
+      </div>
+      <div class="ws-form-two-col">
+        <div class="ws-form-row">
+          <label class="ws-label">주차 태그 <span class="req">*</span></label>
+          <select id="wsWeekTag" class="ws-select" required>
+            <option value="">선택하세요</option>
+            <option value="1주차">1주차 — AI 교육 이해</option>
+            <option value="2주차">2주차 — 플립러닝 설계</option>
+            <option value="3주차">3주차 — PBL 프로젝트</option>
+            <option value="4주차">4주차 — 현장 적용</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="ws-form-row">
+          <label class="ws-label">추가 태그 <span class="ws-opt">(쉼표 구분)</span></label>
+          <input type="text" id="wsTags" class="ws-input" placeholder="PBL, 네팔, 교사연수" maxlength="80" />
+        </div>
+      </div>
+      <div class="ws-form-row ws-form-hint">
+        💡 로그인 상태에서 공유하면 작성자 이름이 표시됩니다.
+      </div>
+      <button type="submit" class="btn-primary ws-submit-btn">공유하기 →</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════ DETAIL MODAL ══════════════════ -->
+<div class="modal-overlay" id="wsDetailModal" onclick="if(event.target===this)closeDetailModal()">
+  <div class="modal-box ws-detail-box">
+    <button class="modal-close" onclick="closeDetailModal()">✕</button>
+    <div id="wsDetailContent"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </div>
+    <p class="footer-copy">
+      © 2026 사단법인 티움(TIEUM). All rights reserved. ·
+      <a href="terms.html" style="color:inherit;opacity:.7;text-decoration:underline;">이용약관</a> ·
+      <a href="privacy.html" style="color:inherit;opacity:.7;text-decoration:underline;">개인정보 처리방침</a> ·
+      <a href="copyright.html" style="color:inherit;text-decoration:underline;">저작권 보호 정책</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script src="assets/js/lms-data.js"></script>
+<script src="assets/js/lms-core.js"></script>
+<script>
+/* ════════ 상수 & 헬퍼 ════════ */
+var WS_KEY = 'tieum_lms_workspace';
+
+var WEEK_META = {
+  '1주차': { color: '#1b4f8a', light: '#e8f0fc', icon: '🤖', label: 'AI 교육 이해' },
+  '2주차': { color: '#553c9a', light: '#ede9f5', icon: '🔄', label: '플립러닝 설계' },
+  '3주차': { color: '#2c7a7b', light: '#e6f7f7', icon: '🎯', label: 'PBL 프로젝트' },
+  '4주차': { color: '#c05621', light: '#fde8d5', icon: '🌱', label: '현장 적용' },
+  '기타':  { color: '#374151', light: '#f3f4f6', icon: '📁', label: '기타' }
+};
+
+var EMBED_META = {
+  canva:   { label: 'CANVA',        icon: '🎨', color: '#00c4cc' },
+  slides:  { label: 'SLIDES',       icon: '📊', color: '#f4b400' },
+  padlet:  { label: 'PADLET',       icon: '📌', color: '#ff4081' },
+  figma:   { label: 'FIGMA',        icon: '🎯', color: '#a259ff' },
+  youtube: { label: 'YOUTUBE',      icon: '▶️',  color: '#ff0000' },
+  drive:   { label: 'GOOGLE DRIVE', icon: '📁', color: '#34a853' },
+  docs:    { label: 'GOOGLE DOCS',  icon: '📄', color: '#4285f4' },
+  miro:    { label: 'MIRO',         icon: '🗒', color: '#ffd02f' },
+  notion:  { label: 'NOTION',       icon: '📓', color: '#000000' },
+  link:    { label: 'LINK',         icon: '🔗', color: '#6b7280' }
+};
+
+var WS_STATE = { tag: 'all', currentPostId: null };
+
+function wsEscape(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getEmbedType(url) {
+  if (!url) return 'none';
+  if (url.includes('canva.com'))                        return 'canva';
+  if (url.includes('docs.google.com/presentation'))     return 'slides';
+  if (url.includes('docs.google.com'))                  return 'docs';
+  if (url.includes('padlet.com'))                       return 'padlet';
+  if (url.includes('figma.com'))                        return 'figma';
+  if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
+  if (url.includes('drive.google.com'))                 return 'drive';
+  if (url.includes('miro.com'))                         return 'miro';
+  if (url.includes('notion.so') || url.includes('notion.site')) return 'notion';
+  return 'link';
+}
+
+function getEmbedUrl(url) {
+  if (!url) return '';
+  if (url.includes('canva.com'))
+    return url.includes('?') ? url.replace(/\?.*/, '?embed') : url + '?embed';
+  if (url.includes('docs.google.com/presentation'))
+    return url.replace('/edit.*', '/embed').replace('/pub.*', '/embed') + '?start=false&loop=false';
+  if (url.includes('padlet.com'))
+    return url.replace(/\/$/, '') + (url.includes('/embed') ? '' : '/embed');
+  if (url.includes('figma.com') && !url.includes('embed'))
+    return 'https://www.figma.com/embed?embed_host=share&url=' + encodeURIComponent(url);
+  if (url.includes('youtube.com/watch')) {
+    var m = url.match(/v=([^&]+)/);
+    return m ? 'https://www.youtube-nocookie.com/embed/' + m[1] : url;
+  }
+  if (url.includes('youtu.be/')) {
+    var m2 = url.match(/youtu\.be\/([^?]+)/);
+    return m2 ? 'https://www.youtube-nocookie.com/embed/' + m2[1] : url;
+  }
+  if (url.includes('drive.google.com/file')) {
+    var m3 = url.match(/\/d\/([^/?]+)/);
+    return m3 ? 'https://drive.google.com/file/d/' + m3[1] + '/preview' : url;
+  }
+  if (url.includes('miro.com/app/board'))
+    return url.replace('/app/board/', '/app/live-embed/');
+  return url;
+}
+
+function getDomain(url) {
+  try { return new URL(url).hostname.replace('www.', ''); } catch(e) { return url.slice(0,30); }
+}
+
+function getTimeAgo(ts) {
+  var diff = (Date.now() - ts) / 1000;
+  if (diff < 60)     return '방금 전';
+  if (diff < 3600)   return Math.floor(diff / 60) + '분 전';
+  if (diff < 86400)  return Math.floor(diff / 3600) + '시간 전';
+  if (diff < 604800) return Math.floor(diff / 86400) + '일 전';
+  var d = new Date(ts);
+  return d.getFullYear() + '.' + (d.getMonth()+1) + '.' + d.getDate();
+}
+
+function generateId() { return 'ws_' + Date.now() + '_' + Math.random().toString(36).slice(2,7); }
+
+/* ════════ 데이터 CRUD ════════ */
+function wsLoad() {
+  try { return JSON.parse(localStorage.getItem(WS_KEY)) || []; } catch(e) { return []; }
+}
+function wsSave(posts) { localStorage.setItem(WS_KEY, JSON.stringify(posts)); }
+function wsGetPost(id) { return wsLoad().find(function(p){ return p.id === id; }); }
+
+/* 시드 데이터 (처음 방문 시 한 번만 삽입) */
+var WS_SEEDED_KEY = 'tieum_ws_seeded';
+function seedIfEmpty() {
+  if (localStorage.getItem(WS_SEEDED_KEY)) return;
+  localStorage.setItem(WS_SEEDED_KEY, '1');
+  var now = Date.now();
+  wsSave([
+    {
+      id: 'seed_1', title: 'AI 활용 플립러닝 수업 설계 — 네팔 현지 교사 교육',
+      desc: '카트만두 교사 연수를 위해 설계된 AI 활용 플립러닝 커리큘럼. 현지 언어로 제작된 사전 학습 영상과 PBL 활동지를 포함합니다.',
+      embedUrl: '', thumbnailUrl: '', weekTag: '2주차',
+      tags: ['플립러닝', '네팔', '교사연수'],
+      author: '최주안', createdAt: now - 86400000*5,
+      likes: ['이은혜', '홍민준'], comments: [
+        { id:'c1', author:'홍민준', text:'네팔 현지 언어 자료까지 준비하셨네요! 현장 적용 시 언어 장벽 극복 방법이 인상 깊었습니다.', createdAt: now - 86400000*4 }
+      ]
+    },
+    {
+      id: 'seed_2', title: 'TMD 리더십 역량 개발 PBL 프레임워크',
+      desc: 'Talent·Mindset·Dedication 각 역량을 8주 과정으로 체계적으로 개발하는 PBL 프로그램 설계안. 성찰 일지와 동료 평가 루브릭 포함.',
+      embedUrl: 'https://docs.google.com/presentation/d/example_id/edit',
+      thumbnailUrl: '', weekTag: '3주차',
+      tags: ['TMD', 'PBL', '리더십훈련'],
+      author: '이은혜', createdAt: now - 86400000*3,
+      likes: ['최주안', '김미래'], comments: []
+    },
+    {
+      id: 'seed_3', title: '다음 세대 미디어 교육 기획안 — 릴스·유튜브 전략',
+      desc: 'Z세대를 위한 단편 영상 교육 콘텐츠 기획. 스토리텔링 기법과 SNS 알고리즘을 교육에 적용하는 방법론을 시각적으로 제시합니다.',
+      embedUrl: 'https://www.canva.com/design/example/view',
+      thumbnailUrl: '', weekTag: '4주차',
+      tags: ['미디어교육', '유튜브', '스토리텔링'],
+      author: '김미래', createdAt: now - 86400000*1,
+      likes: ['최주안', '이은혜', '홍민준', '박교사'],
+      comments: [
+        { id:'c2', author:'이은혜', text:'릴스 편집 방법론이 구체적이어서 바로 현장 적용이 가능할 것 같아요!', createdAt: now - 86400000*0.8 },
+        { id:'c3', author:'최주안', text:'Z세대의 언어로 가치를 전달하는 접근법이 탁월합니다. 다음 주 강의에서 사례로 소개하고 싶네요.', createdAt: now - 86400000*0.5 }
+      ]
+    },
+    {
+      id: 'seed_4', title: '레바논 난민 캠프 교육 PBL — 트라우마 인식 교수법',
+      desc: '분쟁 지역 어린이를 위한 트라우마 인식 교수법(TIE)과 PBL을 통합한 교육 프로그램. UNHCR 지침을 반영한 안전한 학습 환경 설계안.',
+      embedUrl: '', thumbnailUrl: '', weekTag: '3주차',
+      tags: ['레바논', '난민교육', 'PBL', '트라우마'],
+      author: '홍민준', createdAt: now - 86400000*2,
+      likes: ['최주안', '이은혜'],
+      comments: [
+        { id:'c4', author:'최주안', text:'트라우마 인식 접근법이 매우 중요한 관점입니다. 구체적 실행 지침이 큰 도움이 됩니다.', createdAt: now - 86400000*1.5 }
+      ]
+    }
+  ]);
+}
+
+/* ════════ 렌더링 ════════ */
+function renderCard(post) {
+  var user    = lmsGetUser();
+  var isLiked = user && post.likes.includes(user.name);
+  var isOwn   = user && user.name === post.author;
+  var wm      = WEEK_META[post.weekTag] || WEEK_META['기타'];
+  var et      = getEmbedType(post.embedUrl);
+  var em      = EMBED_META[et] || EMBED_META['link'];
+
+  /* 프리뷰 영역 */
+  var preview;
+  if (post.thumbnailUrl) {
+    preview = '<div class="ws-card-preview thumb-preview" onclick="openDetail(\'' + post.id + '\')"' +
+              ' style="background-image:url(' + wsEscape(post.thumbnailUrl) + ')"></div>';
+  } else if (post.embedUrl) {
+    preview = '<div class="ws-card-preview embed-badge-preview" onclick="openDetail(\'' + post.id + '\')"' +
+              ' style="background:' + wm.light + ';border-top:4px solid ' + wm.color + '">' +
+              '<div class="ws-embed-type-badge" style="background:' + em.color + '">' + em.icon + ' ' + em.label + '</div>' +
+              '<div class="ws-embed-domain">' + wsEscape(getDomain(post.embedUrl)) + '</div>' +
+              '<div class="ws-preview-play-btn">▶ 미리보기 열기</div>' +
+              '</div>';
+  } else {
+    preview = '<div class="ws-card-preview placeholder-preview" onclick="openDetail(\'' + post.id + '\')"' +
+              ' style="background:linear-gradient(135deg,' + wm.color + 'dd,' + wm.color + '88)">' +
+              '<div class="ws-placeholder-initial">' + post.title.replace(/\s/g,'').slice(0,2) + '</div>' +
+              '<div class="ws-placeholder-icon">' + wm.icon + '</div>' +
+              '</div>';
+  }
+
+  /* 태그들 */
+  var tagHtml = '<span class="ws-week-chip" style="background:' + wm.color + '">' + wsEscape(post.weekTag) + '</span>' +
+    post.tags.slice(0,3).map(function(t){ return '<span class="ws-extra-chip">' + wsEscape(t) + '</span>'; }).join('');
+
+  return [
+    '<article class="ws-card" data-id="' + post.id + '" data-week="' + wsEscape(post.weekTag) + '">',
+    preview,
+    '<div class="ws-card-body">',
+    '  <div class="ws-card-tags">' + tagHtml + '</div>',
+    '  <h3 class="ws-card-title">' + wsEscape(post.title) + '</h3>',
+    post.desc ? '  <p class="ws-card-desc">' + wsEscape(post.desc) + '</p>' : '',
+    '</div>',
+    '<div class="ws-card-foot">',
+    '  <div class="ws-card-author">',
+    '    <span class="ws-av" style="background:' + wm.color + '">' + post.author.slice(0,1) + '</span>',
+    '    <span class="ws-author-name">' + wsEscape(post.author) + '</span>',
+    '    <span class="ws-time-ago">· ' + getTimeAgo(post.createdAt) + '</span>',
+    '  </div>',
+    '  <div class="ws-card-acts">',
+    '    <button class="ws-like-btn' + (isLiked ? ' liked' : '') + '" onclick="toggleLike(\'' + post.id + '\',event)">♥ ' + post.likes.length + '</button>',
+    '    <button class="ws-cmt-btn" onclick="openDetail(\'' + post.id + '\')">💬 ' + post.comments.length + '</button>',
+    post.embedUrl ? '    <a class="ws-open-btn" href="' + wsEscape(post.embedUrl) + '" target="_blank" onclick="event.stopPropagation()" rel="noopener">📎</a>' : '',
+    isOwn ? '    <button class="ws-del-btn" onclick="deletePost(\'' + post.id + '\',event)" title="삭제">✕</button>' : '',
+    '  </div>',
+    '</div>',
+    '</article>'
+  ].join('\n');
+}
+
+function renderGrid() {
+  var posts = wsLoad();
+  var tag   = WS_STATE.tag;
+  var q     = (document.getElementById('wsSearch') ? document.getElementById('wsSearch').value : '').trim().toLowerCase();
+  var sort  = document.getElementById('wsSort') ? document.getElementById('wsSort').value : 'latest';
+
+  /* 필터 */
+  if (tag !== 'all') posts = posts.filter(function(p){ return p.weekTag === tag; });
+  if (q) posts = posts.filter(function(p){
+    return p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) ||
+           p.tags.join(' ').toLowerCase().includes(q) || p.author.toLowerCase().includes(q);
+  });
+
+  /* 정렬 */
+  posts.sort(function(a,b){
+    if (sort === 'likes')    return b.likes.length - a.likes.length;
+    if (sort === 'comments') return b.comments.length - a.comments.length;
+    return b.createdAt - a.createdAt;
+  });
+
+  var grid = document.getElementById('wsGrid');
+  if (!posts.length) {
+    grid.innerHTML = '<div class="ws-empty">' +
+      '<div class="ws-empty-icon">🗂</div>' +
+      '<h3>아직 공유된 산출물이 없습니다</h3>' +
+      '<p>첫 번째 PBL 프로젝트를 공유해보세요!</p>' +
+      '<button class="btn-primary" onclick="openWsModal()" style="margin-top:16px">+ 산출물 공유하기</button>' +
+      '</div>';
+    return;
+  }
+  grid.innerHTML = posts.map(renderCard).join('');
+  updateStats();
+}
+
+function updateStats() {
+  var posts = wsLoad();
+  var totalLikes    = posts.reduce(function(s,p){ return s + p.likes.length; }, 0);
+  var totalComments = posts.reduce(function(s,p){ return s + p.comments.length; }, 0);
+  document.getElementById('statPosts').textContent    = posts.length;
+  document.getElementById('statLikes').textContent    = totalLikes;
+  document.getElementById('statComments').textContent = totalComments;
+}
+
+/* ════════ 필터 ════════ */
+function setWsTag(tag, btn) {
+  WS_STATE.tag = tag;
+  document.querySelectorAll('.ws-chip').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderGrid();
+}
+function filterWs() { renderGrid(); }
+
+/* ════════ 좋아요 ════════ */
+function toggleLike(postId, e) {
+  if (e) e.stopPropagation();
+  var user = lmsGetUser();
+  if (!user) { alert('로그인 후 좋아요를 누를 수 있습니다.'); return; }
+  var posts = wsLoad();
+  var post  = posts.find(function(p){ return p.id === postId; });
+  if (!post) return;
+  var idx = post.likes.indexOf(user.name);
+  if (idx >= 0) post.likes.splice(idx, 1);
+  else post.likes.push(user.name);
+  wsSave(posts);
+  renderGrid();
+  /* 상세 모달 열린 경우 버튼도 업데이트 */
+  if (WS_STATE.currentPostId === postId) {
+    var btn = document.getElementById('wsdLikeBtn');
+    if (btn) {
+      var updated = posts.find(function(p){ return p.id === postId; });
+      btn.textContent = '♥ 좋아요 ' + updated.likes.length;
+      btn.classList.toggle('liked', updated.likes.includes(user.name));
+    }
+  }
+}
+
+/* ════════ 삭제 ════════ */
+function deletePost(postId, e) {
+  if (e) e.stopPropagation();
+  var user = lmsGetUser();
+  if (!user) return;
+  if (!confirm('이 산출물을 삭제하시겠습니까?')) return;
+  var posts = wsLoad().filter(function(p){ return p.id !== postId; });
+  wsSave(posts);
+  renderGrid();
+}
+
+/* ════════ 임베드 자동 감지 ════════ */
+function detectEmbedType() {
+  var url = document.getElementById('wsEmbedUrl').value.trim();
+  var det = document.getElementById('wsEmbedDetect');
+  if (!url) { det.style.display = 'none'; return; }
+  var et = getEmbedType(url);
+  var em = EMBED_META[et] || EMBED_META['link'];
+  det.style.display = 'flex';
+  det.innerHTML = '<span style="background:' + em.color + '" class="ws-detect-badge">' +
+                  em.icon + ' ' + em.label + '</span>' +
+                  '<span class="ws-detect-ok">✓ 임베드 지원됨</span>';
+}
+
+/* ════════ 제출 모달 ════════ */
+function openWsModal() {
+  document.getElementById('wsModal').classList.add('open');
+  setTimeout(function(){ document.getElementById('wsTitle').focus(); }, 150);
+}
+function closeWsModal() {
+  document.getElementById('wsModal').classList.remove('open');
+}
+function submitWsPost(e) {
+  e.preventDefault();
+  var user  = lmsGetUser();
+  var title = document.getElementById('wsTitle').value.trim();
+  var desc  = document.getElementById('wsDesc').value.trim();
+  var embed = document.getElementById('wsEmbedUrl').value.trim();
+  var thumb = document.getElementById('wsThumbnailUrl').value.trim();
+  var week  = document.getElementById('wsWeekTag').value;
+  var tagsRaw = document.getElementById('wsTags').value.trim();
+
+  if (!title || !week) return;
+
+  var tags = tagsRaw ? tagsRaw.split(',').map(function(t){ return t.trim(); }).filter(Boolean) : [];
+  var posts = wsLoad();
+  posts.unshift({
+    id: generateId(), title: title, desc: desc,
+    embedUrl: embed, thumbnailUrl: thumb, weekTag: week, tags: tags,
+    author: user ? user.name : '익명', createdAt: Date.now(),
+    likes: [], comments: []
+  });
+  wsSave(posts);
+
+  /* 폼 초기화 */
+  ['wsTitle','wsDesc','wsEmbedUrl','wsThumbnailUrl','wsTags'].forEach(function(id){
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('wsWeekTag').value = '';
+  document.getElementById('wsEmbedDetect').style.display = 'none';
+
+  closeWsModal();
+  WS_STATE.tag = 'all';
+  document.querySelectorAll('.ws-chip').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelector('.ws-chip[data-tag="all"]').classList.add('active');
+  renderGrid();
+}
+
+/* ════════ 상세 모달 ════════ */
+function openDetail(postId) {
+  var post = wsGetPost(postId);
+  if (!post) return;
+  WS_STATE.currentPostId = postId;
+  var user    = lmsGetUser();
+  var isLiked = user && post.likes.includes(user.name);
+  var wm      = WEEK_META[post.weekTag] || WEEK_META['기타'];
+  var et      = getEmbedType(post.embedUrl);
+  var em      = EMBED_META[et] || EMBED_META['link'];
+  var embedSrc = getEmbedUrl(post.embedUrl);
+
+  /* 프리뷰 영역 */
+  var previewHtml;
+  if (post.thumbnailUrl && !post.embedUrl) {
+    previewHtml = '<div class="wsd-thumb" style="background-image:url(' + wsEscape(post.thumbnailUrl) + ')"></div>';
+  } else if (post.embedUrl) {
+    previewHtml = '<div class="wsd-embed-wrap"><iframe src="' + wsEscape(embedSrc) + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+  } else {
+    previewHtml = '<div class="wsd-placeholder" style="background:linear-gradient(135deg,' + wm.color + 'ee,' + wm.color + '88)">' +
+                  '<div class="wsd-ph-initial">' + post.title.replace(/\s/g,'').slice(0,2) + '</div>' +
+                  '<div class="wsd-ph-icon">' + wm.icon + '</div></div>';
+  }
+
+  /* 댓글 목록 */
+  var commentsHtml = post.comments.length
+    ? post.comments.map(function(c){
+        return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + c.author.slice(0,1) + '</span>' +
+               '<div class="wsd-cmt-body"><div class="wsd-cmt-meta"><strong>' + wsEscape(c.author) + '</strong><span>' + getTimeAgo(c.createdAt) + '</span></div>' +
+               '<p>' + wsEscape(c.text) + '</p></div></div>';
+      }).join('')
+    : '<p class="wsd-no-cmt">첫 번째 댓글을 남겨보세요 💬</p>';
+
+  var commentInputHtml = user
+    ? '<div class="wsd-cmt-input-row"><span class="ws-av sm" style="background:' + wm.color + '">' + user.name.slice(0,1) + '</span>' +
+      '<input type="text" id="wsdCmtInput" class="wsd-cmt-input" placeholder="응원·피드백·질문을 남겨보세요..." ' +
+      'onkeydown="if(event.key===\'Enter\')addWsComment(\'' + postId + '\')" />' +
+      '<button class="wsd-cmt-send" onclick="addWsComment(\'' + postId + '\')">전송</button></div>'
+    : '<p class="wsd-login-note">💡 <a href="lms.html">러닝센터 로그인</a> 후 댓글을 남길 수 있습니다.</p>';
+
+  /* 태그 */
+  var tagHtml = '<span class="ws-week-chip" style="background:' + wm.color + '">' + wsEscape(post.weekTag) + '</span>' +
+    post.tags.map(function(t){ return '<span class="ws-extra-chip">' + wsEscape(t) + '</span>'; }).join('');
+
+  document.getElementById('wsDetailContent').innerHTML = [
+    previewHtml,
+    '<div class="wsd-info">',
+    '  <div class="wsd-tags">' + tagHtml + '</div>',
+    '  <h2 class="wsd-title">' + wsEscape(post.title) + '</h2>',
+    post.desc ? '  <p class="wsd-desc">' + wsEscape(post.desc) + '</p>' : '',
+    '  <div class="wsd-meta">',
+    '    <span class="ws-av" style="background:' + wm.color + '">' + post.author.slice(0,1) + '</span>',
+    '    <strong>' + wsEscape(post.author) + '</strong>',
+    '    <span class="ws-time-ago">' + getTimeAgo(post.createdAt) + '</span>',
+    post.embedUrl ? '    <a class="wsd-open-link" href="' + wsEscape(post.embedUrl) + '" target="_blank" rel="noopener">📎 원본 열기</a>' : '',
+    '  </div>',
+    '  <div class="wsd-actions">',
+    '    <button class="wsd-like-btn' + (isLiked ? ' liked' : '') + '" id="wsdLikeBtn" onclick="toggleLike(\'' + postId + '\',event)">♥ 좋아요 ' + post.likes.length + '</button>',
+    post.embedUrl ? '    <div class="wsd-embed-info">' + em.icon + ' ' + em.label + ' · ' + wsEscape(getDomain(post.embedUrl)) + '</div>' : '',
+    '  </div>',
+    '</div>',
+    '<div class="wsd-comments">',
+    '  <div class="wsd-cmt-title">💬 댓글 <span id="wsdCmtCount">(' + post.comments.length + ')</span></div>',
+    '  <div class="wsd-cmt-list" id="wsdCmtList">' + commentsHtml + '</div>',
+    commentInputHtml,
+    '</div>'
+  ].join('\n');
+
+  document.getElementById('wsDetailModal').classList.add('open');
+}
+
+function closeDetailModal() {
+  document.getElementById('wsDetailModal').classList.remove('open');
+  WS_STATE.currentPostId = null;
+}
+
+/* ════════ 댓글 추가 ════════ */
+function addWsComment(postId) {
+  var user = lmsGetUser();
+  if (!user) return;
+  var input = document.getElementById('wsdCmtInput');
+  var text  = input ? input.value.trim() : '';
+  if (!text) return;
+  var posts = wsLoad();
+  var post  = posts.find(function(p){ return p.id === postId; });
+  if (!post) return;
+  post.comments.push({ id: generateId(), author: user.name, text: text, createdAt: Date.now() });
+  wsSave(posts);
+  input.value = '';
+
+  /* 댓글 목록 즉시 업데이트 */
+  var wm = WEEK_META[post.weekTag] || WEEK_META['기타'];
+  var newHtml = post.comments.map(function(c){
+    return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + c.author.slice(0,1) + '</span>' +
+           '<div class="wsd-cmt-body"><div class="wsd-cmt-meta"><strong>' + wsEscape(c.author) + '</strong><span>' + getTimeAgo(c.createdAt) + '</span></div>' +
+           '<p>' + wsEscape(c.text) + '</p></div></div>';
+  }).join('');
+  document.getElementById('wsdCmtList').innerHTML = newHtml;
+  var cnt = document.getElementById('wsdCmtCount');
+  if (cnt) cnt.textContent = '(' + post.comments.length + ')';
+  renderGrid();
+}
+
+/* ════════ 초기화 ════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  seedIfEmpty();
+  renderGrid();
+
+  document.getElementById('hamburger').addEventListener('click', function () {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+});
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

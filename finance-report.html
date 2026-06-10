@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="사단법인 티움의 재정 투명성 보고서. 수입과 지출 내역을 투명하게 공개합니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="재정 투명성 보고 | 티움" />
+  <meta property="og:description" content="사단법인 티움의 재정 투명성 보고서. 수입과 지출 내역을 투명하게 공개합니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/finance-report.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>재정 투명성 보고 — 티움</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── 페이지 레이아웃 ── */
+    .fr-page { max-width: 780px; margin: 0 auto; padding: 0 0 60px; }
+
+    /* ── 모바일 헤더 ── */
+    .fr-mobile-header {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .fr-back-btn {
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer;
+      color: var(--primary); padding: 4px; line-height: 1;
+    }
+    .fr-mobile-title { font-size: .95rem; font-weight: 700; color: var(--text); }
+
+    /* ── 히어로 ── */
+    .fr-hero {
+      background: linear-gradient(135deg, #0f2848 0%, #1b4f8a 60%, #2d6ec4 100%);
+      padding: 52px 28px 44px;
+      text-align: center;
+      color: #fff;
+    }
+    .fr-hero-badge {
+      display: inline-block;
+      background: rgba(245,166,35,.2);
+      border: 1px solid rgba(245,166,35,.5);
+      color: #f5a623;
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+    .fr-hero-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 800; margin-bottom: 10px; }
+    .fr-hero-sub { font-size: .92rem; opacity: .8; line-height: 1.7; }
+
+    /* ── 본문 ── */
+    .fr-body { padding: 32px 24px 0; }
+
+    .fr-section { margin-bottom: 32px; }
+    .fr-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .fr-section-title span { display: flex; align-items: center; gap: 8px; }
+
+    /* ── 파일 목록 ── */
+    .fr-file-list { display: flex; flex-direction: column; gap: 10px; }
+    .fr-file-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-3);
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      font-size: .9rem;
+    }
+    .fr-file-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      transition: box-shadow .2s;
+    }
+    .fr-file-item:hover { box-shadow: var(--shadow-sm); }
+    .fr-file-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 44px;
+      text-align: center;
+    }
+    .fr-file-info { flex: 1; min-width: 0; }
+    .fr-file-name {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .fr-file-meta { font-size: .75rem; color: var(--text-3); }
+    .fr-file-desc { font-size: .8rem; color: var(--text-2); margin-top: 3px; }
+    .fr-file-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .fr-dl-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background .2s;
+    }
+    .fr-dl-btn:hover { background: var(--primary-dk); color: #fff; }
+    .fr-del-btn {
+      background: #fff;
+      color: #e53e3e;
+      border: 1px solid #e53e3e;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: .78rem;
+      cursor: pointer;
+      display: none; /* 관리자만 표시 */
+      transition: background .2s;
+    }
+    .fr-del-btn:hover { background: #fff5f5; }
+    .admin-mode .fr-del-btn { display: inline-flex; }
+
+    /* ── 관리자 업로드 영역 ── */
+    .fr-admin-panel {
+      display: none;
+      background: #fff8e1;
+      border: 1.5px dashed #f5a623;
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .admin-mode .fr-admin-panel { display: block; }
+
+    .fr-admin-title {
+      font-size: .88rem;
+      font-weight: 700;
+      color: #92610a;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fr-upload-form { display: flex; flex-direction: column; gap: 10px; }
+    .fr-form-row { display: flex; gap: 10px; }
+    .fr-form-row input, .fr-upload-form input[type="text"],
+    .fr-upload-form textarea, .fr-upload-form select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: .85rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .2s;
+    }
+    .fr-upload-form input:focus, .fr-upload-form textarea:focus,
+    .fr-upload-form select:focus { outline: none; border-color: var(--primary); }
+    .fr-upload-form textarea { resize: vertical; min-height: 60px; }
+
+    .fr-file-drop {
+      border: 2px dashed #d4a017;
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+      background: #fffde7;
+      cursor: pointer;
+      transition: background .2s;
+      position: relative;
+    }
+    .fr-file-drop:hover { background: #fff9c4; }
+    .fr-file-drop input[type="file"] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .fr-file-drop-label { font-size: .85rem; color: #92610a; }
+    .fr-file-drop-label strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    .fr-file-selected { font-size: .8rem; color: var(--primary); margin-top: 6px; font-weight: 600; }
+
+    .fr-upload-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 10px 20px;
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      align-self: flex-start;
+    }
+    .fr-upload-btn:hover { background: var(--accent-dk); }
+    .fr-upload-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .fr-upload-msg { font-size: .82rem; margin-top: 4px; }
+    .fr-upload-msg.ok { color: #2f855a; }
+    .fr-upload-msg.err { color: #e53e3e; }
+
+    /* ── 관리자 로그인/아웃 ── */
+    .fr-admin-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 8px 24px 0;
+      gap: 8px;
+    }
+    .fr-admin-login-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: .75rem;
+      color: var(--text-3);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .fr-admin-login-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .fr-admin-indicator {
+      display: none;
+      font-size: .75rem;
+      color: #2f855a;
+      font-weight: 600;
+    }
+    .admin-mode .fr-admin-indicator { display: inline; }
+    .admin-mode .fr-admin-login-btn { display: none; }
+    .fr-admin-logout-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: .75rem;
+      color: var(--text-3);
+      cursor: pointer;
+    }
+    .admin-mode .fr-admin-logout-btn { display: inline-block; }
+
+    /* ── 관리자 로그인 모달 ── */
+    .fr-login-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+    }
+    .fr-login-overlay.open { display: flex; }
+    .fr-login-box {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      width: min(360px, 92vw);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .fr-login-box h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+    .fr-login-box input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: .9rem;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+    .fr-login-box input:focus { outline: none; border-color: var(--primary); }
+    .fr-login-err { font-size: .8rem; color: #e53e3e; margin-bottom: 8px; display: none; }
+    .fr-login-submit {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 11px;
+      font-size: .92rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .fr-login-close {
+      position: absolute; top: 12px; right: 14px;
+      background: none; border: none;
+      font-size: 1.2rem; cursor: pointer; color: var(--text-3);
+    }
+
+    /* ── 고지문 ── */
+    .fr-notice {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-size: .82rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+    .fr-notice strong { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .fr-mobile-header { display: flex; }
+      .fr-form-row { flex-direction: column; }
+    }
+  </style>
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+  <div style="position:fixed;top:12px;right:16px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:.78rem;">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#1b4f8a;padding:2px 4px;">한국어</button>
+    <span style="color:#ccc;">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#666;padding:2px 4px;">English</button>
+  </div>
+
+<!-- 모바일 뒤로가기 헤더 -->
+<div class="fr-mobile-header">
+  <button class="fr-back-btn" onclick="goBack()">‹</button>
+  <span class="fr-mobile-title">재정 투명성 보고</span>
+</div>
+
+<div class="fr-page" id="frPage">
+
+  <!-- 히어로 -->
+  <div class="fr-hero">
+    <div class="fr-hero-badge">재정 투명성</div>
+    <h1 class="fr-hero-title">재정 보고</h1>
+    <p class="fr-hero-sub">티움은 후원자와 이해관계자의 신뢰를 위해<br>매년 재정 자료를 공개합니다.</p>
+  </div>
+
+  <!-- 관리자 바 -->
+  <div class="fr-admin-bar">
+    <span class="fr-admin-indicator">🔒 관리자 모드</span>
+    <button class="fr-admin-login-btn" onclick="openAdminLogin()">관리자</button>
+    <button class="fr-admin-logout-btn" onclick="adminLogout()">로그아웃</button>
+  </div>
+
+  <div class="fr-body">
+
+    <!-- 관리자 업로드 패널 -->
+    <div class="fr-admin-panel">
+      <div class="fr-admin-title">📂 재정 자료 업로드</div>
+      <div class="fr-upload-form">
+        <input type="text" id="frDocTitle" placeholder="문서 제목 (예: 2024년 재정 결산 보고서)" maxlength="80" />
+        <div class="fr-form-row">
+          <input type="text" id="frDocYear" placeholder="연도 (예: 2024)" maxlength="10" />
+          <select id="frDocType">
+            <option value="">문서 유형 선택</option>
+            <option value="결산보고서">결산보고서</option>
+            <option value="감사보고서">감사보고서</option>
+            <option value="예산서">예산서</option>
+            <option value="과기부제출자료">과기부 제출 자료</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <textarea id="frDocDesc" placeholder="설명 (선택사항 — 예: 과학기술정보통신부 제출용 연간 결산 자료)" rows="2"></textarea>
+        <div class="fr-file-drop" id="frFileDrop">
+          <input type="file" id="frFileInput" accept=".pdf,.xlsx,.xls,.docx,.doc,.hwp,.hwpx" onchange="onFileSelected(this)" />
+          <div class="fr-file-drop-label">
+            <strong>📎 파일을 여기에 드래그하거나 클릭해서 선택</strong>
+            PDF · Excel · Word · 한글 파일 지원
+          </div>
+          <div class="fr-file-selected" id="frFileSelectedName"></div>
+        </div>
+        <div>
+          <button class="fr-upload-btn" id="frUploadBtn" onclick="uploadDoc()" disabled>업로드</button>
+          <div class="fr-upload-msg" id="frUploadMsg"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 파일 목록 -->
+    <div class="fr-section">
+      <div class="fr-section-title">
+        <span>📋 공개 재정 자료</span>
+      </div>
+      <div class="fr-file-list" id="frFileList">
+        <!-- JS로 렌더링 -->
+      </div>
+    </div>
+
+    <!-- 고지문 -->
+    <div class="fr-section">
+      <div class="fr-notice">
+        <strong>재정 공개 원칙</strong><br>
+        티움은 비영리법인의 투명한 재정 운영을 위해 관련 자료를 매년 공개합니다.
+        본 자료는 과학기술정보통신부 제출 자료와 내부 결산 자료를 기반으로 합니다.<br><br>
+        문의: <strong>johnchoi&#64;tieum&#46;org</strong> / 010-6579-0602
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 관리자 로그인 모달 -->
+<div class="fr-login-overlay" id="frLoginOverlay" onclick="if(event.target===this)closeAdminLogin()">
+  <div class="fr-login-box">
+    <button class="fr-login-close" onclick="closeAdminLogin()">✕</button>
+    <h3>🔒 관리자 로그인</h3>
+    <input type="password" id="frAdminPw" placeholder="관리자 비밀번호" onkeydown="if(event.key==='Enter')submitAdminLogin()" />
+    <div class="fr-login-err" id="frLoginErr">비밀번호가 올바르지 않습니다.</div>
+    <button class="fr-login-submit" onclick="submitAdminLogin()">로그인</button>
+  </div>
+</div>
+
+<script>
+/* ══════════ 상수 ══════════ */
+var STORAGE_KEY = 'tieum_finance_docs';
+var ADMIN_PW    = 'tieum0421!';   // board.js와 동일한 관리자 비밀번호
+var SESSION_KEY = 'tieum_admin';
+
+/* ══════════ 초기화 ══════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  checkAdminSession();
+  renderDocs();
+});
+
+/* ══════════ 관리자 세션 ══════════ */
+function checkAdminSession() {
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    document.getElementById('frPage').classList.add('admin-mode');
+  }
+}
+function openAdminLogin() {
+  document.getElementById('frLoginOverlay').classList.add('open');
+  setTimeout(function () { document.getElementById('frAdminPw').focus(); }, 100);
+}
+function closeAdminLogin() {
+  document.getElementById('frLoginOverlay').classList.remove('open');
+  document.getElementById('frAdminPw').value = '';
+  document.getElementById('frLoginErr').style.display = 'none';
+}
+function submitAdminLogin() {
+  var pw = document.getElementById('frAdminPw').value;
+  if (pw === ADMIN_PW) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    document.getElementById('frPage').classList.add('admin-mode');
+    closeAdminLogin();
+  } else {
+    document.getElementById('frLoginErr').style.display = 'block';
+  }
+}
+function adminLogout() {
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('frPage').classList.remove('admin-mode');
+}
+
+/* ══════════ 파일 선택 ══════════ */
+var selectedFile = null;
+function onFileSelected(input) {
+  selectedFile = input.files[0] || null;
+  var label = document.getElementById('frFileSelectedName');
+  var btn   = document.getElementById('frUploadBtn');
+  if (selectedFile) {
+    var sizeMB = (selectedFile.size / 1024 / 1024).toFixed(1);
+    label.textContent = '✔ ' + selectedFile.name + ' (' + sizeMB + ' MB)';
+    btn.disabled = false;
+  } else {
+    label.textContent = '';
+    btn.disabled = true;
+  }
+}
+
+/* ══════════ 업로드 (base64 → localStorage) ══════════ */
+function uploadDoc() {
+  var title  = document.getElementById('frDocTitle').value.trim();
+  var year   = document.getElementById('frDocYear').value.trim();
+  var type   = document.getElementById('frDocType').value;
+  var desc   = document.getElementById('frDocDesc').value.trim();
+  var msgEl  = document.getElementById('frUploadMsg');
+  var btn    = document.getElementById('frUploadBtn');
+
+  if (!title) { showMsg(msgEl, '문서 제목을 입력해주세요.', 'err'); return; }
+  if (!selectedFile) { showMsg(msgEl, '파일을 선택해주세요.', 'err'); return; }
+
+  var maxMB = 8;
+  if (selectedFile.size > maxMB * 1024 * 1024) {
+    showMsg(msgEl, '파일 크기가 ' + maxMB + 'MB를 초과합니다.', 'err'); return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '업로드 중…';
+
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var docs = loadDocs();
+    var doc = {
+      id:       Date.now().toString(),
+      title:    title,
+      year:     year,
+      type:     type,
+      desc:     desc,
+      fileName: selectedFile.name,
+      fileSize: selectedFile.size,
+      mimeType: selectedFile.type,
+      data:     e.target.result,   // base64 dataURL
+      uploadedAt: new Date().toLocaleDateString('ko-KR')
+    };
+    docs.unshift(doc);
+    try {
+      saveDocs(docs);
+      showMsg(msgEl, '✅ 업로드 완료!', 'ok');
+      resetUploadForm();
+      renderDocs();
+    } catch(err) {
+      showMsg(msgEl, '저장 실패: 파일이 너무 큽니다. 8MB 이하로 시도해주세요.', 'err');
+    }
+    btn.disabled = false;
+    btn.textContent = '업로드';
+  };
+  reader.onerror = function () {
+    showMsg(msgEl, '파일 읽기 실패. 다시 시도해주세요.', 'err');
+    btn.disabled = false;
+    btn.textContent = '업로드';
+  };
+  reader.readAsDataURL(selectedFile);
+}
+
+function resetUploadForm() {
+  document.getElementById('frDocTitle').value = '';
+  document.getElementById('frDocYear').value  = '';
+  document.getElementById('frDocType').value  = '';
+  document.getElementById('frDocDesc').value  = '';
+  document.getElementById('frFileInput').value = '';
+  document.getElementById('frFileSelectedName').textContent = '';
+  document.getElementById('frUploadBtn').disabled = true;
+  selectedFile = null;
+}
+
+function showMsg(el, msg, cls) {
+  el.textContent = msg;
+  el.className = 'fr-upload-msg ' + cls;
+  setTimeout(function () { if (el.textContent === msg) el.textContent = ''; }, 4000);
+}
+
+/* ══════════ 문서 렌더링 ══════════ */
+function renderDocs() {
+  var docs    = loadDocs();
+  var listEl  = document.getElementById('frFileList');
+  var isAdmin = sessionStorage.getItem(SESSION_KEY) === '1';
+
+  if (!docs.length) {
+    listEl.innerHTML = '<div class="fr-file-empty">📭 등록된 재정 자료가 없습니다.</div>';
+    return;
+  }
+
+  listEl.innerHTML = docs.map(function (doc) {
+    var icon = getFileIcon(doc.fileName);
+    var sizeMB = doc.fileSize ? ' · ' + (doc.fileSize / 1024 / 1024).toFixed(1) + 'MB' : '';
+    var typeBadge = doc.type ? ' <span style="background:var(--primary);color:#fff;border-radius:4px;padding:1px 7px;font-size:.7rem;">' + doc.type + '</span>' : '';
+    return [
+      '<div class="fr-file-item" id="fdoc_' + doc.id + '">',
+      '  <div class="fr-file-icon">' + icon + '</div>',
+      '  <div class="fr-file-info">',
+      '    <div class="fr-file-name">' + escHtml(doc.title) + typeBadge + '</div>',
+      '    <div class="fr-file-meta">' + (doc.year || '') + (doc.year ? ' · ' : '') + escHtml(doc.fileName) + sizeMB + ' · ' + doc.uploadedAt + '</div>',
+      doc.desc ? '    <div class="fr-file-desc">' + escHtml(doc.desc) + '</div>' : '',
+      '  </div>',
+      '  <div class="fr-file-actions">',
+      '    <a class="fr-dl-btn" href="' + doc.data + '" download="' + escHtml(doc.fileName) + '">⬇ 다운로드</a>',
+      '    <button class="fr-del-btn" onclick="deleteDoc(\'' + doc.id + '\')">🗑</button>',
+      '  </div>',
+      '</div>'
+    ].join('\n');
+  }).join('');
+}
+
+function deleteDoc(id) {
+  if (!confirm('이 문서를 삭제하시겠습니까?')) return;
+  var docs = loadDocs().filter(function (d) { return d.id !== id; });
+  saveDocs(docs);
+  renderDocs();
+}
+
+/* ══════════ localStorage 헬퍼 ══════════ */
+function loadDocs() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+}
+function saveDocs(docs) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(docs));
+}
+
+/* ══════════ 유틸 ══════════ */
+function getFileIcon(name) {
+  if (!name) return '📄';
+  var ext = name.split('.').pop().toLowerCase();
+  var map = { pdf: '📕', xlsx: '📊', xls: '📊', docx: '📝', doc: '📝', hwp: '📋', hwpx: '📋' };
+  return map[ext] || '📄';
+}
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ══════════ 뒤로가기 ══════════ */
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    location.href = 'index.html#support';
+  }
+}
+(function () {
+  if (!document.referrer || document.referrer === '') {
+    history.replaceState(null, '', 'index.html#support');
+    history.pushState(null, '', 'finance-report.html');
+  }
+})();
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

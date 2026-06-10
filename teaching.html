@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="교수학습법 | 사단법인 티움" />
+  <meta property="og:description" content="티움의 교수학습법 워크숍과 AI 활용 교육 자료. 플립러닝, PBL, 마이크로티칭 등을 소개합니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/teaching.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>교수학습법 | 사단법인 티움</title>
+  <meta name="description" content="AI 시대에 효과적인 교육을 위한 혁신적 교수학습법을 티움과 함께 배워보세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+        <span class="logo-kr">티움</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="index.html#about">소개</a></li>
+        <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
+        <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
+        <li class="nav-item"><a href="news.html">소식</a></li>
+        <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
+        <li class="nav-item"><a href="index.html#support">후원</a></li>
+      </ul>
+      <a href="lms.html" class="btn-lms-shortcut">🎓 러닝센터 바로가기</a>
+      <a href="index.html#support" class="btn-donate">후원하기</a>
+            <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===== MEGA MENU PANEL ===== -->
+    <div class="mega-panel" id="megaPanel">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <p class="mega-col-title">소개</p>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+            <li><a href="index.html#history">연혁</a></li>
+            <li><a href="index.html#partners">함께하는 곳</a></li>
+            <li><a href="index.html#location">찾아오시는 길</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아카데미</p>
+          <ul>
+            <li><a href="index.html#academy">공지사항</a></li>
+            <li><a href="index.html#future-makers">TFM Academy</a></li>
+            <li><a href="index.html#future-academy">제1기 미래아카데미</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 Data</a></li>
+            <li><a href="lms.html">🎓 러닝센터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아웃리치</p>
+          <ul>
+            <li><a href="outreach-tieum-global.html">티움 글로벌</a></li>
+            <li><a href="outreach-vision-camp.html">비전캠프</a></li>
+            <li><a href="outreach-global.html">글로벌 아웃리치</a></li>
+            <li><a href="outreach-gyeonmidan.html">견미단 × 프로라이프</a></li>
+            <li><a href="outreach-prolife2.html">청소년 프로라이프</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">소식</p>
+          <ul>
+            <li><a href="news.html">전체 소식</a></li>
+            <li><a href="news.html">교수학습 소식</a></li>
+            <li><a href="news.html">연구·데이터</a></li>
+            <li><a href="news.html">러닝센터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">뉴스레터</p>
+          <ul>
+            <li><a href="newsletter.html">뉴스레터 전체 보기</a></li>
+          </ul>
+          <p class="mega-col-title" style="margin-top:24px;">후원</p>
+          <ul>
+            <li><a href="index.html#support">정기 후원</a></li>
+            <li><a href="index.html#support">일시 후원</a></li>
+            <li><a href="index.html#contact">파트너 문의</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">홈</a>
+        <span class="sep">›</span>
+        <a href="index.html#academy">아카데미</a>
+        <span class="sep">›</span>
+        <span>교수학습법</span>
+      </nav>
+      <h1 data-i18n="teach.page.title">교수학습법</h1>
+      <p class="page-sub" data-i18n="teach.page.sub">AI 시대에 효과적인 교육을 위한 혁신적 교수학습법 훈련 프로그램</p>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAM OVERVIEW ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="prog-overview">
+        <div class="prog-desc-text fade-in">
+          <div class="section-tag" data-i18n="teach.prog.tag">프로그램 소개</div>
+          <h2 data-i18n-html="teach.prog.title">Teaching<br/>Methodology</h2>
+          <p>
+            티움의 교수학습법 프로그램은 AI 시대에 맞는 혁신적 교육 방법론을
+            교사·교육자·현장 교육가들에게 제공합니다.
+          </p>
+          <p>
+            단순한 지식 전달을 넘어 학습자가 스스로 탐구하고 성장할 수 있도록
+            돕는 교육 설계 방법론을 훈련합니다. AI 도구 활용부터 플립러닝,
+            PBL까지 현장에서 바로 적용 가능한 내용으로 구성됩니다.
+          </p>
+          <a href="index.html#contact" class="btn-primary" style="margin-top:10px; display:inline-block;">프로그램 문의하기</a>
+        </div>
+        <div class="prog-features fade-in">
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>AI 활용 수업 설계</h4>
+              <p>ChatGPT 등 AI 도구를 수업 설계에 통합하는 실습 중심 훈련</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>플립러닝·PBL 방법론</h4>
+              <p>학습자 중심의 능동적 수업 방식 설계 및 운영 노하우</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>글로벌 교육 훈련</h4>
+              <p>지역사회에 기여하는 교육 통합 방법론</p>
+            </div>
+          </div>
+          <div class="prog-feature-item">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <div class="feat-text">
+              <h4>현장 적용 실습</h4>
+              <p>배운 내용을 즉시 수업에 적용하는 마이크로 티칭 실습</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOARD ===== -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-tag" data-i18n-html="teach.board.tag">자료 &amp; 공지</div>
+      <h2 class="section-title" style="margin-bottom:32px;" data-i18n="teach.board.title">교수학습법 게시판</h2>
+
+      <!-- 관리자 접속 표시 -->
+      <div id="adminIndicator">
+        <span class="ind-dot"></span>
+        <span>관리자 모드 활성화됨</span>
+      </div>
+
+      <div class="board-header">
+        <div class="board-tabs" id="boardTabs">
+          <button class="board-tab-btn active" data-cat="all" data-i18n="lms.filter.all">전체</button>
+          <button class="board-tab-btn" data-cat="notice" data-i18n="teach.tab.notice">공지</button>
+          <button class="board-tab-btn" data-cat="resource" data-i18n="teach.tab.resource">자료</button>
+          <button class="board-tab-btn" data-cat="review" data-i18n="teach.tab.review">후기</button>
+        </div>
+        <div class="board-search-wrap">
+          <input type="text" id="boardSearch" placeholder="제목 검색..." />
+          <button id="searchBtn">검색</button>
+        </div>
+      </div>
+
+      <table class="board-table">
+        <thead>
+          <tr>
+            <th class="col-num">번호</th>
+            <th class="col-cat">구분</th>
+            <th>제목</th>
+            <th class="col-date">날짜</th>
+            <th class="col-views">조회</th>
+          </tr>
+        </thead>
+        <tbody id="boardBody"></tbody>
+      </table>
+
+      <div class="board-pagination" id="boardPagination"></div>
+
+      <!-- 게시판 하단 관리 버튼 -->
+      <div class="board-footer-admin">
+        <button class="btn-write" id="writeBtn" onclick="openWriteModal()" style="display:none;">
+          ✏️ 새 글 쓰기
+        </button>
+        <button class="admin-logout-btn" id="logoutBtn" onclick="adminLogout()" style="display:none;">
+          로그아웃
+        </button>
+        <button class="admin-link-btn" id="adminLink" onclick="openAdminLogin()">
+          관리자
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POST MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-head">
+        <div class="modal-meta" id="modalMeta"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-attachments" id="modalAttachments" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+          </a>
+          <p class="footer-tagline" data-i18n="foot.tagline">인공지능 시대의 교육 혁신</p>
+          <p class="footer-desc" data-i18n="foot.desc">사단법인 티움은 AI 기술과 인류의 보편적 가치를 연결하여 다음 세대를 세우는 비영리 교육 기관입니다.</p>
+        </div>
+        <div class="footer-links">
+          <h4>소개</h4>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>프로그램</h4>
+          <ul>
+            <li><a href="index.html#future-makers">퓨처 메이커스</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 &amp; 데이터</a></li>
+            <li><a href="index.html#global">글로벌 아웃리치</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>소식 &amp; 참여</h4>
+          <ul>
+            <li><a href="index.html#news">최신 소식</a></li>
+            <li><a href="index.html#support">후원하기</a></li>
+            <li><a href="index.html#contact">문의하기</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 사단법인 티움(TIEUM). All rights reserved.</p>
+        <p>고유번호: 454-82-00464 | 서울특별시 서초구 효령로 57길 3</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/board-drive-config.js"></script>
+  <script src="assets/js/board-drive.js"></script>
+  <script>
+  /* ── 교수학습법 게시판 설정 ── */
+  window.BOARD_STORAGE_KEY   = 'tieum_teaching';
+  /* 교수학습법 게시판 첨부파일 저장 폴더 */
+  window.BOARD_DRIVE_FOLDER_ID = '1stiyCfSdBMYOraR2l7ulgW1WDdL672lF';
+  window.BOARD_ADMIN_PW   = 'tieum0421!';
+  window.BOARD_PER_PAGE   = 8;
+  window.BOARD_TABS = [
+    { cat: 'all',      label: '전체' },
+    { cat: 'notice',   label: '공지' },
+    { cat: 'resource', label: '자료' },
+    { cat: 'review',   label: '후기' }
+  ];
+  window.BOARD_POSTS = [
+    {
+      id: 'n1', pin: true, category: 'notice', categoryLabel: '공지',
+      title: '2025 교수학습법 여름 워크숍 참가자 모집',
+      date: '2025.05.20', author: '티움 사무국', views: 124,
+      content: `
+        <h3>2025 교수학습법 여름 워크숍</h3>
+        <p>티움은 오는 <strong>7월 14일~16일(2박 3일)</strong>, AI 시대에 맞는 혁신적 교수학습법 집중 워크숍을 개최합니다.</p>
+        <h4>워크숍 개요</h4>
+        <ul>
+          <li><strong>일시:</strong> 2025년 7월 14일(월) ~ 16일(수), 2박 3일</li>
+          <li><strong>장소:</strong> 서울 서초구 티움 교육센터</li>
+          <li><strong>대상:</strong> 교사, 해외 교육자, 교육 전문가</li>
+          <li><strong>정원:</strong> 30명 (선착순 마감)</li>
+          <li><strong>참가비:</strong> 150,000원 (식사·숙박 포함)</li>
+        </ul>
+        <h4>주요 커리큘럼</h4>
+        <ul>
+          <li>AI 도구 활용 수업 설계 실습</li>
+          <li>플립러닝 수업 모델 구성</li>
+          <li>PBL(프로젝트 기반 학습) 프로젝트 설계</li>
+          <li>교육 통합 방법론</li>
+          <li>마이크로 티칭 및 피드백</li>
+        </ul>
+        <blockquote>신청 마감: 2025년 6월 30일 (조기 마감될 수 있습니다)</blockquote>
+        <p>문의 및 신청: <strong>johnchoi&#64;tieum&#46;org</strong> / 010-6579-0602</p>
+      `
+    },
+    {
+      id: 'n2', pin: true, category: 'notice', categoryLabel: '공지',
+      title: 'AI 활용 수업 설계 특강 안내 (6월 21일)',
+      date: '2025.05.08', author: '티움 사무국', views: 87,
+      content: `
+        <h3>AI 활용 수업 설계 특강</h3>
+        <p>현직 교사와 교육자를 위한 <strong>AI 도구 활용 수업 설계</strong> 특강을 안내드립니다.</p>
+        <h4>행사 정보</h4>
+        <ul>
+          <li><strong>일시:</strong> 2025년 6월 21일(토) 오전 10시 ~ 오후 5시</li>
+          <li><strong>장소:</strong> 온라인 (Zoom)</li>
+          <li><strong>강사:</strong> 김형주 교수 (중앙대학교 HK+ 인공지능인문학단)</li>
+          <li><strong>참가비:</strong> 무료</li>
+        </ul>
+        <h4>강의 내용</h4>
+        <ul>
+          <li>AI 리터러시 개요: 교육자가 알아야 할 AI</li>
+          <li>ChatGPT로 수업 자료 만들기 실습</li>
+          <li>AI 시대의 평가 방식 변화</li>
+          <li>글로벌 교육에서 AI 윤리 적용하기</li>
+        </ul>
+        <p>사전 신청: <strong>johnchoi&#64;tieum&#46;org</strong>으로 이메일 접수</p>
+      `
+    },
+    {
+      id: 1, pin: false, category: 'resource', categoryLabel: '자료',
+      title: '플립러닝 교수학습 실전 가이드',
+      date: '2025.04.15', author: '티움 교육팀', views: 203,
+      content: `
+        <h3>플립러닝 교수학습 실전 가이드</h3>
+        <p>플립러닝(Flipped Learning)은 강의와 학습 활동의 순서를 뒤집는 혁신적인 교수 방법입니다. 학생들은 집에서 영상을 통해 개념을 예습하고, 교실에서는 토론·프로젝트·문제 해결에 집중합니다.</p>
+        <h4>왜 플립러닝인가?</h4>
+        <p>AI 시대에는 단순 지식 전달보다 <strong>고차원적 사고력</strong>과 <strong>협업 능력</strong>이 중요합니다. 플립러닝은 교실 시간을 이 역량 훈련에 집중할 수 있도록 합니다.</p>
+        <h4>플립러닝 4단계 설계</h4>
+        <ol>
+          <li><strong>사전 학습 콘텐츠 제작:</strong> 핵심 개념을 5~10분 영상으로 제작</li>
+          <li><strong>학습 확인 활동:</strong> 퀴즈 또는 간단한 성찰 일지</li>
+          <li><strong>교실 활동 설계:</strong> 토론, 그룹 프로젝트, 문제 해결 활동</li>
+          <li><strong>평가 및 피드백:</strong> 과정 중심 평가와 즉각적 피드백</li>
+        </ol>
+        <h4>AI 도구 활용 팁</h4>
+        <ul>
+          <li>ChatGPT로 수업 스크립트 초안 작성</li>
+          <li>Canva로 시각적 학습 자료 제작</li>
+          <li>Google Forms로 사전 학습 확인 퀴즈 제작</li>
+        </ul>
+        <blockquote>"교사는 지식의 전달자가 아니라 학습의 설계자입니다."</blockquote>
+      `
+    },
+    {
+      id: 2, pin: false, category: 'resource', categoryLabel: '자료',
+      title: 'AI 시대의 교육 방법론 핸드북 (2025)',
+      date: '2025.03.22', author: '티움 연구팀', views: 315,
+      content: `
+        <h3>AI 시대의 교육 방법론 핸드북 (2025)</h3>
+        <p>급격히 변화하는 AI 시대에 교육 현장에서 바로 활용할 수 있는 교수학습법을 정리한 핸드북입니다.</p>
+        <h4>목차</h4>
+        <ol>
+          <li>AI 리터러시와 교육: 교사가 알아야 할 10가지</li>
+          <li>프롬프트 엔지니어링: 수업 설계에 AI 활용하기</li>
+          <li>PBL(프로젝트 기반 학습) 완전 가이드</li>
+          <li>플립러닝 실전 적용 사례</li>
+          <li>디지털 도구 활용 수업 설계</li>
+          <li>AI 시대의 평가 방법론</li>
+        </ol>
+        <p>핸드북 신청 및 문의: <strong>johnchoi&#64;tieum&#46;org</strong></p>
+      `
+    },
+    {
+      id: 3, pin: false, category: 'review', categoryLabel: '후기',
+      title: '워크숍 참가 후기 — 현직 교사 박○○ 선생님',
+      date: '2025.03.10', author: '박○○', views: 156,
+      content: `
+        <h3>워크숍 참가 후기</h3>
+        <p>경기도에서 중학교 과학 교사로 일하고 있는 박○○입니다. 지난 2월 티움 교수학습법 워크숍에 참가한 후기를 공유합니다.</p>
+        <h4>가장 유익했던 점</h4>
+        <ul>
+          <li>ChatGPT로 수업 자료를 실제로 만들어보는 실습이 특히 도움이 됐습니다.</li>
+          <li>플립러닝 설계를 단계별로 배워서 당장 적용할 수 있게 됐습니다.</li>
+          <li>글로벌 교육 관점에서 수업을 바라보는 새로운 시각을 얻었습니다.</li>
+        </ul>
+        <h4>워크숍 이후 변화</h4>
+        <p>워크숍 이후 바로 플립러닝 방식으로 한 단원을 진행해봤는데, 학생들의 참여도가 확연히 달라졌습니다.</p>
+        <blockquote>"단순한 AI 기술 교육이 아니라, 왜 가르치는지에 대한 깊은 성찰을 하게 해주는 프로그램이었습니다."</blockquote>
+      `
+    },
+    {
+      id: 4, pin: false, category: 'resource', categoryLabel: '자료',
+      title: 'PBL(프로젝트 기반 학습) 설계 템플릿 및 가이드',
+      date: '2025.02.28', author: '티움 교육팀', views: 247,
+      content: `
+        <h3>PBL 설계 템플릿 및 가이드</h3>
+        <p>PBL(Project-Based Learning)은 학생들이 실제 문제를 해결하는 과정에서 배우는 교수학습법입니다.</p>
+        <h4>PBL의 핵심 요소</h4>
+        <ul>
+          <li><strong>도전적 질문:</strong> 학습 전체를 이끌어가는 핵심 질문</li>
+          <li><strong>탐구와 혁신:</strong> 학생 스스로 답을 찾아가는 과정</li>
+          <li><strong>피드백과 수정:</strong> 반복적인 개선 과정</li>
+          <li><strong>발표와 공유:</strong> 결과물을 실제 청중에게 발표</li>
+        </ul>
+        <h4>사회 기여 맥락의 PBL</h4>
+        <p>"우리 지역 소외된 이웃을 위해 AI 기술로 무엇을 할 수 있을까?"와 같은 질문으로 학생들이 가치와 기술, 나눔을 통합 경험하도록 합니다.</p>
+        <blockquote>템플릿 파일 신청: johnchoi&#64;tieum&#46;org</blockquote>
+      `
+    },
+    {
+      id: 5, pin: false, category: 'review', categoryLabel: '후기',
+      title: '해외 교육자 대상 워크숍 후기 — 동남아 파견 이○○ 교육 활동가',
+      date: '2025.02.10', author: '이○○', views: 134,
+      content: `
+        <h3>해외 교육자 대상 워크숍 후기</h3>
+        <p>동남아시아에서 교육 활동을 하고 있는 이○○입니다. 한국 방문 중 티움 워크숍에 참가하게 되어 정말 유익한 시간이었습니다.</p>
+        <h4>워크숍에서 얻은 것</h4>
+        <ul>
+          <li>복잡한 AI 개념을 현지인에게 간단하게 전달하는 방법</li>
+          <li>현지 맥락에 맞게 교수법을 조정하는 방법</li>
+          <li>저사양 환경에서도 활용 가능한 디지털 도구</li>
+        </ul>
+        <blockquote>"교육을 통해 사람을 세우는 교육의 철학이 담겨 있습니다. 현지에 돌아가서도 계속 적용하겠습니다."</blockquote>
+      `
+    },
+    {
+      id: 6, pin: false, category: 'resource', categoryLabel: '자료',
+      title: '글로벌 교육을 위한 AI 윤리 가이드라인',
+      date: '2025.01.15', author: '티움 연구팀', views: 189,
+      content: `
+        <h3>글로벌 교육을 위한 AI 윤리 가이드라인</h3>
+        <p>AI 기술이 교육 현장에 빠르게 도입되면서, 교육자로서 AI를 어떻게 활용해야 할지에 대한 윤리적 지침이 필요합니다.</p>
+        <h4>교육자의 AI 사용 원칙</h4>
+        <ol>
+          <li><strong>인간 존엄성 우선:</strong> AI는 인간의 고유한 가치와 존엄성을 대체할 수 없습니다.</li>
+          <li><strong>비판적 사용:</strong> AI의 결과물을 올바른 가치관으로 분별합니다.</li>
+          <li><strong>공정한 접근:</strong> AI 기술의 혜택이 소외된 학습자에게도 닿도록 배려합니다.</li>
+          <li><strong>투명성:</strong> AI 생성 콘텐츠 사용 시 학생들에게 명확히 알립니다.</li>
+        </ol>
+        <p>수업 설계 시 AI를 활용하되, 최종 판단과 창의성은 교사와 학생이 주도하도록 설계합니다.</p>
+      `
+    }
+  ];
+  </script>
+  <script src="assets/js/board.js"></script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# ====================================================
+#  사단법인 티움 (TIEUM) — Netlify 설정
+# ====================================================
+
+# ---------- 빌드 설정 ----------
+[build]
+  publish = "."
+
+# ---------- HTTP → HTTPS 강제 리다이렉트 ----------
+[[redirects]]
+  from    = "http://tieum.org/*"
+  to      = "https://tieum.org/:splat"
+  status  = 301
+  force   = true
+
+[[redirects]]
+  from    = "http://www.tieum.org/*"
+  to      = "https://www.tieum.org/:splat"
+  status  = 301
+  force   = true
+
+# ---------- 보안 헤더 (전체 페이지 적용) ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # 클릭재킹 방지
+    X-Frame-Options            = "SAMEORIGIN"
+    # MIME 스니핑 방지
+    X-Content-Type-Options     = "nosniff"
+    # XSS 필터
+    X-XSS-Protection           = "1; mode=block"
+    # 리퍼러 정보 최소 노출
+    Referrer-Policy            = "strict-origin-when-cross-origin"
+    # HTTPS 강제 유지 (1년)
+    Strict-Transport-Security  = "max-age=31536000; includeSubDomains; preload"
+    # 불필요한 브라우저 기능 차단
+    Permissions-Policy         = "geolocation=(), microphone=(), camera=()"
+
+# ---------- 캐시 설정 ----------
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=15552000, immutable"

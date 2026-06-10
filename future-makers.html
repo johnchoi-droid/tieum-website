@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TFM Academy — 균형 잡힌 가치관과 AI 미래역량을 키우는 티움의 청소년 집중 교육 과정입니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="TFM Academy 창의융합과정 | 티움" />
+  <meta property="og:description" content="TFM Academy — 균형 잡힌 가치관과 AI 미래역량을 키우는 티움의 청소년 집중 교육 과정입니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/future-makers.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>TFM Academy 창의융합과정 — 티움</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* 모달·모바일 독립 페이지 공통 */
+    .fm-page { max-width: 780px; margin: 0 auto; padding: 0 0 60px; }
+
+    /* ── 히어로 ── */
+    .fm-hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0f2848 0%, #1b4f8a 55%, #2d6ec4 100%);
+      padding: 0;
+      color: #fff;
+    }
+    .fm-hero-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      opacity: .55;
+    }
+    .fm-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .fm-hero-badge {
+      display: inline-block;
+      background: rgba(245,166,35,.22);
+      border: 1px solid rgba(245,166,35,.55);
+      color: #f5c842;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+    .fm-hero-title {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 800;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .fm-hero-sub {
+      font-size: .88rem;
+      opacity: .8;
+      margin-bottom: 16px;
+    }
+    .fm-hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+    .fm-hero-tag {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 4px 13px;
+      font-size: .76rem;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* ── 본문 ── */
+    .fm-body { padding: 32px 24px 0; }
+    .fm-section { margin-bottom: 36px; }
+    .fm-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text, #1a1a2e);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary, #1b4f8a);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fm-section-title .icon { font-size: 1.1rem; }
+    .fm-desc { font-size: .92rem; color: var(--text-2, #4a5568); line-height: 1.85; }
+
+    /* 메타 정보 칩 */
+    .fm-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .fm-info-item {
+      background: #f0f5ff;
+      border: 1px solid #d0ddf5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: .84rem;
+      color: #2d3748;
+      line-height: 1.5;
+    }
+    .fm-info-item strong {
+      display: block;
+      font-size: .75rem;
+      color: #1b4f8a;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: .04em;
+    }
+
+    /* 핵심 구성 카드 */
+    .fm-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+    .fm-feature-item {
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 10px;
+      padding: 16px;
+      border-left: 3px solid var(--primary, #1b4f8a);
+    }
+    .fm-feature-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .fm-feature-label { font-size: .83rem; font-weight: 700; color: var(--text, #1a1a2e); margin-bottom: 4px; }
+    .fm-feature-desc { font-size: .78rem; color: var(--text-3, #718096); line-height: 1.55; }
+
+    /* 4주 커리큘럼 */
+    .fm-curriculum { display: flex; flex-direction: column; gap: 10px; }
+    .fm-cur-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .fm-cur-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .fm-cur-text { font-size: .88rem; color: var(--text, #1a1a2e); line-height: 1.55; }
+    .fm-cur-text strong { display: block; font-weight: 700; margin-bottom: 3px; }
+    .fm-cur-text span { color: var(--text-3, #718096); font-size: .8rem; }
+    .fm-cur-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .fm-cur-tag {
+      background: #e8f0fb;
+      color: #1b4f8a;
+      border-radius: 8px;
+      padding: 2px 9px;
+      font-size: .72rem;
+      font-weight: 500;
+    }
+
+    /* 강사진 */
+    .fm-lecturer-list { display: flex; flex-direction: column; gap: 8px; }
+    .fm-lecturer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .88rem;
+      color: var(--text-2, #4a5568);
+      padding: 10px 14px;
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 9px;
+    }
+    .fm-lecturer-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1b4f8a, #2563c0);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .fm-lecturer-name { font-weight: 700; color: var(--text, #1a1a2e); }
+    .fm-lecturer-role { font-size: .78rem; color: var(--text-3, #718096); }
+
+    /* 미래학습역량 흐름도 */
+    .fm-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .fm-flow-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--bg-light, #f7f9fc);
+      position: relative;
+      z-index: 1;
+    }
+    .fm-flow-step + .fm-flow-step { margin-top: 6px; }
+    .fm-flow-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .fm-flow-step:nth-child(2) .fm-flow-dot { background: #2563c0; }
+    .fm-flow-step:nth-child(3) .fm-flow-dot { background: #7c3aed; }
+    .fm-flow-step:nth-child(4) .fm-flow-dot { background: #059669; }
+    .fm-flow-label { font-size: .85rem; font-weight: 700; color: var(--text, #1a1a2e); margin-bottom: 4px; }
+    .fm-flow-detail { font-size: .78rem; color: var(--text-3, #718096); line-height: 1.55; }
+
+    /* 디지털 도구 */
+    .fm-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .fm-tool-badge {
+      background: #1b4f8a;
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    /* 참가 대상 */
+    .fm-target-list { display: flex; flex-direction: column; gap: 8px; }
+    .fm-target-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .9rem;
+      color: var(--text-2, #4a5568);
+    }
+    .fm-target-item::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .fm-cta {
+      background: linear-gradient(135deg, #0f2848, #1b4f8a);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      color: #fff;
+      margin: 0 24px;
+    }
+    .fm-cta p { font-size: .9rem; opacity: .85; margin-bottom: 16px; line-height: 1.7; }
+    .fm-cta-btn {
+      display: inline-block;
+      background: #f5a623;
+      color: #fff;
+      border-radius: 28px;
+      padding: 12px 28px;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .fm-cta-btn:hover { background: #d48c0e; }
+
+    /* 모바일 헤더 */
+    .fm-mobile-header {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 14px 20px;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .fm-back-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: #1b4f8a;
+      padding: 4px;
+      line-height: 1;
+    }
+    .fm-mobile-title { font-size: .95rem; font-weight: 700; color: #1a1a2e; }
+
+    @media (max-width: 768px) {
+      .fm-mobile-header { display: flex; }
+      .fm-feature-grid { grid-template-columns: 1fr; }
+      .fm-info-grid { grid-template-columns: 1fr; }
+      .fm-hero-img { height: 170px; }
+    }
+  </style>
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+  <div style="position:fixed;top:12px;right:16px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:.78rem;">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#1b4f8a;padding:2px 4px;">한국어</button>
+    <span style="color:#ccc;">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#666;padding:2px 4px;">English</button>
+  </div>
+
+<!-- 모바일용 뒤로가기 헤더 -->
+<div class="fm-mobile-header">
+  <button class="fm-back-btn" onclick="goBack()">‹</button>
+  <span class="fm-mobile-title">TFM Academy — 창의융합과정</span>
+</div>
+
+<div class="fm-page">
+
+  <!-- 히어로 -->
+  <div class="fm-hero">
+    <img src="assets/images/tfm-academy-camp.jpg" alt="TFM Academy 현장 사진" class="fm-hero-img" />
+    <div class="fm-hero-overlay">
+      <div class="fm-hero-badge">TIEUM FUTURE MAKER ACADEMY</div>
+      <h1 class="fm-hero-title">TFM Academy<br>창의융합과정</h1>
+      <p class="fm-hero-sub">균형 잡힌 세계관 × 질문지능 × 디자인씽킹 × AI 미래역량</p>
+      <div class="fm-hero-tags">
+        <span class="fm-hero-tag">예비 중1 ~ 예비 고3</span>
+        <span class="fm-hero-tag">매년 1월 · 4주 토요일</span>
+        <span class="fm-hero-tag">티움 센터 (서초구)</span>
+        <span class="fm-hero-tag">참가비 25만원</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fm-body">
+
+    <!-- 프로그램 소개 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h2>
+      <p class="fm-desc">
+        <strong>TFM Academy — 창의융합과정</strong>은 사단법인 티움이 운영하는 청소년 집중 교육 프로그램으로,
+        올바른 가치관을 기반으로 AI 시대를 살아갈 미래 인재를 세웁니다.<br><br>
+        단순 지식 전달을 넘어, 스스로 질문하고 탐구하며 창의적으로 문제를 해결하는 역량을
+        4주간 매주 토요일 오프라인 집중 과정으로 훈련합니다. 구글·애플 현직 엔지니어의
+        Zoom 특강을 통해 실제 산업 현장과 연결되는 경험도 제공합니다.
+      </p>
+    </div>
+
+    <!-- 기본 정보 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📋</span> 기본 정보</h2>
+      <div class="fm-info-grid">
+        <div class="fm-info-item">
+          <strong>대상</strong>
+          예비 중1 ~ 예비 고3
+        </div>
+        <div class="fm-info-item">
+          <strong>일정</strong>
+          매년 1월 · 4주간 토요일
+        </div>
+        <div class="fm-info-item">
+          <strong>장소</strong>
+          티움 센터<br>서초구 효령로57길 3<br><span style="font-size:.75rem;color:#718096;">남부터미널역 2번 출구 도보 1분</span>
+        </div>
+        <div class="fm-info-item">
+          <strong>참가비</strong>
+          1인 25만원
+        </div>
+      </div>
+    </div>
+
+    <!-- 3대 핵심 트랙 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">⚡</span> 3대 핵심 트랙</h2>
+      <div class="fm-feature-grid">
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">✝️</div>
+          <div class="fm-feature-label">균형 잡힌 세계관</div>
+          <div class="fm-feature-desc">AI 시대의 정체성과 가치관 정립. 나는 누구이며 어떻게 살 것인가를 인문학적으로 탐구한다.</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🧠</div>
+          <div class="fm-feature-label">질문지능 & 문해력</div>
+          <div class="fm-feature-desc">스스로 질문을 만들고 지식을 큐레이션하는 학습 민첩성 훈련. 독서·리서치·지식 융합 능력 개발.</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🔧</div>
+          <div class="fm-feature-label">디자인씽킹</div>
+          <div class="fm-feature-desc">PBL 기반의 창의적 문제해결 프로젝트. 팀으로 설계하고 만들고 발표하는 실전 훈련.</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🎤</div>
+          <div class="fm-feature-label">Zoom 현직자 특강</div>
+          <div class="fm-feature-desc">구글·애플 현직 엔지니어와의 Zoom 미니특강으로 AI 시대 실제 커리어와 연결.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4주 커리큘럼 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📅</span> 4주 커리큘럼</h2>
+      <div class="fm-curriculum">
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">1주</div>
+          <div class="fm-cur-text">
+            <strong>세계관 탐구 — 나는 누구인가?</strong>
+            <span>AI 시대 정체성 탐구 / 창조·타락·구속의 렌즈로 보는 기술 문명 / 비전 선언 워크숍</span>
+            <div class="fm-cur-tags">
+              <span class="fm-cur-tag">세계관</span>
+              <span class="fm-cur-tag">정체성</span>
+              <span class="fm-cur-tag">비전</span>
+            </div>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">2주</div>
+          <div class="fm-cur-text">
+            <strong>질문지능 — 학습 민첩성 훈련</strong>
+            <span>좋은 질문 만들기 / 마이크로러닝(10분 영상 사전학습) / 지식 리서치·선별·분류 실습</span>
+            <div class="fm-cur-tags">
+              <span class="fm-cur-tag">질문지능</span>
+              <span class="fm-cur-tag">지식큐레이션</span>
+              <span class="fm-cur-tag">문해력</span>
+            </div>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">3주</div>
+          <div class="fm-cur-text">
+            <strong>디자인씽킹 — 창의 문제해결</strong>
+            <span>팀 프로젝트 주제 선정 / 공감·정의·아이디어 발산 / 프로토타입 설계 & Zoom 특강</span>
+            <div class="fm-cur-tags">
+              <span class="fm-cur-tag">디자인씽킹</span>
+              <span class="fm-cur-tag">PBL</span>
+              <span class="fm-cur-tag">협업</span>
+            </div>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">4주</div>
+          <div class="fm-cur-text">
+            <strong>발표 & 공유 — 체인지메이커 선언</strong>
+            <span>팀 프로젝트 최종 발표 / 멘토 피드백 / 시상 & 수료식</span>
+            <div class="fm-cur-tags">
+              <span class="fm-cur-tag">발표</span>
+              <span class="fm-cur-tag">리더십</span>
+              <span class="fm-cur-tag">수료</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 미래학습역량 흐름 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📈</span> 미래학습역량 강화 과정</h2>
+      <div class="fm-flow">
+        <div class="fm-flow-step">
+          <div class="fm-flow-dot">사전</div>
+          <div>
+            <div class="fm-flow-label">마이크로러닝 (사전학습)</div>
+            <div class="fm-flow-detail">매주 10분 영상으로 핵심 개념 선행 학습 — 본 수업의 깊이를 높입니다.</div>
+          </div>
+        </div>
+        <div class="fm-flow-step">
+          <div class="fm-flow-dot">1차</div>
+          <div>
+            <div class="fm-flow-label">학습 민첩성 훈련 (오프라인)</div>
+            <div class="fm-flow-detail">시대 변화 이해 → 미래형 학습역량 점검 → 학습 주제 선정 → 디지털 도구 활용 설계</div>
+          </div>
+        </div>
+        <div class="fm-flow-step">
+          <div class="fm-flow-dot">2차</div>
+          <div>
+            <div class="fm-flow-label">지식 큐레이션 (온·오프 혼합)</div>
+            <div class="fm-flow-detail">지식 리서치 → 선별 → 분류 → 구조화 → 융합 → 추상화 → 메타인지 훈련</div>
+          </div>
+        </div>
+        <div class="fm-flow-step">
+          <div class="fm-flow-dot">발표</div>
+          <div>
+            <div class="fm-flow-label">발표 & 공유 (시상)</div>
+            <div class="fm-flow-detail">개인 또는 팀 결과물 발표 → 동료 피드백 → 시상 → 포트폴리오 정리</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 활용 디지털 도구 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">💻</span> 활용 디지털 도구</h2>
+      <div class="fm-tools">
+        <span class="fm-tool-badge">Slido</span>
+        <span class="fm-tool-badge">Google Sheets</span>
+        <span class="fm-tool-badge">ALLO</span>
+        <span class="fm-tool-badge">Mindmap</span>
+        <span class="fm-tool-badge">Padlet</span>
+        <span class="fm-tool-badge">Miro</span>
+        <span class="fm-tool-badge">Canva</span>
+      </div>
+    </div>
+
+    <!-- 강사진 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">👨‍🏫</span> 강사진</h2>
+      <div class="fm-lecturer-list">
+        <div class="fm-lecturer-item">
+          <div class="fm-lecturer-icon">👨‍🎓</div>
+          <div>
+            <div class="fm-lecturer-name">서응교 교수</div>
+            <div class="fm-lecturer-role">단국대학교 빅데이터정보원 원장</div>
+          </div>
+        </div>
+        <div class="fm-lecturer-item">
+          <div class="fm-lecturer-icon">🔬</div>
+          <div>
+            <div class="fm-lecturer-name">한수정 연구원</div>
+            <div class="fm-lecturer-role">IAAE 국제인공지능&amp;윤리협회 자문위원</div>
+          </div>
+        </div>
+        <div class="fm-lecturer-item">
+          <div class="fm-lecturer-icon">🏢</div>
+          <div>
+            <div class="fm-lecturer-name">고봉익 대표</div>
+            <div class="fm-lecturer-role">TMD교육그룹 · 티움 이사장</div>
+          </div>
+        </div>
+        <div class="fm-lecturer-item" style="background:#f0fdf4;border-left:3px solid #22c55e;">
+          <div class="fm-lecturer-icon" style="background:linear-gradient(135deg,#16a34a,#22c55e);">📡</div>
+          <div>
+            <div class="fm-lecturer-name">Zoom 미니특강</div>
+            <div class="fm-lecturer-role">권기태 (구글 엔지니어) · 김대정 (애플 엔지니어)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 참가 대상 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">👥</span> 참가 대상</h2>
+      <div class="fm-target-list">
+        <div class="fm-target-item">예비 중1 ~ 예비 고3 청소년</div>
+        <div class="fm-target-item">AI 시대에 흔들리지 않는 가치관을 세우고 싶은 학생</div>
+        <div class="fm-target-item">스스로 질문하고 탐구하는 학습 역량을 키우고 싶은 학생</div>
+        <div class="fm-target-item">팀 프로젝트를 통해 창의적 문제해결을 경험하고 싶은 학생</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="fm-cta">
+    <p>TFM Academy 참가 신청 또는 문의는 아래 연락처로 연락 주세요.<br>
+    📞 02-522-2617 &nbsp;|&nbsp; 📧 johnchoi&#64;tieum&#46;org</p>
+    <a href="index.html#contact" class="fm-cta-btn">문의하기 →</a>
+  </div>
+
+</div>
+
+<script>
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    location.href = 'index.html#academy';
+  }
+}
+(function() {
+  if (!document.referrer || document.referrer === '') {
+    history.replaceState(null, '', 'index.html#academy');
+    history.pushState(null, '', 'future-makers.html');
+  }
+})();
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

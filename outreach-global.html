@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="티움 글로벌 아웃리치. AI·문화·예술 교육으로 레바논·폴란드·네팔 현장에 나가는 청소년 봉사단입니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="글로벌 아웃리치 | 티움" />
+  <meta property="og:description" content="티움 글로벌 아웃리치. AI·문화·예술 교육으로 레바논·폴란드·네팔 현장에 나가는 청소년 봉사단입니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/outreach-global.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>글로벌 아웃리치 — 티움</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* 모달·모바일 독립 페이지 공통 */
+    .fm-page { max-width: 780px; margin: 0 auto; padding: 0 0 60px; }
+
+    /* ── 히어로 ── */
+    .fm-hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0f2848 0%, #1b4f8a 55%, #2d6ec4 100%);
+      padding: 0;
+      color: #fff;
+    }
+    .fm-hero-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      opacity: .55;
+    }
+    .fm-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+    .fm-hero-badge {
+      display: inline-block;
+      background: rgba(245,166,35,.22);
+      border: 1px solid rgba(245,166,35,.55);
+      color: #f5c842;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+    .fm-hero-title {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 800;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .fm-hero-sub {
+      font-size: .88rem;
+      opacity: .8;
+      margin-bottom: 16px;
+    }
+    .fm-hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+    .fm-hero-tag {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 4px 13px;
+      font-size: .76rem;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* ── 본문 ── */
+    .fm-body { padding: 32px 24px 0; }
+    .fm-section { margin-bottom: 36px; }
+    .fm-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text, #1a1a2e);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary, #1b4f8a);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fm-section-title .icon { font-size: 1.1rem; }
+    .fm-desc { font-size: .92rem; color: var(--text-2, #4a5568); line-height: 1.85; }
+
+    /* 메타 정보 칩 */
+    .fm-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .fm-info-item {
+      background: #f0f5ff;
+      border: 1px solid #d0ddf5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: .84rem;
+      color: #2d3748;
+      line-height: 1.5;
+    }
+    .fm-info-item strong {
+      display: block;
+      font-size: .75rem;
+      color: #1b4f8a;
+      font-weight: 700;
+      margin-bottom: 3px;
+      letter-spacing: .04em;
+    }
+
+    /* 핵심 구성 카드 */
+    .fm-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+    .fm-feature-item {
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 10px;
+      padding: 16px;
+      border-left: 3px solid var(--primary, #1b4f8a);
+    }
+    .fm-feature-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .fm-feature-label { font-size: .83rem; font-weight: 700; color: var(--text, #1a1a2e); margin-bottom: 4px; }
+    .fm-feature-desc { font-size: .78rem; color: var(--text-3, #718096); line-height: 1.55; }
+
+    /* 4주 커리큘럼 */
+    .fm-curriculum { display: flex; flex-direction: column; gap: 10px; }
+    .fm-cur-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .fm-cur-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .fm-cur-text { font-size: .88rem; color: var(--text, #1a1a2e); line-height: 1.55; }
+    .fm-cur-text strong { display: block; font-weight: 700; margin-bottom: 3px; }
+    .fm-cur-text span { color: var(--text-3, #718096); font-size: .8rem; }
+    .fm-cur-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .fm-cur-tag {
+      background: #e8f0fb;
+      color: #1b4f8a;
+      border-radius: 8px;
+      padding: 2px 9px;
+      font-size: .72rem;
+      font-weight: 500;
+    }
+
+    /* 강사진 */
+    .fm-lecturer-list { display: flex; flex-direction: column; gap: 8px; }
+    .fm-lecturer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .88rem;
+      color: var(--text-2, #4a5568);
+      padding: 10px 14px;
+      background: var(--bg-light, #f7f9fc);
+      border-radius: 9px;
+    }
+    .fm-lecturer-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1b4f8a, #2563c0);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .fm-lecturer-name { font-weight: 700; color: var(--text, #1a1a2e); }
+    .fm-lecturer-role { font-size: .78rem; color: var(--text-3, #718096); }
+
+    /* 미래학습역량 흐름도 */
+    .fm-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .fm-flow-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--bg-light, #f7f9fc);
+      position: relative;
+      z-index: 1;
+    }
+    .fm-flow-step + .fm-flow-step { margin-top: 6px; }
+    .fm-flow-dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .fm-flow-step:nth-child(2) .fm-flow-dot { background: #2563c0; }
+    .fm-flow-step:nth-child(3) .fm-flow-dot { background: #7c3aed; }
+    .fm-flow-step:nth-child(4) .fm-flow-dot { background: #059669; }
+    .fm-flow-label { font-size: .85rem; font-weight: 700; color: var(--text, #1a1a2e); margin-bottom: 4px; }
+    .fm-flow-detail { font-size: .78rem; color: var(--text-3, #718096); line-height: 1.55; }
+
+    /* 디지털 도구 */
+    .fm-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .fm-tool-badge {
+      background: #1b4f8a;
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    /* 참가 대상 */
+    .fm-target-list { display: flex; flex-direction: column; gap: 8px; }
+    .fm-target-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .9rem;
+      color: var(--text-2, #4a5568);
+    }
+    .fm-target-item::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary, #1b4f8a);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .fm-cta {
+      background: linear-gradient(135deg, #0f2848, #1b4f8a);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      color: #fff;
+      margin: 0 24px;
+    }
+    .fm-cta p { font-size: .9rem; opacity: .85; margin-bottom: 16px; line-height: 1.7; }
+    .fm-cta-btn {
+      display: inline-block;
+      background: #f5a623;
+      color: #fff;
+      border-radius: 28px;
+      padding: 12px 28px;
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .fm-cta-btn:hover { background: #d48c0e; }
+
+    /* 모바일 헤더 */
+    .fm-mobile-header {
+      display: none;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 14px 20px;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .fm-back-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: #1b4f8a;
+      padding: 4px;
+      line-height: 1;
+    }
+    .fm-mobile-title { font-size: .95rem; font-weight: 700; color: #1a1a2e; }
+
+    @media (max-width: 768px) {
+      .fm-mobile-header { display: flex; }
+      .fm-feature-grid { grid-template-columns: 1fr; }
+      .fm-info-grid { grid-template-columns: 1fr; }
+      .fm-hero-img { height: 170px; }
+    }
+  </style>
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+  <div style="position:fixed;top:12px;right:16px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:.78rem;">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#1b4f8a;padding:2px 4px;">한국어</button>
+    <span style="color:#ccc;">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#666;padding:2px 4px;">English</button>
+  </div>
+
+<!-- 모바일용 뒤로가기 헤더 -->
+<div class="fm-mobile-header">
+  <button class="fm-back-btn" onclick="goBack()">‹</button>
+  <span class="fm-mobile-title" data-i18n="out.page.global.title">글로벌 아웃리치</span>
+</div>
+
+<div class="fm-page">
+
+  <!-- 히어로 -->
+  <div class="fm-hero" style="background: linear-gradient(160deg, #0f2848 0%, #1b4f8a 55%, #2d6ec4 100%); min-height: 220px; display:flex; align-items:center; justify-content:center;">
+    <div style="text-align:center; color:#fff; padding: 48px 24px;">
+      <div class="fm-hero-badge">TIEUM GLOBAL OUTREACH</div>
+      <h1 class="fm-hero-title" data-i18n="out.page.global.title">글로벌 아웃리치</h1>
+      <p class="fm-hero-sub">TIEUM Global Outreach — 세계로 나가는 교육 봉사단</p>
+      <div class="fm-hero-tags">
+        <span class="fm-hero-tag">티움 청소년 봉사단</span>
+        <span class="fm-hero-tag">교육 봉사</span>
+        <span class="fm-hero-tag">문화 봉사</span>
+        <span class="fm-hero-tag">AI 교육</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fm-body">
+
+    <!-- 프로그램 소개 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h2>
+      <p class="fm-desc">
+        글로벌 아웃리치는 AI·문화·예술 교육으로 세계 현장에 직접 나가는 티움의 청소년 봉사단입니다. 단순한 체험 여행을 넘어, 현지 아이들과 청소년들에게 최신 교육 콘텐츠를 전달하며 인류 보편의 가치를 실천합니다.<br><br>
+        사전 교육 → 현장 활동 → 발표회·해단식의 3단계로 운영되며, 아웃리치를 통해 글로벌 시민으로 성장하고 올바른 세계관을 삶으로 실천하는 리더를 세웁니다.
+      </p>
+    </div>
+
+    <!-- 2024 Winter — 폴란드 우크라이나 난민 활동 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">⚡</span> 2024 Winter — 폴란드 우크라이나 난민 활동</h2>
+      <div class="fm-feature-grid">
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🤖</div>
+          <div class="fm-feature-label">생성형 AI 교육</div>
+          <div class="fm-feature-desc">고봉익 코치 주도. 우크라이나 청소년들과 함께하는 AI 창작 프로젝트</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🤖</div>
+          <div class="fm-feature-label">로봇 코딩 &amp; 축구</div>
+          <div class="fm-feature-desc">이대은 코치 주도. 로봇 프로그래밍과 로봇 축구 대회로 협력과 창의력 훈련</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🎵</div>
+          <div class="fm-feature-label">K-POP &amp; 뮤지컬</div>
+          <div class="fm-feature-desc">이하은 코치 주도. K-POP 댄스·뮤지컬로 나누는 한국 문화와 정서</div>
+        </div>
+        <div class="fm-feature-item">
+          <div class="fm-feature-icon">🎮</div>
+          <div class="fm-feature-label">한국 전통 놀이</div>
+          <div class="fm-feature-desc">윷놀이·공기·제기차기·알까기 등으로 언어 없이도 통하는 우정 나누기</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 Winter 주요 일정 -->
+    <div class="fm-section">
+      <h2 class="fm-section-title"><span class="icon">📅</span> 2024 Winter 주요 일정</h2>
+      <div class="fm-curriculum">
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">사전</div>
+          <div class="fm-cur-text">
+            <strong>사전 모임</strong>
+            <span>2월 8일 준비모임 / 2월 14일 봉사단 임명식 / 2월 20일 Zoom 중간 점검</span>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">출국</div>
+          <div class="fm-cur-text">
+            <strong>2024. 2. 24(토) 출국</strong>
+            <span>인천 → 프랑크푸르트 경유 → 폴란드 바르샤바</span>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">활동</div>
+          <div class="fm-cur-text">
+            <strong>현장 활동 (2/25~2/28)</strong>
+            <span>바르샤바 우크라이나 난민센터 교육봉사 · 청소년 교제 · 거리 버스킹</span>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">귀국</div>
+          <div class="fm-cur-text">
+            <strong>2024. 3. 2(토) 귀국</strong>
+            <span>폴란드 → 프랑크푸르트 → 인천</span>
+          </div>
+        </div>
+        <div class="fm-cur-item">
+          <div class="fm-cur-num">해단</div>
+          <div class="fm-cur-text">
+            <strong>해단식 — 3월 16일(토)</strong>
+            <span>발표회 및 해단식</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- CTA -->
+  <div class="fm-cta">
+    <p>글로벌 아웃리치 참가 문의는 아래 연락처로 연락 주세요.<br>
+    📞 02-522-2617 &nbsp;|&nbsp; 📧 johnchoi&#64;tieum&#46;org</p>
+    <a href="index.html#contact" class="fm-cta-btn">문의하기 →</a>
+  </div>
+
+</div>
+
+<script>
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    location.href = 'index.html#global';
+  }
+}
+(function() {
+  if (!document.referrer || document.referrer === '') {
+    history.replaceState(null, '', 'index.html#global');
+    history.pushState(null, '', 'outreach-global.html');
+  }
+})();
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

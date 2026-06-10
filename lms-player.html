@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="티움 러닝센터 강의 플레이어. TMD 리더십, PBL, 플립러닝 등 다양한 강의를 수강하세요." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="강의 플레이어 | 티움 러닝센터" />
+  <meta property="og:description" content="티움 러닝센터 강의 플레이어. TMD 리더십, PBL, 플립러닝 등 다양한 강의를 수강하세요." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/lms-player.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>티움 러닝센터 — 강의 플레이어</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+
+<style>
+/* ═══════ AI SUBTITLE SYSTEM ═══════ */
+.subtitle-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 0 16px 14px;
+  pointer-events: none;
+  z-index: 20;
+}
+.subtitle-listening-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 6px;
+  justify-content: center;
+}
+.subtitle-pulse {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #f87171;
+  display: inline-block;
+  animation: subtitle-pulse 1.2s ease-in-out infinite;
+}
+@keyframes subtitle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+#subtitleListeningLabel {
+  font-size: .72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,.55);
+  padding: 2px 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+}
+.subtitle-text {
+  background: rgba(0,0,0,.76);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: center;
+  padding: 8px 20px 9px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  min-height: 2em;
+  transition: opacity .35s ease;
+  word-break: break-word;
+  pointer-events: auto;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 4px 18px rgba(0,0,0,.35);
+}
+.subtitle-text.interim {
+  opacity: .55;
+  font-style: italic;
+}
+.subtitle-text:empty { display: none; }
+
+/* CC toggle button */
+.subtitle-cc-btn {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.3);
+  border-radius: 6px;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.subtitle-cc-btn:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.6); }
+.subtitle-cc-btn.cc-active {
+  background: #f87171;
+  border-color: #f87171;
+  color: #fff;
+  animation: cc-glow .8s ease-in-out infinite alternate;
+}
+@keyframes cc-glow { from { box-shadow: 0 0 4px #f87171; } to { box-shadow: 0 0 12px #f87171aa; } }
+
+/* AI 자막 안내 모달 */
+.subtitle-guide-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+}
+.subtitle-guide-box {
+  background: #1e2a3a;
+  border-radius: 16px;
+  padding: 32px 36px;
+  max-width: 480px;
+  width: 90%;
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.subtitle-guide-box h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.subtitle-guide-box p { font-size: .9rem; color: rgba(255,255,255,.75); line-height: 1.65; margin-bottom: 14px; }
+.subtitle-guide-steps { list-style: none; padding: 0; margin: 0 0 22px; }
+.subtitle-guide-steps li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; font-size: .88rem; color: rgba(255,255,255,.8); }
+.subtitle-guide-step-num { background: #3b82f6; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.subtitle-guide-input-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.subtitle-guide-input-row input { flex: 1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: .88rem; font-family: inherit; }
+.subtitle-guide-input-row input::placeholder { color: rgba(255,255,255,.35); }
+.subtitle-guide-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.subtitle-guide-actions button { padding: 9px 22px; border-radius: 8px; font-weight: 600; font-size: .88rem; cursor: pointer; border: none; }
+.subtitle-btn-cancel { background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); }
+.subtitle-btn-cancel:hover { background: rgba(255,255,255,.14); }
+.subtitle-btn-start { background: #3b82f6; color: #fff; }
+.subtitle-btn-start:hover { background: #2563eb; }
+.subtitle-api-hint { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 6px; }
+
+/* Video wrap needs position:relative for overlay */
+.player-video-wrap { position: relative; }
+</style>
+</head>
+<body class="player-body">
+
+<!-- ══════════════════════ PLAYER HEADER ══════════════════════ -->
+<header class="player-header">
+  <div class="player-header-inner">
+    <a href="lms.html" class="player-back-btn" data-i18n-html="pl.back">
+      <span class="player-back-arrow">‹</span> 코스 목록
+    </a>
+    <div class="player-course-title" id="playerCourseTitle">—</div>
+    <div class="player-header-right">
+      <span class="player-user-name" id="playerUserName"></span>
+      <button class="player-logout-btn" onclick="lmsLogout(); location.href='lms.html'" data-i18n="pl.logout">로그아웃</button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════ PLAYER LAYOUT ══════════════════════ -->
+<div class="player-layout">
+
+  <!-- ── 왼쪽: 사이드바 ── -->
+  <aside class="player-sidebar" id="playerSidebar">
+    <div class="sidebar-progress-wrap">
+      <div class="sidebar-prog-label" data-i18n="pl.prog.label">전체 진도</div>
+      <div class="sidebar-prog-bar">
+        <div class="sidebar-prog-fill" id="sidebarProgFill"></div>
+      </div>
+      <div class="sidebar-prog-text" id="sidebarProgText"></div>
+    </div>
+    <div class="sidebar-modules" id="sidebarModules"></div>
+  </aside>
+
+  <!-- ── 사이드바 토글 (모바일) ── -->
+  <button class="sidebar-toggle-btn" id="sidebarToggle" onclick="toggleSidebar()" data-i18n="pl.sidebar.toggle">☰ 강의 목록</button>
+
+  <!-- ── 오른쪽: 메인 플레이어 ── -->
+  <main class="player-main" id="playerMain">
+
+    <!-- 영상 뷰 -->
+    <div class="player-video-wrap" id="videoWrap">
+      <div class="player-video-container" id="videoContainer">
+        <!-- iframe 또는 준비중 화면이 여기에 렌더링 -->
+      </div>
+      <!-- AI 자막 오버레이 -->
+      <div class="subtitle-overlay" id="subtitleOverlay" style="display:none;">
+        <div class="subtitle-listening-badge" id="subtitleListening">
+          <span class="subtitle-pulse"></span>
+          <span id="subtitleListeningLabel">AI Listening…</span>
+        </div>
+        <p class="subtitle-text" id="subtitleText"></p>
+      </div>
+    </div>
+
+    <!-- 강의 정보 + 컨트롤 -->
+    <div class="player-info-bar">
+      <div class="player-lesson-meta">
+        <span class="player-module-label" id="infoModuleLabel"></span>
+        <h2 class="player-lesson-title" id="infoLessonTitle"></h2>
+        <span class="player-lesson-duration" id="infoLessonDuration"></span>
+      </div>
+      <div class="player-controls">
+        <button class="player-ctrl-btn" id="ctrlPrev" onclick="goLesson('prev')" data-i18n="pl.prev">‹ 이전 강의</button>
+        <button class="player-complete-btn" id="ctrlComplete" onclick="markAndNext()">
+          <span id="ctrlCompleteLabel" data-i18n-html="pl.complete">완료 &amp; 다음 강의</span>
+        </button>
+        <button class="player-ctrl-btn" id="ctrlNext" onclick="goLesson('next')" data-i18n="pl.next">다음 강의 ›</button>
+        <!-- AI 자막 토글 버튼 (영어 모드에서만 표시) -->
+        <button class="subtitle-cc-btn" id="subtitleCCBtn" onclick="SubtitleSystem.toggle()" title="Enable AI English Subtitles" style="display:none;">
+          🌐 CC
+        </button>
+      </div>
+    </div>
+
+    <!-- 퀴즈 영역 -->
+    <div class="player-quiz-wrap" id="quizWrap" style="display:none;">
+      <div class="quiz-inner" id="quizInner"></div>
+    </div>
+
+    <!-- 🎬 마이크로 티칭 -->
+    <div class="mt-wrap" id="mtWrap" style="display:none;"></div>
+
+    <!-- ✍️ 성찰 일지 -->
+    <div class="journal-section" id="journalSection">
+      <button class="journal-toggle-btn" id="journalToggle" onclick="toggleJournal()">
+        <span class="journal-toggle-left">
+          <span class="journal-toggle-ico">✍️</span>
+          <span data-i18n="pl.journal.title">성찰 일지</span>
+          <span class="journal-entry-count" id="journalEntryCount" style="display:none;"></span>
+        </span>
+        <span class="journal-toggle-arrow" id="journalToggleArrow">▾</span>
+      </button>
+
+      <div class="journal-panel" id="journalPanel" style="display:none;">
+
+        <!-- 메지로 이론 설명 + 주차별 프롬프트 -->
+        <div class="journal-theory-block" id="journalTheoryBlock">
+          <div class="journal-theory-header">
+            <span class="journal-theory-badge">메지로의 변혁적 학습</span>
+            <p class="journal-theory-desc" id="journalTheoryDesc"></p>
+          </div>
+          <div class="journal-prompts" id="journalPrompts"></div>
+        </div>
+
+        <!-- 입력 영역 -->
+        <div class="journal-write-area">
+          <div class="journal-write-header">
+            <span class="journal-write-label" id="journalWriteLabel" data-i18n="pl.journal.write.label">이 강의의 성찰을 기록하세요</span>
+            <span class="journal-autosave-badge" id="journalAutosaveBadge" data-i18n="pl.journal.unsaved">저장 안 됨</span>
+          </div>
+          <textarea class="journal-textarea" id="journalTextarea"
+            data-i18n-placeholder="pl.journal.ph" placeholder="배운 것, 느낀 것, 질문, 현장 적용 아이디어를 자유롭게 기록해보세요...&#10;&#10;예) &quot;오늘 PBL 설계를 배우면서 내가 지금까지 교사 중심으로만 수업을 설계해왔다는 걸 깨달았다. 앞으로는...&quot;"></textarea>
+          <div class="journal-write-footer">
+            <button class="journal-btn-all" onclick="openAllJournals()" data-i18n="pl.journal.all">📓 전체 일지 보기</button>
+            <div class="journal-write-actions">
+              <button class="journal-btn-new" id="journalBtnNew" onclick="newJournalEntry()" style="display:none;" data-i18n="pl.journal.new">+ 새 항목 추가</button>
+              <button class="journal-btn-save" id="journalBtnSave" onclick="saveJournal()" data-i18n="pl.journal.save">💾 저장하기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 이 강의의 지난 일지 -->
+        <div class="journal-history" id="journalHistory"></div>
+
+      </div>
+    </div>
+
+    <!-- 수료증 영역 -->
+    <div class="player-cert-wrap" id="certWrap" style="display:none;">
+      <div class="cert-box">
+        <div class="cert-icon">🎓</div>
+        <h2 class="cert-title" data-i18n="pl.cert.title">수료를 축하합니다!</h2>
+        <p class="cert-sub" id="certSub"></p>
+        <div class="cert-badge" id="certBadge"></div>
+        <p class="cert-note" data-i18n="pl.cert.note">모든 강의를 완료하셨습니다. 수고하셨습니다! 🎉</p>
+        <a href="lms.html" class="btn-primary cert-back-btn" data-i18n="pl.cert.back">코스 목록으로 돌아가기</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══════════════════════ AI 스캐폴딩 봇 ══════════════════════ -->
+<button class="ai-bot-fab" id="aiBotFab" onclick="toggleAiBot()" aria-label="AI 학습 도우미 열기">
+  <span class="ai-bot-fab-icon">🤖</span>
+  <span class="ai-bot-fab-label" data-i18n="pl.ai.fab">AI 도우미</span>
+  <span class="ai-bot-fab-badge" id="aiBotBadge" style="display:none;"></span>
+</button>
+
+<div class="ai-bot-panel" id="aiBotPanel" role="dialog" aria-label="AI 스캐폴딩 봇">
+  <div class="ai-bot-header">
+    <div class="ai-bot-header-left">
+      <div class="ai-bot-avatar-lg">🤖</div>
+      <div class="ai-bot-header-info">
+        <div class="ai-bot-name" data-i18n="pl.ai.name">티봇 · 스캐폴딩 AI</div>
+        <div class="ai-bot-ctx" id="aiBotCtx" data-i18n="pl.ai.ctx">강의를 선택해주세요</div>
+      </div>
+    </div>
+    <div class="ai-bot-header-actions">
+      <button class="ai-bot-icon-btn" onclick="resetAiBot()" title="대화 초기화" aria-label="대화 초기화">↺</button>
+      <button class="ai-bot-icon-btn" onclick="toggleAiBot()" title="닫기" aria-label="닫기">✕</button>
+    </div>
+  </div>
+
+  <div class="ai-bot-messages" id="aiBotMessages" aria-live="polite"></div>
+
+  <div class="ai-bot-input-wrap">
+    <textarea class="ai-bot-input" id="aiBotInput" rows="1"
+      placeholder="궁금한 것을 자유롭게 물어보세요..." data-i18n-placeholder="pl.ai.ph"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAiMsg();}"></textarea>
+    <button class="ai-bot-send-btn" onclick="sendAiMsg()" aria-label="전송">↑</button>
+  </div>
+  <div class="ai-bot-footer-note" data-i18n="pl.ai.footer">비고츠키 ZPD · 메지로 변혁적 학습 이론 기반 스캐폴딩</div>
+</div>
+
+<!-- ══════════════════════ 전체 일지 모달 ══════════════════════ -->
+<div class="modal-overlay" id="allJournalsModal" onclick="if(event.target===this)closeAllJournals()">
+  <div class="modal-box journal-modal-box">
+    <div class="journal-modal-header">
+      <h2 class="journal-modal-title" data-i18n="pl.journal.modal.title">📓 나의 성찰 일지</h2>
+      <button class="modal-close" onclick="closeAllJournals()">✕</button>
+    </div>
+    <p class="journal-modal-sub" data-i18n="pl.journal.modal.sub">메지로(Mezirow)의 변혁적 학습 이론에 따르면, 기록된 성찰은 새로운 관점의 씨앗이 됩니다.</p>
+    <div class="journal-modal-content" id="allJournalsContent"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script src="assets/js/lms-data.js"></script>
+<script src="assets/js/lms-core.js"></script>
+<script>
+/* ════════════════════ 상태 ════════════════════ */
+var STATE = {
+  courseId: '',
+  lessonId: '',
+  course: null,
+  lesson: null,
+  quizAnswers: {},
+  quizSubmitted: false
+};
+
+/* ── 언어 헬퍼 ── */
+function lp(ko, en) {
+  return (typeof getLang === 'function' && getLang() === 'en') ? en : ko;
+}
+
+/* ════════════════════ 초기화 ════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  // 로그인 체크
+  if (!lmsIsLoggedIn()) {
+    location.href = 'lms.html';
+    return;
+  }
+
+  // URL 파라미터 파싱
+  var params   = new URLSearchParams(location.search);
+  STATE.courseId = params.get('course') || '';
+  STATE.lessonId = params.get('lesson') || '';
+  STATE.course  = lmsGetCourse(STATE.courseId);
+
+  if (!STATE.course) {
+    location.href = 'lms.html';
+    return;
+  }
+
+  // 첫 강의 기본값
+  if (!STATE.lessonId) {
+    var first = lmsGetFlatLessons(STATE.courseId)[0];
+    if (first) STATE.lessonId = first.id;
+  }
+
+  // 사용자 이름
+  var user = lmsGetUser();
+  if (user) document.getElementById('playerUserName').textContent = user.name;
+
+  // 코스 제목
+  document.getElementById('playerCourseTitle').textContent = lp(STATE.course.title, STATE.course.title_en || STATE.course.title);
+  document.title = lp(STATE.course.title, STATE.course.title_en || STATE.course.title) + ' — ' + lp('티움 러닝센터', 'TIEUM Learning Center');
+
+  // 사이드바 + 현재 강의 렌더링
+  renderSidebar();
+  loadLesson(STATE.lessonId);
+  updateJournalCount();
+  initAiBot();
+});
+
+/* ════════════════════ 강의 로드 ════════════════════ */
+function loadLesson(lessonId) {
+  var meta = lmsGetLessonMeta(STATE.courseId, lessonId);
+  if (!meta) return;
+
+  STATE.lessonId      = lessonId;
+  STATE.lesson        = meta.lesson;
+  STATE.quizAnswers   = {};
+  STATE.quizSubmitted = false;
+
+  // URL 업데이트 (뒤로가기 지원)
+  var newUrl = 'lms-player.html?course=' + STATE.courseId + '&lesson=' + lessonId;
+  history.replaceState(null, '', newUrl);
+
+  // 강의 메타 정보
+  document.getElementById('infoModuleLabel').textContent = lp(meta.module.title, meta.module.title_en || meta.module.title);
+  document.getElementById('infoLessonTitle').textContent = lp(meta.lesson.title, meta.lesson.title_en || meta.lesson.title);
+  document.getElementById('infoLessonDuration').textContent = meta.lesson.duration || '';
+
+  // 사이드바 하이라이트
+  document.querySelectorAll('.sb-lesson-item').forEach(function (el) {
+    el.classList.toggle('active', el.dataset.lessonId === lessonId);
+  });
+
+  // 이전/다음 버튼 상태
+  var prev = lmsGetPrevLesson(STATE.courseId, lessonId);
+  var next = lmsGetNextLesson(STATE.courseId, lessonId);
+  document.getElementById('ctrlPrev').disabled = !prev;
+  document.getElementById('ctrlNext').disabled = !next;
+
+  // 완료 버튼 라벨
+  var isDone = lmsIsComplete(STATE.courseId, lessonId);
+  updateCompleteBtn(isDone, !!next);
+
+  // 콘텐츠 렌더링
+  if (meta.lesson.type === 'quiz') {
+    renderQuiz(meta.lesson);
+  } else if (meta.lesson.type === 'microteaching') {
+    renderMicroTeaching(meta.lesson);
+  } else {
+    renderVideo(meta.lesson);
+  }
+
+  // 수료 체크 (이미 전부 완료된 경우 제외)
+  updateSidebarProgress();
+  if (typeof SubtitleSystem !== 'undefined') SubtitleSystem.updateVisibility();
+  // 성찰 일지 로드
+  loadJournalForLesson(meta);
+  // AI 봇 컨텍스트 업데이트
+  initAiBot(meta);
+  window.scrollTo(0, 0);
+}
+
+/* ════════════════════ 영상 렌더링 ════════════════════ */
+function renderVideo(lesson) {
+  document.getElementById('videoWrap').style.display  = 'block';
+  document.getElementById('quizWrap').style.display   = 'none';
+  document.getElementById('certWrap').style.display   = 'none';
+  document.getElementById('mtWrap').style.display     = 'none';
+  document.getElementById('ctrlComplete').style.display = '';
+
+  var container = document.getElementById('videoContainer');
+  var videoId   = lesson.videoId || '';
+
+  if (!videoId) {
+    // 준비중 화면
+    container.innerHTML = [
+      '<div class="video-placeholder">',
+      '  <div class="video-placeholder-icon">🎬</div>',
+      '  <div class="video-placeholder-title">' + lp('강의 준비 중', 'Lesson Coming Soon') + '</div>',
+      '  <div class="video-placeholder-sub">' + lp('곧 업로드될 예정입니다.<br>조금만 기다려 주세요!', 'This lesson will be available soon.<br>Please check back later!') + '</div>',
+      '</div>'
+    ].join('');
+    return;
+  }
+
+  var src = '';
+  if (lesson.videoType === 'youtube') {
+    var ccParams = (typeof getLang === 'function' && getLang() === 'en')
+      ? '&cc_load_policy=1&cc_lang_pref=en&hl=en' : '';
+    src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0&modestbranding=1' + ccParams;
+  } else {
+    // Google Drive
+    src = 'https://drive.google.com/file/d/' + videoId + '/preview';
+  }
+
+  container.innerHTML = '<iframe src="' + src + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
+
+/* ════════════════════ 퀴즈 렌더링 ════════════════════ */
+function renderQuiz(lesson) {
+  document.getElementById('videoWrap').style.display  = 'none';
+  document.getElementById('quizWrap').style.display   = 'block';
+  document.getElementById('certWrap').style.display   = 'none';
+  document.getElementById('mtWrap').style.display     = 'none';
+  document.getElementById('ctrlComplete').style.display = 'none';
+
+  var isDone = lmsIsComplete(STATE.courseId, lesson.id);
+  var html = [
+    '<div class="quiz-header">',
+    '  <div class="quiz-icon">📝</div>',
+    '  <h3 class="quiz-title">' + lp(lesson.title, lesson.title_en || lesson.title) + '</h3>',
+    '  <p class="quiz-desc">' + lp('아래 문제를 풀고 제출하세요.', 'Answer the questions below and submit.') + '</p>',
+    '</div>',
+    '<div class="quiz-questions" id="quizQuestions">'
+  ];
+
+  (lesson.quiz || []).forEach(function (q, qi) {
+    html.push('<div class="quiz-q-block" id="qblock_' + qi + '">');
+    html.push('  <p class="quiz-q-text"><span class="quiz-q-num">Q' + (qi + 1) + '</span> ' + q.q + '</p>');
+    html.push('  <div class="quiz-options">');
+    q.options.forEach(function (opt, oi) {
+      html.push(
+        '<label class="quiz-option" id="qopt_' + qi + '_' + oi + '">' +
+        '<input type="radio" name="q' + qi + '" value="' + oi + '" onchange="selectQuizOpt(' + qi + ',' + oi + ')" ' + (isDone ? 'disabled' : '') + '>' +
+        '<span class="quiz-opt-text">' + opt + '</span>' +
+        '</label>'
+      );
+    });
+    html.push('  </div>');
+    html.push('</div>');
+  });
+
+  html.push('</div>');
+
+  if (!isDone) {
+    html.push('<button class="quiz-submit-btn" id="quizSubmitBtn" onclick="submitQuiz()" disabled>' + lp('제출하기', 'Submit') + '</button>');
+  } else {
+    html.push('<div class="quiz-already-done">✅ ' + lp('이미 완료한 퀴즈입니다.', 'You have already completed this quiz.') + '</div>');
+    var next = lmsGetNextLesson(STATE.courseId, lesson.id);
+    if (next) {
+      html.push('<button class="btn-primary quiz-next-btn" onclick="loadLesson(\'' + next.id + '\')">다음 강의로 ›</button>');
+    }
+  }
+
+  document.getElementById('quizInner').innerHTML = html.join('\n');
+}
+
+function selectQuizOpt(qi, oi) {
+  STATE.quizAnswers[qi] = oi;
+  var lesson  = STATE.lesson;
+  var allDone = Object.keys(STATE.quizAnswers).length === (lesson.quiz || []).length;
+  var btn = document.getElementById('quizSubmitBtn');
+  if (btn) btn.disabled = !allDone;
+}
+
+function submitQuiz() {
+  if (STATE.quizSubmitted) return;
+  STATE.quizSubmitted = true;
+  var lesson   = STATE.lesson;
+  var quiz     = lesson.quiz || [];
+  var score    = 0;
+  var resultHtml = '';
+
+  quiz.forEach(function (q, qi) {
+    var chosen  = STATE.quizAnswers[qi];
+    var correct = q.answer;
+    var isRight = (parseInt(chosen) === correct);
+    if (isRight) score++;
+
+    // 시각적 피드백
+    var block = document.getElementById('qblock_' + qi);
+    if (block) block.classList.add(isRight ? 'quiz-correct' : 'quiz-wrong');
+
+    // 옵션 라벨 색칠
+    q.options.forEach(function (opt, oi) {
+      var lbl = document.getElementById('qopt_' + qi + '_' + oi);
+      if (!lbl) return;
+      if (oi === correct) lbl.classList.add('quiz-correct-opt');
+      else if (oi === parseInt(chosen) && !isRight) lbl.classList.add('quiz-wrong-opt');
+      lbl.querySelector('input').disabled = true;
+    });
+  });
+
+  var pct = quiz.length ? Math.round((score / quiz.length) * 100) : 100;
+  var pass = pct >= 60;
+
+  // 제출 버튼 → 결과 메시지
+  var btn = document.getElementById('quizSubmitBtn');
+  if (btn) {
+    btn.style.display = 'none';
+    var next = lmsGetNextLesson(STATE.courseId, lesson.id);
+    var resultDiv = document.createElement('div');
+    resultDiv.className = 'quiz-result ' + (pass ? 'quiz-pass' : 'quiz-fail');
+    resultDiv.innerHTML = [
+      '<div class="quiz-result-score">' + (pass ? '🎉' : '😅') + ' ' + score + '/' + quiz.length + '점 (' + pct + '%)</div>',
+      '<div class="quiz-result-msg">' + (pass ? lp('통과! 수고하셨습니다.', 'Passed! Well done.') : lp('60점 이상이어야 통과합니다. 다시 도전해 보세요.', 'You need 60% or higher to pass. Try again!')) + '</div>',
+      pass ? (next
+        ? '<button class="btn-primary quiz-next-btn" onclick="loadLesson(\'' + next.id + '\')">\u21c2 ' + lp('다음 강의로 ›', 'Next Lesson ›') + '</button>'
+        : '<button class="btn-primary quiz-next-btn" onclick="checkCompletion()">' + lp('수료 확인 ›', 'View Certificate ›') + '</button>')
+      : '<button class="quiz-retry-btn" onclick="loadLesson(\'' + lesson.id + '\')">\u21ba ' + lp('다시 풀기', 'Try Again') + '</button>'
+    ].join('');
+    btn.parentNode.appendChild(resultDiv);
+  }
+
+  if (pass) {
+    lmsMarkComplete(STATE.courseId, lesson.id);
+    updateSidebarProgress();
+    updateSidebarItem(lesson.id);
+  }
+}
+
+/* ════════════════════ 완료 & 다음 ════════════════════ */
+function markAndNext() {
+  lmsMarkComplete(STATE.courseId, STATE.lessonId);
+  updateSidebarProgress();
+  updateSidebarItem(STATE.lessonId);
+  var next = lmsGetNextLesson(STATE.courseId, STATE.lessonId);
+  if (next) {
+    loadLesson(next.id);
+  } else {
+    checkCompletion();
+  }
+}
+
+function goLesson(dir) {
+  var target = dir === 'prev'
+    ? lmsGetPrevLesson(STATE.courseId, STATE.lessonId)
+    : lmsGetNextLesson(STATE.courseId, STATE.lessonId);
+  if (target) loadLesson(target.id);
+}
+
+function updateCompleteBtn(isDone, hasNext) {
+  var btn   = document.getElementById('ctrlComplete');
+  var label = document.getElementById('ctrlCompleteLabel');
+  if (isDone) {
+    btn.classList.add('complete-done');
+    label.textContent = hasNext ? '✅ ' + lp('완료됨 — 다음 강의 ›', 'Done — Next ›') : '✅ ' + lp('완료됨', 'Done');
+  } else {
+    btn.classList.remove('complete-done');
+    label.innerHTML = hasNext ? lp('완료 &amp; 다음 강의', 'Complete &amp; Next') : lp('완료', 'Complete');
+  }
+}
+
+function checkCompletion() {
+  if (lmsIsCourseComplete(STATE.courseId)) {
+    showCertificate();
+  }
+}
+
+function showCertificate() {
+  document.getElementById('videoWrap').style.display  = 'none';
+  document.getElementById('quizWrap').style.display   = 'none';
+  document.getElementById('certWrap').style.display   = 'block';
+  document.getElementById('mtWrap').style.display     = 'none';
+  document.getElementById('ctrlComplete').style.display = 'none';
+  var user = lmsGetUser();
+  document.getElementById('certSub').textContent =
+    (user ? user.name + lp('님', '') : '') + ' — ' + lp(STATE.course.title, STATE.course.title_en || STATE.course.title);
+  document.getElementById('certBadge').innerHTML =
+    '<div class="cert-badge-inner" style="background:' + STATE.course.color + '">' +
+    lp(STATE.course.title, STATE.course.title_en || STATE.course.title).slice(0, (getLang()==='en'?3:2)) + '<br><small>' + lp('수료', 'Complete') + '</small></div>';
+}
+
+/* ════════════════════ 사이드바 ════════════════════ */
+function renderSidebar() {
+  var course = STATE.course;
+  var html   = '';
+
+  course.modules.forEach(function (mod) {
+    html += '<div class="sb-module-block">';
+    html += '<div class="sb-module-title">' + lp(mod.title, mod.title_en || mod.title) + '</div>';
+    html += '<ul class="sb-lesson-list">';
+    mod.lessons.forEach(function (les) {
+      var done  = lmsIsComplete(course.id, les.id);
+      var isAct = les.id === STATE.lessonId;
+      var icon  = les.type === 'quiz' ? '📝' : les.type === 'microteaching' ? (done ? '✅' : '🎬') : (done ? '✅' : '▶');
+      html += '<li class="sb-lesson-item ' + (isAct ? 'active' : '') + ' ' + (done ? 'done' : '') + '"' +
+              ' data-lesson-id="' + les.id + '"' +
+              ' onclick="loadLesson(\'' + les.id + '\')">' +
+              '<span class="sb-lesson-icon">' + icon + '</span>' +
+              '<span class="sb-lesson-name">' + lp(les.title, les.title_en || les.title) + '</span>' +
+              '<span class="sb-lesson-dur">' + (les.duration || '') + '</span>' +
+              '</li>';
+    });
+    html += '</ul></div>';
+  });
+
+  document.getElementById('sidebarModules').innerHTML = html;
+  updateSidebarProgress();
+}
+
+function updateSidebarProgress() {
+  var prog = lmsGetCourseProgress(STATE.courseId);
+  var fill = document.getElementById('sidebarProgFill');
+  var text = document.getElementById('sidebarProgText');
+  var color = STATE.course ? STATE.course.color : '#1b4f8a';
+  if (fill) { fill.style.width = prog.pct + '%'; fill.style.background = color; }
+  if (text) text.textContent = prog.done + '/' + prog.total + lp('강 완료', ' lessons done') + ' (' + prog.pct + '%)';
+}
+
+function updateSidebarItem(lessonId) {
+  var item = document.querySelector('.sb-lesson-item[data-lesson-id="' + lessonId + '"]');
+  if (!item) return;
+  var lesson = STATE.lesson;
+  if (!lesson) return;
+  item.classList.add('done');
+  var icon = item.querySelector('.sb-lesson-icon');
+  if (icon) icon.textContent = lesson.type === 'quiz' ? '📝' : lesson.type === 'microteaching' ? '✅' : '✅';
+}
+
+function toggleSidebar() {
+  document.getElementById('playerSidebar').classList.toggle('open');
+}
+
+/* ════════════════════ AI 스캐폴딩 봇 ════════════════════ */
+
+var AI_BOT = {
+  isOpen:    false,
+  isLoading: false,
+  messages:  [],   // { role: 'user'|'assistant', content: '...' }
+  unread:    0
+};
+
+/* ── 오프라인 스캐폴딩 힌트 뱅크 (API 없을 때 사용) ── */
+var SCAFFOLD_HINTS = {
+  ai: [
+    'AI가 교육에서 잘 하는 것과 교사가 반드시 해야 하는 것을 구분해보면 어떨까요? 어떤 차이가 있을 것 같으신가요?',
+    'ChatGPT가 답을 주는 세상에서, 학습자가 "스스로 생각하는 힘"을 키우려면 어떤 수업 설계가 필요할까요?',
+    'AI 도구를 수업에 도입했을 때 예상되는 가장 큰 도전은 무엇이라고 생각하시나요? 거기서부터 같이 생각해볼게요.'
+  ],
+  pbl: [
+    'PBL의 Driving Question을 설계할 때 "학생이 진짜 궁금해할까?"를 먼저 물어보세요. 지금 생각하는 문제가 학습자에게 실제 도전이 될까요?',
+    'PBL에서 교사의 역할이 "답을 가르치는 사람"에서 "질문을 안내하는 사람"으로 바뀝니다. 이 전환이 왜 어렵게 느껴지는지 생각해보셨나요?',
+    'PBL 설계에서 지금 가장 막히는 단계는 어디인가요? 그 부분을 더 작은 질문으로 나눠볼까요?'
+  ],
+  flip: [
+    '플립러닝에서 "사전 학습"이 제대로 이루어지려면 어떤 조건이 필요할까요? 학습자 입장에서 먼저 상상해보시겠어요?',
+    '수업 시간을 "강의" 대신 "활동"으로 채울 때, 어떤 활동이 가장 깊은 배움을 만들어낼 것 같으신가요?',
+    '플립러닝이 어렵게 느껴진다면, 그 이유가 교사 입장 때문인가요, 학습자 입장 때문인가요? 어떤 쪽이 더 도전적인가요?'
+  ],
+  micro: [
+    '마이크로 티칭의 핵심은 "피드백 루프"입니다. 어떤 피드백이 자신의 성장에 가장 도움이 되었나요?',
+    '내 수업을 영상으로 보는 것이 불편하게 느껴진다면, 그 불편함 속에 어떤 성찰의 씨앗이 있을까요?',
+    '루브릭의 5가지 항목 중 지금 나의 가장 강한 부분과 가장 개선이 필요한 부분은 어디라고 생각하시나요?'
+  ],
+  tmd: [
+    'TMD에서 Talent(T)는 단순히 잘하는 것이 아닙니다. 나에게 주어진 고유한 역량과 비전이 무엇인지 어떻게 발견할 수 있을까요?',
+    'Mindset(성장 마인드셋) 관점에서 지금 내게 주어진 자원(시간, 관계, 역량)을 어떻게 관리하고 있나요? 어디서 개선할 수 있을까요?',
+    'Dedication(헌신과 실천)이 단순한 친절이 아닌 "진정한 헌신"이 되려면 무엇이 달라야 할까요?'
+  ],
+  values: [
+    '교육 현장에서 균형 잡힌 가치관을 "가르치려 하지 않고 드러내는" 방법이 있을까요? 어떤 차이가 있을 것 같으신가요?',
+    '가치관과 교육을 통합할 때 가장 자연스럽게 연결되는 순간은 언제였나요? 그 순간에서 무엇을 배울 수 있을까요?',
+    '학습자의 인격적 성장과 교육적 성장을 동시에 돕는다는 것이 실제로 어떤 의미인지 생각해보신 적 있으신가요?'
+  ],
+  research: [
+    '데이터가 단순한 숫자가 아니라 "이야기"를 담고 있다는 관점으로 보면, 지금 수집한 데이터에서 어떤 이야기가 보이시나요?',
+    '연구 결과를 이해관계자에게 설명할 때 가장 중요한 것은 무엇이라고 생각하시나요? 전문성과 접근성 사이의 균형은 어떻게?',
+  ],
+  default: [
+    '지금 막히는 부분을 더 작은 질문으로 나누어보면 어떨까요? 어디서부터 시작하면 좋을 것 같으신가요?',
+    '이 개념을 실제 교육 현장에 적용한다면 어떤 모습일지 먼저 그려보시겠어요?',
+    '이미 알고 있는 것과 아직 이해되지 않는 부분을 구분해보면 어떨까요?',
+    '같은 질문을 학습자의 입장에서 다시 한 번 생각해보면 어떤 답이 나올 것 같으신가요?',
+    '이 내용이 내 교육 활동의 어떤 부분과 연결되는지 생각해보셨나요? 어디서 접점을 찾을 수 있을까요?'
+  ]
+};
+
+function getOfflineResponse(text) {
+  var t = text.toLowerCase().replace(/\s/g, '');
+  var pool;
+  if (/ai|인공지능|챗gpt|chatgpt|패러다임/.test(t))       pool = SCAFFOLD_HINTS.ai;
+  else if (/pbl|프로젝트|drivingquestion|문제기반/.test(t)) pool = SCAFFOLD_HINTS.pbl;
+  else if (/플립|flip|사전학습/.test(t))                    pool = SCAFFOLD_HINTS.flip;
+  else if (/마이크로|티칭|microteaching|실습/.test(t))      pool = SCAFFOLD_HINTS.micro;
+  else if (/tmd|달란트|재능|talent|mindset|dedication|책임리더십/.test(t)) pool = SCAFFOLD_HINTS.tmd;
+  else if (/가치관|비전|인격|균형|헌신/.test(t))       pool = SCAFFOLD_HINTS.values;
+  else if (/데이터|연구|통계|분석/.test(t))                 pool = SCAFFOLD_HINTS.research;
+  else {
+    // 현재 강의 제목 기반 추론
+    var lt = (STATE.lesson ? STATE.lesson.title : '').toLowerCase();
+    if (/ai|패러다임/.test(lt))   pool = SCAFFOLD_HINTS.ai;
+    else if (/pbl/.test(lt))      pool = SCAFFOLD_HINTS.pbl;
+    else if (/플립/.test(lt))     pool = SCAFFOLD_HINTS.flip;
+    else if (/마이크로/.test(lt)) pool = SCAFFOLD_HINTS.micro;
+    else if (/tmd|달란트|talent|mindset|dedication/.test(lt)) pool = SCAFFOLD_HINTS.tmd;
+    else                          pool = SCAFFOLD_HINTS.default;
+  }
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+/* ── 시스템 프롬프트 빌더 ── */
+function buildAiBotSystemPrompt() {
+  var courseName  = STATE.course ? STATE.course.title : '미정';
+  var meta        = lmsGetLessonMeta(STATE.courseId, STATE.lessonId);
+  var moduleName  = meta ? meta.module.title : '미정';
+  var lessonName  = STATE.lesson ? STATE.lesson.title : '미정';
+  var lessonType  = STATE.lesson ? STATE.lesson.type : 'video';
+
+  return '당신은 사단법인 티움(TIEUM) 러닝센터의 AI 학습 도우미 "티봇(TieBot)"입니다.\n' +
+    '비고츠키의 근접발달영역(ZPD) 이론과 메지로의 변혁적 학습 이론을 기반으로 스캐폴딩 역할을 합니다.\n\n' +
+    '== 현재 학습 맥락 ==\n' +
+    '코스: ' + courseName + '\n' +
+    '모듈: ' + moduleName + '\n' +
+    '강의: ' + lessonName + ' (' + lessonType + ')\n\n' +
+    '== 티움 교육 철학 ==\n' +
+    '· TMD 인재상: Talent(역량과 비전) · Mindset(성장 마인드셋) · Dedication(헌신과 실천)\n' +
+    '· 교육 비전: AI 시대에 균형 잡힌 가치관으로 가르치는 사명\n' +
+    '· 핵심 교수법: 플립러닝, PBL, 마이크로 티칭, 변혁적 성찰\n' +
+    '· 이론 기반: 비고츠키 ZPD, 메지로 변혁적 학습, 블룸 택소노미\n\n' +
+    '== 스캐폴딩 원칙 (반드시 준수) ==\n' +
+    '1. 직접적인 정답을 제공하지 마세요. 생각의 가지를 뻗게 하는 반문·힌트만 사용하세요.\n' +
+    '2. "~에 대해 어떻게 생각하세요?" "만약 ~라면 어떨까요?" 형식을 적극 활용하세요.\n' +
+    '3. 학습자가 막혀 있다면 문제를 더 작은 단계로 나눠 생각하게 도와주세요.\n' +
+    '4. 핵심 개념(TMD)과 교육 실천을 연결하도록 격려하세요.\n' +
+    '5. 답변은 120자 이내로 간결하게, 반드시 하나의 생각 질문으로 마무리하세요.\n' +
+    '6. 한국어로만 답하세요.\n' +
+    '7. "정답은" "~해야 합니다" 같은 단정적 표현, 훈계 투는 금지입니다.\n' +
+    '8. 따뜻하고 격려적인 멘토 톤을 유지하세요.';
+}
+
+/* ── API 호출 ── */
+async function callClaudeAPI(userText) {
+  var cfg = window.LMS_CONFIG || {};
+  var apiKey   = cfg.claudeApiKey   || '';
+  var endpoint = cfg.chatApiEndpoint || '';
+
+  if (!apiKey) return null;
+
+  // Direct Anthropic API (browser CORS may block — use chatApiEndpoint proxy for production)
+  var url = endpoint || 'https://api.anthropic.com/v1/messages';
+
+  AI_BOT.messages.push({ role: 'user', content: userText });
+  var msgSlice = AI_BOT.messages.slice(-12);  // 최근 12개 메시지만 전송
+
+  var headers = { 'Content-Type': 'application/json' };
+  if (!endpoint || endpoint.includes('anthropic.com')) {
+    headers['x-api-key'] = apiKey;
+    headers['anthropic-version'] = '2023-06-01';
+    headers['anthropic-dangerous-client-side-auth'] = 'true';
+  } else {
+    headers['Authorization'] = 'Bearer ' + apiKey;
+  }
+
+  try {
+    var res = await fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5',
+        max_tokens: 220,
+        system: buildAiBotSystemPrompt(),
+        messages: msgSlice
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var data  = await res.json();
+    var reply = data.content && data.content[0] ? data.content[0].text : null;
+    if (reply) {
+      AI_BOT.messages.push({ role: 'assistant', content: reply });
+    } else {
+      AI_BOT.messages.pop();
+    }
+    return reply;
+  } catch (e) {
+    console.warn('[티봇] API 오류:', e.message, '→ 오프라인 모드로 전환');
+    if (AI_BOT.messages.length && AI_BOT.messages[AI_BOT.messages.length - 1].role === 'user') {
+      AI_BOT.messages.pop();
+    }
+    return null;
+  }
+}
+
+/* ── 메시지 전송 ── */
+async function sendAiMsg() {
+  if (AI_BOT.isLoading) return;
+  var input = document.getElementById('aiBotInput');
+  var text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+
+  appendAiBubble('user', text);
+  AI_BOT.isLoading = true;
+  showAiBotTyping();
+
+  // 빠른 제안 숨기기
+  var sugg = document.getElementById('aiBotSuggestions');
+  if (sugg) sugg.style.display = 'none';
+
+  var reply = null;
+  var cfg = window.LMS_CONFIG || {};
+  var isOffline = !cfg.claudeApiKey;
+
+  if (!isOffline) {
+    reply = await callClaudeAPI(text);
+  }
+
+  // API 실패 또는 오프라인 → 힌트 뱅크 사용
+  if (!reply) {
+    await new Promise(function(r){ setTimeout(r, 700 + Math.random() * 600); });
+    reply = getOfflineResponse(text);
+    if (isOffline && AI_BOT.messages.length <= 0) {
+      reply = '💡 오프라인 스캐폴딩 모드입니다. lms-data.js에 claudeApiKey를 설정하면 Claude AI가 활성화됩니다.\n\n' + reply;
+    }
+  }
+
+  hideAiBotTyping();
+  appendAiBubble('bot', reply);
+  AI_BOT.isLoading = false;
+}
+
+function appendAiBubble(role, text) {
+  var wrap = document.getElementById('aiBotMessages');
+  var div  = document.createElement('div');
+  div.className = 'ai-msg ai-msg-' + role;
+
+  var safe = escapeHtml(text).replace(/\n/g, '<br>');
+  if (role === 'bot') {
+    div.innerHTML = '<span class="ai-msg-av">🤖</span><div class="ai-msg-bub">' + safe + '</div>';
+  } else {
+    div.innerHTML = '<div class="ai-msg-bub">' + safe + '</div>';
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+
+  if (!AI_BOT.isOpen && role === 'bot') {
+    AI_BOT.unread++;
+    var badge = document.getElementById('aiBotBadge');
+    if (badge) { badge.textContent = AI_BOT.unread; badge.style.display = ''; }
+  }
+}
+
+function showAiBotTyping() {
+  var wrap = document.getElementById('aiBotMessages');
+  var div  = document.createElement('div');
+  div.id = 'aiBotTyping';
+  div.className = 'ai-msg ai-msg-bot ai-typing';
+  div.innerHTML = '<span class="ai-msg-av">🤖</span><div class="ai-msg-bub"><span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span></div>';
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function hideAiBotTyping() {
+  var el = document.getElementById('aiBotTyping');
+  if (el) el.remove();
+}
+
+/* ── 패널 토글 ── */
+function toggleAiBot() {
+  AI_BOT.isOpen = !AI_BOT.isOpen;
+  document.getElementById('aiBotPanel').classList.toggle('open', AI_BOT.isOpen);
+
+  if (AI_BOT.isOpen) {
+    AI_BOT.unread = 0;
+    var badge = document.getElementById('aiBotBadge');
+    if (badge) badge.style.display = 'none';
+    setTimeout(function () {
+      var input = document.getElementById('aiBotInput');
+      if (input) input.focus();
+      var msgs = document.getElementById('aiBotMessages');
+      if (msgs) msgs.scrollTop = msgs.scrollHeight;
+    }, 280);
+  }
+}
+
+/* ── 초기화 / 강의 전환 시 컨텍스트 업데이트 ── */
+function initAiBot(meta) {
+  var lesson = STATE.lesson;
+  var ctxEl  = document.getElementById('aiBotCtx');
+  if (ctxEl) {
+    ctxEl.textContent = lesson ? lesson.title : '강의를 선택해주세요';
+  }
+
+  // 메시지 영역 최초 초기화
+  var msgs = document.getElementById('aiBotMessages');
+  if (!msgs) return;
+  if (msgs.children.length === 0) {
+    msgs.innerHTML = buildAiBotWelcomeHtml();
+    renderAiBotSuggestions();
+  } else {
+    // 강의 전환 시 컨텍스트 변경 알림 (최초 초기화 이후)
+    if (AI_BOT.messages.length > 0) {
+      appendAiBubble('bot', '📍 강의가 바뀌었습니다: ' + (lesson ? lesson.title : '') + '\n새 강의에 대해 궁금한 게 있으면 언제든 물어보세요!');
+    }
+    // 제안 칩 업데이트
+    renderAiBotSuggestions();
+  }
+
+  // textarea 자동 높이
+  var textarea = document.getElementById('aiBotInput');
+  if (textarea && !textarea._heightBound) {
+    textarea._heightBound = true;
+    textarea.addEventListener('input', function () {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
+  }
+}
+
+function buildAiBotWelcomeHtml() {
+  return '<div class="ai-welcome">' +
+    '<p>안녕하세요! 저는 <strong>티봇</strong>, 티움의 AI 학습 도우미입니다. 🎓</p>' +
+    '<p>직접 답을 드리기보다, <strong>스스로 생각의 가지를 뻗어갈 수 있도록</strong><br>질문과 힌트로 안내할게요.</p>' +
+    '<p class="ai-welcome-sub">메지로(Mezirow)의 변혁적 학습 이론 · 비고츠키 ZPD 기반</p>' +
+    '</div>' +
+    '<div class="ai-suggestions" id="aiBotSuggestions"></div>';
+}
+
+function renderAiBotSuggestions() {
+  var el = document.getElementById('aiBotSuggestions');
+  if (!el) return;
+  var lesson = STATE.lesson;
+  var chips;
+
+  if (!lesson) {
+    chips = ['AI 시대 교육에 대해 궁금해요', 'TMD 리더십이 무엇인가요?', '어디서 시작하면 좋을까요?'];
+  } else if (/ai|패러다임/.test(lesson.title))  chips = ['AI가 교육을 어떻게 바꿀까요?', 'ChatGPT 활용이 고민됩니다', 'AI 시대 교사의 역할은?'];
+  else if (/pbl|프로젝트/.test(lesson.title))   chips = ['Driving Question 설계가 어려워요', 'PBL 평가는 어떻게?', '현장 PBL 적용법은?'];
+  else if (/플립/.test(lesson.title))            chips = ['사전 학습 영상 제작 팁은?', '학생이 예습 안 할 때는?', '플립러닝 수업 흐름이 궁금해요'];
+  else if (/마이크로/.test(lesson.title))        chips = ['피드백 어떻게 받아들여야 하나요?', '내 수업의 약점을 찾고 싶어요', '루브릭 활용 방법이 궁금해요'];
+  else if (/tmd|달란트|재능/.test(lesson.title)) chips = ['내 Talent를 어떻게 찾나요?', '책임 리더십의 의미는?', 'TMD를 현장에서 어떻게?'];
+  else if (/수료|최종/.test(lesson.title))       chips = ['이 과정에서 배운 핵심은?', '현장 첫 적용을 어떻게 할까요?', '앞으로의 성장 방향은?'];
+  else chips = ['이 강의의 핵심이 뭔가요?', '현장 적용이 막막합니다', '더 깊이 이해하고 싶어요'];
+
+  el.style.display = '';
+  el.innerHTML = '<div class="ai-sugg-label">💬 빠른 질문</div>' +
+    chips.map(function(c) {
+      return '<button class="ai-sugg-chip" onclick="useAiSuggestion(this)">' + escapeHtml(c) + '</button>';
+    }).join('');
+}
+
+function useAiSuggestion(btn) {
+  var input = document.getElementById('aiBotInput');
+  if (input) { input.value = btn.textContent; input.focus(); }
+  sendAiMsg();
+}
+
+function resetAiBot() {
+  AI_BOT.messages = [];
+  var msgs = document.getElementById('aiBotMessages');
+  if (msgs) { msgs.innerHTML = buildAiBotWelcomeHtml(); renderAiBotSuggestions(); }
+}
+
+/* ════════════════════ 마이크로 티칭 ════════════════════ */
+
+var MT_RUBRIC_CRITERIA = [
+  { id:'s0', title:'학습 목표 제시',    icon:'🎯', desc:'학습 목표가 명확히 제시되고 수업 활동과 연결되었는가',
+    levels:['목표 미제시','목표 불명확','명확하게 제시','목표·활동 완전 연결'] },
+  { id:'s1', title:'학습자 참여 유도',  icon:'🤝', desc:'학습자의 능동적 참여를 지속적으로 이끌었는가',
+    levels:['일방적 전달','간헐적 참여','지속적 참여 유도','자기주도 학습 유도'] },
+  { id:'s2', title:'질문 및 상호작용',  icon:'💬', desc:'효과적인 질문 기법으로 사고를 자극했는가',
+    levels:['질문 없음','단순 확인 질문','사고 유발 질문','비판적 사고 유발'] },
+  { id:'s3', title:'교수 내용 명확성',  icon:'📖', desc:'핵심 내용이 체계적이고 명확하게 전달되었는가',
+    levels:['내용 불명확','부분적 명확','체계적 전달','탁월한 구조와 연결'] },
+  { id:'s4', title:'가치·교육 통합',   icon:'🌱', desc:'균형 잡힌 가치관과 교육 내용이 자연스럽게 연결되었는가',
+    levels:['통합 없음','형식적 언급','자연스러운 연결','가치관과 교육 완전 통합'] }
+];
+
+var MT_STATE = {
+  scores: { s0:0, s1:0, s2:0, s3:0, s4:0 },
+  comments: [],
+  videoUrl: '',
+  videoDuration: 600,
+  rubricComment: '',
+  rubricSubmitted: false,
+  rubricSubmittedAt: null,
+  rubricAuthor: ''
+};
+
+function renderMicroTeaching(lesson) {
+  document.getElementById('videoWrap').style.display   = 'none';
+  document.getElementById('quizWrap').style.display    = 'none';
+  document.getElementById('certWrap').style.display    = 'none';
+  document.getElementById('mtWrap').style.display      = 'block';
+  document.getElementById('ctrlComplete').style.display = 'none';
+
+  // 저장 데이터 복원
+  var saved = lmsMtLoad(STATE.courseId, STATE.lessonId);
+  MT_STATE.scores         = saved.scores         || { s0:0, s1:0, s2:0, s3:0, s4:0 };
+  MT_STATE.comments       = saved.comments       || [];
+  MT_STATE.videoUrl       = saved.videoUrl       || '';
+  MT_STATE.videoDuration  = saved.videoDuration  || 600;
+  MT_STATE.rubricComment  = saved.rubricComment  || '';
+  MT_STATE.rubricSubmitted= saved.rubricSubmitted|| false;
+  MT_STATE.rubricAuthor   = saved.rubricAuthor   || '';
+
+  document.getElementById('mtWrap').innerHTML = buildMtHtml();
+
+  updateAllRubricUI();
+  renderMtTimeline();
+  renderMtComments();
+
+  if (MT_STATE.videoUrl) showMtPlayer();
+  if (MT_STATE.rubricComment) document.getElementById('mtRubricComment').value = MT_STATE.rubricComment;
+  if (MT_STATE.rubricSubmitted) {
+    var btn = document.getElementById('mtRubricSubmitBtn');
+    if (btn) { btn.textContent = '✅ 저장됨'; btn.classList.add('saved'); }
+    showMtRubricSaved();
+  }
+}
+
+function buildMtHtml() {
+  var rubricHtml = MT_RUBRIC_CRITERIA.map(function(c, i) {
+    var dots = [1,2,3,4].map(function(s) {
+      return '<button class="mt-score-dot" data-criteria="'+c.id+'" data-score="'+s+'" '+
+             'onclick="setMtScore(\''+c.id+'\','+s+')" title="'+s+'점: '+c.levels[s-1]+'">'+s+'</button>';
+    }).join('');
+    return [
+      '<div class="mt-rubric-item" id="mtr_'+c.id+'">',
+      '  <div class="mt-rubric-item-header">',
+      '    <span class="mt-rubric-item-icon">'+c.icon+'</span>',
+      '    <div class="mt-rubric-item-meta">',
+      '      <div class="mt-rubric-item-title">'+(i+1)+'. '+c.title+'</div>',
+      '      <div class="mt-rubric-item-desc">'+c.desc+'</div>',
+      '    </div>',
+      '  </div>',
+      '  <div class="mt-rubric-scores">'+dots+'</div>',
+      '  <div class="mt-rubric-level-label" id="mtr_label_'+c.id+'">점수를 선택하세요</div>',
+      '</div>'
+    ].join('\n');
+  }).join('');
+
+  var durFmt = formatMtTime(MT_STATE.videoDuration);
+
+  return [
+    '<div class="mt-header">',
+    '  <div class="mt-header-icon">🎬</div>',
+    '  <div>',
+    '    <h3 class="mt-header-title">마이크로 티칭 실습 평가</h3>',
+    '    <p class="mt-header-sub">실습 영상을 등록하고 타임스탬프 피드백과 루브릭 평가를 남기세요</p>',
+    '  </div>',
+    '</div>',
+    '<div class="mt-layout">',
+
+    /* ── 왼쪽: 영상 + 타임라인 + 코멘트 ── */
+    '<div class="mt-video-col">',
+
+    '  <div class="mt-video-submit-area" id="mtSubmitArea">',
+    '    <div class="mt-submit-icon">🎬</div>',
+    '    <h4 class="mt-submit-title">나의 실습 영상 등록</h4>',
+    '    <p class="mt-submit-desc">Google Drive 또는 YouTube 링크를 붙여넣으세요<br>',
+    '      <small>Google Drive: 공유 설정 → "링크 있는 사용자" 후 URL 복사</small></p>',
+    '    <div class="mt-url-row">',
+    '      <input type="url" id="mtVideoUrlInput" class="mt-url-input"',
+    '             placeholder="https://drive.google.com/file/d/... 또는 https://youtu.be/..." />',
+    '      <button class="mt-url-btn" onclick="submitMtVideo()">등록</button>',
+    '    </div>',
+    '  </div>',
+
+    '  <div class="mt-player-area" id="mtPlayerArea" style="display:none;">',
+    '    <div class="mt-iframe-wrap" id="mtIframeWrap"></div>',
+    '    <div class="mt-video-footer">',
+    '      <span class="mt-video-label">🎬 등록된 실습 영상</span>',
+    '      <button class="mt-change-btn" onclick="changeMtVideo()">영상 변경</button>',
+    '    </div>',
+    '  </div>',
+
+    '  <div class="mt-timeline-section">',
+    '    <div class="mt-timeline-header">',
+    '      <span class="mt-section-label">⏱ 타임스탬프 피드백</span>',
+    '      <div class="mt-duration-set">영상 길이:',
+    '        <input type="text" class="mt-dur-input" id="mtDurationInput" value="'+durFmt+'"',
+    '               maxlength="5" onchange="updateMtDuration(this.value)" />',
+    '      </div>',
+    '    </div>',
+    '    <div class="mt-timeline-bar-wrap">',
+    '      <div class="mt-timeline-bar" id="mtTimelineBar" onclick="onTimelineClick(event)">',
+    '        <div class="mt-timeline-track"></div>',
+    '        <div class="mt-timeline-markers" id="mtTimelineMarkers"></div>',
+    '      </div>',
+    '      <div class="mt-timeline-labels"><span>0:00</span><span id="mtTimelineEnd">'+durFmt+'</span></div>',
+    '    </div>',
+    '    <div class="mt-comment-input-row">',
+    '      <input type="text" class="mt-time-input" id="mtTimeInput" placeholder="0:00" maxlength="5" />',
+    '      <input type="text" class="mt-comment-input" id="mtCommentInput"',
+    '             placeholder="이 시점에 대한 피드백..."',
+    '             onkeydown="if(event.key===\'Enter\')addMtComment()" />',
+    '      <button class="mt-add-comment-btn" onclick="addMtComment()">추가</button>',
+    '    </div>',
+    '    <p class="mt-timeline-hint">💡 타임라인을 클릭하면 시간이 자동 입력됩니다</p>',
+    '  </div>',
+
+    '  <div class="mt-comments-section">',
+    '    <div class="mt-section-label">💬 피드백 목록 <span class="mt-comment-count" id="mtCommentCount"></span></div>',
+    '    <div class="mt-comments-list" id="mtCommentsList"></div>',
+    '  </div>',
+
+    '</div>', /* end video col */
+
+    /* ── 오른쪽: 루브릭 ── */
+    '<div class="mt-rubric-col">',
+    '  <div class="mt-rubric-box">',
+    '    <div class="mt-rubric-box-header">',
+    '      <span class="mt-rubric-title">📋 동료 평가 루브릭</span>',
+    '      <div class="mt-rubric-total-badge" id="mtRubricTotalBadge">— / 20</div>',
+    '    </div>',
+    '    <p class="mt-rubric-guide">각 항목을 1~4점으로 평가하세요<br>',
+    '      <small>1 미흡 · 2 보통 · 3 우수 · 4 탁월</small></p>',
+
+    '    <div class="mt-rubric-criteria">',
+    rubricHtml,
+    '    </div>',
+
+    '    <div class="mt-rubric-total-row">',
+    '      <div class="mt-total-label">총점</div>',
+    '      <div class="mt-total-score" id="mtTotalScore">0 / 20점</div>',
+    '      <div class="mt-total-grade" id="mtTotalGrade">—</div>',
+    '    </div>',
+
+    '    <div class="mt-rubric-desc-table">',
+    '      <div class="mt-desc-row header"><span>점수</span><span>수준</span><span>의미</span></div>',
+    '      <div class="mt-desc-row"><span class="mt-score-chip great">17–20</span><span>탁월</span><span>교육 현장 즉시 적용 가능</span></div>',
+    '      <div class="mt-desc-row"><span class="mt-score-chip good">13–16</span><span>우수</span><span>핵심 역량 충분히 갖춤</span></div>',
+    '      <div class="mt-desc-row"><span class="mt-score-chip mid">9–12</span><span>보통</span><span>개선 필요, 추가 실습 권장</span></div>',
+    '      <div class="mt-desc-row"><span class="mt-score-chip bad">5–8</span><span>미흡</span><span>기초부터 재학습 권장</span></div>',
+    '    </div>',
+
+    '    <div class="mt-rubric-comment-wrap">',
+    '      <label class="mt-rubric-comment-label">종합 의견</label>',
+    '      <textarea class="mt-rubric-comment" id="mtRubricComment" rows="4"',
+    '        placeholder="학습자의 강점, 개선 제안, 격려의 말씀을 적어주세요..."></textarea>',
+    '    </div>',
+
+    '    <button class="mt-rubric-submit-btn" id="mtRubricSubmitBtn" onclick="submitMtRubric()">',
+    '      💾 평가 저장하기',
+    '    </button>',
+    '    <div class="mt-rubric-saved" id="mtRubricSaved" style="display:none;"></div>',
+    '  </div>',
+    '</div>', /* end rubric col */
+
+    '</div>' /* end mt-layout */
+  ].join('\n');
+}
+
+/* ── 영상 등록 ── */
+function submitMtVideo() {
+  var url = document.getElementById('mtVideoUrlInput').value.trim();
+  if (!url) return;
+  MT_STATE.videoUrl = url;
+  saveMtData();
+  showMtPlayer();
+}
+
+function showMtPlayer() {
+  var url = MT_STATE.videoUrl;
+  if (!url) return;
+  document.getElementById('mtSubmitArea').style.display  = 'none';
+  document.getElementById('mtPlayerArea').style.display  = 'block';
+
+  var src = '';
+  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    var ytId = url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (ytId) src = 'https://www.youtube-nocookie.com/embed/' + ytId[1] + '?rel=0';
+  } else if (url.includes('drive.google.com')) {
+    var driveId = url.match(/\/d\/([^/?]+)/);
+    src = driveId ? 'https://drive.google.com/file/d/' + driveId[1] + '/preview'
+                  : url.replace('/view', '/preview');
+  } else {
+    src = url;
+  }
+
+  var wrap = document.getElementById('mtIframeWrap');
+  wrap.innerHTML = src
+    ? '<iframe src="'+src+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+    : '<div class="mt-invalid-url"><p>⚠️ 인식할 수 없는 URL입니다.<br>Google Drive 또는 YouTube 링크를 사용하세요.</p></div>';
+}
+
+function changeMtVideo() {
+  document.getElementById('mtPlayerArea').style.display  = 'none';
+  document.getElementById('mtSubmitArea').style.display  = 'block';
+  document.getElementById('mtVideoUrlInput').value = MT_STATE.videoUrl;
+}
+
+/* ── 타임라인 ── */
+function onTimelineClick(e) {
+  var bar  = document.getElementById('mtTimelineBar');
+  var rect = bar.getBoundingClientRect();
+  var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  var secs  = Math.round(ratio * MT_STATE.videoDuration);
+  document.getElementById('mtTimeInput').value = formatMtTime(secs);
+  document.getElementById('mtCommentInput').focus();
+}
+
+function updateMtDuration(val) {
+  MT_STATE.videoDuration = parseMtTime(val) || 600;
+  var el = document.getElementById('mtTimelineEnd');
+  if (el) el.textContent = formatMtTime(MT_STATE.videoDuration);
+  renderMtTimeline();
+}
+
+function formatMtTime(secs) {
+  var m = Math.floor(secs / 60), s = secs % 60;
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+function parseMtTime(str) {
+  if (!str) return 0;
+  var p = (str + '').split(':');
+  return p.length === 2 ? (parseInt(p[0])||0) * 60 + (parseInt(p[1])||0) : (parseInt(str)||0);
+}
+
+/* ── 코멘트 CRUD ── */
+function addMtComment() {
+  var text    = document.getElementById('mtCommentInput').value.trim();
+  var timeStr = document.getElementById('mtTimeInput').value.trim();
+  if (!text) { document.getElementById('mtCommentInput').focus(); return; }
+  var user = lmsGetUser();
+  MT_STATE.comments.push({
+    id: Date.now(),
+    time: parseMtTime(timeStr) || 0,
+    text: text,
+    author: user ? user.name : '익명',
+    createdAt: Date.now()
+  });
+  MT_STATE.comments.sort(function(a,b){ return a.time - b.time; });
+  document.getElementById('mtTimeInput').value    = '';
+  document.getElementById('mtCommentInput').value = '';
+  saveMtData();
+  renderMtTimeline();
+  renderMtComments();
+}
+
+function deleteMtComment(id) {
+  MT_STATE.comments = MT_STATE.comments.filter(function(c){ return c.id !== id; });
+  saveMtData();
+  renderMtTimeline();
+  renderMtComments();
+}
+
+function renderMtTimeline() {
+  var el = document.getElementById('mtTimelineMarkers');
+  if (!el) return;
+  var colors = ['#e53e3e','#dd6b20','#d69e2e','#38a169','#3182ce','#805ad5','#d53f8c','#0891b2'];
+  var html = MT_STATE.comments.map(function(c, i) {
+    var pct = MT_STATE.videoDuration > 0 ? Math.max(0, Math.min(97, c.time / MT_STATE.videoDuration * 100)) : 0;
+    return '<div class="mt-timeline-marker" style="left:'+pct+'%;background:'+colors[i%colors.length]+'"'+
+           ' title="'+formatMtTime(c.time)+': '+escapeHtml(c.text)+'"'+
+           ' onclick="scrollToMtComment('+c.id+')"></div>';
+  }).join('');
+  el.innerHTML = html;
+}
+
+function scrollToMtComment(id) {
+  var el = document.getElementById('mtc_' + id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderMtComments() {
+  var list    = document.getElementById('mtCommentsList');
+  var countEl = document.getElementById('mtCommentCount');
+  if (!list) return;
+  if (countEl) countEl.textContent = MT_STATE.comments.length ? '('+MT_STATE.comments.length+'개)' : '';
+  if (!MT_STATE.comments.length) {
+    list.innerHTML = '<div class="mt-empty-comments">영상을 보며 특정 시점의 피드백을 남겨보세요.<br>타임라인 바를 클릭하면 해당 시간이 자동 입력됩니다.</div>';
+    return;
+  }
+  var colors = ['#e53e3e','#dd6b20','#d69e2e','#38a169','#3182ce','#805ad5','#d53f8c','#0891b2'];
+  list.innerHTML = MT_STATE.comments.map(function(c, i) {
+    return [
+      '<div class="mt-comment-item" id="mtc_'+c.id+'">',
+      '  <div class="mt-comment-time-badge" style="background:'+colors[i%colors.length]+'">'+formatMtTime(c.time)+'</div>',
+      '  <div class="mt-comment-body">',
+      '    <div class="mt-comment-text">'+escapeHtml(c.text)+'</div>',
+      '    <div class="mt-comment-meta"><span class="mt-comment-author">'+escapeHtml(c.author)+'</span></div>',
+      '  </div>',
+      '  <button class="mt-comment-del-btn" onclick="deleteMtComment('+c.id+')" title="삭제">✕</button>',
+      '</div>'
+    ].join('\n');
+  }).join('');
+}
+
+/* ── 루브릭 ── */
+function setMtScore(criteriaId, score) {
+  MT_STATE.scores[criteriaId] = score;
+  updateRubricItemUI(criteriaId, score);
+  updateMtTotalScore();
+  saveMtData();
+}
+
+function updateRubricItemUI(criteriaId, score) {
+  document.querySelectorAll('.mt-score-dot[data-criteria="'+criteriaId+'"]').forEach(function(dot) {
+    var ds = parseInt(dot.dataset.score);
+    dot.classList.toggle('active',   ds <= score && score > 0);
+    dot.classList.toggle('selected', ds === score);
+  });
+  var labelEl = document.getElementById('mtr_label_'+criteriaId);
+  if (labelEl) {
+    if (score > 0) {
+      var c = MT_RUBRIC_CRITERIA.find(function(x){ return x.id === criteriaId; });
+      var names = ['','미흡','보통','우수','탁월'];
+      labelEl.textContent = score+'점 — '+c.levels[score-1];
+      labelEl.className = 'mt-rubric-level-label level-'+['','bad','mid','good','great'][score];
+    } else {
+      labelEl.textContent = '점수를 선택하세요';
+      labelEl.className = 'mt-rubric-level-label';
+    }
+  }
+}
+
+function updateAllRubricUI() {
+  MT_RUBRIC_CRITERIA.forEach(function(c) {
+    updateRubricItemUI(c.id, MT_STATE.scores[c.id] || 0);
+  });
+  updateMtTotalScore();
+}
+
+function updateMtTotalScore() {
+  var total = MT_RUBRIC_CRITERIA.reduce(function(sum, c){ return sum + (MT_STATE.scores[c.id]||0); }, 0);
+  var grade, cls;
+  if (total === 0)      { grade = '—';   cls = ''; }
+  else if (total >= 17) { grade = '탁월'; cls = 'grade-great'; }
+  else if (total >= 13) { grade = '우수'; cls = 'grade-good'; }
+  else if (total >= 9)  { grade = '보통'; cls = 'grade-mid'; }
+  else                  { grade = '미흡'; cls = 'grade-bad'; }
+
+  var scoreEl = document.getElementById('mtTotalScore');
+  var gradeEl = document.getElementById('mtTotalGrade');
+  var badgeEl = document.getElementById('mtRubricTotalBadge');
+  if (scoreEl) scoreEl.textContent = total + ' / 20점';
+  if (gradeEl) { gradeEl.textContent = grade; gradeEl.className = 'mt-total-grade ' + cls; }
+  if (badgeEl) { badgeEl.textContent = total + ' / 20'; badgeEl.className = 'mt-rubric-total-badge ' + cls; }
+}
+
+function submitMtRubric() {
+  var comment = document.getElementById('mtRubricComment').value.trim();
+  MT_STATE.rubricComment    = comment;
+  MT_STATE.rubricSubmitted  = true;
+  MT_STATE.rubricSubmittedAt = Date.now();
+  var user = lmsGetUser();
+  MT_STATE.rubricAuthor = user ? user.name : '익명';
+  saveMtData();
+
+  var btn = document.getElementById('mtRubricSubmitBtn');
+  if (btn) { btn.textContent = '✅ 저장됨'; btn.classList.add('saved');
+    setTimeout(function(){ btn.textContent = '💾 평가 저장하기'; btn.classList.remove('saved'); }, 3000); }
+  showMtRubricSaved();
+
+  // 루브릭 제출 시 강의 완료 처리
+  lmsMarkComplete(STATE.courseId, STATE.lessonId);
+  updateSidebarProgress();
+  updateSidebarItem(STATE.lessonId);
+}
+
+function showMtRubricSaved() {
+  var el = document.getElementById('mtRubricSaved');
+  if (!el || !MT_STATE.rubricSubmittedAt) return;
+  var d = new Date(MT_STATE.rubricSubmittedAt);
+  el.style.display = 'block';
+  el.textContent = '저장 완료 · ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes()) +
+                   ' · 평가자: ' + (MT_STATE.rubricAuthor || '익명');
+}
+
+function saveMtData() {
+  lmsMtSave(STATE.courseId, STATE.lessonId, {
+    videoUrl:           MT_STATE.videoUrl,
+    videoDuration:      MT_STATE.videoDuration,
+    scores:             MT_STATE.scores,
+    comments:           MT_STATE.comments,
+    rubricComment:      MT_STATE.rubricComment,
+    rubricSubmitted:    MT_STATE.rubricSubmitted,
+    rubricSubmittedAt:  MT_STATE.rubricSubmittedAt,
+    rubricAuthor:       MT_STATE.rubricAuthor
+  });
+}
+
+/* ════════════════════ 성찰 일지 ════════════════════ */
+var JOURNAL_STATE = {
+  isOpen:      false,
+  autoSaveTimer: null,
+  isEditing:   false   // 기존 항목 수정 중인지
+};
+
+/* 주차별 메지로 이론 프롬프트 */
+function getReflectionData(moduleTitle) {
+  if (/3주차/.test(moduleTitle)) {
+    return {
+      desc: 'PBL 적용 단계에서 비판적 성찰(Critical Reflection)을 통해 교수 철학의 변화를 기록하세요.',
+      prompts: [
+        'PBL을 설계하면서 기존의 "교사 중심" 사고가 어떻게 도전받았나요?',
+        '학습자 스스로 문제를 정의하도록 했을 때, 나는 어떤 불편함을 느꼈나요? 그 이유는?',
+        '이 접근법이 내가 활동하는 현장(봉사지·교실)에 실현 가능한가요? 어떤 장벽이 있을까요?'
+      ]
+    };
+  } else if (/4주차/.test(moduleTitle)) {
+    return {
+      desc: '현장 적용 단계에서 관점 전환(Perspective Transformation)을 기록하세요. 진정한 변화는 여기서 시작됩니다.',
+      prompts: [
+        '이 과정을 통해 나의 교육관·리더십에서 가장 크게 변화한 것은 무엇인가요?',
+        '현장으로 돌아가 첫 번째로 실천할 구체적인 변화 한 가지를 적어보세요.',
+        '이 여정에서 내가 발견한 사명과 통찰은 무엇이었나요?'
+      ]
+    };
+  } else if (/2주차/.test(moduleTitle)) {
+    return {
+      desc: '새로운 개념을 접하면서 생긴 인지적 불협화(Disorienting Dilemma)를 솔직하게 기록하세요.',
+      prompts: [
+        '오늘 배운 내용 중 기존의 내 관행이나 생각과 충돌하는 부분이 있었나요?',
+        '그 불협화를 어떻게 받아들이거나 해소했나요?',
+        '실제로 시도해보고 싶은 아이디어를 구체적으로 한 가지 써보세요.'
+      ]
+    };
+  } else {
+    return {
+      desc: '비판적 성찰(Critical Reflection)은 단순한 복습이 아닙니다. 배움이 나의 세계관을 어떻게 바꾸는지 물어보는 과정입니다.',
+      prompts: [
+        '이번 강의에서 가장 인상 깊었던 내용은 무엇이고, 그 이유는 무엇인가요?',
+        '이 내용이 나의 교육 활동·리더십 방식에 어떤 의미를 주나요?',
+        '오늘 배운 것을 내일 현장에서 어떻게 연결할 수 있을까요?'
+      ]
+    };
+  }
+}
+
+function loadJournalForLesson(meta) {
+  if (!meta) return;
+  var moduleTitle = meta.module.title;
+  var lessonTitle = meta.lesson.title;
+  var refData = getReflectionData(moduleTitle);
+
+  // 이론 설명 업데이트
+  document.getElementById('journalTheoryDesc').textContent = refData.desc;
+  document.getElementById('journalWriteLabel').textContent = lessonTitle + ' — 성찰';
+
+  // 프롬프트 렌더링
+  var promptsHtml = refData.prompts.map(function (p, i) {
+    return '<div class="journal-prompt-item"><span class="journal-prompt-num">Q' + (i + 1) + '</span><span class="journal-prompt-text">' + p + '</span></div>';
+  }).join('');
+  document.getElementById('journalPrompts').innerHTML = promptsHtml;
+
+  // 기존 저장 내용 불러오기
+  var entries = lmsGetJournals(STATE.courseId, STATE.lessonId);
+  var latest  = entries.length ? entries[entries.length - 1] : null;
+  var textarea = document.getElementById('journalTextarea');
+  textarea.value = latest ? latest.text : '';
+  JOURNAL_STATE.isEditing = !!latest;
+
+  // 저장 상태 표시
+  updateAutosaveBadge(latest ? latest.savedAt : null);
+
+  // 이전 일지 이력 렌더링
+  renderJournalHistory(entries);
+
+  // 항목 수 뱃지 업데이트
+  updateJournalCount();
+
+  // 자동저장 이벤트 (재등록)
+  textarea.oninput = function () {
+    clearTimeout(JOURNAL_STATE.autoSaveTimer);
+    document.getElementById('journalAutosaveBadge').textContent = '입력 중...';
+    document.getElementById('journalAutosaveBadge').className = 'journal-autosave-badge typing';
+    JOURNAL_STATE.autoSaveTimer = setTimeout(function () {
+      if (textarea.value.trim()) autoSaveJournal();
+    }, 2500);
+  };
+}
+
+function autoSaveJournal() {
+  var text = document.getElementById('journalTextarea').value.trim();
+  if (!text) return;
+  var meta = lmsGetLessonMeta(STATE.courseId, STATE.lessonId);
+  var entry = lmsSaveJournal(STATE.courseId, STATE.lessonId, text,
+    meta ? meta.lesson.title : '', meta ? meta.module.title : '');
+  updateAutosaveBadge(entry.savedAt, true);
+  JOURNAL_STATE.isEditing = true;
+  renderJournalHistory(lmsGetJournals(STATE.courseId, STATE.lessonId));
+  updateJournalCount();
+}
+
+function saveJournal() {
+  var text = document.getElementById('journalTextarea').value.trim();
+  if (!text) {
+    document.getElementById('journalTextarea').focus();
+    return;
+  }
+  var meta = lmsGetLessonMeta(STATE.courseId, STATE.lessonId);
+  var entry = lmsSaveJournal(STATE.courseId, STATE.lessonId, text,
+    meta ? meta.lesson.title : '', meta ? meta.module.title : '');
+  updateAutosaveBadge(entry.savedAt);
+  JOURNAL_STATE.isEditing = true;
+  renderJournalHistory(lmsGetJournals(STATE.courseId, STATE.lessonId));
+  updateJournalCount();
+  // 저장 완료 피드백
+  var btn = document.getElementById('journalBtnSave');
+  btn.textContent = '✅ 저장됨';
+  btn.classList.add('saved');
+  setTimeout(function () { btn.textContent = '💾 저장하기'; btn.classList.remove('saved'); }, 2000);
+}
+
+function newJournalEntry() {
+  var text = document.getElementById('journalTextarea').value.trim();
+  if (!text) return;
+  var meta = lmsGetLessonMeta(STATE.courseId, STATE.lessonId);
+  lmsAddJournalEntry(STATE.courseId, STATE.lessonId, text,
+    meta ? meta.lesson.title : '', meta ? meta.module.title : '');
+  document.getElementById('journalTextarea').value = '';
+  updateAutosaveBadge(null);
+  renderJournalHistory(lmsGetJournals(STATE.courseId, STATE.lessonId));
+  updateJournalCount();
+}
+
+function updateAutosaveBadge(savedAt, isAuto) {
+  var badge = document.getElementById('journalAutosaveBadge');
+  if (!savedAt) {
+    badge.textContent = '저장 안 됨';
+    badge.className = 'journal-autosave-badge';
+  } else {
+    var d = new Date(savedAt);
+    var ts = d.getFullYear() + '.' + pad2(d.getMonth()+1) + '.' + pad2(d.getDate()) +
+             ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+    badge.textContent = (isAuto ? '자동저장 ' : '저장됨 ') + ts;
+    badge.className = 'journal-autosave-badge saved';
+  }
+}
+
+function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+function renderJournalHistory(entries) {
+  var container = document.getElementById('journalHistory');
+  if (entries.length <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+  // 최신 항목 제외하고 이전 것들 보여주기
+  var older = entries.slice(0, -1).reverse();
+  var html = '<div class="journal-history-title">이전 기록 (' + older.length + '개)</div>';
+  older.forEach(function (e, i) {
+    var d = new Date(e.savedAt);
+    var ts = d.getFullYear() + '.' + pad2(d.getMonth()+1) + '.' + pad2(d.getDate()) +
+             ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+    html += '<div class="journal-history-item">';
+    html += '<div class="journal-history-meta">' + ts + '</div>';
+    html += '<p class="journal-history-text">' + escapeHtml(e.text) + '</p>';
+    html += '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+function updateJournalCount() {
+  var count = lmsJournalCount(STATE.courseId);
+  var badge = document.getElementById('journalEntryCount');
+  if (count > 0) {
+    badge.textContent = count + '개 기록';
+    badge.style.display = '';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function toggleJournal() {
+  JOURNAL_STATE.isOpen = !JOURNAL_STATE.isOpen;
+  var panel = document.getElementById('journalPanel');
+  var arrow = document.getElementById('journalToggleArrow');
+  panel.style.display = JOURNAL_STATE.isOpen ? 'block' : 'none';
+  arrow.textContent   = JOURNAL_STATE.isOpen ? '▴' : '▾';
+}
+
+/* 전체 일지 모달 */
+function openAllJournals() {
+  var all = lmsGetAllCourseJournals(STATE.courseId);
+  var modal = document.getElementById('allJournalsModal');
+  var content = document.getElementById('allJournalsContent');
+
+  if (!all.length) {
+    content.innerHTML = '<p class="journal-modal-empty">아직 작성된 성찰 일지가 없습니다.<br>강의를 들으며 생각과 통찰을 기록해보세요. ✍️</p>';
+  } else {
+    var byModule = {};
+    all.forEach(function (e) {
+      var key = e.moduleTitle || '기타';
+      if (!byModule[key]) byModule[key] = [];
+      byModule[key].push(e);
+    });
+    var html = '';
+    Object.keys(byModule).forEach(function (mod) {
+      html += '<div class="journal-modal-group">';
+      html += '<div class="journal-modal-group-title">' + escapeHtml(mod) + '</div>';
+      byModule[mod].forEach(function (e) {
+        var d = new Date(e.savedAt);
+        var ts = d.getFullYear() + '.' + pad2(d.getMonth()+1) + '.' + pad2(d.getDate()) +
+                 ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+        html += '<div class="journal-modal-entry">';
+        html += '<div class="journal-modal-entry-header">';
+        html += '<span class="journal-modal-lesson">' + escapeHtml(e.lessonTitle) + '</span>';
+        html += '<span class="journal-modal-ts">' + ts + '</span>';
+        html += '</div>';
+        html += '<p class="journal-modal-text">' + escapeHtml(e.text) + '</p>';
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+    content.innerHTML = html;
+  }
+  modal.classList.add('open');
+}
+
+function closeAllJournals() {
+  document.getElementById('allJournalsModal').classList.remove('open');
+}
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════
+   AI SUBTITLE SYSTEM
+   ─────────────────────────────────────────────
+   두 가지 모드:
+   1. Groq Whisper 모드 (groqApiKey 설정 시):
+      getDisplayMedia → 오디오 캡처 → Whisper STT → 번역
+   2. 브라우저 Speech 모드 (API 키 없을 때):
+      Web Speech Recognition (ko-KR) → 번역
+   번역: MyMemory 무료 API (API 키 불필요)
+═══════════════════════════════════════════════ */
+var SubtitleSystem = (function () {
+  var state = {
+    active:        false,
+    mode:          null,   // 'groq' | 'speech'
+    recognition:   null,
+    mediaStream:   null,
+    mediaRecorder: null,
+    chunkTimer:    null,
+    hideTimer:     null,
+    groqKey:       '',
+    translatorCache: null,
+  };
+
+  /* ── UI helpers ──────────────────────────────── */
+  function setSubtitleText(text, interim) {
+    var el = document.getElementById('subtitleText');
+    if (!el) return;
+    el.textContent = text;
+    el.className = 'subtitle-text' + (interim ? ' interim' : '');
+    clearTimeout(state.hideTimer);
+    if (!interim && text) {
+      state.hideTimer = setTimeout(function () {
+        if (el.textContent === text) { el.textContent = ''; }
+      }, 7000);
+    }
+  }
+
+  function setOverlayVisible(visible) {
+    var ov = document.getElementById('subtitleOverlay');
+    if (ov) ov.style.display = visible ? 'block' : 'none';
+  }
+
+  function setCCBtnActive(active) {
+    var btn = document.getElementById('subtitleCCBtn');
+    if (!btn) return;
+    btn.classList.toggle('cc-active', active);
+    btn.title = active
+      ? lp('AI 자막 비활성화', 'Disable AI Subtitles')
+      : lp('AI 자막 활성화', 'Enable AI Subtitles');
+  }
+
+  /* ── Translation (MyMemory free API) ────────── */
+  async function translate(koreanText) {
+    if (!koreanText || !koreanText.trim()) return '';
+    try {
+      // Try Chrome Translation API first (offline, no quota)
+      if (window.translation && window.translation.createTranslator) {
+        if (!state.translatorCache) {
+          var avail = await window.translation.canTranslate({ sourceLanguage:'ko', targetLanguage:'en' });
+          if (avail !== 'no') {
+            state.translatorCache = await window.translation.createTranslator({ sourceLanguage:'ko', targetLanguage:'en' });
+          }
+        }
+        if (state.translatorCache) {
+          return await state.translatorCache.translate(koreanText);
+        }
+      }
+    } catch (e) {}
+    // Fallback: MyMemory free API
+    try {
+      var res = await fetch(
+        'https://api.mymemory.translated.net/get?q=' +
+        encodeURIComponent(koreanText.slice(0, 500)) + '&langpair=ko|en'
+      );
+      var data = await res.json();
+      if (data.responseStatus === 200) {
+        return data.responseData.translatedText || koreanText;
+      }
+    } catch (e) {}
+    return koreanText;
+  }
+
+  /* ── Mode 1: Groq Whisper (tab audio capture) ── */
+  async function startGroqMode(groqKey) {
+    var stream;
+    try {
+      stream = await navigator.mediaDevices.getDisplayMedia({
+        video: true,
+        audio: true,
+        preferCurrentTab: true,
+        selfBrowserSurface: 'include',
+      });
+    } catch (e) {
+      console.warn('[Subtitle] getDisplayMedia failed:', e.message);
+      showError(lp(
+        '화면 공유가 취소되었습니다. 탭 선택 후 공유를 허용해 주세요.',
+        'Screen share was cancelled. Please select this tab and allow sharing.'
+      ));
+      return false;
+    }
+
+    var audioTracks = stream.getAudioTracks();
+    if (!audioTracks.length) {
+      stream.getTracks().forEach(function(t){ t.stop(); });
+      showError(lp(
+        '오디오 트랙이 없습니다. 탭 공유 시 "오디오 공유" 체크박스를 활성화해 주세요.',
+        'No audio track found. Please check "Share audio" when sharing the tab.'
+      ));
+      return false;
+    }
+
+    state.mediaStream = stream;
+    var audioStream = new MediaStream(audioTracks);
+    var mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+      ? 'audio/webm;codecs=opus' : 'audio/webm';
+    state.mediaRecorder = new MediaRecorder(audioStream, { mimeType: mimeType });
+
+    var chunks = [];
+    state.mediaRecorder.ondataavailable = function(e) {
+      if (e.data && e.data.size > 0) chunks.push(e.data);
+    };
+
+    // Process every 5 seconds
+    state.chunkTimer = setInterval(async function() {
+      if (!state.active) return;
+      state.mediaRecorder.stop();
+      await new Promise(function(r){ setTimeout(r, 100); });
+
+      if (chunks.length) {
+        var blob = new Blob(chunks, { type: mimeType });
+        chunks = [];
+        processGroqChunk(blob, groqKey);
+      }
+
+      state.mediaRecorder.start();
+    }, 5000);
+
+    state.mediaRecorder.start();
+    state.mode = 'groq';
+
+    // Stop if user stops sharing
+    stream.getVideoTracks()[0].onended = function() {
+      SubtitleSystem.stop();
+    };
+    return true;
+  }
+
+  async function processGroqChunk(blob, apiKey) {
+    try {
+      setSubtitleText(lp('번역 중…', 'Translating…'), true);
+      var form = new FormData();
+      form.append('file', blob, 'audio.webm');
+      form.append('model', 'whisper-large-v3');
+      form.append('language', 'ko');
+      form.append('response_format', 'text');
+
+      var res = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + apiKey },
+        body: form
+      });
+
+      if (!res.ok) {
+        var err = await res.text();
+        console.warn('[Subtitle] Groq error:', err);
+        return;
+      }
+      var korean = (await res.text()).trim();
+      if (!korean) { setSubtitleText('', false); return; }
+
+      var english = await translate(korean);
+      setSubtitleText(english, false);
+    } catch (e) {
+      console.warn('[Subtitle] processGroqChunk error:', e);
+    }
+  }
+
+  /* ── Mode 2: Browser SpeechRecognition (ko-KR) ── */
+  function startSpeechMode() {
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+      showError(lp(
+        'Chrome 브라우저에서만 지원됩니다.',
+        'AI Subtitles require Chrome browser.'
+      ));
+      return false;
+    }
+
+    state.recognition = new SR();
+    state.recognition.lang = 'ko-KR';
+    state.recognition.continuous = true;
+    state.recognition.interimResults = true;
+    state.recognition.maxAlternatives = 1;
+
+    state.recognition.onresult = async function(e) {
+      var interim = '';
+      var finals  = '';
+      for (var i = e.resultIndex; i < e.results.length; i++) {
+        var t = e.results[i][0].transcript;
+        if (e.results[i].isFinal) finals += t;
+        else interim += t;
+      }
+      if (finals) {
+        setSubtitleText(lp('번역 중…', 'Translating…'), true);
+        var en = await translate(finals);
+        setSubtitleText(en, false);
+      } else if (interim) {
+        setSubtitleText('…' + interim, true);
+      }
+    };
+    state.recognition.onerror = function(e) {
+      if (e.error === 'no-speech') return;
+      console.warn('[Subtitle] SR error:', e.error);
+    };
+    state.recognition.onend = function() {
+      if (state.active && state.mode === 'speech') {
+        try { state.recognition.start(); } catch(ex) {}
+      }
+    };
+
+    state.recognition.start();
+    state.mode = 'speech';
+    return true;
+  }
+
+  /* ── Error display ───────────────────────────── */
+  function showError(msg) {
+    setSubtitleText('⚠ ' + msg, false);
+    setTimeout(function(){ setSubtitleText('', false); }, 5000);
+  }
+
+  /* ── Guide modal ─────────────────────────────── */
+  function showGuide(callback) {
+    var groqKey = (window.LMS_CONFIG && window.LMS_CONFIG.groqApiKey) || '';
+    var modal = document.createElement('div');
+    modal.className = 'subtitle-guide-overlay';
+    modal.id = 'subtitleGuideModal';
+
+    var isEn = getLang() === 'en';
+
+    modal.innerHTML =
+      '<div class="subtitle-guide-box">' +
+      '<h3>🌐 ' + (isEn ? 'AI English Subtitle Setup' : 'AI 영어 자막 설정') + '</h3>' +
+      '<p>' + (isEn
+        ? 'Automatically transcribes Korean lecture audio and displays real-time English subtitles.'
+        : '한국어 강의 오디오를 자동으로 인식하여 영어 자막을 실시간으로 표시합니다.') + '</p>' +
+      '<ul class="subtitle-guide-steps">' +
+      '<li><span class="subtitle-guide-step-num">1</span>' +
+      (isEn
+        ? '<span>Enter your <strong>Groq API key</strong> below (free) for high-quality transcription. Or skip for microphone mode.</span>'
+        : '<span>아래에 <strong>Groq API 키</strong>를 입력하면 고품질 자막을 이용할 수 있습니다. 없으면 마이크 모드로 진행합니다.</span>') +
+      '</li>' +
+      '<li><span class="subtitle-guide-step-num">2</span>' +
+      (isEn
+        ? '<span><strong>Tab audio mode (Groq)</strong>: Click "Share Tab" in the popup and enable audio sharing.</span>'
+        : '<span><strong>탭 오디오 모드 (Groq)</strong>: 팝업에서 "탭 공유"를 선택하고 오디오 공유를 활성화하세요.</span>') +
+      '</li>' +
+      '<li><span class="subtitle-guide-step-num">3</span>' +
+      (isEn
+        ? '<span><strong>Microphone mode (no key)</strong>: Play video through speakers — the mic will pick up audio.</span>'
+        : '<span><strong>마이크 모드 (키 없음)</strong>: 스피커로 영상을 재생하면 마이크가 음성을 인식합니다.</span>') +
+      '</li>' +
+      '</ul>' +
+      '<div class="subtitle-guide-input-row">' +
+      '<input type="password" id="subtitleGroqInput" placeholder="' +
+      (isEn ? 'gsk_... (Groq API key — optional)' : 'gsk_... (Groq API 키 — 선택 사항)') +
+      '" value="' + groqKey + '" />' +
+      '</div>' +
+      '<p class="subtitle-api-hint"><a href="https://console.groq.com" target="_blank" rel="noopener" style="color:#60a5fa;">console.groq.com</a> ' +
+      (isEn ? '→ Free sign up → API Keys' : '→ 무료 가입 후 API Keys에서 발급') + '</p>' +
+      '<div class="subtitle-guide-actions">' +
+      '<button class="subtitle-btn-cancel" onclick="document.getElementById(\'subtitleGuideModal\').remove();">' +
+      (isEn ? 'Cancel' : '취소') + '</button>' +
+      '<button class="subtitle-btn-start" onclick="SubtitleSystem._confirmStart();">' +
+      (isEn ? 'Start Subtitles' : '자막 시작') + '</button>' +
+      '</div>' +
+      '</div>';
+
+    document.body.appendChild(modal);
+  }
+
+  /* ── Public API ──────────────────────────────── */
+  return {
+    toggle: function() {
+      if (state.active) {
+        this.stop();
+      } else {
+        showGuide();
+      }
+    },
+
+    _confirmStart: async function() {
+      var modal = document.getElementById('subtitleGuideModal');
+      var keyInput = document.getElementById('subtitleGroqInput');
+      var key = (keyInput ? keyInput.value.trim() : '') ||
+                (window.LMS_CONFIG && window.LMS_CONFIG.groqApiKey) || '';
+
+      if (modal) modal.remove();
+
+      // Store key for this session
+      state.groqKey = key;
+      if (window.LMS_CONFIG) window.LMS_CONFIG.groqApiKey = key;
+
+      state.active = true;
+      setOverlayVisible(true);
+      setCCBtnActive(true);
+
+      var ok = false;
+      if (key) {
+        ok = await startGroqMode(key);
+      } else {
+        ok = startSpeechMode();
+      }
+
+      if (!ok) {
+        state.active = false;
+        setOverlayVisible(false);
+        setCCBtnActive(false);
+      }
+    },
+
+    stop: function() {
+      state.active = false;
+      if (state.recognition) {
+        try { state.recognition.stop(); } catch(e) {}
+        state.recognition = null;
+      }
+      if (state.mediaRecorder) {
+        try { state.mediaRecorder.stop(); } catch(e) {}
+        state.mediaRecorder = null;
+      }
+      if (state.mediaStream) {
+        state.mediaStream.getTracks().forEach(function(t){ t.stop(); });
+        state.mediaStream = null;
+      }
+      clearInterval(state.chunkTimer);
+      clearTimeout(state.hideTimer);
+      state.mode = null;
+      setSubtitleText('', false);
+      setOverlayVisible(false);
+      setCCBtnActive(false);
+    },
+
+    /** Called whenever a lesson loads — shows/hides CC button */
+    updateVisibility: function() {
+      var btn = document.getElementById('subtitleCCBtn');
+      if (!btn) return;
+      var isEnglish  = (typeof getLang === 'function') && getLang() === 'en';
+      var videoVisible = document.getElementById('videoWrap') &&
+                         document.getElementById('videoWrap').style.display !== 'none';
+      btn.style.display = (isEnglish && videoVisible) ? 'inline-flex' : 'none';
+      // Auto-stop if switched to Korean
+      if (!isEnglish && state.active) this.stop();
+    }
+  };
+})();
+</script>
+
+<script>
+/* ── Language switch re-render hook for player ── */
+(function() {
+  var _origSetLang = window.setLang;
+  window.setLang = function(lang) {
+    _origSetLang(lang);
+    // Re-render player UI
+    if (STATE && STATE.courseId) {
+      document.getElementById('playerCourseTitle').textContent = lp(STATE.course.title, STATE.course.title_en || STATE.course.title);
+      document.title = lp(STATE.course.title, STATE.course.title_en || STATE.course.title) + ' — ' + lp('티움 러닝센터', 'TIEUM Learning Center');
+      renderSidebar();
+      if (STATE.lessonId) loadLesson(STATE.lessonId);
+      updateSidebarProgress();
+      if (typeof SubtitleSystem !== 'undefined') SubtitleSystem.updateVisibility();
+    }
+  };
+})();
+</script>
+</body>
+</html>

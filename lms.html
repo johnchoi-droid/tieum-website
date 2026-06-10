@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="티움 러닝센터(LMS). TMD 리더십 과정, 교수학습법 등 전문 온라인 교육 과정을 제공합니다." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="러닝센터 | 티움 LMS" />
+  <meta property="og:description" content="티움 러닝센터(LMS). TMD 리더십 과정, 교수학습법 등 전문 온라인 교육 과정을 제공합니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/lms.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>티움 러닝센터 — LMS</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" data-i18n="lms.nav.home">홈</a>
+      <a href="teaching.html" data-i18n="lms.nav.teaching">교수학습</a>
+      <a href="research.html" data-i18n="lms.nav.research">연구·데이터</a>
+      <a href="lms.html" class="nav-active" data-i18n="lms.nav.lms">러닝센터</a>
+      <a href="lms-workspace.html" data-i18n="lms.nav.pbl">PBL 워크스페이스</a>
+      <a href="newsletter.html" data-i18n="lms.nav.nl">뉴스레터</a>
+    </nav>
+          <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════ LMS HERO ═══════════════════════════════ -->
+<section class="lms-hero">
+  <div class="lms-hero-inner">
+    <div class="lms-hero-badge" data-i18n="lms.hero.badge">티움 러닝센터</div>
+    <h1 class="lms-hero-title" data-i18n-html="lms.hero.title">AI 시대의 교육<br>전문가 과정</h1>
+    <p class="lms-hero-sub" data-i18n="lms.hero.sub">교사·교육자·현장 전문가를 위한 온라인 심화 학습 플랫폼</p>
+    <div class="lms-hero-stats">
+      <div class="lms-stat"><span class="lms-stat-num">3</span><span class="lms-stat-label" data-i18n="lms.stat.courses">개 과정</span></div>
+      <div class="lms-stat-div"></div>
+      <div class="lms-stat"><span class="lms-stat-num">30</span><span class="lms-stat-label" data-i18n="lms.stat.lessons">개 강의</span></div>
+      <div class="lms-stat-div"></div>
+      <div class="lms-stat"><span class="lms-stat-num">10</span><span class="lms-stat-label" data-i18n="lms.stat.weeks">주 과정</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MAIN ═══════════════════════════════ -->
+<main class="lms-main" id="lmsMain">
+
+  <!-- 로그인 전: 잠김 배너 -->
+  <div class="lms-locked-banner" id="lmsLockedBanner">
+    <div class="lms-locked-inner">
+      <div class="lms-locked-icon">🔒</div>
+      <h2 class="lms-locked-title" data-i18n="lms.lock.title">수강 등록이 필요합니다</h2>
+      <p class="lms-locked-desc" data-i18n-html="lms.lock.desc">티움 러닝센터 과정은 수강 등록 후 이용하실 수 있습니다.<br>아래 버튼을 눌러 등록하거나, 이미 등록하신 분은 로그인해 주세요.</p>
+      <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()" data-i18n="lms.lock.btn">수강 등록 / 로그인</button>
+    </div>
+  </div>
+
+  <!-- 로그인 후: 코스 카탈로그 -->
+  <div class="lms-catalog" id="lmsCatalog" style="display:none;">
+
+    <!-- 상단: 환영 + 로그아웃 -->
+    <div class="lms-catalog-header">
+      <div>
+        <span class="lms-welcome-name" id="lmsWelcomeName"></span>님, 환영합니다!
+      </div>
+      <button class="lms-logout-btn" onclick="lmsLogout(); location.reload();">로그아웃</button>
+    </div>
+
+    <!-- 필터 탭 -->
+    <div class="lms-filter-tabs" id="lmsFilterTabs">
+      <button class="lms-filter-btn active" data-cat="all" onclick="filterCourses('all', this)" data-i18n="lms.filter.all">전체</button>
+      <button class="lms-filter-btn" data-cat="teaching" onclick="filterCourses('teaching', this)" data-i18n="lms.filter.teaching">교수학습법</button>
+      <button class="lms-filter-btn" data-cat="research" onclick="filterCourses('research', this)" data-i18n="lms.filter.research">연구·데이터</button>
+      <button class="lms-filter-btn" data-cat="leadership" onclick="filterCourses('leadership', this)" data-i18n="lms.filter.leadership">TMD 리더십</button>
+    </div>
+
+    <!-- 코스 그리드 -->
+    <div class="lms-course-grid" id="lmsCourseGrid"></div>
+
+  </div>
+</main>
+
+<!-- ═══════════════════════════════ LOGIN MODAL ═══════════════════════════════ -->
+<div class="modal-overlay" id="lmsLoginModal" onclick="if(event.target===this)closeLmsLogin()">
+  <div class="modal-box lms-login-box">
+    <button class="modal-close" onclick="closeLmsLogin()">✕</button>
+    <div class="lms-login-logo">🎓</div>
+    <h2 class="lms-login-title" data-i18n="lms.login.title">티움 러닝센터</h2>
+    <p class="lms-login-desc" data-i18n="lms.login.desc">수강 등록 코드와 함께 이름·이메일을 입력하세요.</p>
+    <form class="lms-login-form" onsubmit="lmsLoginSubmit(event)">
+      <div class="lf-group">
+        <label class="lf-label" data-i18n-html="lms.login.name">이름 <span class="req">*</span></label>
+        <input type="text" id="lmsName" class="lf-input" placeholder="홍길동" data-i18n-placeholder="form.ph.name" required maxlength="20" />
+      </div>
+      <div class="lf-group">
+        <label class="lf-label" data-i18n="lms.login.email">이메일</label>
+        <input type="email" id="lmsEmail" class="lf-input" placeholder="example@email.com" maxlength="80" />
+      </div>
+      <div class="lf-group">
+        <label class="lf-label" data-i18n-html="lms.login.code">수강 등록 코드 <span class="req">*</span></label>
+        <input type="password" id="lmsPassword" class="lf-input" placeholder="등록 코드 입력" data-i18n-placeholder="lms.login.code.ph" required />
+      </div>
+      <p class="lms-login-hint" data-i18n-html="lms.login.hint">수강 등록 코드는 티움 담당자에게 문의하세요.<br><a href="mailto:johnchoi&#64;tieum&#46;org">johnchoi&#64;tieum&#46;org</a></p>
+      <p class="lms-login-err" id="lmsLoginErr" style="display:none;" data-i18n="lms.login.err">등록 코드가 올바르지 않습니다.</p>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:4px;" data-i18n="lms.lock.btn">수강 등록 / 로그인</button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </div>
+    <p class="footer-copy" data-i18n-html="lms.footer.copy">
+      © 2026 사단법인 티움(TIEUM). All rights reserved. ·
+      <a href="terms.html" style="color:inherit;opacity:.7;text-decoration:underline;">이용약관</a> ·
+      <a href="privacy.html" style="color:inherit;opacity:.7;text-decoration:underline;">개인정보 처리방침</a> ·
+      <a href="copyright.html" style="color:inherit;text-decoration:underline;">저작권 보호 정책</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script src="assets/js/lms-data.js"></script>
+<script src="assets/js/lms-core.js"></script>
+<script>
+/* ── 초기화 ── */
+document.addEventListener('DOMContentLoaded', function () {
+  initLmsPage();
+
+  // 햄버거 메뉴
+  document.getElementById('hamburger').addEventListener('click', function () {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+});
+
+function initLmsPage() {
+  if (lmsIsLoggedIn()) {
+    showCatalog();
+  } else {
+    document.getElementById('lmsLockedBanner').style.display = 'block';
+    document.getElementById('lmsCatalog').style.display = 'none';
+  }
+}
+
+/* ── 카탈로그 렌더링 ── */
+function showCatalog() {
+  document.getElementById('lmsLockedBanner').style.display = 'none';
+  document.getElementById('lmsCatalog').style.display = 'block';
+  var user = lmsGetUser();
+  if (user) {
+    document.getElementById('lmsWelcomeName').textContent = user.name;
+    var lang2 = (typeof getLang === 'function') ? getLang() : 'ko';
+    var welcomeEl = document.querySelector('.lms-catalog-header > div');
+    if (welcomeEl) welcomeEl.innerHTML = '<span class="lms-welcome-name" id="lmsWelcomeName">' + user.name + '</span>' + (lang2 === 'en' ? ', welcome!' : '님, 환영합니다!');
+    var logoutBtn = document.querySelector('.lms-logout-btn');
+    if (logoutBtn) logoutBtn.textContent = lang2 === 'en' ? 'Log Out' : '로그아웃';
+  }
+  renderCourseGrid('all');
+}
+
+function renderCourseGrid(cat) {
+  var courses = lmsGetCourses().filter(function (c) {
+    return cat === 'all' || c.category === cat;
+  });
+  var grid = document.getElementById('lmsCourseGrid');
+  if (!courses.length) {
+    var lang3 = (typeof getLang === 'function') ? getLang() : 'ko';
+    grid.innerHTML = '<p class="lms-empty">' + (lang3 === 'en' ? 'No courses in this category.' : '해당 카테고리의 과정이 없습니다.') + '</p>';
+    return;
+  }
+  grid.innerHTML = courses.map(function (c) { return renderCourseCard(c); }).join('');
+}
+
+function renderCourseCard(course) {
+  var prog   = lmsGetCourseProgress(course.id);
+  var isDone = lmsIsCourseComplete(course.id);
+  var lang = (typeof getLang === 'function') ? getLang() : 'ko';
+  var levelMap = lang === 'en'
+    ? { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' }
+    : { beginner: '입문', intermediate: '중급', advanced: '고급' };
+  var levelLabel = levelMap[course.level] || course.level;
+  var firstLesson = lmsGetFlatLessons(course.id)[0];
+  var startUrl = firstLesson
+    ? 'lms-player.html?course=' + course.id + '&lesson=' + firstLesson.id
+    : '#';
+
+  return [
+    '<div class="lms-card" data-cat="' + course.category + '">',
+    '  <div class="lms-card-top" style="background:' + course.color + '">',
+    '    <div class="lms-card-level">' + levelLabel + '</div>',
+    '    <h3 class="lms-card-title">' + (lang==='en' && course.title_en ? course.title_en : course.title) + '</h3>',
+    '    <p class="lms-card-subtitle">' + (lang==='en' && course.subtitle_en ? course.subtitle_en : course.subtitle) + '</p>',
+    '    <div class="lms-card-duration">' + course.duration + '</div>',
+    '  </div>',
+    '  <div class="lms-card-body">',
+    '    <div class="lms-card-instructor">',
+    '      <span class="lms-instr-name">' + course.instructor.name + '</span>',
+    '      <span class="lms-instr-role">' + course.instructor.role + '</span>',
+    '    </div>',
+    '    <p class="lms-card-desc">' + (lang==='en' && course.description_en ? course.description_en : course.description) + '</p>',
+    '    <div class="lms-card-tags">' +
+         course.tags.map(function(t){ return '<span class="lms-tag">' + t + '</span>'; }).join('') +
+    '    </div>',
+    '    <div class="lms-card-progress">',
+    '      <div class="lms-prog-bar"><div class="lms-prog-fill" style="width:' + prog.pct + '%;background:' + course.color + '"></div></div>',
+    '      <span class="lms-prog-text">' + prog.done + ' / ' + prog.total + (lang==='en' ? ' lessons done' : '강 완료') + (isDone ? ' ✅' : '') + '</span>',
+    '    </div>',
+    '    <a href="' + startUrl + '" class="btn-primary lms-card-btn" style="background:' + course.color + ';border-color:' + course.color + '">',
+    '      ' + (lang==='en' ? (prog.done > 0 && !isDone ? 'Continue' : isDone ? 'Watch Again' : 'Start Learning') : (prog.done > 0 && !isDone ? '이어 학습하기' : isDone ? '다시 보기' : '학습 시작하기')),
+    '    </a>',
+    '  </div>',
+    '</div>'
+  ].join('\n');
+}
+
+function filterCourses(cat, btn) {
+  document.querySelectorAll('.lms-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderCourseGrid(cat);
+}
+
+/* ── Lang-change hook: updates welcome header + re-renders grid ── */
+function updateCatalogHeader() {
+  var user = lmsGetUser();
+  if (!user) return;
+  var lang2 = (typeof getLang === 'function') ? getLang() : 'ko';
+  var welcomeEl = document.querySelector('.lms-catalog-header > div');
+  if (welcomeEl) welcomeEl.innerHTML = '<span class="lms-welcome-name" id="lmsWelcomeName">' + user.name + '</span>' + (lang2 === 'en' ? ', welcome!' : '님, 환영합니다!');
+  var logoutBtn = document.querySelector('.lms-logout-btn');
+  if (logoutBtn) logoutBtn.textContent = lang2 === 'en' ? 'Log Out' : '로그아웃';
+}
+window.lmsOnLangChange = function() {
+  updateCatalogHeader();
+  var activeBtn = document.querySelector('.lms-filter-btn.active');
+  var cat = activeBtn ? activeBtn.getAttribute('data-cat') : 'all';
+  renderCourseGrid(cat);
+};
+
+/* ── 로그인 모달 ── */
+function openLmsLogin() {
+  document.getElementById('lmsLoginModal').classList.add('open');
+  setTimeout(function () { document.getElementById('lmsName').focus(); }, 100);
+}
+function closeLmsLogin() {
+  document.getElementById('lmsLoginModal').classList.remove('open');
+  document.getElementById('lmsLoginErr').style.display = 'none';
+}
+function lmsLoginSubmit(e) {
+  e.preventDefault();
+  var name  = document.getElementById('lmsName').value.trim();
+  var email = document.getElementById('lmsEmail').value.trim();
+  var pw    = document.getElementById('lmsPassword').value;
+  var errEl = document.getElementById('lmsLoginErr');
+  if (!name) return;
+  if (lmsLogin(name, email, pw)) {
+    closeLmsLogin();
+    showCatalog();
+  } else {
+    errEl.style.display = 'block';
+  }
+}
+</script>
+  <script src="assets/js/i18n-map.js"></script>
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>

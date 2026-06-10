@@ -1,0 +1,53 @@
+# ====================================================
+#  사단법인 티움 (TIEUM) — Apache 보안 설정
+#  배포 후 Apache 서버에서 자동 적용됩니다.
+# ====================================================
+
+# ---------- 1. HTTP → HTTPS 강제 리다이렉트 ----------
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ---------- 2. 보안 헤더 ----------
+<IfModule mod_headers.c>
+  # 클릭재킹 방지 (다른 사이트의 iframe에 삽입 불가)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # MIME 스니핑 방지
+  Header always set X-Content-Type-Options "nosniff"
+
+  # XSS 필터 활성화
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # 리퍼러 정보 최소 노출
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HTTPS 강제 유지 (1년)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # 불필요한 브라우저 기능 차단
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ---------- 3. 디렉터리 목록 노출 차단 ----------
+Options -Indexes
+
+# ---------- 4. 민감 파일 직접 접근 차단 ----------
+<FilesMatch "\.(htaccess|htpasswd|env|log|sh|bak|sql)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# ---------- 5. 서버 정보 숨기기 ----------
+ServerSignature Off
+
+# ---------- 6. 캐시 설정 (성능 + 보안) ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+</IfModule>
