@@ -939,14 +939,32 @@
   }
 
   /* ── Nav & shared selector translations ─────────── */
+  /* href 기반 매핑 — 메뉴 순서가 바뀌어도 라벨이 어긋나지 않음 */
+  function navKeyForHref(href) {
+    if (!href) return null;
+    const hashIdx = href.indexOf('#');
+    const hash = hashIdx >= 0 ? href.slice(hashIdx) : '';
+    if (hash === '#about')    return 'nav.about';
+    if (hash === '#academy')  return 'nav.academy';
+    if (hash === '#programs') return 'prog.title';
+    if (hash === '#outreach') return 'nav.outreach';
+    if (hash === '#support')  return 'nav.support';
+    if (href.indexOf('about.html')      >= 0) return 'nav.about';
+    if (href.indexOf('teaching.html')   >= 0) return 'teach.page.title';
+    if (href.indexOf('lms.html')        >= 0) return 'nav.lms';
+    if (href.indexOf('newsletter.html') >= 0) return 'nav.newsletter';
+    if (href.indexOf('news.html')       >= 0) return 'nav.news';
+    if (href === 'index.html')                return 'nav.home_about';
+    return null;
+  }
+
   function applyNav(lang) {
     const t = T[lang];
 
-    /* Nav links (by nth-child — consistent across all pages) */
-    const navItems = document.querySelectorAll('.nav-links .nav-item > a');
-    const navKeys = ['nav.about','nav.academy','nav.outreach','nav.news','nav.newsletter','nav.support'];
-    navItems.forEach((el, i) => {
-      if (navKeys[i]) el.textContent = t[navKeys[i]];
+    /* Nav links — matched by href, not position */
+    document.querySelectorAll('.nav-links .nav-item > a').forEach(el => {
+      const key = navKeyForHref(el.getAttribute('href'));
+      if (key && t[key] !== undefined) el.textContent = t[key];
     });
 
     /* Membership & donate buttons */
@@ -1071,14 +1089,12 @@
       if (!el.hasAttribute('data-i18n')) el.textContent = t['nav.lms'];
     });
 
-    /* Sub-page standalone nav links (about.html simple nav) */
-    const simpleNav = document.querySelectorAll('.nav-links .nav-item > a');
-    if (simpleNav.length > 0 && !simpleNav[0].hasAttribute('data-i18n')) {
-      const simpleKeys = ['nav.home_about', 'nav.about', 'prog.title', 'nav.outreach', 'teach.page.title', 'lms.nav.lms'];
-      simpleNav.forEach((el, i) => {
-        if (simpleKeys[i] && t[simpleKeys[i]]) el.textContent = t[simpleKeys[i]];
-      });
-    }
+    /* Sub-page standalone nav links — matched by href, not position */
+    document.querySelectorAll('.nav-links .nav-item > a').forEach(el => {
+      if (el.hasAttribute('data-i18n')) return;
+      const key = navKeyForHref(el.getAttribute('href'));
+      if (key && t[key] !== undefined) el.textContent = t[key];
+    });
 
     /* Standalone page: fm-mobile-title gets translated via data-i18n if set */
     /* Lang button active state (standalone pages) */

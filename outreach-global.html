@@ -336,31 +336,90 @@
 </head>
 <body>
 <header id="header">
-  <nav class="nav-container">
-    <a href="index.html" class="logo">
-      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
-      <span class="logo-kr">티움</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li class="nav-item"><a href="index.html#about">소개</a></li>
-      <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
-      <li class="nav-item"><a href="index.html#outreach" class="active">아웃리치</a></li>
-      <li class="nav-item"><a href="lms.html">러닝센터</a></li>
-      <li class="nav-item"><a href="news.html">소식</a></li>
-      <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
-      <li class="nav-item"><a href="index.html#support">후원</a></li>
-    </ul>
-    <a href="index.html#support" class="btn-donate">후원하기</a>
-    <div class="lang-switcher">
-      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
-      <span class="lang-sep">|</span>
-      <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+        <span class="logo-kr">티움</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="index.html#about">소개</a></li>
+        <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
+        <li class="nav-item"><a href="index.html#outreach" class="active">아웃리치</a></li>
+        <li class="nav-item"><a href="lms.html">러닝센터</a></li>
+        <li class="nav-item"><a href="news.html">소식</a></li>
+        <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
+        <li class="nav-item"><a href="index.html#support">후원</a></li>
+      </ul>
+      <a href="index.html#support" class="btn-donate">후원하기</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===== MEGA MENU PANEL ===== -->
+    <div class="mega-panel" id="megaPanel">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <p class="mega-col-title">소개</p>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+            <li><a href="index.html#history">연혁</a></li>
+            <li><a href="index.html#partners">함께하는 곳</a></li>
+            <li><a href="index.html#location">찾아오시는 길</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아카데미</p>
+          <ul>
+            <li><a href="index.html#academy">공지사항</a></li>
+            <li><a href="index.html#future-makers">TFM Academy</a></li>
+            <li><a href="index.html#future-academy">제1기 미래아카데미</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 Data</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아웃리치</p>
+          <ul>
+            <li><a href="outreach-tieum-global.html">티움 글로벌</a></li>
+            <li><a href="outreach-vision-camp.html">비전캠프</a></li>
+            <li><a href="outreach-global.html">글로벌 아웃리치</a></li>
+            <li><a href="outreach-gyeonmidan.html">견미단 × 프로라이프</a></li>
+            <li><a href="outreach-prolife2.html">청소년 프로라이프</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">소식</p>
+          <ul>
+            <li><a href="news.html">전체 소식</a></li>
+            <li><a href="news.html">교수학습 소식</a></li>
+            <li><a href="news.html">연구·데이터</a></li>
+            <li><a href="news.html">러닝센터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">뉴스레터</p>
+          <ul>
+            <li><a href="newsletter.html">뉴스레터 전체 보기</a></li>
+          </ul>
+          <p class="mega-col-title" style="margin-top:24px;">후원</p>
+          <ul>
+            <li><a href="index.html#support">정기 후원</a></li>
+            <li><a href="index.html#support">일시 후원</a></li>
+            <li><a href="index.html#contact">파트너 문의</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+  </header>
 <script>if(window.self!==window.top){document.getElementById('header').style.display='none';}</script>
 
 <div class="fm-page">
