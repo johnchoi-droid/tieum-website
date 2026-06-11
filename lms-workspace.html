@@ -343,58 +343,6 @@ function wsLoad() {
 function wsSave(posts) { localStorage.setItem(WS_KEY, JSON.stringify(posts)); }
 function wsGetPost(id) { return wsLoad().find(function(p){ return p.id === id; }); }
 
-/* 시드 데이터 (처음 방문 시 한 번만 삽입) */
-var WS_SEEDED_KEY = 'tieum_ws_seeded';
-function seedIfEmpty() {
-  if (localStorage.getItem(WS_SEEDED_KEY)) return;
-  localStorage.setItem(WS_SEEDED_KEY, '1');
-  var now = Date.now();
-  wsSave([
-    {
-      id: 'seed_1', title: 'AI 활용 플립러닝 수업 설계 — 네팔 현지 교사 교육',
-      desc: '카트만두 교사 연수를 위해 설계된 AI 활용 플립러닝 커리큘럼. 현지 언어로 제작된 사전 학습 영상과 PBL 활동지를 포함합니다.',
-      embedUrl: '', thumbnailUrl: '', weekTag: '2주차',
-      tags: ['플립러닝', '네팔', '교사연수'],
-      author: '최주안', createdAt: now - 86400000*5,
-      likes: ['이은혜', '홍민준'], comments: [
-        { id:'c1', author:'홍민준', text:'네팔 현지 언어 자료까지 준비하셨네요! 현장 적용 시 언어 장벽 극복 방법이 인상 깊었습니다.', createdAt: now - 86400000*4 }
-      ]
-    },
-    {
-      id: 'seed_2', title: 'TMD 리더십 역량 개발 PBL 프레임워크',
-      desc: 'Talent·Mindset·Dedication 각 역량을 8주 과정으로 체계적으로 개발하는 PBL 프로그램 설계안. 성찰 일지와 동료 평가 루브릭 포함.',
-      embedUrl: 'https://docs.google.com/presentation/d/example_id/edit',
-      thumbnailUrl: '', weekTag: '3주차',
-      tags: ['TMD', 'PBL', '리더십훈련'],
-      author: '이은혜', createdAt: now - 86400000*3,
-      likes: ['최주안', '김미래'], comments: []
-    },
-    {
-      id: 'seed_3', title: '다음 세대 미디어 교육 기획안 — 릴스·유튜브 전략',
-      desc: 'Z세대를 위한 단편 영상 교육 콘텐츠 기획. 스토리텔링 기법과 SNS 알고리즘을 교육에 적용하는 방법론을 시각적으로 제시합니다.',
-      embedUrl: 'https://www.canva.com/design/example/view',
-      thumbnailUrl: '', weekTag: '4주차',
-      tags: ['미디어교육', '유튜브', '스토리텔링'],
-      author: '김미래', createdAt: now - 86400000*1,
-      likes: ['최주안', '이은혜', '홍민준', '박교사'],
-      comments: [
-        { id:'c2', author:'이은혜', text:'릴스 편집 방법론이 구체적이어서 바로 현장 적용이 가능할 것 같아요!', createdAt: now - 86400000*0.8 },
-        { id:'c3', author:'최주안', text:'Z세대의 언어로 가치를 전달하는 접근법이 탁월합니다. 다음 주 강의에서 사례로 소개하고 싶네요.', createdAt: now - 86400000*0.5 }
-      ]
-    },
-    {
-      id: 'seed_4', title: '레바논 난민 캠프 교육 PBL — 트라우마 인식 교수법',
-      desc: '분쟁 지역 어린이를 위한 트라우마 인식 교수법(TIE)과 PBL을 통합한 교육 프로그램. UNHCR 지침을 반영한 안전한 학습 환경 설계안.',
-      embedUrl: '', thumbnailUrl: '', weekTag: '3주차',
-      tags: ['레바논', '난민교육', 'PBL', '트라우마'],
-      author: '홍민준', createdAt: now - 86400000*2,
-      likes: ['최주안', '이은혜'],
-      comments: [
-        { id:'c4', author:'최주안', text:'트라우마 인식 접근법이 매우 중요한 관점입니다. 구체적 실행 지침이 큰 도움이 됩니다.', createdAt: now - 86400000*1.5 }
-      ]
-    }
-  ]);
-}
 
 /* ════════ 렌더링 ════════ */
 function renderCard(post) {
@@ -703,7 +651,6 @@ function addWsComment(postId) {
 
 /* ════════ 초기화 ════════ */
 document.addEventListener('DOMContentLoaded', function () {
-  seedIfEmpty();
   renderGrid();
 
   /* 햄버거 메뉴는 main.js 에서 처리 */
