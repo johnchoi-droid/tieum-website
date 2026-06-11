@@ -297,12 +297,18 @@
     }
 
     openModal('modalOverlay');
+    history.pushState(null, '', '#' + id);
     render();
   };
 
-  document.getElementById('modalClose').addEventListener('click', () => closeModal('modalOverlay'));
+  function closePostModal() {
+    closeModal('modalOverlay');
+    history.pushState(null, '', location.pathname + location.search);
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closePostModal);
   document.getElementById('modalOverlay').addEventListener('click', e => {
-    if (e.target.id === 'modalOverlay') closeModal('modalOverlay');
+    if (e.target.id === 'modalOverlay') closePostModal();
   });
 
   /* ════════════════════════════════════════════════
@@ -615,7 +621,8 @@
 
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    ['modalOverlay','writeModal','adminLoginModal'].forEach(closeModal);
+    closePostModal();
+    ['writeModal','adminLoginModal'].forEach(closeModal);
   });
 
   /* ── HTML 이스케이프 ─────────────────────────────── */
@@ -631,5 +638,9 @@
   buildWriteModal();
   buildLoginModal();
   render();
+
+  // URL 해시로 직접 게시물 열기 (예: news.html#news-r1)
+  const _initHash = location.hash.slice(1);
+  if (_initHash) setTimeout(() => bOpenPost(_initHash), 50);
 
 })();
