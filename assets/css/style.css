@@ -1619,10 +1619,12 @@ html[lang="en"] .hero-title em {
   margin-bottom: 12px;
   width: fit-content;
 }
-.badge-outreach { background: rgba(45,110,196,.1); color: #2d6ec4; }
-.badge-academy  { background: rgba(56,161,105,.1); color: #276749; }
-.badge-support  { background: rgba(159,122,234,.1); color: #6b46c1; }
-.badge-camp     { background: rgba(192,86,33,.12);  color: #c05621; }
+.badge-outreach  { background: rgba(45,110,196,.1);  color: #2d6ec4; }
+.badge-academy   { background: rgba(56,161,105,.1);  color: #276749; }
+.badge-support   { background: rgba(159,122,234,.1); color: #6b46c1; }
+.badge-camp      { background: rgba(192,86,33,.12);  color: #c05621; }
+.badge-teaching  { background: rgba(49,151,149,.1);  color: #2c7a7b; }
+.badge-lms       { background: rgba(102,126,234,.12); color: #4c51bf; }
 .news-body h3 {
   font-size: 1rem;
   font-weight: 700;

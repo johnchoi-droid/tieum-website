@@ -985,68 +985,30 @@
         <h2 class="section-title" data-i18n="news.title">티움 최신 소식</h2>
         <a href="news.html" class="btn-text" data-i18n="news.more">모든 소식 보기 →</a>
       </div>
-      <div class="news-grid">
-
-        <article class="news-card news-featured news-newsletter-card fade-in">
-          <div class="news-newsletter-accent"></div>
-          <div class="news-body">
-            <span class="news-badge badge-newsletter" data-i18n="news.badge.nl">📮 뉴스레터</span>
-            <h3 data-i18n="news.nl.h">티움 정기 뉴스레터 — 매월 발행</h3>
-            <p data-i18n="news.nl.p">사단법인 티움이 한 달 동안 걸어온 발걸음을 후원자 여러분과 나눕니다. 교육 활동 현장 소식, 캠프 준비 이야기, 감사 보고를 매달 전합니다.</p>
-            <div class="news-meta">
-              <time data-i18n="news.nl.time">매월 발행</time>
-              <a href="newsletter.html" class="news-link" data-i18n="news.nl.link">전체 보기 →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card fade-in">
-          <div class="news-img news-img-2"></div>
-          <div class="news-body">
-            <span class="news-badge badge-outreach">아웃리치</span>
-            <h3>동남아시아 교육 활동 보고</h3>
-            <p>티움 글로벌 팀이 동남아시아 3개국에서 AI 교육 활동을 성황리에 마쳤습니다.</p>
-            <div class="news-meta">
-              <time>2025. 05. 15</time>
-              <!-- 자세히 보기 href = news.html#<게시물id> 형식 유지 -->
-              <a href="news.html#news-r1" class="news-link" data-i18n="prog.more">자세히 보기 →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card fade-in">
-          <div class="news-img news-img-3"></div>
-          <div class="news-body">
-            <span class="news-badge badge-academy">아카데미</span>
-            <h3 data-i18n="news.ac.h">교수학습법 워크숍 — AI 수업 설계 특강</h3>
-            <p data-i18n="news.ac.p">현직 교사·교육자 대상 AI 활용 수업 설계 특강이 6월 21일 개최됩니다. 사전 등록을 받습니다.</p>
-            <div class="news-meta">
-              <time>2025. 05. 08</time>
-              <!-- 자세히 보기 href = news.html#<게시물id> 형식 유지 -->
-              <a href="news.html#news-t2" class="news-link">자세히 보기 →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card fade-in">
-          <div class="news-body" style="padding-top:24px;">
-            <span class="news-badge badge-camp" data-i18n="news.badge.camp">청소년 캠프</span>
-            <h3 data-i18n="news.camp.h">双核觉醒 쌍핵각성 — 연길 조선족 청소년 제주 캠프</h3>
-            <p data-i18n="news.camp.p">중국 연길 거주 조선족 청소년(초4~중3)을 위한 3박 4일 몰입형 정체성·AI 진로 캠프. 두 개의 정체성을 강점으로 전환하는 여섯 가지 연결 프로그램으로 구성됩니다.</p>
-            <ul style="margin:10px 0 12px;padding-left:18px;font-size:.88rem;color:#4a5568;line-height:1.75;">
-              <li data-i18n="news.camp.li1">📅 2026년 7월 13일(월) ~ 16일(목) · 3박 4일</li>
-              <li data-i18n="news.camp.li2">📍 제주도 (펄 호텔 + SW미래채움 AI교육캠퍼스)</li>
-              <li data-i18n="news.camp.li3">👦 초등 4학년 ~ 중학 3학년 · 선착순 25명</li>
-              <li data-i18n="news.camp.li4">🎓 총괄 코치: 고봉익 대표 (TMD교육그룹 · 티움 이사장)</li>
-            </ul>
-            <div class="news-meta">
-              <time>2026. 05. 30</time>
-              <a href="javascript:void(0)" class="news-link" onclick="openCampModal()" data-i18n="prog.more">자세히 보기 →</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
+      <div class="news-grid" id="newsGrid"></div>
+      <script src="assets/js/news-data.js"></script>
+      <script>
+      (function () {
+        var posts = (window.NEWS_POSTS || []).slice()
+          .sort(function (a, b) { return b.date.localeCompare(a.date); })
+          .slice(0, 4);
+        var grid = document.getElementById('newsGrid');
+        if (!grid || !posts.length) return;
+        grid.innerHTML = posts.map(function (p) {
+          return '<article class="news-card fade-in">'
+            + '<div class="news-body">'
+            + '<span class="news-badge badge-' + p.category + '">' + p.categoryLabel + '</span>'
+            + '<h3>' + p.title + '</h3>'
+            + '<p>' + (p.summary || '') + '</p>'
+            + '<div class="news-meta">'
+            + '<time>' + p.date + '</time>'
+            + '<a href="news.html#' + p.id + '" class="news-link">자세히 보기 →</a>'
+            + '</div>'
+            + '</div>'
+            + '</article>';
+        }).join('');
+      })();
+      </script>
     </div>
   </section>
 
