@@ -55,6 +55,11 @@
       'mega.col5.l3': '일시 후원',
       'mega.col5.l4': '파트너 문의',
 
+      'mega.lms.title': '러닝센터',
+      'mega.lms.l1': '러닝센터 홈',
+      'mega.lms.l2': 'PBL 프로그램',
+      'mega.lms.l3': '워크스페이스',
+
       /* ── index.html — Hero ── */
       'hero.label':   '사단법인 티움 | TIEUM',
       'hero.title':   '인공지능 시대,<br /><em>교육으로 세상을</em><br />변화시킵니다',
@@ -500,6 +505,11 @@
       'mega.col5.l2': 'Regular Donation',
       'mega.col5.l3': 'One-time Donation',
       'mega.col5.l4': 'Partner Inquiry',
+
+      'mega.lms.title': 'Learning Center',
+      'mega.lms.l1': 'Learning Center Home',
+      'mega.lms.l2': 'PBL Programs',
+      'mega.lms.l3': 'Workspace',
 
       /* ── Hero ── */
       'hero.label':   'TIEUM Nonprofit Foundation',
@@ -972,38 +982,58 @@
     document.querySelectorAll('.btn-donate').forEach(el => el.textContent = t['nav.donate']);
     document.querySelectorAll('.btn-lms-shortcut').forEach(el => el.textContent = t['nav.lms']);
 
-    /* Mega menu columns */
-    const cols = document.querySelectorAll('.mega-col');
-    if (cols.length >= 5) {
-      // Col 1
-      const c1 = cols[0];
-      setText(c1, '.mega-col-title', t['mega.col1.title']);
-      setLinks(c1, [t['mega.col1.l1'],t['mega.col1.l2'],t['mega.col1.l3'],t['mega.col1.l4'],t['mega.col1.l5'],t['mega.col1.l6'],t['mega.col1.l7']]);
+    /* Mega menu columns — identified by link content, not position,
+       so adding/removing/reordering columns never causes label↔link drift. */
+    document.querySelectorAll('.mega-col').forEach(col => {
+      switch (megaColType(col)) {
+        case 'about':
+          setText(col, '.mega-col-title', t['mega.col1.title']);
+          setLinks(col, [t['mega.col1.l1'],t['mega.col1.l2'],t['mega.col1.l3'],t['mega.col1.l4'],t['mega.col1.l5'],t['mega.col1.l6'],t['mega.col1.l7']]);
+          break;
+        case 'academy':
+          setText(col, '.mega-col-title', t['mega.col2.title']);
+          setLinks(col, [t['mega.col2.l1'],t['mega.col2.l2'],t['mega.col2.l3'],t['mega.col2.l4'],t['mega.col2.l5'],t['mega.col2.l6']]);
+          break;
+        case 'outreach':
+          setText(col, '.mega-col-title', t['mega.col3.title']);
+          setLinks(col, [t['mega.col3.l1'],t['mega.col3.l2'],t['mega.col3.l3'],t['mega.col3.l4'],t['mega.col3.l5']]);
+          break;
+        case 'lms':
+          setText(col, '.mega-col-title', t['mega.lms.title']);
+          setLinks(col, [t['mega.lms.l1'],t['mega.lms.l2'],t['mega.lms.l3']]);
+          break;
+        case 'news':
+          setText(col, '.mega-col-title', t['mega.col4.title']);
+          setLinks(col, [t['mega.col4.l1'],t['mega.col4.l2'],t['mega.col4.l3']]);
+          break;
+        case 'newsletter': {
+          const titles = col.querySelectorAll('.mega-col-title');
+          if (titles[0]) titles[0].textContent = t['mega.col5.title1'];
+          if (titles[1]) titles[1].textContent = t['mega.col5.title2'];
+          const uls = col.querySelectorAll('ul');
+          if (uls[0]) setUlLinks(uls[0], [t['mega.col5.l1']]);
+          if (uls[1]) setUlLinks(uls[1], [t['mega.col5.l2'],t['mega.col5.l3'],t['mega.col5.l4']]);
+          break;
+        }
+      }
+    });
+  }
 
-      // Col 2
-      const c2 = cols[1];
-      setText(c2, '.mega-col-title', t['mega.col2.title']);
-      setLinks(c2, [t['mega.col2.l1'],t['mega.col2.l2'],t['mega.col2.l3'],t['mega.col2.l4'],t['mega.col2.l5'],t['mega.col2.l6']]);
-
-      // Col 3
-      const c3 = cols[2];
-      setText(c3, '.mega-col-title', t['mega.col3.title']);
-      setLinks(c3, [t['mega.col3.l1'],t['mega.col3.l2'],t['mega.col3.l3'],t['mega.col3.l4'],t['mega.col3.l5']]);
-
-      // Col 4
-      const c4 = cols[3];
-      setText(c4, '.mega-col-title', t['mega.col4.title']);
-      setLinks(c4, [t['mega.col4.l1'],t['mega.col4.l2'],t['mega.col4.l3'],t['mega.col4.l4']]);
-
-      // Col 5
-      const c5 = cols[4];
-      const c5Titles = c5.querySelectorAll('.mega-col-title');
-      if (c5Titles[0]) c5Titles[0].textContent = t['mega.col5.title1'];
-      if (c5Titles[1]) c5Titles[1].textContent = t['mega.col5.title2'];
-      const c5Uls = c5.querySelectorAll('ul');
-      if (c5Uls[0]) setUlLinks(c5Uls[0], [t['mega.col5.l1']]);
-      if (c5Uls[1]) setUlLinks(c5Uls[1], [t['mega.col5.l2'],t['mega.col5.l3'],t['mega.col5.l4']]);
-    }
+  /* Classify a mega-col by the href of its first link. */
+  function megaColType(col) {
+    const a = col.querySelector('ul li a');
+    if (!a) return null;
+    const href = a.getAttribute('href') || '';
+    if (href.indexOf('lms') >= 0)            return 'lms';
+    if (href.indexOf('outreach') >= 0)       return 'outreach';
+    if (href.indexOf('newsletter') >= 0)     return 'newsletter';
+    if (href.indexOf('news.html') >= 0)      return 'news';
+    if (href.indexOf('#academy') >= 0 ||
+        href.indexOf('teaching') >= 0)       return 'academy';
+    if (href.indexOf('#about') >= 0 ||
+        href.indexOf('about.html') >= 0 ||
+        href.indexOf('index.html') >= 0)     return 'about';
+    return null;
   }
 
   function setText(container, selector, value) {
