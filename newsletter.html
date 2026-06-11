@@ -23,28 +23,31 @@
 <body>
 
 <!-- ══════════════ HEADER ══════════════ -->
-<header class="site-header">
-  <div class="header-inner">
+<header id="header">
+  <nav class="nav-container">
     <a href="index.html" class="logo">
       <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
       <span class="logo-kr">티움</span>
     </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html">홈</a>
-      <a href="teaching.html">교수학습</a>
-      <a href="research.html">연구·데이터</a>
-      <a href="lms.html">러닝센터</a>
-      <a href="newsletter.html" class="nav-active">뉴스레터</a>
-    </nav>
-          <div class="lang-switcher">
-        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
-        <span class="lang-sep">|</span>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item"><a href="index.html#about">소개</a></li>
+      <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
+      <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
+      <li class="nav-item"><a href="lms.html">러닝센터</a></li>
+      <li class="nav-item"><a href="news.html">소식</a></li>
+      <li class="nav-item"><a href="newsletter.html" class="active">뉴스레터</a></li>
+      <li class="nav-item"><a href="index.html#support">후원</a></li>
+    </ul>
+    <a href="index.html#support" class="btn-donate">후원하기</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
-  </div>
+  </nav>
 </header>
 
 <!-- ══════════════ HERO ══════════════ -->

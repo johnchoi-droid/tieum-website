@@ -15,7 +15,7 @@
       'nav.support':     '후원',
       'nav.membership':  '멤버십 가입',
       'nav.donate':      '후원하기',
-      'nav.lms':         '🎓 러닝센터 바로가기',
+      'nav.lms': '러닝센터',
 
       /* ── Mega menu cols ── */
       'mega.col1.title': '소개',
@@ -461,7 +461,7 @@
       'nav.support':     'Support',
       'nav.membership':  'Join Membership',
       'nav.donate':      'Donate',
-      'nav.lms':         '🎓 Learning Center',
+      'nav.lms': 'Learning Center',
 
       /* ── Mega menu cols ── */
       'mega.col1.title': 'About',

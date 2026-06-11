@@ -335,17 +335,33 @@
   <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
 </head>
 <body>
-  <div style="position:fixed;top:12px;right:16px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.9);border-radius:20px;padding:4px 12px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:.78rem;">
-    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#1b4f8a;padding:2px 4px;">한국어</button>
-    <span style="color:#ccc;">|</span>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')" style="background:none;border:none;cursor:pointer;font-weight:600;color:#666;padding:2px 4px;">English</button>
-  </div>
-
-<!-- 모바일용 뒤로가기 헤더 -->
-<div class="fm-mobile-header">
-  <button class="fm-back-btn" onclick="goBack()">‹</button>
-  <span class="fm-mobile-title">TFM Academy — 창의융합과정</span>
-</div>
+<header id="header">
+  <nav class="nav-container">
+    <a href="index.html" class="logo">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item"><a href="index.html#about">소개</a></li>
+      <li class="nav-item"><a href="index.html#academy" class="active">아카데미</a></li>
+      <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
+      <li class="nav-item"><a href="lms.html">러닝센터</a></li>
+      <li class="nav-item"><a href="news.html">소식</a></li>
+      <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
+      <li class="nav-item"><a href="index.html#support">후원</a></li>
+    </ul>
+    <a href="index.html#support" class="btn-donate">후원하기</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<script>if(window.self!==window.top){document.getElementById('header').style.display='none';}</script>
 
 <div class="fm-page">
 
@@ -607,5 +623,6 @@ function goBack() {
 </script>
   <script src="assets/js/i18n-map.js"></script>
   <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
 </body>
 </html>
