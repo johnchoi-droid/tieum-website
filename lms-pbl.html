@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" /><!-- 검토 배포용: 정식 오픈 전 이 줄 삭제 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="PBL 실전 프로젝트 | 티움 러닝센터" />
+  <meta property="og:description" content="교수학습법·데이터·TMD 리더십을 융합한 실천 지향 캡스톤 과정. 현장의 교육적 과제를 직접 해결하고 결과물을 도출하는 PBL(프로젝트 기반 학습) 과정입니다." />
+  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:url"         content="https://tieum.org/lms-pbl.html" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>PBL 실전 프로젝트 — 티움 러닝센터</title>
+  <meta name="description" content="교수학습법·데이터·TMD 리더십을 융합한 실천 지향 캡스톤 과정. 현장의 교육적 과제를 직접 해결하고 결과물을 도출하는 PBL(프로젝트 기반 학습) 과정입니다." />
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/images/tieum-logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/tieum-logo.png" />
+
+  <!-- ===== PBL 전용 스타일 (페이지 한정) ===== -->
+  <style>
+    /* breadcrumb in hero */
+    .pbl-crumb { font-size:.82rem; opacity:.8; margin-bottom:18px; }
+    .pbl-crumb a { color:#fff; opacity:.85; }
+    .pbl-crumb a:hover { opacity:1; text-decoration:underline; }
+    .pbl-crumb .sep { margin:0 8px; opacity:.6; }
+
+    /* 통합 흐름 필터 바 (시각화) */
+    .pbl-flow {
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+      gap:10px; margin: 0 auto 12px; max-width:860px;
+    }
+    .pbl-flow-chip {
+      background:#fff; border:1.5px solid var(--border); border-radius:24px;
+      padding:8px 20px; font-size:.88rem; font-weight:500; color:var(--text-2);
+    }
+    .pbl-flow-chip.is-pbl {
+      background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700;
+      box-shadow:0 6px 18px rgba(245,166,35,.35);
+    }
+    .pbl-flow-arrow { color:var(--text-3); font-weight:700; }
+    .pbl-flow-caption { text-align:center; color:var(--text-3); font-size:.88rem; margin-bottom:44px; }
+
+    /* 대표 프로젝트 카드 */
+    .pbl-feature {
+      background:#fff; border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
+      overflow:hidden; max-width:780px; margin:0 auto;
+    }
+    .pbl-feature-top {
+      background:linear-gradient(135deg,#c05621 0%,#F5A623 100%);
+      color:#fff; padding:34px 34px 30px;
+    }
+    .pbl-badges { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+    .pbl-badge {
+      display:inline-block; background:rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.45); border-radius:14px;
+      padding:4px 14px; font-size:.76rem; font-weight:700; letter-spacing:.04em;
+    }
+    .pbl-feature-title { font-size:clamp(1.3rem,3.2vw,1.75rem); font-weight:800; line-height:1.35; }
+    .pbl-feature-body { padding:30px 34px 34px; }
+    .pbl-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+    .pbl-tag { background:rgba(245,166,35,.12); color:#b7690e; border-radius:14px; padding:4px 13px; font-size:.8rem; font-weight:600; }
+    .pbl-feature-desc { color:var(--text-2); line-height:1.85; font-size:1rem; }
+    .pbl-note {
+      margin-top:22px; padding:16px 20px; background:var(--bg-light);
+      border-left:3px solid var(--accent); border-radius:8px;
+      font-size:.92rem; color:var(--text-2); line-height:1.7;
+    }
+
+    /* 인트로 리드 문장 */
+    .pbl-lead { max-width:760px; margin:0 auto 8px; color:var(--text-2); line-height:1.85; font-size:1rem; text-align:center; }
+    .pbl-lead strong { color:var(--primary); }
+
+    /* 주차별 타임라인 */
+    .pbl-weeks { display:flex; flex-direction:column; gap:18px; max-width:840px; margin:40px auto 0; }
+    .pbl-week {
+      display:flex; gap:22px; background:#fff; border-radius:var(--radius-md);
+      box-shadow:var(--shadow-sm); padding:26px 28px; border-left:4px solid var(--primary);
+    }
+    .pbl-week-num { flex-shrink:0; width:62px; text-align:center; }
+    .pbl-week-w { font-size:1.5rem; font-weight:800; color:var(--primary); font-family:'Montserrat',sans-serif; line-height:1; }
+    .pbl-week-wlabel { font-size:.7rem; color:var(--text-3); display:block; margin-top:4px; }
+    .pbl-week-body { flex:1; }
+    .pbl-phase {
+      display:inline-block; background:rgba(27,79,138,.08); color:var(--primary);
+      border-radius:10px; padding:3px 11px; font-size:.75rem; font-weight:700; margin-bottom:8px;
+    }
+    .pbl-week-body h4 { font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:6px; }
+    .pbl-week-body p { font-size:.92rem; color:var(--text-2); line-height:1.7; }
+    .pbl-week-body .eg { color:var(--text-3); font-size:.88rem; }
+
+    /* 운영 고려사항 카드 */
+    .pbl-considers { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1040px; margin:40px auto 0; }
+    .pbl-consider {
+      background:#fff; border-radius:var(--radius-md); box-shadow:var(--shadow-sm);
+      padding:30px 28px; border-top:4px solid var(--accent);
+    }
+    .pbl-consider-icon { font-size:1.9rem; margin-bottom:14px; }
+    .pbl-consider h4 { font-size:1.08rem; font-weight:700; color:var(--text); margin-bottom:12px; line-height:1.4; }
+    .pbl-consider p { font-size:.9rem; color:var(--text-2); line-height:1.75; }
+    .pbl-consider .rubric-eg { margin-top:12px; padding-left:0; }
+    .pbl-consider .rubric-eg li {
+      position:relative; padding-left:18px; margin-bottom:7px; font-size:.88rem; color:var(--text-2);
+    }
+    .pbl-consider .rubric-eg li::before { content:"✓"; position:absolute; left:0; color:var(--accent-dk); font-weight:700; }
+
+    /* CTA */
+    .pbl-cta { text-align:center; }
+    .pbl-cta h2 { font-size:clamp(1.4rem,3vw,1.9rem); font-weight:800; margin-bottom:14px; }
+    .pbl-cta p { color:var(--text-2); margin-bottom:26px; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.75; }
+    .pbl-cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+    @media (max-width:640px){
+      .pbl-week { flex-direction:row; gap:16px; padding:22px 20px; }
+      .pbl-week-num { width:48px; }
+      .pbl-feature-top, .pbl-feature-body { padding-left:24px; padding-right:24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+<header id="header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+        <span class="logo-kr">티움</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="index.html#about">소개</a></li>
+        <li class="nav-item"><a href="index.html#academy">아카데미</a></li>
+        <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
+        <li class="nav-item"><a href="lms.html" class="active">러닝센터</a></li>
+        <li class="nav-item"><a href="news.html">소식</a></li>
+        <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
+        <li class="nav-item"><a href="index.html#support">후원</a></li>
+      </ul>
+      <a href="index.html#support" class="btn-donate">후원하기</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===== MEGA MENU PANEL ===== -->
+    <div class="mega-panel" id="megaPanel">
+      <div class="mega-inner">
+        <div class="mega-col">
+          <p class="mega-col-title">소개</p>
+          <ul>
+            <li><a href="index.html#about">티움이란</a></li>
+            <li><a href="index.html#vision">비전 &amp; 미션</a></li>
+            <li><a href="index.html#greeting">이사장 인사말</a></li>
+            <li><a href="index.html#team">함께하는 사람들</a></li>
+            <li><a href="index.html#history">연혁</a></li>
+            <li><a href="index.html#partners">함께하는 곳</a></li>
+            <li><a href="index.html#location">찾아오시는 길</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아카데미</p>
+          <ul>
+            <li><a href="index.html#academy">공지사항</a></li>
+            <li><a href="index.html#future-makers">TFM Academy</a></li>
+            <li><a href="index.html#future-academy">제1기 미래아카데미</a></li>
+            <li><a href="teaching.html">교수학습법</a></li>
+            <li><a href="research.html">연구 Data</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">아웃리치</p>
+          <ul>
+            <li><a href="outreach-tieum-global.html">티움 글로벌</a></li>
+            <li><a href="outreach-vision-camp.html">비전캠프</a></li>
+            <li><a href="outreach-global.html">글로벌 아웃리치</a></li>
+            <li><a href="outreach-gyeonmidan.html">견미단 × 프로라이프</a></li>
+            <li><a href="outreach-prolife2.html">청소년 프로라이프</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">러닝센터</p>
+          <ul>
+            <li><a href="lms.html">러닝센터 홈</a></li>
+            <li><a href="lms-pbl.html">PBL 프로그램</a></li>
+            <li><a href="lms-workspace.html">워크스페이스</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">소식</p>
+          <ul>
+            <li><a href="news.html">전체 소식</a></li>
+            <li><a href="news.html">교수학습 소식</a></li>
+            <li><a href="news.html">연구·데이터</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <p class="mega-col-title">뉴스레터</p>
+          <ul>
+            <li><a href="newsletter.html">뉴스레터 전체 보기</a></li>
+          </ul>
+          <p class="mega-col-title" style="margin-top:24px;">후원</p>
+          <ul>
+            <li><a href="index.html#support">정기 후원</a></li>
+            <li><a href="index.html#support">일시 후원</a></li>
+            <li><a href="index.html#contact">파트너 문의</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="lms-hero">
+  <div class="lms-hero-inner">
+    <nav class="pbl-crumb">
+      <a href="index.html">홈</a><span class="sep">›</span>
+      <a href="lms.html">러닝센터</a><span class="sep">›</span>
+      <span>PBL 실전 프로젝트</span>
+    </nav>
+    <div class="lms-hero-badge">실전 프로젝트 · PBL</div>
+    <h1 class="lms-hero-title">현장 혁신 프로젝트<br>Project-Based Learning</h1>
+    <p class="lms-hero-sub">교수학습법 · 연구·데이터 · TMD 리더십을 융합하여,<br>학습자 본인의 현장 과제를 직접 해결하는 실천 지향 캡스톤 과정</p>
+    <div class="lms-hero-stats">
+      <div class="lms-stat"><span class="lms-stat-num">6</span><span class="lms-stat-label">주 과정</span></div>
+      <div class="lms-stat-div"></div>
+      <div class="lms-stat"><span class="lms-stat-num">3</span><span class="lms-stat-label">융합 역량</span></div>
+      <div class="lms-stat-div"></div>
+      <div class="lms-stat"><span class="lms-stat-num">1</span><span class="lms-stat-label">실전 결과물</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 1. 과정 소개 + 통합 흐름 ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div class="section-tag">실전 적용 단계</div>
+      <h2 class="section-title">앞선 과정을 하나로, 현장에서 증명하다</h2>
+    </div>
+
+    <!-- 통합 흐름 시각화 (러닝센터 필터 탭 기준) -->
+    <div class="pbl-flow">
+      <span class="pbl-flow-chip">교수학습법</span>
+      <span class="pbl-flow-arrow">+</span>
+      <span class="pbl-flow-chip">연구·데이터</span>
+      <span class="pbl-flow-arrow">+</span>
+      <span class="pbl-flow-chip">TMD 리더십</span>
+      <span class="pbl-flow-arrow">→</span>
+      <span class="pbl-flow-chip is-pbl">실전 프로젝트 (PBL)</span>
+    </div>
+    <p class="pbl-flow-caption">러닝센터의 세 과정을 모두 통합·적용하는 마지막 단계입니다.</p>
+
+    <!-- 대표 프로젝트 카드 -->
+    <div class="pbl-feature">
+      <div class="pbl-feature-top">
+        <div class="pbl-badges">
+          <span class="pbl-badge">실전</span>
+          <span class="pbl-badge">심화</span>
+        </div>
+        <h3 class="pbl-feature-title">[PBL] 현장 혁신 프로젝트<br>AI와 데이터로 디자인하는 미래 교육</h3>
+      </div>
+      <div class="pbl-feature-body">
+        <div class="pbl-tags">
+          <span class="pbl-tag">#현장적용</span>
+          <span class="pbl-tag">#동료평가</span>
+          <span class="pbl-tag">#포트폴리오</span>
+          <span class="pbl-tag">#액션러닝</span>
+        </div>
+        <p class="pbl-feature-desc">
+          교수학습법, 데이터 분석, TMD 리더십을 융합하여 학습자 본인의 현장에서
+          직면한 교육적 과제를 직접 해결하고 결과물을 도출하는 실천 지향적 프로젝트입니다.
+        </p>
+        <div class="pbl-note">
+          💡 이 과정은 <strong>'무엇을 알게 할 것인가'</strong>가 아니라,
+          <strong>'어떤 산출물(Artifact)을 통해 역량과 세계관의 변화를 증명할 것인가'</strong>에서 출발합니다.
+          (Backward Design)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 2. 교육학적 설계 구조 (6주 커리큘럼) ═══════════════════ -->
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:8px;">
+      <div class="section-tag">교육학적 설계 · Backward Design</div>
+      <h2 class="section-title">결과물에서 출발하는 6주 커리큘럼</h2>
+    </div>
+    <p class="pbl-lead">
+      동영상 강의 시청 중심의 학습에 <strong>‘과제 제출’</strong>과 <strong>‘상호작용’</strong>을 결합하여,
+      매주 한 단계씩 자신만의 결과물을 완성해 나갑니다.
+    </p>
+
+    <div class="pbl-weeks">
+      <div class="pbl-week">
+        <div class="pbl-week-num"><span class="pbl-week-w">1</span><span class="pbl-week-wlabel">주차</span></div>
+        <div class="pbl-week-body">
+          <span class="pbl-phase">문제 발견</span>
+          <h4>현장의 Pain Point 정의하기</h4>
+          <p>내 현장에서 가장 절실한 교육적 과제를 한 문장으로 정의합니다.</p>
+          <p class="eg">예) “우리 단체 다음 세대 아이들의 문해력 저하”, “다문화 배경 학습자를 위한 소통 단절”</p>
+        </div>
+      </div>
+
+      <div class="pbl-week">
+        <div class="pbl-week-num"><span class="pbl-week-w">2–3</span><span class="pbl-week-wlabel">주차</span></div>
+        <div class="pbl-week-body">
+          <span class="pbl-phase">솔루션 기획</span>
+          <h4>AI 도구와 리더십 마인드셋으로 해결책 설계</h4>
+          <p>앞서 배운 AI 도구(교수학습법)와 리더십 마인드셋(TMD)을 적용하여 구체적인 해결책을 설계합니다.</p>
+        </div>
+      </div>
+
+      <div class="pbl-week">
+        <div class="pbl-week-num"><span class="pbl-week-w">4</span><span class="pbl-week-wlabel">주차</span></div>
+        <div class="pbl-week-body">
+          <span class="pbl-phase">데이터 기반 검증</span>
+          <h4>솔루션의 타당성을 데이터로 백업</h4>
+          <p>연구·데이터 활용 과정에서 배운 방법론을 토대로, 기획한 솔루션의 타당성과 예상 효과를 데이터로 검증합니다.</p>
+        </div>
+      </div>
+
+      <div class="pbl-week">
+        <div class="pbl-week-num"><span class="pbl-week-w">5</span><span class="pbl-week-wlabel">주차</span></div>
+        <div class="pbl-week-body">
+          <span class="pbl-phase">실행 및 프로토타입</span>
+          <h4>구체적인 결과물 완성</h4>
+          <p>실제 교육 지도안, 미디어 콘텐츠, 또는 사역 프로그램 기획안 등 손에 잡히는 결과물을 완성합니다.</p>
+        </div>
+      </div>
+
+      <div class="pbl-week">
+        <div class="pbl-week-num"><span class="pbl-week-w">6</span><span class="pbl-week-wlabel">주차</span></div>
+        <div class="pbl-week-body">
+          <span class="pbl-phase">성찰 및 공유</span>
+          <h4>결과물 제출 및 동료 피드백</h4>
+          <p>완성한 결과물을 제출하고 동료 피드백을 주고받습니다. LMS 게시판 또는 Zoom 실시간 리뷰 세션과 연동됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 3. 운영 고려사항 (시행착오 방지) ═══════════════════ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:8px;">
+      <div class="section-tag">운영 설계 · 시행착오 방지</div>
+      <h2 class="section-title">PBL이 작동하기 위한 3가지 원칙</h2>
+    </div>
+    <p class="pbl-lead">
+      완전한 비대면 VOD 방식만으로는 PBL의 핵심인 <strong>상호작용</strong>과 <strong>조력(Scaffolding)</strong>이 어렵습니다.
+      아래 원칙으로 설계·운영합니다.
+    </p>
+
+    <div class="pbl-considers">
+      <div class="pbl-consider">
+        <div class="pbl-consider-icon">🔄</div>
+        <h4>혼합형 학습(Blended Learning) 도입</h4>
+        <p>
+          VOD는 프로젝트 가이드와 루브릭 설명용으로만 짧게 제공합니다.
+          주차별로 학습자가 결과물을 LMS 과제방에 업로드하면,
+          강사(Facilitator)가 피드백을 주는 구조로 운영합니다.
+        </p>
+      </div>
+
+      <div class="pbl-consider">
+        <div class="pbl-consider-icon">📂</div>
+        <h4>과제 · 포트폴리오 기능 활성화</h4>
+        <p>
+          러닝센터 모듈의 <strong>‘과제 제출’</strong> 기능과,
+          학습자 간 결과물을 열람하고 댓글을 다는
+          <strong>‘상호 동료 평가(Peer Review)’</strong> 기능을 적극 활용합니다.
+        </p>
+      </div>
+
+      <div class="pbl-consider">
+        <div class="pbl-consider-icon">📏</div>
+        <h4>명확한 루브릭(Rubric) 제시</h4>
+        <p>
+          평가 기준이 모호하면 성인 학습자는 불안을 느낍니다.
+          과정 시작 전 구체적인 평가 루브릭을 제공하여 방향성을 잃지 않게 가이드합니다.
+        </p>
+        <ul class="rubric-eg">
+          <li>성경적 세계관이 반영되었는가?</li>
+          <li>AI 도구를 적절히 활용했는가?</li>
+          <li>현장의 문제를 실제로 해결했는가?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA ═══════════════════════════════ -->
+<section class="section section-light">
+  <div class="container pbl-cta">
+    <h2>당신의 현장을 프로젝트로 바꿀 준비가 되셨나요?</h2>
+    <p>PBL 실전 프로젝트는 러닝센터 수강생을 위한 통합 과정입니다. 등록 및 일정은 담당자에게 문의해 주세요.</p>
+    <div class="pbl-cta-btns">
+      <a href="lms.html" class="btn-primary">러닝센터 바로가기</a>
+      <a href="index.html#contact" class="btn-outline" style="border-color:var(--primary); color:var(--primary);">과정 문의하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+      <span class="logo-kr">티움</span>
+    </div>
+    <p class="footer-copy">
+      © 2026 사단법인 티움(TIEUM). All rights reserved. ·
+      <a href="terms.html" style="color:inherit;opacity:.7;text-decoration:underline;">이용약관</a> ·
+      <a href="privacy.html" style="color:inherit;opacity:.7;text-decoration:underline;">개인정보 처리방침</a> ·
+      <a href="copyright.html" style="color:inherit;text-decoration:underline;">저작권 보호 정책</a>
+    </p>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="맨 위로">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/i18n-map.js"></script>
+<script src="assets/js/i18n.js"></script>
+</body>
+</html>

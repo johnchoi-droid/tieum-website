@@ -89,7 +89,7 @@
           <p class="mega-col-title">러닝센터</p>
           <ul>
             <li><a href="lms.html">러닝센터 홈</a></li>
-            <li><a href="lms.html#pbl">PBL 프로그램</a></li>
+            <li><a href="lms-pbl.html">PBL 프로그램</a></li>
             <li><a href="lms-workspace.html">워크스페이스</a></li>
           </ul>
         </div>
@@ -215,6 +215,10 @@
 </footer>
 
 <!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+/* 구버전 링크 호환: lms.html#pbl → 전용 PBL 페이지로 이동 */
+if (location.hash === '#pbl') { location.replace('lms-pbl.html'); }
+</script>
 <script src="assets/js/lms-data.js"></script>
 <script src="assets/js/lms-core.js"></script>
 <script>
