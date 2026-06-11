@@ -343,6 +343,18 @@ function wsLoad() {
 function wsSave(posts) { localStorage.setItem(WS_KEY, JSON.stringify(posts)); }
 function wsGetPost(id) { return wsLoad().find(function(p){ return p.id === id; }); }
 
+/* 기존 방문자의 브라우저에 남아있는 데모 시드 게시글 1회성 정리 */
+function purgeSeedPosts() {
+  if (localStorage.getItem('tieum_ws_seed_purged')) return;
+  localStorage.setItem('tieum_ws_seed_purged', '1');
+  var posts = wsLoad().filter(function(p){
+    return p.id.indexOf('seed_') !== 0;
+  });
+  wsSave(posts);
+  /* 구버전 시드 플래그도 제거 */
+  localStorage.removeItem('tieum_ws_seeded');
+}
+
 
 /* ════════ 렌더링 ════════ */
 function renderCard(post) {
@@ -651,6 +663,7 @@ function addWsComment(postId) {
 
 /* ════════ 초기화 ════════ */
 document.addEventListener('DOMContentLoaded', function () {
+  purgeSeedPosts();
   renderGrid();
 
   /* 햄버거 메뉴는 main.js 에서 처리 */
