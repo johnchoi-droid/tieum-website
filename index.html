@@ -995,17 +995,47 @@
       <script src="assets/js/news-data.js"></script>
       <script>
       (function () {
-        var posts = (window.NEWS_POSTS || []).slice()
+        /* 소식 게시판과 동일한 저장소(tieum_news)를 읽어
+           news.html 에서의 삭제·수정·추가를 메인 '소식'에 그대로 반영합니다.
+           board.js 의 getAllPosts() 오버레이 방식을 동일하게 적용. */
+        var KEY = 'tieum_news';
+        function ls(k, def) {
+          try { return JSON.parse(localStorage.getItem(k) || def); } catch (e) { return JSON.parse(def); }
+        }
+        function excerpt(p) {
+          if (p.summary) return p.summary;
+          if (!p.content) return '';
+          var tmp = document.createElement('div');
+          tmp.innerHTML = p.content;
+          var t = (tmp.textContent || '').trim().replace(/\s+/g, ' ');
+          return t.length > 90 ? t.slice(0, 90) + '…' : t;
+        }
+
+        var deleted = new Set(ls(KEY + '_del', '[]').map(String));
+        var edits   = ls(KEY + '_edit', '{}');
+        var added   = ls(KEY + '_add', '[]');
+        var apply   = function (p) {
+          return edits[String(p.id)] ? Object.assign({}, p, edits[String(p.id)]) : p;
+        };
+        var base  = (window.NEWS_POSTS || []).filter(function (p) { return !deleted.has(String(p.id)); }).map(apply);
+        var extra = added.filter(function (p) { return !deleted.has(String(p.id)); }).map(apply);
+
+        var posts = extra.concat(base)
           .sort(function (a, b) { return b.date.localeCompare(a.date); })
           .slice(0, 4);
+
         var grid = document.getElementById('newsGrid');
-        if (!grid || !posts.length) return;
+        if (!grid) return;
+        if (!posts.length) {
+          grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#888;padding:40px 0;">등록된 소식이 없습니다.</p>';
+          return;
+        }
         grid.innerHTML = posts.map(function (p) {
           return '<article class="news-card fade-in">'
             + '<div class="news-body">'
             + '<span class="news-badge badge-' + p.category + '">' + p.categoryLabel + '</span>'
             + '<h3>' + p.title + '</h3>'
-            + '<p>' + (p.summary || '') + '</p>'
+            + '<p>' + excerpt(p) + '</p>'
             + '<div class="news-meta">'
             + '<time>' + p.date + '</time>'
             + '<a href="news.html#' + p.id + '" class="news-link">자세히 보기 →</a>'
