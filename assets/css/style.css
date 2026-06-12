@@ -886,6 +886,10 @@ html[lang="en"] .hero-title em {
 }
 @media (max-width: 480px) {
   .team-row { grid-template-columns: 1fr 1fr; }
+  /* 이사장·사무국장 등 단독 카드는 풀폭 유지 (글씨 잘림 방지) */
+  .team-row-single { grid-template-columns: 1fr; }
+  .team-card-lead { padding: 28px 22px; gap: 16px; }
+  .team-card-lead .team-photo-wrap { width: 104px; height: 104px; }
 }
 
 /* ===================================================
