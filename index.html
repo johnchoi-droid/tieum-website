@@ -29,53 +29,8 @@
         <button class="news-popup-close" onclick="closeNewsPopup()">✕</button>
       </div>
 
-      <div class="news-popup-slides" id="newsPopupSlides">
-
-        <!-- Slide 1 -->
-        <div class="news-popup-slide active">
-          <div class="news-popup-img" style="background:linear-gradient(135deg,#1B4F8A,#2d6ec4);">🚀</div>
-          <div class="news-popup-body">
-            <span class="news-badge badge-notice">공지</span>
-            <h3>쌍핵각성 캠프 — 조선족 청소년 AI·정체성 캠프</h3>
-            <p>중국 연길 거주 조선족 청소년을 위한 제주도 3박 4일 캠프를 준비하고 있습니다. 7월 13~16일 예정, 선착순 25명 모집.</p>
-            <time>2026.06.01</time>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="news-popup-slide">
-          <div class="news-popup-img" style="background:linear-gradient(135deg,#276749,#38a169);">🌏</div>
-          <div class="news-popup-body">
-            <span class="news-badge badge-outreach" data-i18n="news.badge.out">아웃리치</span>
-            <h3 data-i18n="news.out.h">동남아시아 교육 활동 보고</h3>
-            <p data-i18n="news.out.p">티움 글로벌 팀이 동남아시아 3개국에서 AI 교육 활동을 성황리에 마쳤습니다.</p>
-            <time>2025.05.15</time>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="news-popup-slide">
-          <div class="news-popup-img" style="background:linear-gradient(135deg,#553c9a,#9f7aea);">🎓</div>
-          <div class="news-popup-body">
-            <span class="news-badge badge-academy" data-i18n="news.badge.ac">아카데미</span>
-            <h3>제1기 미래아카데미 개강</h3>
-            <p>대한민국역사와미래재단과 공동 주관으로 제1기 미래아카데미가 성공적으로 개강했습니다. (5월 2일)</p>
-            <time>2026.05.02</time>
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="news-popup-slide">
-          <div class="news-popup-img" style="background:linear-gradient(135deg,#c05621,#e05a14);">📰</div>
-          <div class="news-popup-body">
-            <span class="news-badge badge-notice">뉴스레터</span>
-            <h3>티움 정기 뉴스레터 창간 — 통권 1호</h3>
-            <p>매월 발행하는 티움 뉴스레터 첫 호가 나왔습니다. 5월 주요 소식을 확인하세요.</p>
-            <time>2026.05.01</time>
-          </div>
-        </div>
-
-      </div>
+      <!-- 슬라이드는 news-data.js(NEWS_POSTS)에서 자동 생성됩니다 -->
+      <div class="news-popup-slides" id="newsPopupSlides"></div>
 
       <div class="news-popup-nav">
         <button class="news-popup-prev" id="npPrev" onclick="npMove(-1)">←</button>
@@ -992,7 +947,7 @@
         <a href="news.html" class="btn-text" data-i18n="news.more">모든 소식 보기 →</a>
       </div>
       <div class="news-grid" id="newsGrid"></div>
-      <script src="assets/js/news-data.js"></script>
+      <script src="assets/js/news-data.js?v=15"></script>
       <script>
       (function () {
         /* 소식의 단일 출처 = news-data.js (NEWS_POSTS).
@@ -1693,8 +1648,47 @@
         String(d.getDate()).padStart(2, '0');
     }
 
-    /* 팝업 열기 (오늘 dismiss 안 했을 때만) */
+    /* 슬라이드를 news-data.js(NEWS_POSTS)에서 자동 생성 — 소식의 단일 출처 유지 */
+    function npExcerpt(p) {
+      if (p.summary) return p.summary;
+      if (!p.content) return '';
+      var t = document.createElement('div');
+      t.innerHTML = p.content;
+      var s = (t.textContent || '').trim().replace(/\s+/g, ' ');
+      return s.length > 80 ? s.slice(0, 80) + '…' : s;
+    }
+    window.npBuildSlides = function () {
+      var wrap = document.getElementById('newsPopupSlides');
+      if (!wrap || !window.NEWS_POSTS) return 0;
+      var CAT = {
+        camp:       { emoji: '🏕', grad: 'linear-gradient(135deg,#1B4F8A,#2d6ec4)' },
+        lms:        { emoji: '🎓', grad: 'linear-gradient(135deg,#553c9a,#9f7aea)' },
+        notice:     { emoji: '📢', grad: 'linear-gradient(135deg,#c05621,#e05a14)' },
+        teaching:   { emoji: '📚', grad: 'linear-gradient(135deg,#276749,#38a169)' },
+        research:   { emoji: '📊', grad: 'linear-gradient(135deg,#2c5282,#3182ce)' },
+        newsletter: { emoji: '📰', grad: 'linear-gradient(135deg,#b7791f,#d69e2e)' }
+      };
+      var posts = window.NEWS_POSTS.slice()
+        .sort(function (a, b) { return b.date.localeCompare(a.date); })
+        .slice(0, 4);
+      wrap.innerHTML = posts.map(function (p, i) {
+        var c = CAT[p.category] || { emoji: '📌', grad: 'linear-gradient(135deg,#1B4F8A,#2d6ec4)' };
+        return '<div class="news-popup-slide' + (i === 0 ? ' active' : '') + '">'
+          + '<div class="news-popup-img" style="background:' + c.grad + ';">' + c.emoji + '</div>'
+          + '<div class="news-popup-body">'
+          + '<span class="news-badge badge-' + p.category + '">' + p.categoryLabel + '</span>'
+          + '<h3>' + p.title + '</h3>'
+          + '<p>' + npExcerpt(p) + '</p>'
+          + '<time>' + p.date + '</time>'
+          + '</div></div>';
+      }).join('');
+      return posts.length;
+    };
+
+    /* 팝업 열기 (오늘 dismiss 안 했고, 소식이 있을 때만) */
     function initPopup() {
+      var count = npBuildSlides();
+      if (!count) return;
       var dismissed = localStorage.getItem(DISMISS_KEY);
       if (dismissed !== today()) {
         overlay.classList.add('np-open');
