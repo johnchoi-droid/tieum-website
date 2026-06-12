@@ -782,7 +782,7 @@ html[lang="en"] .hero-title em {
   gap: 20px;
 }
 .team-row-single {
-  grid-template-columns: 220px;
+  grid-template-columns: 360px;
 }
 
 /* 카드 */
