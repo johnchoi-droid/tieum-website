@@ -5702,7 +5702,7 @@ html[lang="en"] .hero-title em {
 .wsd-login-note a { color: #1b4f8a; font-weight: 600; }
 
 /* ── Workspace Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .ws-hero-inner   { gap: 32px; }
   .ws-hero-stats   { padding: 18px 20px; }
   .ws-stat         { padding: 0 14px; }
