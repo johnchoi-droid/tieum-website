@@ -6414,7 +6414,7 @@ html[lang="en"] .hero-title em {
 .site-footer .footer-brand {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 1.1rem;
