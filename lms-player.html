@@ -724,8 +724,8 @@ var SCAFFOLD_HINTS = {
   ],
   tmd: [
     'TMD에서 Talent(T)는 단순히 잘하는 것이 아닙니다. 나에게 주어진 고유한 역량과 비전이 무엇인지 어떻게 발견할 수 있을까요?',
-    'Mindset(성장 마인드셋) 관점에서 지금 내게 주어진 자원(시간, 관계, 역량)을 어떻게 관리하고 있나요? 어디서 개선할 수 있을까요?',
-    'Dedication(헌신과 실천)이 단순한 친절이 아닌 "진정한 헌신"이 되려면 무엇이 달라야 할까요?'
+    'Mina(공평한 기회) 관점에서 지금 내게 주어진 자원(시간, 관계, 역량)을 어떻게 관리하고 있나요? 어디서 개선할 수 있을까요?',
+    'Denarius(섬김의 성품)가 단순한 친절이 아닌 "진정한 섬김"이 되려면 무엇이 달라야 할까요?'
   ],
   values: [
     '교육 현장에서 균형 잡힌 가치관을 "가르치려 하지 않고 드러내는" 방법이 있을까요? 어떤 차이가 있을 것 같으신가요?',
@@ -752,7 +752,7 @@ function getOfflineResponse(text) {
   else if (/pbl|프로젝트|drivingquestion|문제기반/.test(t)) pool = SCAFFOLD_HINTS.pbl;
   else if (/플립|flip|사전학습/.test(t))                    pool = SCAFFOLD_HINTS.flip;
   else if (/마이크로|티칭|microteaching|실습/.test(t))      pool = SCAFFOLD_HINTS.micro;
-  else if (/tmd|달란트|재능|talent|mindset|dedication|책임리더십/.test(t)) pool = SCAFFOLD_HINTS.tmd;
+  else if (/tmd|달란트|재능|talent|mina|denarius|책임리더십/.test(t)) pool = SCAFFOLD_HINTS.tmd;
   else if (/가치관|비전|인격|균형|헌신/.test(t))       pool = SCAFFOLD_HINTS.values;
   else if (/데이터|연구|통계|분석/.test(t))                 pool = SCAFFOLD_HINTS.research;
   else {
@@ -762,7 +762,7 @@ function getOfflineResponse(text) {
     else if (/pbl/.test(lt))      pool = SCAFFOLD_HINTS.pbl;
     else if (/플립/.test(lt))     pool = SCAFFOLD_HINTS.flip;
     else if (/마이크로/.test(lt)) pool = SCAFFOLD_HINTS.micro;
-    else if (/tmd|달란트|talent|mindset|dedication/.test(lt)) pool = SCAFFOLD_HINTS.tmd;
+    else if (/tmd|달란트|talent|mina|denarius/.test(lt)) pool = SCAFFOLD_HINTS.tmd;
     else                          pool = SCAFFOLD_HINTS.default;
   }
   return pool[Math.floor(Math.random() * pool.length)];
@@ -783,7 +783,7 @@ function buildAiBotSystemPrompt() {
     '모듈: ' + moduleName + '\n' +
     '강의: ' + lessonName + ' (' + lessonType + ')\n\n' +
     '== 티움 교육 철학 ==\n' +
-    '· TMD 인재상: Talent(역량과 비전) · Mindset(성장 마인드셋) · Dedication(헌신과 실천)\n' +
+    '· TMD 인재상: Talent(역량과 비전) · Mina(공평한 기회) · Denarius(섬김의 성품)\n' +
     '· 교육 비전: AI 시대에 균형 잡힌 가치관으로 가르치는 사명\n' +
     '· 핵심 교수법: 플립러닝, PBL, 마이크로 티칭, 변혁적 성찰\n' +
     '· 이론 기반: 비고츠키 ZPD, 메지로 변혁적 학습, 블룸 택소노미\n\n' +
