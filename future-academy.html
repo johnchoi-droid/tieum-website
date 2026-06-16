@@ -271,15 +271,16 @@
     }
     .fa-mobile-title { font-size: .95rem; font-weight: 700; color: var(--text); }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .fa-mobile-header { display: flex; }
       .fa-overview-grid { grid-template-columns: 1fr 1fr; }
       .fa-value-grid { grid-template-columns: 1fr 1fr; }
-      .fa-track-grid { grid-template-columns: 1fr; }
+      .fa-track-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
       .fa-overview-grid { grid-template-columns: 1fr; }
       .fa-value-grid { grid-template-columns: 1fr; }
+      .fa-track-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
