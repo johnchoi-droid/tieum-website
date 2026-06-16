@@ -2232,6 +2232,16 @@ html[lang="en"] .hero-title em {
 }
 .board-search-wrap button:hover { background: var(--primary-dk); }
 
+/* 표 모바일 가로 스크롤 래퍼 */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* board-table은 자체 컬럼 숨김으로 모바일 대응을 하므로 제외,
+   terms-table/cp-form-table은 컬럼 숨김이 없어 최소 너비로 스크롤 유도 */
+.table-scroll .terms-table,
+.table-scroll .cp-form-table { min-width: 600px; }
+
 .board-table {
   width: 100%;
   border-collapse: collapse;
