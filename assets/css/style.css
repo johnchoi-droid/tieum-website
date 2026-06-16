@@ -372,8 +372,11 @@ input, textarea, select {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  padding: 8px;
+  width: 48px;
+  height: 48px;
   margin-left: auto;
 }
 .hamburger span {
@@ -1826,7 +1829,7 @@ html[lang="en"] .hero-title em {
   .support-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* ── 모바일: 기존 nav 숨김 ── */
   .nav-links, .btn-donate, .btn-membership, .btn-lms-shortcut { display: none; }
   .hamburger { display: flex; }
