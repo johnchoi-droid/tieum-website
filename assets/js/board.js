@@ -8,7 +8,7 @@
   /* ── 페이지별 설정 ─────────────────────────────── */
   const CFG = {
     key    : window.BOARD_STORAGE_KEY || 'tieum_board',
-    pw     : window.BOARD_ADMIN_PW   || 'tieum-review-admin',
+    pw     : window.BOARD_ADMIN_PW   || 'TIEUM_0421@',
     perPage: window.BOARD_PER_PAGE   || 8,
     tabs   : window.BOARD_TABS       || [{ cat: 'all', label: '전체' }],
     posts  : window.BOARD_POSTS      || [],

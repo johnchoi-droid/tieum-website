@@ -15,7 +15,7 @@
 window.LMS_CONFIG = {
   title:    '티움 러닝센터',
   subtitle: 'AI 시대의 교육 전문가 과정',
-  password: 'tieum-review-lms',   // 수강 비밀번호 (변경 가능)
+  password: 'TIEUM_LMS_REVIEW',   // 수강 비밀번호 (변경 가능)
 
   /* ── AI 자막 설정 ──────────────────────────────────────────
    * groqApiKey : Groq API 키 (https://console.groq.com → 무료 가입)
