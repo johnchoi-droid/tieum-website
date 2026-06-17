@@ -63,7 +63,7 @@ input, textarea, select {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(rgba(245,247,250,.84), rgba(245,247,250,.84)),
+    linear-gradient(rgba(245,247,250,.76), rgba(245,247,250,.76)),
     url('../images/Academy/academy1.jpg') center / cover no-repeat fixed;
 }
 #academy > * { position: relative; z-index: 1; }
