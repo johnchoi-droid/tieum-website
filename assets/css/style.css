@@ -72,7 +72,7 @@ input, textarea, select {
   z-index: 1;
   background: rgba(255,255,255,.76);
 }
-#greeting > * { position: relative; z-index: 2; }
+#greeting > .container { position: relative; z-index: 2; }
 
 #academy {
   position: relative;
