@@ -55,18 +55,18 @@ input, textarea, select {
 
 #academy {
   position: relative;
-  isolation: isolate;
+  background: none;  /* .section-light의 단색 배경 제거 */
 }
 #academy::before {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background:
-    linear-gradient(rgba(245,247,250,.88), rgba(245,247,250,.88)),
-    url('assets/images/Academy/academy1.jpg') center / cover no-repeat;
-  background-attachment: fixed;
+    linear-gradient(rgba(245,247,250,.87), rgba(245,247,250,.87)),
+    url('assets/images/Academy/academy1.jpg') center / cover no-repeat fixed;
 }
+#academy > * { position: relative; z-index: 1; }
 .section-dark { background: var(--bg-dark); color: white; }
 .section-tag {
   display: inline-block;
