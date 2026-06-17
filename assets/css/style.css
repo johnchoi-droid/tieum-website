@@ -1453,8 +1453,9 @@ html[lang="en"] .hero-title em {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: stretch;
 }
+.map-placeholder { display: flex; flex-direction: column; }
 .location-address h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
 .location-address p { color: var(--text-2); margin-bottom: 32px; line-height: 1.8; }
 .transport-list { display: flex; flex-direction: column; gap: 16px; }
@@ -1502,13 +1503,12 @@ html[lang="en"] .hero-title em {
   border: 1px solid var(--border);
   padding: 0;
   overflow: hidden;
+  flex: 1;
   min-height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
 }
+.map-frame img { flex: 1; width: 100%; object-fit: cover; display: block; }
 .map-pin-anim { animation: pinBounce 1.5s ease infinite; }
 .pin-svg { width: 48px; height: 60px; }
 @keyframes pinBounce {
