@@ -87,7 +87,7 @@
 
       /* ── Vision ── */
       'vision.tag':   '교육 철학',
-      'vision.title': '티움의 교육 철학<br/>: TMD &amp; 3T &amp; 실행 전략',
+      'vision.title': '티움의 교육 철학<br/>: 3T &amp; 실행 전략',
       'vision.desc':  '우리는 단순한 지식 전달을 넘어 전인적이며 변혁을 추구합니다.',
       'tmd.t.label': '특별한 재능',
       'tmd.t.p':     '뛰어난 재능을 발굴하고 개발하여 유능감을 갖춘 인재',
@@ -547,7 +547,7 @@
 
       /* ── Vision ── */
       'vision.tag':   'Philosophy',
-      'vision.title': 'TIEUM\'s Educational Philosophy<br/>: TMD &amp; 3T &amp; Strategy',
+      'vision.title': 'TIEUM\'s Educational Philosophy<br/>: 3T &amp; Strategy',
       'vision.desc':  'We pursue holistic transformation, going beyond mere knowledge transfer.',
       'tmd.t.label': 'Talent',
       'tmd.t.p':     'Discovering and developing outstanding talents to cultivate capable and competent individuals.',
