@@ -262,7 +262,7 @@
       'loc.bus':   '버스',
       'loc.car':   '자가용',
       'loc.sub.p': '<span class="metro-badge line3">3호선</span> <strong>남부터미널역</strong> 1번 혹은 2번 출구에서 도보 1분',
-      'loc.bus.p': '마을버스 서초02, 서초11, 서초22<br>지선(초록) 3012, 4319<br>간선(파랑) 461, 641<br>직행/광역 1553, 500-2, 500-5, M4455',
+      'loc.bus.p': '<span class="bus-badge village">마을버스</span> 서초02, 서초11, 서초22<br><span class="bus-badge branch">지선</span> 3012, 4319<br><span class="bus-badge trunk">간선</span> 461, 641<br><span class="bus-badge express">직행/광역</span> 1553, 500-2, 500-5, M4455',
       'loc.car.p': '건물 내 주차 가능<br />(방문 전 사전 연락 요망)',
       'loc.map':   '네이버 지도에서 보기 →',
 
@@ -722,7 +722,7 @@
       'loc.bus':   'Bus',
       'loc.car':   'By Car',
       'loc.sub.p': '<span class="metro-badge line3">Line 3</span> — <strong>Nambu Bus Terminal Station</strong>, Exit 1 or 2 (1-min walk)',
-      'loc.bus.p': 'Village bus: Seocho02, 11, 22<br>Local (green): 3012, 4319<br>Trunk (blue): 461, 641<br>Express: 1553, 500-2, 500-5, M4455',
+      'loc.bus.p': '<span class="bus-badge village">Village</span> Seocho02, 11, 22<br><span class="bus-badge branch">Local</span> 3012, 4319<br><span class="bus-badge trunk">Trunk</span> 461, 641<br><span class="bus-badge express">Express</span> 1553, 500-2, 500-5, M4455',
       'loc.car.p': 'Parking available in the building<br />(Please contact us before visiting)',
       'loc.map':   'View on Naver Map →',
 
