@@ -1969,7 +1969,7 @@ html[lang="en"] .hero-title em {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 52px;
 }
 .about-intro-text .section-title { margin-bottom: 16px; }
@@ -1978,7 +1978,7 @@ html[lang="en"] .hero-title em {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  min-height: 260px;
   box-shadow: var(--shadow-lg);
 }
 .intro-slide {
