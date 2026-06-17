@@ -63,8 +63,8 @@ input, textarea, select {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(rgba(245,247,250,.87), rgba(245,247,250,.87)),
-    url('assets/images/Academy/academy1.jpg') center / cover no-repeat fixed;
+    linear-gradient(rgba(245,247,250,.84), rgba(245,247,250,.84)),
+    url('../images/Academy/academy1.jpg') center / cover no-repeat fixed;
 }
 #academy > * { position: relative; z-index: 1; }
 .section-dark { background: var(--bg-dark); color: white; }
