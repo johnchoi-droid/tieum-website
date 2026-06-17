@@ -1471,6 +1471,17 @@ html[lang="en"] .hero-title em {
 .transport-badge.bus { background: #38a169; color: white; }
 .transport-badge.car { background: var(--text-3); color: white; }
 .transport-item p { font-size: .9rem; color: var(--text-2); line-height: 1.6; }
+.metro-badge {
+  display: inline-block;
+  background: #EF7C1C;
+  color: white;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 .map-frame {
   background: var(--bg-light);
   border-radius: var(--radius-md);
