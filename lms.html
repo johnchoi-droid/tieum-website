@@ -232,10 +232,10 @@
 /* 구버전 링크 호환: lms.html#pbl → 전용 PBL 페이지로 이동 */
 if (location.hash === '#pbl') { location.replace('lms-pbl.html'); }
 </script>
-<script src="assets/js/lms-data.js?v=14"></script>
+<script src="assets/js/lms-data.js?v=15"></script>
 <script src="assets/js/lms-core.js"></script>
 <script src="assets/js/lms-insights.js?v=2"></script>
-<script src="assets/js/lms-dashboard.js?v=1"></script>
+<script src="assets/js/lms-dashboard.js?v=2"></script>
 <script>
 /* ── 초기화 ── */
 document.addEventListener('DOMContentLoaded', function () {
@@ -267,6 +267,7 @@ function renderCourseGrid(cat) {
     return cat === 'all' || c.category === cat;
   });
   var grid = document.getElementById('lmsCourseGrid');
+  if (!grid) return;  // 현재 레이아웃은 4레인 대시보드 사용 — 레거시 그리드 부재 시 안전 종료
   if (!courses.length) {
     var lang3 = (typeof getLang === 'function') ? getLang() : 'ko';
     grid.innerHTML = '<p class="lms-empty">' + (lang3 === 'en' ? 'No courses in this category.' : '해당 카테고리의 과정이 없습니다.') + '</p>';
@@ -335,9 +336,12 @@ function updateCatalogHeader() {
 }
 window.lmsOnLangChange = function() {
   updateCatalogHeader();
-  var activeBtn = document.querySelector('.lms-filter-btn.active');
-  var cat = activeBtn ? activeBtn.getAttribute('data-cat') : 'all';
-  renderCourseGrid(cat);
+  // 실제 표시 중인 화면을 다시 그린다 (로그인=4레인 대시보드, 비로그인=샘플 미리보기)
+  if (typeof lmsIsLoggedIn === 'function' && lmsIsLoggedIn()) {
+    if (typeof renderLmsDashboard === 'function') renderLmsDashboard();
+  } else {
+    if (typeof renderLmsSample === 'function') renderLmsSample();
+  }
 };
 
 /* ── 로그인 모달 ── */
