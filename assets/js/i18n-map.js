@@ -1285,5 +1285,65 @@ window.KO2EN = {
  "🕐 운영": "🕐 Hours",
  "🗂 PBL 산출물 공유하기": "🗂 Share PBL Work",
  "🗂 PBL 산출물 워크스페이스": "🗂 PBL Workspace",
- "🙏 감사 인사": "🙏 With Gratitude"
+ "🙏 감사 인사": "🙏 With Gratitude",
+
+ /* ── 2026-06 추가: index/about/lms/news/404 미번역 보완 ── */
+ /* index.html — 팀 카드(이사장 경력) */
+ "前 EBS '부모광장' 메인 패널": "Former Main Panelist, EBS 'Parents' Square'",
+ "前 조선일보 선정 교육전문가 1호": "Former No.1 Education Expert Selected by Chosun Ilbo",
+ "前 한국교육개발원(KEDI) 자문위원": "Former Advisory Member, Korean Educational Development Institute (KEDI)",
+ "2020 중소벤처기업부": "2020 Ministry of SMEs & Startups",
+ "'존경받는 기업인' 선정": "Selected as 'Most Admired Entrepreneur'",
+ "대표 저서: 『공부감성』 『꿈의교실』 외 다수": "Selected Books: 'Study Sensibility', 'Dream Classroom' & more",
+ /* index.html — 언론 속 티움(보도) */
+ "📰 언론 속 티움": "📰 TIEUM in the Media",
+ "티움의 활동이 여러 언론을 통해 소개되었습니다.": "TIEUM's activities have been featured across various media outlets.",
+ "티움 소개": "About TIEUM",
+ "챗GPT란 뭘까? AI 중심 교육이 왜 필요할까": "What Is ChatGPT? Why AI-Centered Education Matters",
+ "국민일보": "Kukmin Ilbo",
+ "기사 보기 ↗": "Read Article ↗",
+ "인공지능으로 교육 격차·교육 결손을 줄이는 '티움'": "'TIEUM' — Closing Education Gaps and Learning Loss with AI",
+ "견미단×프로라이프": "Gyeonmidan × Pro-Life",
+ "'견미단X프로라이프' 청소년, 생명 살리는 프로라이프 세대로 일어나다": "'Gyeonmidan × Pro-Life' Youth Rise as a Life-Saving Pro-Life Generation",
+ "고신뉴스 KNC": "Kosin News KNC",
+ "청소년들, 미국서 '생명 행진(March for Life)' 참여…생명 존중 문화 확산": "Youth Join the 'March for Life' in the US… Spreading a Culture of Respect for Life",
+ "견미단X프로라이프, 1기 수료식…\"우리는 프로라이프 세대\"": "Gyeonmidan × Pro-Life Holds 1st Cohort Graduation… \"We Are the Pro-Life Generation\"",
+ "데일리굿뉴스": "Daily Good News",
+ "\"이제 태아들은 저희가 지킬게요!\" [견미단X프로라이프] 수료식": "\"We'll Protect the Unborn Now!\" — [Gyeonmidan × Pro-Life] Graduation",
+ "코람데오닷컴": "Koramdeo.com",
+ "'견미단X프로라이프', 미국 투어로 청소년 생명운동 새 장": "'Gyeonmidan × Pro-Life' Opens a New Chapter for the Youth Pro-Life Movement with a US Tour",
+ "크리스천투데이": "Christian Today",
+ "'견미단X프로라이프' 참가 청소년들, 프로라이프 세대로 거듭날 것": "'Gyeonmidan × Pro-Life' Participants to Be Reborn as a Pro-Life Generation",
+ "기독일보": "Christian Daily",
+ "제2기 청소년 프로라이프 비전 캠프, 워싱턴 D.C. '생명 행진' 참가": "2nd Youth Pro-Life Vision Camp Joins the 'March for Life' in Washington, D.C.",
+ "제2기 청소년 프로라이프 비전 캠프, 워싱턴 '생명 행진(March for Life)' 참가": "2nd Youth Pro-Life Vision Camp Joins Washington's 'March for Life'",
+ "뉴스파워": "Newspower",
+ /* index.html — 이메일무단수집거부 팝업 */
+ "웹사이트에 게시된 이메일 주소가 전자우편수집 프로그램이나 그 밖의 기술적장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반시 정보통신망법에 의해 형사처벌을 유념하시기 바랍니다.": "We refuse any unauthorized collection of email addresses posted on this website by email-harvesting programs or other technical devices. Please note that violations are subject to criminal punishment under the Act on Promotion of Information and Communications Network Utilization.",
+ "전자우편주소의 무단수집행위 등 금지": "Prohibition of Unauthorized Collection of Email Addresses",
+ "누구든지 전자우편 주소의 수집을 거부하는 의사가 명시된 인터넷 홈페이지에서 자동으로 전자우편 주소를 수집하는 프로그램 및 그 밖의 기술적 장치를 이용한 전자우편 주소를 수집하여서는 아니 된다": "No one shall collect email addresses using programs or other technical devices that automatically gather email addresses from websites that have explicitly stated their refusal of such collection.",
+ "누구든지 제 1항의 규정을 위반하여 수집된 전자우편 주소를 판매·유통 하여서는 안 된다": "No one shall sell or distribute email addresses collected in violation of Paragraph 1.",
+ "누구든지 제 1항 및 제 2항의 규정에 의하여 수집·판매 및 유통이 금지된 전자우편주소임을 알고 이를 정보전송에 이용하여서는 아니된다": "No one shall use, for the transmission of information, email addresses that they know are prohibited from collection, sale, or distribution under Paragraphs 1 and 2.",
+ /* index.html — 글로벌 아웃리치 상세 팝업 헤더 / 공통 닫기 */
+ "글로벌 아웃리치 — 티움 청소년 봉사단": "Global Outreach — TIEUM Youth Volunteer Corps",
+ "✕ 닫기": "✕ Close",
+ /* 404.html */
+ "페이지를 찾을 수 없습니다 — 티움": "Page Not Found — TIEUM",
+ "페이지를 찾을 수 없습니다": "Page Not Found",
+ "요청하신 페이지가 이동되었거나 존재하지 않습니다.": "The page you requested has moved or no longer exists.",
+ "주소를 다시 확인하시거나, 아래 버튼으로 이동해 주세요.": "Please double-check the address, or use the button below.",
+ "홈으로 가기": "Go to Home",
+ /* about.html */
+ "T·M·D — 재능, 성장 마인드셋, 헌신과 실천": "T·M·D — Talent, Growth Mindset, Dedication & Practice",
+ /* lms.html */
+ "무료로 시작하기": "Start for Free",
+ "🎁 미리보기 — 4개 학습 트랙": "🎁 Preview — 4 Learning Tracks",
+ "로그인하면 각 트랙의 강좌·자료를 무료로 바로 수강할 수 있어요.": "Log in to access each track's courses and materials for free, right away.",
+ "🕊️ 전문가의 관점": "🕊️ Expert Perspectives",
+ /* news.html */
+ "교육·연구": "Education · Research",
+ /* 동적 뉴스 팝업/게시판 (news-data.js) — 제목·요약 */
+ "双核觉醒 쌍핵각성 — 연길 조선족 청소년 제주 캠프": "双核觉醒 — Jeju Camp for Korean-Chinese Youth",
+ "중국 연길 조선족 청소년(초4~중3)을 위한 3박 4일 정체성·AI 진로 캠프. 2026년 7월 제주에서 열립니다.": "A 3-night/4-day identity & AI career camp for Korean-Chinese youth (grades 4–9) from Yanji, China. Held in Jeju in July 2026.",
+ "교수학습법·연구·데이터·TMD 리더십 과정을 온라인으로 수강할 수 있는 티움 러닝센터가 문을 열었습니다.": "The TIEUM Learning Center is now open, offering online courses in Teaching Methodology, Research · Data, and TMD Leadership."
 };
