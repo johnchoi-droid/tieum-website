@@ -2424,7 +2424,12 @@ function closeFinanceReport() {
 
 <script>
 /* 상세 진입을 전체 페이지 이동으로 통일 (러닝센터·소식과 동일 방식, 메가메뉴와 일치) */
-function openFutureMakers() { location.href = 'future-makers.html'; }
+function openFutureMakers() {
+  var modal = document.getElementById('fmModal');
+  document.getElementById('fmIframe').src = 'future-makers.html';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 function closeFutureMakers() {
   var modal = document.getElementById('fmModal');
   modal.classList.remove('open');
