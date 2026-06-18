@@ -63,9 +63,12 @@ input, textarea, select {
   position: absolute;
   inset: 0;
   z-index: 0;
+  /* background-attachment:fixed 제거 — 스크롤 시 매 프레임 배경 리페인트로 인한
+     '프로그램 소개' 구간 스크롤 끊김(jank) 유발. 일반 스크롤(local)로 변경. */
   background:
     linear-gradient(rgba(245,247,250,.76), rgba(245,247,250,.76)),
-    url('../images/Academy/academy1.jpg') center / cover no-repeat fixed;
+    url('../images/Academy/academy1.jpg') center / cover no-repeat;
+  will-change: auto;
 }
 #academy > * { position: relative; z-index: 1; }
 .section-dark { background: var(--bg-dark); color: white; }
