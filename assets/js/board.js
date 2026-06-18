@@ -309,13 +309,20 @@
 
     // 묶음 글 → 고정 헤더에 번호 내비 + 본문은 현재 아티클만
     BRIEF = { articles: parsed.articles, idx: 0, intro: parsed.intro };
+    // 제목 유형에 맞춰 안내 문구 변경 ([…인사이트]→본 인사이트는, […리포트]→본 리포트는, …)
+    const titleText = (document.getElementById('modalTitle') || {}).textContent || '';
+    let subject = '본 자료는';
+    if (titleText.indexOf('인사이트') >= 0) subject = '본 인사이트는';
+    else if (titleText.indexOf('리포트') >= 0) subject = '본 리포트는';
+    else if (titleText.indexOf('브리핑') >= 0) subject = '본 브리핑은';
+    else if (titleText.indexOf('큐레이션') >= 0) subject = '본 큐레이션은';
     const nums = parsed.articles.map((_, i) =>
       `<button class="brief-num" data-i="${i}" onclick="bGotoArticle(${i})">${i + 1}</button>`).join('');
     const bar = document.createElement('div');
     bar.id = 'briefBar';
     bar.className = 'brief-bar';
     bar.innerHTML =
-      `<div class="brief-count">📚 본 브리핑은 <b>${parsed.articles.length}개</b>의 아티클을 모았습니다. <span class="brief-hint">번호를 눌러 이동</span></div>` +
+      `<div class="brief-count">📚 ${subject} <b>${parsed.articles.length}개</b>의 아티클을 모았습니다. <span class="brief-hint">번호를 눌러 이동</span></div>` +
       `<div class="brief-nums">${nums}</div>`;
     head.appendChild(bar);
 
