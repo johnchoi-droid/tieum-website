@@ -6948,3 +6948,6 @@ html[lang="en"] #outreach .section-desc {
   border-top:1px solid rgba(255,255,255,.10);padding-top:10px}
 .press-foot b{color:rgba(255,255,255,.9);font-weight:700}
 .press-go{margin-left:auto;color:#ffce85;font-weight:600}
+
+/* 교육·연구 통합 카테고리 배지 */
+.badge-edu { background: rgba(49,151,149,.12); color: #2c7a7b; }
