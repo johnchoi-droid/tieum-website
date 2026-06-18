@@ -365,22 +365,29 @@
             </div>
 
             <div class="wf-group">
-              <label class="wf-label">
-                내용
-                <button type="button" class="wf-hint-btn" onclick="document.getElementById('wfHint').classList.toggle('hidden')">
-                  HTML 태그 도움말 ▾
-                </button>
-              </label>
-              <div class="wf-html-hint hidden" id="wfHint">
-                <code>&lt;h3&gt;소제목&lt;/h3&gt;</code>
-                <code>&lt;p&gt;단락&lt;/p&gt;</code>
-                <code>&lt;strong&gt;굵게&lt;/strong&gt;</code>
-                <code>&lt;ul&gt;&lt;li&gt;항목&lt;/li&gt;&lt;/ul&gt;</code>
-                <code>&lt;ol&gt;&lt;li&gt;번호목록&lt;/li&gt;&lt;/ol&gt;</code>
-                <code>&lt;blockquote&gt;인용&lt;/blockquote&gt;</code>
+              <label class="wf-label">내용</label>
+              <div class="wf-toolbar" id="wToolbar">
+                <button type="button" class="wf-tb" data-cmd="bold" title="굵게"><b>B</b></button>
+                <button type="button" class="wf-tb" data-cmd="italic" title="기울임"><i>I</i></button>
+                <button type="button" class="wf-tb" data-cmd="underline" title="밑줄"><u>U</u></button>
+                <button type="button" class="wf-tb" data-cmd="strikeThrough" title="취소선"><s>S</s></button>
+                <span class="wf-tb-sep"></span>
+                <button type="button" class="wf-tb" data-block="h3" title="제목">제목</button>
+                <button type="button" class="wf-tb" data-block="h4" title="소제목">소제목</button>
+                <button type="button" class="wf-tb" data-block="p" title="본문">본문</button>
+                <span class="wf-tb-sep"></span>
+                <button type="button" class="wf-tb" data-size="2" title="작게">A−</button>
+                <button type="button" class="wf-tb" data-size="5" title="크게">A＋</button>
+                <span class="wf-tb-sep"></span>
+                <button type="button" class="wf-tb" data-cmd="insertUnorderedList" title="글머리 목록">• 목록</button>
+                <button type="button" class="wf-tb" data-cmd="insertOrderedList" title="번호 목록">1. 목록</button>
+                <button type="button" class="wf-tb" data-block="blockquote" title="인용구">❝ 인용</button>
+                <span class="wf-tb-sep"></span>
+                <button type="button" class="wf-tb" data-link="1" title="링크 삽입">🔗</button>
+                <button type="button" class="wf-tb" data-cmd="removeFormat" title="서식 지우기">⌫ 서식</button>
               </div>
-              <textarea class="wf-textarea" id="wContent" rows="12"
-                placeholder="내용을 입력하세요.&#10;&#10;HTML 태그를 사용하거나, 태그 없이 작성하면 자동으로 단락 처리됩니다."></textarea>
+              <div class="wf-editor" id="wEditor" contenteditable="true"
+                   data-placeholder="내용을 입력하세요. 위 버튼으로 굵게·기울임·제목·목록·인용 등을 적용할 수 있습니다."></div>
             </div>
 
             <!-- ── 파일 첨부 ── -->
@@ -421,6 +428,34 @@
       e.preventDefault();
       dropArea.classList.remove('drag-over');
       addPendingFiles(e.dataTransfer.files);
+    });
+
+    wireEditorToolbar();
+  }
+
+  /* ── WYSIWYG 에디터 툴바 (블로그형 서식 편집) ── */
+  function wireEditorToolbar() {
+    const tb = document.getElementById('wToolbar');
+    const ed = document.getElementById('wEditor');
+    if (!tb || !ed) return;
+    // 버튼 누를 때 에디터 선택영역이 풀리지 않도록 mousedown 기본동작 차단
+    tb.addEventListener('mousedown', e => { if (e.target.closest('.wf-tb')) e.preventDefault(); });
+    tb.addEventListener('click', e => {
+      const btn = e.target.closest('.wf-tb');
+      if (!btn) return;
+      ed.focus();
+      try {
+        if (btn.dataset.cmd) {
+          document.execCommand(btn.dataset.cmd, false, null);
+        } else if (btn.dataset.block) {
+          document.execCommand('formatBlock', false, '<' + btn.dataset.block + '>');
+        } else if (btn.dataset.size) {
+          document.execCommand('fontSize', false, btn.dataset.size);
+        } else if (btn.dataset.link) {
+          const url = prompt('링크 주소(URL)를 입력하세요:', 'https://');
+          if (url) document.execCommand('createLink', false, url);
+        }
+      } catch (err) { /* 무시 */ }
     });
   }
 
@@ -480,7 +515,7 @@
     document.getElementById('wPin').checked  = false;
     document.getElementById('wTitle').value  = '';
     document.getElementById('wAuthor').value = '티움 사무국';
-    document.getElementById('wContent').value = '';
+    document.getElementById('wEditor').innerHTML = '';
     renderPendingFiles();
     openModal('writeModal');
   };
@@ -497,7 +532,7 @@
     document.getElementById('wPin').checked  = !!p.pin;
     document.getElementById('wTitle').value  = p.title;
     document.getElementById('wAuthor').value = p.author;
-    document.getElementById('wContent').value = p.content;
+    document.getElementById('wEditor').innerHTML = p.content || '';
     renderPendingFiles();
     openModal('writeModal');
   };
@@ -516,13 +551,12 @@
     const title  = document.getElementById('wTitle').value.trim();
     const author = document.getElementById('wAuthor').value.trim() || '티움 사무국';
     const pin    = document.getElementById('wPin').checked;
-    const raw    = document.getElementById('wContent').value.trim();
+    const ed     = document.getElementById('wEditor');
+    const content = ed.innerHTML.trim();
+    const plain  = (ed.textContent || '').trim();
 
     if (!title) { alert('제목을 입력해 주세요.'); return; }
-    if (!raw)   { alert('내용을 입력해 주세요.'); return; }
-
-    const content = /^\s*</.test(raw) ? raw
-      : raw.split(/\n\n+/).map(b => `<p>${b.replace(/\n/g,'<br/>')}</p>`).join('\n');
+    if (!plain) { alert('내용을 입력해 주세요.'); return; }
 
     // 새 파일 IndexedDB에 저장
     let newMeta = [];

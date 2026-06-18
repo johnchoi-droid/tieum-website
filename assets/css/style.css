@@ -6765,3 +6765,24 @@ html[lang="en"] #outreach .section-desc {
   background-size: 60px 60px;
 }
 
+
+/* ── 게시판 WYSIWYG 에디터 (블로그형) ── */
+.wf-toolbar{display:flex;flex-wrap:wrap;gap:4px;align-items:center;
+  border:1px solid #d4dae1;border-bottom:0;border-radius:8px 8px 0 0;
+  padding:6px 8px;background:#f7f8fa}
+.wf-tb{border:1px solid transparent;background:transparent;border-radius:6px;
+  padding:5px 9px;font-size:13px;color:#3a4452;cursor:pointer;line-height:1;min-width:30px}
+.wf-tb:hover{background:#e7eef4;border-color:#cfd8e0}
+.wf-tb:active{background:#d7e3ec}
+.wf-tb-sep{width:1px;height:18px;background:#d4dae1;margin:0 3px}
+.wf-editor{min-height:260px;max-height:50vh;overflow-y:auto;
+  border:1px solid #d4dae1;border-radius:0 0 8px 8px;padding:12px 14px;
+  line-height:1.75;font-size:15px;color:#222;background:#fff;outline:none}
+.wf-editor:focus{border-color:#175c3f;box-shadow:0 0 0 2px rgba(23,92,63,.12)}
+.wf-editor:empty:before{content:attr(data-placeholder);color:#9aa3af}
+.wf-editor h3{font-size:18px;margin:14px 0 6px;color:#16243a}
+.wf-editor h4{font-size:15px;margin:12px 0 4px;color:#175c3f}
+.wf-editor blockquote{border-left:4px solid #2a7;background:#f3faf6;
+  margin:10px 0;padding:8px 14px;border-radius:6px;color:#33404f}
+.wf-editor ul,.wf-editor ol{padding-left:22px;margin:6px 0}
+.wf-editor a{color:#175c3f;text-decoration:underline}
