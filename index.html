@@ -2423,21 +2423,8 @@ function closeFinanceReport() {
 </style>
 
 <script>
-function openFutureMakers() {
-  var isMobile = window.innerWidth <= 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  if (isMobile) {
-    // 모바일: 현재 위치를 #academy로 히스토리에 추가 후 새 페이지 이동
-    history.pushState({ scrollTarget: 'academy' }, '', location.pathname + '#academy');
-    location.href = 'future-makers.html';
-  } else {
-    // 데스크탑: 모달 팝업
-    var modal = document.getElementById('fmModal');
-    var iframe = document.getElementById('fmIframe');
-    iframe.src = 'future-makers.html';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-}
+/* 상세 진입을 전체 페이지 이동으로 통일 (러닝센터·소식과 동일 방식, 메가메뉴와 일치) */
+function openFutureMakers() { location.href = 'future-makers.html'; }
 function closeFutureMakers() {
   var modal = document.getElementById('fmModal');
   modal.classList.remove('open');
@@ -2445,56 +2432,26 @@ function closeFutureMakers() {
   setTimeout(function() { document.getElementById('fmIframe').src = ''; }, 300);
 }
 
-function openFutureAcademy() {
-  var isMobile = window.innerWidth <= 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  if (isMobile) {
-    history.pushState({ scrollTarget: 'academy' }, '', location.pathname + '#academy');
-    location.href = 'future-academy.html';
-  } else {
-    var modal = document.getElementById('faModal');
-    var iframe = document.getElementById('faIframe');
-    iframe.src = 'future-academy.html';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-}
+function openFutureAcademy() { location.href = 'future-academy.html'; }
 function closeFutureAcademy() {
   var modal = document.getElementById('faModal');
   modal.classList.remove('open');
   document.body.style.overflow = '';
   setTimeout(function() { document.getElementById('faIframe').src = ''; }, 300);
 }
-function openGlobalOutreach() {
-  if (window.innerWidth < 768) { location.href = 'outreach-global.html'; return; }
-  var iframe = document.getElementById('goIframe');
-  iframe.src = 'outreach-global.html';
-  document.getElementById('globalOutreachModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+function openGlobalOutreach() { location.href = 'outreach-global.html'; }
 function closeGlobalOutreach() {
   document.getElementById('globalOutreachModal').classList.remove('open');
   document.body.style.overflow = '';
   document.getElementById('goIframe').src = '';
 }
-function openGyeonmidan() {
-  if (window.innerWidth < 768) { location.href = 'outreach-gyeonmidan.html'; return; }
-  var iframe = document.getElementById('gmIframe');
-  iframe.src = 'outreach-gyeonmidan.html';
-  document.getElementById('gyeonmidanModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+function openGyeonmidan() { location.href = 'outreach-gyeonmidan.html'; }
 function closeGyeonmidan() {
   document.getElementById('gyeonmidanModal').classList.remove('open');
   document.body.style.overflow = '';
   document.getElementById('gmIframe').src = '';
 }
-function openProlife2() {
-  if (window.innerWidth < 768) { location.href = 'outreach-prolife2.html'; return; }
-  var iframe = document.getElementById('pl2Iframe');
-  iframe.src = 'outreach-prolife2.html';
-  document.getElementById('prolife2Modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+function openProlife2() { location.href = 'outreach-prolife2.html'; }
 function closeProlife2() {
   document.getElementById('prolife2Modal').classList.remove('open');
   document.body.style.overflow = '';
