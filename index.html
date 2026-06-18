@@ -124,9 +124,9 @@
           <ul>
             <li><a href="#global"                  data-i18n="mega.col3.l1">티움 글로벌</a></li>
             <li><a href="#vision-camp"             data-i18n="mega.col3.l2">비전캠프</a></li>
-            <li><a href="outreach-global.html"     data-i18n="mega.col3.l3">글로벌 아웃리치</a></li>
-            <li><a href="outreach-gyeonmidan.html" data-i18n="mega.col3.l4">견미단 × 프로라이프</a></li>
-            <li><a href="outreach-prolife2.html"   data-i18n="mega.col3.l5">청소년 프로라이프</a></li>
+            <li><a href="#outreach"     data-i18n="mega.col3.l3">글로벌 아웃리치</a></li>
+            <li><a href="#outreach" data-i18n="mega.col3.l4">견미단 × 프로라이프</a></li>
+            <li><a href="#outreach"   data-i18n="mega.col3.l5">청소년 프로라이프</a></li>
           </ul>
         </div>
         <div class="mega-col">
@@ -833,7 +833,6 @@
               <span data-i18n="out.country.pl">🇵🇱 폴란드</span>
               <span data-i18n="out.country.np">🇳🇵 네팔</span>
             </div>
-            <button class="btn-program" onclick="openGlobalOutreach()" data-i18n="prog.more">자세히 보기 →</button>
           </div>
         </div>
 
@@ -856,7 +855,6 @@
               <span>🇰🇷 태백 국내투어</span>
               <span>🏛 워싱턴 DC</span>
             </div>
-            <button class="btn-program" onclick="openGyeonmidan()" data-i18n="prog.more">자세히 보기 →</button>
           </div>
         </div>
 
@@ -879,7 +877,6 @@
               <span>🇺🇸 캘리포니아</span>
               <span>🏛 워싱턴 DC</span>
             </div>
-            <button class="btn-program" onclick="openProlife2()" data-i18n="prog.more">자세히 보기 →</button>
           </div>
         </div>
 
@@ -2439,19 +2436,19 @@ function closeFutureAcademy() {
   document.body.style.overflow = '';
   setTimeout(function() { document.getElementById('faIframe').src = ''; }, 300);
 }
-function openGlobalOutreach() { location.href = 'outreach-global.html'; }
+function openGlobalOutreach() { location.hash = 'outreach'; }
 function closeGlobalOutreach() {
   document.getElementById('globalOutreachModal').classList.remove('open');
   document.body.style.overflow = '';
   document.getElementById('goIframe').src = '';
 }
-function openGyeonmidan() { location.href = 'outreach-gyeonmidan.html'; }
+function openGyeonmidan() { location.hash = 'outreach'; }
 function closeGyeonmidan() {
   document.getElementById('gyeonmidanModal').classList.remove('open');
   document.body.style.overflow = '';
   document.getElementById('gmIframe').src = '';
 }
-function openProlife2() { location.href = 'outreach-prolife2.html'; }
+function openProlife2() { location.hash = 'outreach'; }
 function closeProlife2() {
   document.getElementById('prolife2Modal').classList.remove('open');
   document.body.style.overflow = '';
