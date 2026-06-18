@@ -146,6 +146,39 @@
   function ls(key, def)       { try { return JSON.parse(localStorage.getItem(key) || def); } catch { return JSON.parse(def); } }
   function lsSet(key, val)    { localStorage.setItem(key, JSON.stringify(val)); }
 
+  /* ── 원격 저장(Cloudflare Worker + KV): 모든 방문자에게 영구 반영 ──
+     window.BOARD_API_URL 가 설정돼 있으면 사용. 없거나 실패 시 localStorage 로 자동 폴백. */
+  const API  = (window.BOARD_API_URL || '').replace(/\/$/, '');
+  const RKEY = encodeURIComponent(CFG.key);
+
+  async function loadRemote() {
+    if (!API) return;
+    try {
+      const r = await fetch(API + '/board/' + RKEY, { cache: 'no-store' });
+      if (!r.ok) return;
+      const d = await r.json();
+      if (d && typeof d === 'object') {
+        lsSet(K.edit, d.edit || {});
+        lsSet(K.add,  d.add  || []);
+        lsSet(K.del,  d.del  || []);
+      }
+    } catch (e) { /* 오프라인 → localStorage 사용 */ }
+  }
+
+  async function pushRemote() {
+    if (!API) return;
+    try {
+      const res = await fetch(API + '/board/' + RKEY, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Pass': CFG.pw },
+        body   : JSON.stringify({ edit: ls(K.edit,'{}'), add: ls(K.add,'[]'), del: ls(K.del,'[]') }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+    } catch (e) {
+      alert('⚠️ 서버 저장에 실패했습니다. 변경 내용은 이 브라우저에만 임시 저장되었습니다.\n인터넷 연결을 확인한 뒤 다시 저장해 주세요.\n(' + e.message + ')');
+    }
+  }
+
   /* ── 게시글 데이터 합산 ─────────────────────────── */
   function getAllPosts() {
     const deleted = new Set(ls(K.del, '[]').map(String));
@@ -323,6 +356,7 @@
     }
     const del = ls(K.del, '[]');
     if (!del.includes(String(id))) { del.push(String(id)); lsSet(K.del, del); }
+    pushRemote();
     S.page = 1; render();
   };
 
@@ -596,6 +630,7 @@
       lsSet(K.add, added);
     }
 
+    pushRemote();
     closeWriteModal();
     S.page = 1;
     render();
@@ -671,7 +706,8 @@
   /* ── 초기화 ─────────────────────────────────────── */
   buildWriteModal();
   buildLoginModal();
-  render();
+  render();                              // 즉시 렌더(정적/캐시)
+  loadRemote().then(render);             // 원격 최신본 반영 후 재렌더
 
   // URL 해시로 직접 게시물 열기 (예: news.html#news-r1)
   const _initHash = location.hash.slice(1);

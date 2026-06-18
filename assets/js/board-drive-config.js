@@ -16,3 +16,11 @@
  */
 
 window.BOARD_DRIVE_CLIENT_ID = '697312304736-m7ijgsfaohou645kmeo9t5tjnb9a23jt.apps.googleusercontent.com';
+
+/**
+ * 게시판 저장 서버(Cloudflare Worker) 주소.
+ * tieum-board-worker 배포 후 출력된 주소를 아래에 넣으세요.
+ * 예) 'https://tieum-board.your-subdomain.workers.dev'
+ * 비워두면 기존처럼 브라우저에만 임시 저장됩니다(사이트는 정상 작동).
+ */
+window.BOARD_API_URL = '';
