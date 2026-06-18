@@ -277,6 +277,77 @@
   /* ════════════════════════════════════════════════
      글 읽기 모달
   ════════════════════════════════════════════════ */
+  /* ── 묶음(브리핑) 글: 아티클 단위 페이지네이션 ── */
+  let BRIEF = { articles: [], idx: 0, intro: '' };
+
+  function parseArticles(content) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = content;
+    let intro = '', cur = null; const articles = [];
+    Array.from(tmp.childNodes).forEach(n => {
+      const isH3 = n.nodeType === 1 && n.tagName === 'H3';
+      const html = n.nodeType === 1 ? n.outerHTML : (n.textContent || '');
+      if (isH3) { if (cur !== null) articles.push(cur); cur = html; }
+      else if (cur === null) intro += html;
+      else cur += html;
+    });
+    if (cur !== null) articles.push(cur);
+    return { intro, articles };
+  }
+
+  function renderPostContent(content) {
+    const parsed = parseArticles(content);
+    const head = document.querySelector('#modalOverlay .modal-head');
+    const oldBar = document.getElementById('briefBar');
+    if (oldBar) oldBar.remove();
+
+    // 단일 아티클(또는 묶음 아님) → 기존 방식 그대로
+    if (parsed.articles.length < 2) {
+      document.getElementById('modalBody').innerHTML = content;
+      return;
+    }
+
+    // 묶음 글 → 고정 헤더에 번호 내비 + 본문은 현재 아티클만
+    BRIEF = { articles: parsed.articles, idx: 0, intro: parsed.intro };
+    const nums = parsed.articles.map((_, i) =>
+      `<button class="brief-num" data-i="${i}" onclick="bGotoArticle(${i})">${i + 1}</button>`).join('');
+    const bar = document.createElement('div');
+    bar.id = 'briefBar';
+    bar.className = 'brief-bar';
+    bar.innerHTML =
+      `<div class="brief-count">📚 본 브리핑은 <b>${parsed.articles.length}개</b>의 아티클을 모았습니다. <span class="brief-hint">번호를 눌러 이동</span></div>` +
+      `<div class="brief-nums">${nums}</div>`;
+    head.appendChild(bar);
+
+    document.getElementById('modalBody').innerHTML =
+      `<div id="briefArticle"></div>
+       <div class="brief-nav">
+         <button id="briefPrev" class="brief-navbtn" onclick="bGotoArticle(BRIEF_IDX()-1)">← 이전 아티클</button>
+         <span id="briefCounter"></span>
+         <button id="briefNext" class="brief-navbtn brief-next" onclick="bGotoArticle(BRIEF_IDX()+1)">다음 아티클 →</button>
+       </div>`;
+    bGotoArticle(0);
+  }
+
+  window.BRIEF_IDX = function () { return BRIEF.idx; };
+  window.bGotoArticle = function (i) {
+    if (!BRIEF.articles.length) return;
+    i = Math.max(0, Math.min(BRIEF.articles.length - 1, i));
+    BRIEF.idx = i;
+    document.getElementById('briefArticle').innerHTML = BRIEF.articles[i];
+    document.querySelectorAll('#briefBar .brief-num').forEach(b =>
+      b.classList.toggle('active', Number(b.dataset.i) === i));
+    document.getElementById('briefCounter').textContent = (i + 1) + ' / ' + BRIEF.articles.length;
+    const prev = document.getElementById('briefPrev'), next = document.getElementById('briefNext');
+    prev.style.visibility = i === 0 ? 'hidden' : 'visible';
+    next.textContent = (i === BRIEF.articles.length - 1) ? '처음으로 ↺' : '다음 아티클 →';
+    if (i === BRIEF.articles.length - 1) next.onclick = function(){ bGotoArticle(0); };
+    else next.onclick = function(){ bGotoArticle(BRIEF.idx + 1); };
+    // 새 아티클은 위에서부터 읽도록 모달 상단으로 스크롤
+    const box = document.querySelector('#modalOverlay .modal-box');
+    if (box) box.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   window.bOpenPost = function (id) {
     const p = getAllPosts().find(x => String(x.id) === String(id));
     if (!p) return;
@@ -293,7 +364,7 @@
       <span class="meta-date">${p.date}</span>
       <span class="meta-views">조회 ${p.views}</span>`;
     document.getElementById('modalTitle').textContent = p.title;
-    document.getElementById('modalBody').innerHTML = p.content;
+    renderPostContent(p.content);
 
     // 첨부파일 영역
     const attachEl = document.getElementById('modalAttachments');
@@ -336,6 +407,8 @@
 
   function closePostModal() {
     closeModal('modalOverlay');
+    const bar = document.getElementById('briefBar');
+    if (bar) bar.remove();
     history.pushState(null, '', location.pathname + location.search);
   }
 
