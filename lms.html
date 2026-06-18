@@ -13,7 +13,7 @@
   <meta property="og:url"         content="https://tieum.org/lms.html" />
   <meta name="twitter:card"       content="summary_large_image" />
   <title>티움 러닝센터 — LMS</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=22" />
+  <link rel="stylesheet" href="assets/css/style.css?v=23" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -135,40 +135,57 @@
 
 <main class="lms-main" id="lmsMain">
 
-  <!-- 로그인 전: 잠김 배너 -->
+  <!-- 로그인 전: 잠김 배너 + 샘플 미리보기 -->
   <div class="lms-locked-banner" id="lmsLockedBanner">
     <div class="lms-locked-inner">
-      <div class="lms-locked-icon">🔒</div>
-      <h2 class="lms-locked-title" data-i18n="lms.lock.title">수강 등록이 필요합니다</h2>
-      <p class="lms-locked-desc" data-i18n-html="lms.lock.desc">티움 러닝센터 과정은 수강 등록 후 이용하실 수 있습니다.<br>아래 버튼을 눌러 등록하거나, 이미 등록하신 분은 로그인해 주세요.</p>
-      <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()" data-i18n="lms.lock.btn">수강 등록 / 로그인</button>
+      <div class="lms-locked-icon">🔓</div>
+      <h2 class="lms-locked-title" data-i18n="lms.lock.title">무료 멤버십으로 모두 열립니다</h2>
+      <p class="lms-locked-desc" data-i18n-html="lms.lock.desc">티움 러닝센터는 <strong>회원가입(무료)</strong> 후 바로 모든 강좌와 자료를 이용할 수 있습니다.<br>아래에서 어떤 과정이 있는지 먼저 둘러보세요.</p>
+      <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()">무료로 시작하기</button>
+    </div>
+
+    <!-- 샘플 미리보기 (로그인 전) -->
+    <div class="lms-sample-wrap">
+      <h3 class="lms-sample-h">🎁 미리보기 — 4개 학습 트랙</h3>
+      <p class="lms-sample-sub">로그인하면 각 트랙의 강좌·자료를 무료로 바로 수강할 수 있어요.</p>
+      <div class="lms-sample-grid" id="lmsSampleGrid"></div>
+      <div style="text-align:center;margin-top:22px;">
+        <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()">무료로 시작하기 →</button>
+      </div>
     </div>
   </div>
 
-  <!-- 로그인 후: 코스 카탈로그 -->
+  <!-- 로그인 후: 4레인 대시보드 -->
   <div class="lms-catalog" id="lmsCatalog" style="display:none;">
-
-    <!-- 상단: 환영 + 로그아웃 -->
-    <div class="lms-catalog-header">
-      <div>
-        <span class="lms-welcome-name" id="lmsWelcomeName"></span>님, 환영합니다!
-      </div>
-      <button class="lms-logout-btn" onclick="lmsLogout(); location.reload();">로그아웃</button>
+    <div class="lms-dash" id="lmsDash">
+      <aside class="lms-dash-side">
+        <div class="lms-dash-brand">🎓 러닝센터</div>
+        <div class="lms-dash-user"><span class="lms-welcome-name" id="lmsWelcomeName"></span>님</div>
+        <nav class="lms-dash-nav" id="lmsDashNav"></nav>
+        <button class="lms-dash-logout" onclick="lmsLogout(); location.reload();">로그아웃</button>
+      </aside>
+      <main class="lms-dash-content">
+        <header class="lms-dash-header" id="lmsDashHeader"></header>
+        <div class="lms-dash-cards" id="lmsDashCards"></div>
+      </main>
     </div>
-
-    <!-- 필터 탭 -->
-    <div class="lms-filter-tabs" id="lmsFilterTabs">
-      <button class="lms-filter-btn active" data-cat="all" onclick="filterCourses('all', this)" data-i18n="lms.filter.all">전체</button>
-      <button class="lms-filter-btn" data-cat="teaching" onclick="filterCourses('teaching', this)" data-i18n="lms.filter.teaching">교수학습법</button>
-      <button class="lms-filter-btn" data-cat="research" onclick="filterCourses('research', this)" data-i18n="lms.filter.research">연구·데이터</button>
-      <button class="lms-filter-btn" data-cat="leadership" onclick="filterCourses('leadership', this)" data-i18n="lms.filter.leadership">TMD 리더십</button>
-    </div>
-
-    <!-- 코스 그리드 -->
-    <div class="lms-course-grid" id="lmsCourseGrid"></div>
-
   </div>
 </main>
+
+<!-- 큐레이션 상세 모달 (전체 한글 내용) -->
+<div class="lms-card-modal" id="lmsCardModal" onclick="if(event.target===this)lmsCloseCard()">
+  <div class="lms-card-box">
+    <button class="lms-card-close" onclick="lmsCloseCard()" aria-label="닫기">✕</button>
+    <div class="lms-card-report" id="lmsCardReport"></div>
+    <h2 id="lmsCardTitle"></h2>
+    <p class="lms-card-orig" id="lmsCardOrig"></p>
+    <div class="lms-card-body" id="lmsCardBody"></div>
+    <div class="lms-card-anno" id="lmsCardAnnoWrap" style="display:none;">
+      <strong>🕊️ 전문가의 관점</strong><p id="lmsCardAnno"></p>
+    </div>
+    <p class="lms-card-src" id="lmsCardSrc"></p>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════ LOGIN MODAL ═══════════════════════════════ -->
 <div class="modal-overlay" id="lmsLoginModal" onclick="if(event.target===this)closeLmsLogin()">
@@ -220,6 +237,8 @@ if (location.hash === '#pbl') { location.replace('lms-pbl.html'); }
 </script>
 <script src="assets/js/lms-data.js?v=14"></script>
 <script src="assets/js/lms-core.js"></script>
+<script src="assets/js/lms-insights.js?v=2"></script>
+<script src="assets/js/lms-dashboard.js?v=1"></script>
 <script>
 /* ── 초기화 ── */
 document.addEventListener('DOMContentLoaded', function () {
@@ -235,23 +254,15 @@ function initLmsPage() {
   } else {
     document.getElementById('lmsLockedBanner').style.display = 'block';
     document.getElementById('lmsCatalog').style.display = 'none';
+    if (typeof renderLmsSample === 'function') renderLmsSample();  // 로그인 전 샘플 미리보기
   }
 }
 
-/* ── 카탈로그 렌더링 ── */
+/* ── 로그인 후: 4레인 대시보드 ── */
 function showCatalog() {
   document.getElementById('lmsLockedBanner').style.display = 'none';
   document.getElementById('lmsCatalog').style.display = 'block';
-  var user = lmsGetUser();
-  if (user) {
-    document.getElementById('lmsWelcomeName').textContent = user.name;
-    var lang2 = (typeof getLang === 'function') ? getLang() : 'ko';
-    var welcomeEl = document.querySelector('.lms-catalog-header > div');
-    if (welcomeEl) welcomeEl.innerHTML = '<span class="lms-welcome-name" id="lmsWelcomeName">' + user.name + '</span>' + (lang2 === 'en' ? ', welcome!' : '님, 환영합니다!');
-    var logoutBtn = document.querySelector('.lms-logout-btn');
-    if (logoutBtn) logoutBtn.textContent = lang2 === 'en' ? 'Log Out' : '로그아웃';
-  }
-  renderCourseGrid('all');
+  if (typeof renderLmsDashboard === 'function') renderLmsDashboard();
 }
 
 function renderCourseGrid(cat) {
