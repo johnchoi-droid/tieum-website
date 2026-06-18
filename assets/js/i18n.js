@@ -38,7 +38,7 @@
       'mega.col3.title': '아웃리치',
       'mega.col3.l1': '티움 글로벌',
       'mega.col3.l2': '비전캠프',
-      'mega.col3.l3': '글로벌 아웃리치',
+      'mega.col3.l3': '국내외 아웃리치',
       'mega.col3.l4': '견미단 × 프로라이프',
       'mega.col3.l5': '청소년 프로라이프',
 
@@ -498,7 +498,7 @@
       'mega.col3.title': 'Outreach',
       'mega.col3.l1': 'TIEUM Global',
       'mega.col3.l2': 'Vision Camp',
-      'mega.col3.l3': 'Global Outreach',
+      'mega.col3.l3': 'Domestic & Global Outreach',
       'mega.col3.l4': 'Gyeonmidan × Pro-Life',
       'mega.col3.l5': 'Youth Pro-Life',
 
@@ -1014,7 +1014,7 @@
           break;
         case 'outreach':
           setText(col, '.mega-col-title', t['mega.col3.title']);
-          setLinks(col, [t['mega.col3.l1'],t['mega.col3.l2'],t['mega.col3.l3'],t['mega.col3.l4'],t['mega.col3.l5']]);
+          setLinks(col, [t['mega.col3.l2'],t['mega.col3.l3']]);
           break;
         case 'lms':
           setText(col, '.mega-col-title', t['mega.lms.title']);
