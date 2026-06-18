@@ -6891,7 +6891,7 @@ html[lang="en"] #outreach .section-desc {
 .fp1{grid-row:1 / span 2}
 .fp2{aspect-ratio:1/1}
 .fp3{aspect-ratio:1/1}
-.fp4{grid-column:1 / -1;aspect-ratio:16/8}
+.fp4{grid-column:1 / -1;aspect-ratio:16/9}  /* 가로 사진(IMG_0977) 전체가 잘림 없이 보이도록 */
 /* 은은한 변화: 짝수 카드 살짝 기울여 콜라주 느낌 */
 .fp2{transform:rotate(1.2deg)}
 .fp3{transform:rotate(-1.2deg)}
