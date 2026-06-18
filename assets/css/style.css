@@ -1376,16 +1376,26 @@ html[lang="en"] .hero-title em {
   width: max-content;
 }
 .partner-logo {
-  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  height: 88px;
+  padding: 16px 24px;
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 16px 32px;
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--text-2);
-  white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
+  color: var(--text-2);
+  font-size: .95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
 }
+.partner-logo:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--primary); }
+.partner-logo img { max-height: 50px; max-width: 100%; width: auto; object-fit: contain; display: block; }
+.partner-logo-text { font-size: 1.02rem; font-weight: 700; color: var(--text); }  /* 로고 없는 창경 — 로고들과 톤 통일 */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
