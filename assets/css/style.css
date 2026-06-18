@@ -6905,3 +6905,27 @@ html[lang="en"] #outreach .section-desc {
   .fp1{grid-row:auto;aspect-ratio:4/3}
   .fp2,.fp3{transform:none}
 }
+
+/* ── 후원(#support) 헤더 2단 + 세로 사진 부채꼴 콜라주 ── */
+.support-head{display:flex;align-items:center;gap:48px;max-width:1120px;margin:0 auto 56px;text-align:left}
+.support-head-text{flex:1 1 auto;min-width:0}
+.support-head-text .section-title,.support-head-text .section-desc{text-align:left}
+.support-photos{flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:18px 0}
+.sp{width:116px;flex:none;margin:0;margin-left:-30px;aspect-ratio:853/1280;border-radius:13px;
+  overflow:hidden;background:#fff;border:5px solid #fff;box-shadow:0 16px 36px rgba(0,0,0,.40);
+  transition:transform .3s ease,box-shadow .3s ease}
+.sp:first-child{margin-left:0}
+.sp img{width:100%;height:100%;object-fit:cover;display:block}
+.sp:nth-child(1){transform:rotate(-9deg) translateY(10px)}
+.sp:nth-child(2){transform:rotate(-4.5deg) translateY(2px)}
+.sp:nth-child(3){transform:rotate(0deg) translateY(-6px);z-index:2}
+.sp:nth-child(4){transform:rotate(4.5deg) translateY(2px)}
+.sp:nth-child(5){transform:rotate(9deg) translateY(10px)}
+.sp:hover{transform:translateY(-16px) rotate(0deg) scale(1.06);z-index:6;box-shadow:0 26px 54px rgba(0,0,0,.5)}
+@media (max-width:980px){
+  .support-head{flex-direction:column;gap:28px;text-align:center}
+  .support-head-text .section-title,.support-head-text .section-desc{text-align:center}
+}
+@media (max-width:430px){
+  .sp{width:92px;margin-left:-24px}
+}
