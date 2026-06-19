@@ -43,3 +43,47 @@ window.NEWS_POSTS = [
     `
   }
 ];
+
+/* ════════════════════════════════════════════════════════════
+   실효 소식(Effective News) = NEWS_POSTS + 게시판 변경분 합산
+   ────────────────────────────────────────────────────────────
+   news.html 게시판에서 글을 추가·삭제·수정하면 그 변경분이
+   Cloudflare Worker(KV)에 저장됩니다. 이 함수가 그 변경분을
+   NEWS_POSTS(시드)에 합산해 Promise<배열>로 돌려주므로,
+   메인 페이지 '티움 최신 소식'에도 게시판 변동이 자동 반영됩니다.
+   Worker 미설정·오프라인·오류 시 NEWS_POSTS 원본으로 폴백합니다.
+   (병합 규칙은 board.js 의 getAllPosts() 와 동일)
+
+   필요한 전역값:
+     window.BOARD_API_URL      (board-drive-config.js 에서 설정)
+     window.BOARD_STORAGE_KEY  (기본값 'tieum_news')
+   ════════════════════════════════════════════════════════════ */
+window.getEffectiveNewsPosts = function () {
+  var seed = (window.NEWS_POSTS || []).slice();
+  var api  = (window.BOARD_API_URL || '').replace(/\/$/, '');
+  var key  = window.BOARD_STORAGE_KEY || 'tieum_news';
+  if (!api || typeof fetch !== 'function') return Promise.resolve(seed);
+
+  var ctrl  = (typeof AbortController === 'function') ? new AbortController() : null;
+  var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 4000) : null;
+  var done  = function () { if (timer) { clearTimeout(timer); timer = null; } };
+
+  return fetch(api + '/board/' + encodeURIComponent(key), {
+      cache: 'no-store', signal: ctrl ? ctrl.signal : undefined
+    })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      done();
+      if (!d || typeof d !== 'object') return seed;
+      var edit = d.edit || {};
+      var add  = Array.isArray(d.add) ? d.add : [];
+      var del  = new Set((Array.isArray(d.del) ? d.del : []).map(String));
+      var apply = function (p) {
+        return edit[String(p.id)] ? Object.assign({}, p, edit[String(p.id)]) : p;
+      };
+      var base  = seed.filter(function (p) { return !del.has(String(p.id)); }).map(apply);
+      var extra = add.filter(function (p) { return !del.has(String(p.id)); }).map(apply);
+      return extra.concat(base);   // 게시판과 동일: 추가글 먼저, 그다음 시드글
+    })
+    .catch(function () { done(); return seed; });
+};

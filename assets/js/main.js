@@ -187,6 +187,13 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 fadeEls.forEach(el => observer.observe(el));
 
+// 비동기로 나중에 추가된 .fade-in 요소(예: 게시판과 동기화되는 소식 카드)를
+// 스크롤 페이드인 관찰 대상에 추가한다.
+window.tieumObserveFadeIns = function (root) {
+  const scope = root || document;
+  scope.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
+};
+
 // ---------- Animated stat counters ----------
 function animateCounter(el) {
   const target = parseInt(el.dataset.target, 10);
