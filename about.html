@@ -151,7 +151,9 @@
       <div class="greeting-grid fade-in">
         <div class="greeting-portrait">
           <div class="portrait-frame">
-            <div class="portrait-placeholder">
+            <img src="assets/images/chojuan.jpg" alt="최주안 사무국장" class="portrait-photo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="portrait-placeholder" style="display:none;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
           </div>
@@ -308,22 +310,209 @@
         <h2 class="section-title" data-i18n="about.team.title">구성원</h2>
         <p class="section-desc" style="margin:0 auto;">티움의 활동을 함께 이끌어 가는 이사장·이사·사무국장·전문위원을 소개합니다.</p>
       </div>
-      <div class="team-group fade-in">
-        <span class="team-group-title">임 원 진</span>
-        <div class="team-row">
-          <div class="team-card">
-            <div class="team-photo-wrap"><div class="team-avatar-fallback av-blue">이</div></div>
-            <div class="team-info"><h4>이사장 <span class="team-role-badge">이사장</span></h4><ul><li>사단법인 티움</li></ul></div>
-          </div>
-          <div class="team-card">
-            <div class="team-photo-wrap"><div class="team-avatar-fallback av-teal">최</div></div>
-            <div class="team-info"><h4>최주안 <span class="team-role-badge">사무국장</span></h4><ul><li>사단법인 티움</li></ul></div>
+      <!-- 이사장 -->
+      <div class="team-group">
+        <h3 class="team-group-title" data-i18n="team.g1">이 사 장</h3>
+        <div class="team-row team-row-single">
+          <div class="team-card team-card-lead fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/gobongik.jpg" alt="고봉익 이사장"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="team-avatar-fallback" style="display:none;">고</div>
+            </div>
+            <div class="team-info">
+              <h4 data-i18n-html="team.chair.name">고봉익 <span class="team-role-badge">이사장</span></h4>
+              <ul>
+                <li>(주)TMD교육그룹 대표</li>
+                <li>前 EBS '부모광장' 메인 패널</li>
+                <li>前 조선일보 선정 교육전문가 1호</li>
+                <li>前 한국교육개발원(KEDI) 자문위원</li>
+                <li>2020 중소벤처기업부<br/>'존경받는 기업인' 선정</li>
+                <li>대표 저서: 『공부감성』 『꿈의교실』 외 다수</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <p style="text-align:center;color:var(--text-3);font-size:.85rem;margin-top:8px;">
-        ※ 구성원 상세 정보는 순차적으로 업데이트됩니다.
-      </p>
+
+      <!-- 이사 -->
+      <div class="team-group">
+        <h3 class="team-group-title" data-i18n="team.g2">이 사</h3>
+        <div class="team-row">
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/kimhyungil.jpg" alt="김형길 교수" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-blue" style="display:none;">김</div>
+            </div>
+            <div class="team-info">
+              <h4>김형길 <span class="team-role-badge">교수</span></h4>
+              <ul>
+                <li>JDC(제주개발센터)<br>면세점 운영위원</li>
+                <li>(사)제주관광문화산업진흥원 원장</li>
+                <li>전) 제주대학교 경영학과 교수</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/leehyeobseung.jpg" alt="이협승 박사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-teal" style="display:none;">이</div>
+            </div>
+            <div class="team-info">
+              <h4>이협승 <span class="team-role-badge">박사</span></h4>
+              <ul>
+                <li>탄자니아 적정기술센터(iTEC)<br>센터장</li>
+                <li>스탠포드대학 기계공학 박사</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/jangjaehi.jpg" alt="장재기" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-purple" style="display:none;">장</div>
+            </div>
+            <div class="team-info">
+              <h4>장재기 <span class="team-role-badge">교육자</span></h4>
+              <ul>
+                <li>팔로잉 미니스트리 대표</li>
+                <li>청소년 교육 전문가</li>
+                <li>「따라하는 기도」 저자</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/hangeonso.jpg" alt="한건수 대표" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-green" style="display:none;">한</div>
+            </div>
+            <div class="team-info">
+              <h4>한건수 <span class="team-role-badge">대표</span></h4>
+              <ul>
+                <li>김사연구소(G.LAB) 대표</li>
+                <li>국민대학교 교양학부 강임교수</li>
+                <li>국제크리스천코치협회 협회장</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/imchaejong.jpg" alt="임채종 대표" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-orange" style="display:none;">임</div>
+            </div>
+            <div class="team-info">
+              <h4>임채종 <span class="team-role-badge">대표</span></h4>
+              <ul>
+                <li>크리스천타임스 한국 대표</li>
+                <li>다랫(주) 대표이사</li>
+                <li>드림스드림 이사장</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 사무국장 -->
+      <div class="team-group">
+        <h3 class="team-group-title" data-i18n="team.g3">사 무 국 장</h3>
+        <div class="team-row team-row-single">
+          <div class="team-card team-card-lead fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/chojuan.jpg" alt="최주안 박사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-navy" style="display:none;">최</div>
+            </div>
+            <div class="team-info">
+              <h4>최주안 <span class="team-role-badge" data-i18n="team.sg.badge">박사</span></h4>
+              <ul>
+                <li style="word-break:keep-all;">SWBTS 교육학 박사</li>
+                <li>교육행정 및 전략 수립</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 전문위원 -->
+      <div class="team-group">
+        <h3 class="team-group-title" data-i18n="team.g4">전 문 위 원</h3>
+        <div class="team-row">
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/kimkyeongon.jpg" alt="김경은" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-pink" style="display:none;">김</div>
+            </div>
+            <div class="team-info">
+              <h4>김경은</h4>
+              <ul>
+                <li>온라인 마케팅 교육법인</li>
+                <li>블루미 대표</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/kimhyungju.jpg" alt="김형주" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-blue" style="display:none;">김</div>
+            </div>
+            <div class="team-info">
+              <h4>김형주</h4>
+              <ul>
+                <li>중앙대학교 HK+</li>
+                <li>인공지능인문학단 교수</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/parkeunhyeon.jpg" alt="박은현" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-teal" style="display:none;">박</div>
+            </div>
+            <div class="team-info">
+              <h4>박은현</h4>
+              <ul>
+                <li>CMP Research &amp;</li>
+                <li>Art Center 운영</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/seoungkyo.jpg" alt="서응교" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-green" style="display:none;">서</div>
+            </div>
+            <div class="team-info">
+              <h4>서응교</h4>
+              <ul>
+                <li>단국대학교 SW융합대학</li>
+                <li>SW융합학부 교수</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team-card fade-in">
+            <div class="team-photo-wrap">
+              <img src="assets/images/yunhuijin.jpg" alt="윤희진" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <div class="team-avatar-fallback av-purple" style="display:none;">윤</div>
+            </div>
+            <div class="team-info">
+              <h4>윤희진</h4>
+              <ul>
+                <li>주식회사 에이직랜드<br>영업본부 / 연구기획팀</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
@@ -402,8 +591,8 @@
   <a href="#" class="back-to-top" id="backToTop" aria-label="맨 위로">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
   </a>
-  <script src="assets/js/i18n-map.js?v=17"></script>
-  <script src="assets/js/i18n.js?v=16"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n-map.js?v=18"></script>
+  <script src="assets/js/i18n.js?v=17"></script>
+  <script src="assets/js/main.js?v=5"></script>
 </body>
 </html>

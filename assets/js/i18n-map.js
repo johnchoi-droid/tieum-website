@@ -1742,5 +1742,23 @@ window.KO2EN = {
  "제8조 (정책의 변경)": "Article 8 (Amendment of the Policy)",
  "이 저작권 보호 정책은 관련 법령의 개정 또는 정책 변경에 따라 수정될 수 있습니다.": "This Copyright Protection Policy may be amended in accordance with revisions to related statutes or changes in policy.",
  "정책이 변경되는 경우, 변경 사항을 시행일 최소 7일 전부터 사이트 공지사항을 통해 안내합니다.": "In the event that the Policy is amended, the changes will be announced through the site's notices at least 7 days before the effective date.",
- "본 저작권 보호 정책은": "This Copyright Protection Policy takes effect on"
+ "본 저작권 보호 정책은": "This Copyright Protection Policy takes effect on",
+
+ /* ── 소식 게시판 본문(news-data.js) 영어 전환 — 双核觉醒 캠프 ── */
+ "双核觉醒 쌍핵각성 캠프 안내": "双核觉醒 Dual-Core Awakening — About the Camp",
+ "중국 연길 거주 조선족 청소년(초4~중3)을 위한 3박 4일 몰입형 정체성·AI 진로 캠프입니다.": "This is a 3-night, 4-day immersive identity & AI career camp for Korean-Chinese youth (grades 4–9) living in Yanji, China.",
+ "두 개의 정체성을 강점으로 전환하는 여섯 가지 연결 프로그램으로 구성됩니다.": "It consists of six connecting programs designed to transform dual identity into strength.",
+ "일시:": "Date:",
+ "2026년 7월 13일(월) ~ 16일(목) · 3박 4일": "July 13–16, 2026 (Mon–Thu) · 3 nights / 4 days",
+ "장소:": "Location:",
+ "제주도 (펄 호텔 + SW미래채움 AI교육캠퍼스)": "Jeju Island (Pearl Hotel + SW Future Filling AI Education Campus)",
+ "대상:": "Eligibility:",
+ "초등 4학년 ~ 중학 3학년 · 선착순 25명": "Grades 4–9 · First 25 applicants",
+ "총괄 코치:": "Head Coach:",
+
+ /* ── 소식 게시판 본문(news-data.js) 영어 전환 — 러닝센터 오픈 ── */
+ "티움 러닝센터 정식 오픈": "TIEUM Learning Center Now Officially Open",
+ "교수학습법·연구·데이터·TMD 리더십 과정을 온라인으로 수강하실 수 있는 티움 러닝센터가 정식 오픈했습니다.": "The TIEUM Learning Center — where you can take teaching methods, research & data, and TMD leadership courses online — is now officially open.",
+ "수강 등록 코드는 티움 담당자에게 문의하세요.": "For an enrollment code, please contact the TIEUM staff.",
+ "러닝센터 바로가기 →": "Go to the Learning Center →"
 };
