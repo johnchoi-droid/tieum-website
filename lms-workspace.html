@@ -142,7 +142,7 @@
   <div class="ws-search-wrap">
     <span class="ws-search-icon">🔍</span>
     <input type="search" id="wsSearch" class="ws-search-input"
-           placeholder="프로젝트 제목, 태그로 검색..." oninput="filterWs()" />
+           placeholder="프로젝트 제목, 태그로 검색..." aria-label="프로젝트 제목·태그로 검색" oninput="filterWs()" />
   </div>
   <div class="ws-filter-chips" id="wsFilterChips">
     <button class="ws-chip active" data-tag="all"   onclick="setWsTag('all',this)">전체</button>
@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* 햄버거 메뉴는 main.js 에서 처리 */
 });
 </script>
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=5"></script>
   <script src="assets/js/i18n-map.js?v=17"></script>
   <script src="assets/js/i18n.js?v=16"></script>
 </body>

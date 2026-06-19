@@ -261,9 +261,14 @@ function handleSubmit(e) {
 }
 
 // ---------- Back to top ----------
-document.getElementById('backToTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// 일부 페이지(약관·뉴스레터·러닝센터 등)에는 #backToTop 버튼이 없으므로 가드.
+// 없을 때 null 참조 예외가 나면 이후 스크립트(활성 메뉴 하이라이트·히어로 패럴랙스)가 전부 멈춘다.
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // ---------- Active nav highlight on scroll ----------
 const sections = document.querySelectorAll('section[id]');
