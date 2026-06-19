@@ -18,9 +18,11 @@
     try { return JSON.parse(localStorage.getItem(USER_KEY)); } catch (e) { return null; }
   };
 
-  window.lmsLogin = function (name, email, password) {
-    if (password !== window.LMS_CONFIG.password) return false;
-    var user = { name: name.trim(), email: email.trim(), loginAt: Date.now() };
+  /* 무료 멤버십 — 이름(+선택 이메일)만으로 등록.
+     기존의 노출된 수강 코드 검증은 제거됨(콘텐츠는 어차피 공개 자료라 코드가 보호하지 못함). */
+  window.lmsLogin = function (name, email) {
+    if (!name || !name.trim()) return false;
+    var user = { name: name.trim(), email: (email || '').trim(), loginAt: Date.now() };
     localStorage.setItem(USER_KEY, JSON.stringify(user));
     return true;
   };

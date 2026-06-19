@@ -328,8 +328,8 @@
 </div>
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-<script src="assets/js/lms-data.js?v=16"></script>
-<script src="assets/js/lms-core.js"></script>
+<script src="assets/js/lms-data.js?v=17"></script>
+<script src="assets/js/lms-core.js?v=2"></script>
 <script>
 /* ════════════════════ 상태 ════════════════════ */
 var STATE = {
@@ -801,28 +801,28 @@ function buildAiBotSystemPrompt() {
 /* ── API 호출 ── */
 async function callClaudeAPI(userText) {
   var cfg = window.LMS_CONFIG || {};
-  var apiKey   = cfg.claudeApiKey   || '';
   var endpoint = cfg.chatApiEndpoint || '';
 
-  if (!apiKey) return null;
-
-  // Direct Anthropic API (browser CORS may block — use chatApiEndpoint proxy for production)
-  var url = endpoint || 'https://api.anthropic.com/v1/messages';
+  /* 보안: 브라우저에서 제3자 API(Anthropic/Groq)에 키를 직접 보내지 않는다.
+     반드시 서버사이드 프록시(chatApiEndpoint)를 통해서만 호출하며, API 키는
+     프록시(서버)가 보관한다. 프록시가 없으면 오프라인 스캐폴딩 모드로 폴백. */
+  var isProxy = endpoint && !/(anthropic\.com|api\.groq\.com)/i.test(endpoint);
+  if (!isProxy) {
+    if (cfg.claudeApiKey) {
+      console.warn('[보안] claudeApiKey를 브라우저에서 직접 사용하지 않습니다(공개 노출 위험). ' +
+                   'chatApiEndpoint(서버 프록시)를 설정하면 AI 챗봇이 활성화됩니다. 현재는 오프라인 모드입니다.');
+    }
+    return null;
+  }
 
   AI_BOT.messages.push({ role: 'user', content: userText });
   var msgSlice = AI_BOT.messages.slice(-12);  // 최근 12개 메시지만 전송
 
+  // 키는 프록시(서버)가 보관 — 클라이언트는 인증 헤더를 보내지 않는다.
   var headers = { 'Content-Type': 'application/json' };
-  if (!endpoint || endpoint.includes('anthropic.com')) {
-    headers['x-api-key'] = apiKey;
-    headers['anthropic-version'] = '2023-06-01';
-    headers['anthropic-dangerous-client-side-auth'] = 'true';
-  } else {
-    headers['Authorization'] = 'Bearer ' + apiKey;
-  }
 
   try {
-    var res = await fetch(url, {
+    var res = await fetch(endpoint, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({
@@ -870,7 +870,9 @@ async function sendAiMsg() {
 
   var reply = null;
   var cfg = window.LMS_CONFIG || {};
-  var isOffline = !cfg.claudeApiKey;
+  // AI 챗봇은 서버 프록시(chatApiEndpoint)가 있을 때만 활성화 — 키를 브라우저에 두지 않는다.
+  var hasProxy  = cfg.chatApiEndpoint && !/(anthropic\.com|api\.groq\.com)/i.test(cfg.chatApiEndpoint);
+  var isOffline = !hasProxy;
 
   if (!isOffline) {
     reply = await callClaudeAPI(text);
@@ -881,7 +883,7 @@ async function sendAiMsg() {
     await new Promise(function(r){ setTimeout(r, 700 + Math.random() * 600); });
     reply = getOfflineResponse(text);
     if (isOffline && AI_BOT.messages.length <= 0) {
-      reply = '💡 오프라인 스캐폴딩 모드입니다. lms-data.js에 claudeApiKey를 설정하면 Claude AI가 활성화됩니다.\n\n' + reply;
+      reply = '💡 오프라인 스캐폴딩 모드입니다. (AI 챗봇을 켜려면 chatApiEndpoint 서버 프록시를 설정하세요.)\n\n' + reply;
     }
   }
 
@@ -1682,7 +1684,7 @@ function closeAllJournals() {
 }
 </script>
   <script src="assets/js/i18n-map.js?v=17"></script>
-  <script src="assets/js/i18n.js?v=15"></script>
+  <script src="assets/js/i18n.js?v=16"></script>
 
 <script>
 /* ═══════════════════════════════════════════════

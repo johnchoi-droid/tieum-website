@@ -15,25 +15,25 @@
 window.LMS_CONFIG = {
   title:    '티움 러닝센터',
   subtitle: 'AI 시대의 교육 전문가 과정',
-  password: 'TIEUM_LMS_REVIEW',   // 수강 비밀번호 (변경 가능)
+  /* 수강 비밀번호는 제거됨 — 무료 멤버십(이름만으로 등록). */
 
-  /* ── AI 자막 설정 ──────────────────────────────────────────
-   * groqApiKey : Groq API 키 (https://console.groq.com → 무료 가입)
-   *              입력 시 탭 오디오 캡처 → Whisper 변환 → 영어 자막
-   *              비워두면 마이크 기반 Speech Recognition 모드로 동작
+  /* ⚠️⚠️ 보안 경고 ⚠️⚠️ ───────────────────────────────────────
+   * 이 파일(lms-data.js)은 누구나 볼 수 있는 '공개' 스크립트입니다.
+   * 아래 groqApiKey / claudeApiKey 에 실제 키를 절대 넣지 마세요.
+   * 넣는 즉시 전 세계에 키가 공개되어 요금 폭탄·오남용 위험이 있습니다.
+   *
+   *  • claudeApiKey : 비워 두세요. 클라이언트는 키를 직접 쓰지 않습니다.
+   *                   AI 챗봇이 필요하면 chatApiEndpoint(서버 프록시)만 설정하세요.
+   *  • groqApiKey   : 비워 두세요. 자막 기능은 각 사용자가 '자기 브라우저에서
+   *                   본인 키를 직접 입력'하는 방식(BYOK)으로 동작합니다.
+   *                   (이 경우 키는 그 사용자 브라우저에만 머물러 안전)
+   *  • chatApiEndpoint : Anthropic 키를 보관하는 서버사이드 프록시 URL.
+   *                   예) 'https://your-worker.workers.dev/chat'
+   *                   설정하면 챗봇이 이 프록시로만 호출하고, 키는 서버에만 둡니다.
    * ─────────────────────────────────────────────────────── */
-  groqApiKey: '',
-
-  /* ── AI 스캐폴딩 봇 설정 ──────────────────────────────────
-   * claudeApiKey   : Anthropic API 키 (https://console.anthropic.com)
-   *                  비워두면 내장 오프라인 스캐폴딩 모드로 동작합니다.
-   * chatApiEndpoint: 기본값은 Anthropic API 직접 호출입니다.
-   *                  CORS 문제 시 Cloudflare Worker / Netlify Function 등
-   *                  서버사이드 프록시 URL을 입력하세요.
-   *                  예) 'https://your-worker.your-domain.workers.dev/chat'
-   * ─────────────────────────────────────────────────────── */
-  claudeApiKey:    '',
-  chatApiEndpoint: '',
+  groqApiKey:      '',   // 절대 채우지 말 것(공개됨). 사용자 BYOK 사용.
+  claudeApiKey:    '',   // 절대 채우지 말 것(공개됨). 프록시 사용.
+  chatApiEndpoint: '',   // 서버 프록시 URL만 입력
 };
 
 window.LMS_COURSES = [
