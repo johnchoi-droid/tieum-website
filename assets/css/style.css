@@ -71,6 +71,23 @@ input, textarea, select {
   will-change: auto;
 }
 #academy > * { position: relative; z-index: 1; }
+
+/* 소식 섹션 — 은은한 배경 이미지 (아카데미 섹션과 동일 기법: 흰색 오버레이 0.76) */
+#news {
+  position: relative;
+  background: none;
+}
+#news::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(245,247,250,.76), rgba(245,247,250,.76)),
+    url('../images/news/news.jpg') center / cover no-repeat;
+}
+#news > * { position: relative; z-index: 1; }
+
 .section-dark { background: var(--bg-dark); color: white; }
 .section-tag {
   display: inline-block;

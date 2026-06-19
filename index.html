@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=45" />
+  <link rel="stylesheet" href="assets/css/style.css?v=46" />
   <link rel="icon" type="image/png" href="assets/images/tieum-icon-192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/tieum-icon-32.png" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -1005,11 +1005,7 @@
             return;
           }
           grid.innerHTML = posts.map(function (p) {
-            /* 카드 상단 사진 — 글에 image가 지정되면 사용, 없으면 기본 소식 이미지.
-               CSS url() 주입 방지를 위해 안전한 경로 문자만 허용. */
-            var img = (p.image && /^[\w./-]+$/.test(p.image)) ? p.image : 'assets/images/news/news.jpg';
             return '<article class="news-card fade-in">'
-              + '<div class="news-img" style="background-image:url(\'' + img + '\')" role="img" aria-label="' + esc(p.title) + '"></div>'
               + '<div class="news-body">'
               + '<span class="news-badge badge-' + esc(p.category) + '">' + esc(p.categoryLabel) + '</span>'
               + '<h3>' + esc(p.title) + '</h3>'
