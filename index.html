@@ -2449,7 +2449,12 @@ function closeFutureMakers() {
   setTimeout(function() { document.getElementById('fmIframe').src = ''; }, 300);
 }
 
-function openFutureAcademy() { location.href = 'future-academy.html'; }
+function openFutureAcademy() {
+  var modal = document.getElementById('faModal');
+  document.getElementById('faIframe').src = 'future-academy.html';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 function closeFutureAcademy() {
   var modal = document.getElementById('faModal');
   modal.classList.remove('open');
