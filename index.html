@@ -12,31 +12,61 @@
   <meta property="og:description" content="사단법인 티움(TIEUM)은 인공지능 시대 교육 혁신을 위해 2021년 설립된 비영리 기관입니다. 서울 서초구를 거점으로 교수학습법 연구, AI·문화·예술 교육, 글로벌 아웃리치 사업을 운영합니다." />
   <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
   <meta property="og:url"         content="https://tieum.org" />
+  <link rel="canonical" href="https://tieum.org/" />
   <meta name="twitter:card"       content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=46" />
+  <link rel="stylesheet" href="assets/css/style.css?v=47" />
   <link rel="icon" type="image/png" href="assets/images/tieum-icon-192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/tieum-icon-32.png" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "사단법인 티움",
-    "alternateName": "TIEUM",
-    "url": "https://tieum.org",
-    "logo": "https://tieum.org/assets/images/tieum-icon-512.png",
-    "description": "사단법인 티움(TIEUM)은 인공지능 시대 교육 혁신을 위해 2021년 설립된 비영리 기관입니다.",
-    "foundingDate": "2021-04-21",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "KR",
-      "addressRegion": "서울특별시",
-      "addressLocality": "서초구",
-      "streetAddress": "효령로 57길 3"
-    }
+    "@graph": [
+      {
+        "@type": ["NGO", "EducationalOrganization"],
+        "@id": "https://tieum.org/#organization",
+        "name": "사단법인 티움",
+        "alternateName": ["TIEUM", "티움"],
+        "url": "https://tieum.org",
+        "logo": "https://tieum.org/assets/images/tieum-icon-512.png",
+        "image": "https://tieum.org/assets/images/tieum-logo.png",
+        "description": "사단법인 티움(TIEUM)은 인공지능 시대 교육 혁신을 위해 2021년 설립된 비영리 교육 기관입니다.",
+        "foundingDate": "2021-04-21",
+        "email": "johnchoi@tieum.org",
+        "telephone": "+82-70-7204-2004",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "KR",
+          "addressRegion": "서울특별시",
+          "addressLocality": "서초구",
+          "streetAddress": "효령로 57길 3"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+82-70-7204-2004",
+          "email": "johnchoi@tieum.org",
+          "contactType": "customer service",
+          "availableLanguage": ["ko", "en"]
+        },
+        "sameAs": [
+          "https://www.youtube.com/@%EC%82%AC%ED%8B%B0%EC%9B%80TIEUM",
+          "https://www.instagram.com/tieum_official/",
+          "https://blog.naver.com/tieum0421"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tieum.org/#website",
+        "url": "https://tieum.org",
+        "name": "사단법인 티움",
+        "alternateName": "TIEUM",
+        "inLanguage": "ko",
+        "publisher": { "@id": "https://tieum.org/#organization" }
+      }
+    ]
   }
   </script>
 </head>

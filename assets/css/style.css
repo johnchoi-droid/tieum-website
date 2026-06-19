@@ -11,7 +11,7 @@
   --accent-dk:  #d48c0e;
   --text:       #1a1a2e;
   --text-2:     #4a5568;
-  --text-3:     #718096;
+  --text-3:     #5e6b7d;   /* 대비 개선: 흰 배경 대비 ~5.5:1 (WCAG AA 통과). 기존 #718096은 ~4.1:1 미달 */
   --bg:         #ffffff;
   --bg-light:   #f7f9fc;
   --bg-dark:    #0f2848;
