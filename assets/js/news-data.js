@@ -87,3 +87,33 @@ window.getEffectiveNewsPosts = function () {
     })
     .catch(function () { done(); return seed; });
 };
+
+/* ────────────────────────────────────────────────────────────
+   보안 헬퍼 — 게시글은 누구나(관리자 비밀번호 보유 시) 등록 가능하고
+   제목·요약이 메인/게시판에 innerHTML로 렌더되므로, 출력 시 항상 escape한다.
+   ──────────────────────────────────────────────────────────── */
+window.escHtml = function (s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+};
+
+/* 글 요약 — summary 우선, 없으면 content에서 텍스트만 안전 추출.
+   DOMParser는 스크립트 실행·리소스 로드를 하지 않아 onerror 류 XSS가 발생하지 않는다.
+   반환값은 평문이며, 호출부에서 다시 escHtml로 감싸 출력한다. */
+window.newsExcerpt = function (p, n) {
+  n = n || 90;
+  if (p && p.summary) {
+    var s = String(p.summary).trim().replace(/\s+/g, ' ');
+    return s.length > n ? s.slice(0, n) + '…' : s;
+  }
+  if (!p || !p.content) return '';
+  var text = '';
+  try {
+    var doc = new DOMParser().parseFromString(String(p.content), 'text/html');
+    text = (doc.body.textContent || '').trim().replace(/\s+/g, ' ');
+  } catch (e) {
+    text = String(p.content).replace(/<[^>]*>/g, '').trim().replace(/\s+/g, ' ');
+  }
+  return text.length > n ? text.slice(0, n) + '…' : text;
+};

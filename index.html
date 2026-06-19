@@ -979,20 +979,14 @@
       </div>
       <div class="news-grid" id="newsGrid"></div>
       <script src="assets/js/board-drive-config.js?v=2"></script>
-      <script src="assets/js/news-data.js?v=17"></script>
+      <script src="assets/js/news-data.js?v=18"></script>
       <script>
       (function () {
         /* 소식의 단일 출처 = news-data.js (NEWS_POSTS).
            이 파일을 수정·배포하면 news.html 과 메인 '소식'에 동시에,
            모든 방문자에게 반영됩니다. (브라우저 임시저장 미사용) */
-        function excerpt(p) {
-          if (p.summary) return p.summary;
-          if (!p.content) return '';
-          var tmp = document.createElement('div');
-          tmp.innerHTML = p.content;
-          var t = (tmp.textContent || '').trim().replace(/\s+/g, ' ');
-          return t.length > 90 ? t.slice(0, 90) + '…' : t;
-        }
+        var esc     = window.escHtml || function (s) { return String(s == null ? '' : s); };
+        var excerpt = window.newsExcerpt || function (p) { return p.summary || ''; };
 
         var grid = document.getElementById('newsGrid');
         if (!grid) return;
@@ -1013,12 +1007,12 @@
           grid.innerHTML = posts.map(function (p) {
             return '<article class="news-card fade-in">'
               + '<div class="news-body">'
-              + '<span class="news-badge badge-' + p.category + '">' + p.categoryLabel + '</span>'
-              + '<h3>' + p.title + '</h3>'
-              + '<p>' + excerpt(p) + '</p>'
+              + '<span class="news-badge badge-' + esc(p.category) + '">' + esc(p.categoryLabel) + '</span>'
+              + '<h3>' + esc(p.title) + '</h3>'
+              + '<p>' + esc(excerpt(p)) + '</p>'
               + '<div class="news-meta">'
-              + '<time>' + p.date + '</time>'
-              + '<a href="news.html#' + p.id + '" class="news-link">자세히 보기 →</a>'
+              + '<time>' + esc(p.date) + '</time>'
+              + '<a href="news.html#' + encodeURIComponent(p.id) + '" class="news-link">자세히 보기 →</a>'
               + '</div>'
               + '</div>'
               + '</article>';
@@ -1420,7 +1414,7 @@
           </ul>
         </div>
         <div class="contact-form fade-in">
-          <form id="contactForm" action="https://formspree.io/f/tieum-contact" onsubmit="handleSubmit(event)">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
             <div class="form-row">
               <div class="form-group">
                 <label for="name" data-i18n="form.name">이름 *</label>
@@ -1696,7 +1690,7 @@
     </svg>
   </button>
 
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/main.js?v=4"></script>
 
   <script>
   /* ═══ 멤버십 가입 모달 ══════════════════════════════════════ */
@@ -1758,14 +1752,8 @@
     }
 
     /* 슬라이드를 news-data.js(NEWS_POSTS)에서 자동 생성 — 소식의 단일 출처 유지 */
-    function npExcerpt(p) {
-      if (p.summary) return p.summary;
-      if (!p.content) return '';
-      var t = document.createElement('div');
-      t.innerHTML = p.content;
-      var s = (t.textContent || '').trim().replace(/\s+/g, ' ');
-      return s.length > 80 ? s.slice(0, 80) + '…' : s;
-    }
+    var npEsc     = window.escHtml || function (s) { return String(s == null ? '' : s); };
+    var npExcerpt = window.newsExcerpt || function (p) { return p.summary || ''; };
     /* 게시판 변동을 합산한 실효 소식으로 슬라이드 생성 → Promise<개수> 반환 */
     window.npBuildSlides = function () {
       var wrap = document.getElementById('newsPopupSlides');
@@ -1790,10 +1778,10 @@
           return '<div class="news-popup-slide' + (i === 0 ? ' active' : '') + '">'
             + '<div class="news-popup-img" style="background:' + c.grad + ';">' + c.emoji + '</div>'
             + '<div class="news-popup-body">'
-            + '<span class="news-badge badge-' + p.category + '">' + p.categoryLabel + '</span>'
-            + '<h3>' + p.title + '</h3>'
-            + '<p>' + npExcerpt(p) + '</p>'
-            + '<time>' + p.date + '</time>'
+            + '<span class="news-badge badge-' + npEsc(p.category) + '">' + npEsc(p.categoryLabel) + '</span>'
+            + '<h3>' + npEsc(p.title) + '</h3>'
+            + '<p>' + npEsc(npExcerpt(p)) + '</p>'
+            + '<time>' + npEsc(p.date) + '</time>'
             + '</div></div>';
         }).join('');
         return posts.length;
@@ -2740,7 +2728,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 </script>
 
   <script src="assets/js/i18n-map.js?v=17"></script>
-  <script src="assets/js/i18n.js?v=14"></script>
+  <script src="assets/js/i18n.js?v=15"></script>
 
 <!-- ══ 아웃리치 상세 모달 ══ -->
       <div class="outreach-detail" id="ext-global" onclick="if(event.target===this)closeOutreachDetail()">

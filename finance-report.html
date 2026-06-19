@@ -427,11 +427,13 @@
   </div>
 </div>
 
+<script src="assets/js/board-drive-config.js?v=2"></script>
 <script>
 /* ══════════ 상수 ══════════ */
 var STORAGE_KEY = 'tieum_finance_docs';
-var ADMIN_PW    = 'TIEUM_0421@';   // board.js와 동일한 관리자 비밀번호
 var SESSION_KEY = 'tieum_admin';
+/* 관리자 비밀번호는 소스에 두지 않습니다. 로그인 시 입력받아 게시판 Worker(서버)로 검증합니다. */
+var BOARD_KEY   = 'tieum_news';
 
 /* ══════════ 초기화 ══════════ */
 document.addEventListener('DOMContentLoaded', function () {
@@ -454,14 +456,36 @@ function closeAdminLogin() {
   document.getElementById('frAdminPw').value = '';
   document.getElementById('frLoginErr').style.display = 'none';
 }
-function submitAdminLogin() {
-  var pw = document.getElementById('frAdminPw').value;
-  if (pw === ADMIN_PW) {
-    sessionStorage.setItem(SESSION_KEY, '1');
-    document.getElementById('frPage').classList.add('admin-mode');
-    closeAdminLogin();
-  } else {
-    document.getElementById('frLoginErr').style.display = 'block';
+async function submitAdminLogin() {
+  var pw    = document.getElementById('frAdminPw').value;
+  var errEl = document.getElementById('frLoginErr');
+  errEl.style.display = 'none';
+  var API = (window.BOARD_API_URL || '').replace(/\/$/, '');
+  if (!pw || !API) { errEl.textContent = !API ? '서버가 설정되지 않았습니다.' : '비밀번호를 입력하세요.'; errEl.style.display = 'block'; return; }
+  errEl.textContent = '확인 중…'; errEl.style.display = 'block';
+  try {
+    /* 현재 상태를 그대로 되쓰며 비밀번호 검증 — 데이터 불변, 틀리면 401(서버측 검증) */
+    var cur = await fetch(API + '/board/' + BOARD_KEY, { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : { edit:{}, add:[], del:[] }; })
+      .catch(function () { return { edit:{}, add:[], del:[] }; });
+    var res = await fetch(API + '/board/' + BOARD_KEY, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Admin-Pass': pw },
+      body   : JSON.stringify({ edit: cur.edit || {}, add: cur.add || [], del: cur.del || [] })
+    });
+    if (res.ok) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      document.getElementById('frPage').classList.add('admin-mode');
+      errEl.style.display = 'none';
+      closeAdminLogin();
+    } else {
+      errEl.textContent = (res.status === 401 || res.status === 403)
+        ? '비밀번호가 올바르지 않습니다.' : '로그인 실패 (서버 오류 ' + res.status + ')';
+      errEl.style.display = 'block';
+    }
+  } catch (e) {
+    errEl.textContent = '네트워크 오류로 로그인할 수 없습니다.';
+    errEl.style.display = 'block';
   }
 }
 function adminLogout() {
@@ -631,6 +655,6 @@ function goBack() {
 })();
 </script>
   <script src="assets/js/i18n-map.js?v=17"></script>
-  <script src="assets/js/i18n.js?v=14"></script>
+  <script src="assets/js/i18n.js?v=15"></script>
 </body>
 </html>

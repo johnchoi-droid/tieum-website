@@ -229,41 +229,35 @@ document.querySelectorAll('.support-card').forEach(card => {
 });
 
 // ---------- Contact form ----------
-async function handleSubmit(e) {
+/* 연락처 폼 — 메일 클라이언트로 전송(후원 폼과 동일한 mailto 방식).
+   기존 Formspree 엔드포인트가 유효하지 않아 전송이 실패하던 문제를 해결. */
+function handleSubmit(e) {
   e.preventDefault();
   const form    = document.getElementById('contactForm');
-  const btn     = document.getElementById('contactSubmitBtn');
   const success = document.getElementById('formSuccess');
+  const lang    = (typeof getLang === 'function') ? getLang() : 'ko';
+  const en      = lang === 'en';
 
-  // 전송 중 버튼 비활성화
-  btn.disabled    = true;
-  btn.textContent = '전송 중...';
+  const val = (id) => (document.getElementById(id)?.value || '').trim();
+  const name    = val('name');
+  const email   = val('email');
+  const message = val('message');
+  const sel     = document.getElementById('subject');
+  const subjectLabel = (sel && sel.selectedIndex >= 0) ? sel.options[sel.selectedIndex].text.trim() : '';
 
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
+  const mailSubject = (en ? '[TIEUM Inquiry] ' : '[티움 문의] ')
+    + (subjectLabel ? subjectLabel + ' — ' : '') + name;
+  const mailBody = en
+    ? `Name: ${name}\nEmail: ${email}\nInquiry type: ${subjectLabel}\n\n${message}`
+    : `이름: ${name}\n이메일: ${email}\n문의 유형: ${subjectLabel}\n\n${message}`;
 
-    if (res.ok) {
-      // 성공
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-    } else {
-      // 서버 오류
-      const data = await res.json();
-      const msg  = (data.errors || []).map(function(err){ return err.message; }).join(', ')
-                   || '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.';
-      alert(msg);
-      btn.disabled    = false;
-      btn.textContent = '메시지 보내기';
-    }
-  } catch (err) {
-    alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
-    btn.disabled    = false;
-    btn.textContent = '메시지 보내기';
-  }
+  window.location.href = 'mailto:johnchoi@tieum.org'
+    + '?subject=' + encodeURIComponent(mailSubject)
+    + '&body='    + encodeURIComponent(mailBody);
+
+  // 메일 앱이 열린 뒤 확인 메시지 표시
+  if (form)    form.classList.add('hidden');
+  if (success) success.classList.remove('hidden');
 }
 
 // ---------- Back to top ----------

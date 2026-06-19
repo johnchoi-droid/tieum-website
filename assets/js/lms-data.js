@@ -93,7 +93,7 @@ window.LMS_COURSES = [
         lessons: [
           { id: 'l10', title: '마이크로 티칭 실습 가이드', title_en: 'Micro-Teaching Practice Guide',        type: 'microteaching', duration: '실습', videoId: '', videoType: 'drive' },
           { id: 'l11', title: '교수학습법 종합 정리', title_en: 'Teaching Methodology Comprehensive Review',             type: 'video', duration: '40분', videoId: '', videoType: 'drive' },
-          { id: 'l12', title: '최종 퀴즈 & 수료', title_en: 'Final Quiz & Completion', title_en: 'Final Quiz & Completion',                type: 'quiz',  duration: '15분', quiz: [
+          { id: 'l12', title: '최종 퀴즈 & 수료', title_en: 'Final Quiz & Completion',                type: 'quiz',  duration: '15분', quiz: [
             { q: 'PBL에서 학습 전체를 이끄는 핵심 요소는?',
               options: ['교과서 진도', '도전적 질문(Driving Question)', '점수 경쟁', '교사의 강의'],
               answer: 1 },

@@ -232,7 +232,7 @@
 /* 구버전 링크 호환: lms.html#pbl → 전용 PBL 페이지로 이동 */
 if (location.hash === '#pbl') { location.replace('lms-pbl.html'); }
 </script>
-<script src="assets/js/lms-data.js?v=15"></script>
+<script src="assets/js/lms-data.js?v=16"></script>
 <script src="assets/js/lms-core.js"></script>
 <script src="assets/js/lms-insights.js?v=2"></script>
 <script src="assets/js/lms-dashboard.js?v=2"></script>
@@ -324,19 +324,11 @@ function filterCourses(cat, btn) {
   renderCourseGrid(cat);
 }
 
-/* ── Lang-change hook: updates welcome header + re-renders grid ── */
-function updateCatalogHeader() {
-  var user = lmsGetUser();
-  if (!user) return;
-  var lang2 = (typeof getLang === 'function') ? getLang() : 'ko';
-  var welcomeEl = document.querySelector('.lms-catalog-header > div');
-  if (welcomeEl) welcomeEl.innerHTML = '<span class="lms-welcome-name" id="lmsWelcomeName">' + user.name + '</span>' + (lang2 === 'en' ? ', welcome!' : '님, 환영합니다!');
-  var logoutBtn = document.querySelector('.lms-logout-btn');
-  if (logoutBtn) logoutBtn.textContent = lang2 === 'en' ? 'Log Out' : '로그아웃';
-}
+/* ── Lang-change hook: 실제 표시 중인 화면을 다시 그린다 ──
+   (환영 문구·로그아웃 라벨은 renderLmsDashboard + KO2EN 맵이 처리하므로
+    이전의 updateCatalogHeader(존재하지 않는 .lms-catalog-header 참조)는 제거함) */
 window.lmsOnLangChange = function() {
-  updateCatalogHeader();
-  // 실제 표시 중인 화면을 다시 그린다 (로그인=4레인 대시보드, 비로그인=샘플 미리보기)
+  // 로그인=4레인 대시보드, 비로그인=샘플 미리보기
   if (typeof lmsIsLoggedIn === 'function' && lmsIsLoggedIn()) {
     if (typeof renderLmsDashboard === 'function') renderLmsDashboard();
   } else {
@@ -368,8 +360,8 @@ function lmsLoginSubmit(e) {
   }
 }
 </script>
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/main.js?v=4"></script>
   <script src="assets/js/i18n-map.js?v=17"></script>
-  <script src="assets/js/i18n.js?v=14"></script>
+  <script src="assets/js/i18n.js?v=15"></script>
 </body>
 </html>

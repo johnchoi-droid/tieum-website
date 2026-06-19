@@ -8,7 +8,6 @@
   /* ── 페이지별 설정 ─────────────────────────────── */
   const CFG = {
     key    : window.BOARD_STORAGE_KEY || 'tieum_board',
-    pw     : window.BOARD_ADMIN_PW   || 'TIEUM_0421@',
     perPage: window.BOARD_PER_PAGE   || 8,
     tabs   : window.BOARD_TABS       || [{ cat: 'all', label: '전체' }],
     posts  : window.BOARD_POSTS      || [],
@@ -19,6 +18,9 @@
     edit: CFG.key + '_edit',
     add : CFG.key + '_add',
   };
+  /* 관리자 비밀번호는 소스에 두지 않는다. 로그인 시 입력받아 Worker로 검증한 뒤
+     이 세션 키에만(브라우저 세션 동안) 보관하고, 저장 요청의 X-Admin-Pass로 사용한다. */
+  const ADMIN_PW_KEY = CFG.key + '_pw';
 
   const S = {
     page      : 1,
@@ -167,12 +169,22 @@
 
   async function pushRemote() {
     if (!API) return;
+    const pw = sessionStorage.getItem(ADMIN_PW_KEY) || '';
     try {
       const res = await fetch(API + '/board/' + RKEY, {
         method : 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Admin-Pass': CFG.pw },
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Pass': pw },
         body   : JSON.stringify({ edit: ls(K.edit,'{}'), add: ls(K.add,'[]'), del: ls(K.del,'[]') }),
       });
+      if (res.status === 401 || res.status === 403) {
+        // 비밀번호 무효 → 관리자 로그아웃 처리
+        S.isAdmin = false;
+        sessionStorage.removeItem('tieum_admin');
+        sessionStorage.removeItem(ADMIN_PW_KEY);
+        render();
+        alert('⚠️ 관리자 인증이 만료되었거나 비밀번호가 올바르지 않습니다. 다시 로그인해 주세요.');
+        return;
+      }
       if (!res.ok) throw new Error('HTTP ' + res.status);
     } catch (e) {
       alert('⚠️ 서버 저장에 실패했습니다. 변경 내용은 이 브라우저에만 임시 저장되었습니다.\n인터넷 연결을 확인한 뒤 다시 저장해 주세요.\n(' + e.message + ')');
@@ -218,17 +230,17 @@
         return `
         <tr>
           <td class="col-num">${p.pin ? '<span class="pin-icon">📌</span>' : n--}</td>
-          <td class="col-cat"><span class="board-badge badge-${p.category}">${p.categoryLabel}</span></td>
+          <td class="col-cat"><span class="board-badge badge-${escHtml(p.category)}">${escHtml(p.categoryLabel)}</span></td>
           <td>
-            <span class="title-cell" onclick="bOpenPost('${p.id}')">${p.title}</span>${hasFiles ? ' <span class="attach-chip" title="첨부파일 ' + p.attachments.length + '개">📎 ' + p.attachments.length + '</span>' : ''}
+            <span class="title-cell" onclick="bOpenPost('${jsAttr(p.id)}')">${escHtml(p.title)}</span>${hasFiles ? ' <span class="attach-chip" title="첨부파일 ' + p.attachments.length + '개">📎 ' + p.attachments.length + '</span>' : ''}
             ${S.isAdmin ? `
               <span class="admin-row-btns">
-                <button class="row-btn edit-btn" onclick="bEditPost('${p.id}')">수정</button>
-                <button class="row-btn del-btn"  onclick="bDelPost('${p.id}')">삭제</button>
+                <button class="row-btn edit-btn" onclick="bEditPost('${jsAttr(p.id)}')">수정</button>
+                <button class="row-btn del-btn"  onclick="bDelPost('${jsAttr(p.id)}')">삭제</button>
               </span>` : ''}
           </td>
-          <td class="col-date">${p.date}</td>
-          <td class="col-views">${p.views}</td>
+          <td class="col-date">${escHtml(p.date)}</td>
+          <td class="col-views">${escHtml(p.views)}</td>
         </tr>`;
       }).join('');
     }
@@ -296,6 +308,7 @@
   }
 
   function renderPostContent(content) {
+    content = sanitizeHtml(content);   // 위험 요소 제거(서식 유지) 후 렌더
     const parsed = parseArticles(content);
     const head = document.querySelector('#modalOverlay .modal-head');
     const oldBar = document.getElementById('briefBar');
@@ -366,10 +379,10 @@
     else { edits[String(id)] = Object.assign(edits[String(id)]||{}, { views: p.views }); lsSet(K.edit, edits); }
 
     document.getElementById('modalMeta').innerHTML = `
-      <span class="board-badge badge-${p.category}">${p.categoryLabel}</span>
-      <span class="meta-author">${p.author}</span>
-      <span class="meta-date">${p.date}</span>
-      <span class="meta-views">조회 ${p.views}</span>`;
+      <span class="board-badge badge-${escHtml(p.category)}">${escHtml(p.categoryLabel)}</span>
+      <span class="meta-author">${escHtml(p.author)}</span>
+      <span class="meta-date">${escHtml(p.date)}</span>
+      <span class="meta-views">조회 ${escHtml(p.views)}</span>`;
     document.getElementById('modalTitle').textContent = p.title;
     renderPostContent(p.content);
 
@@ -383,8 +396,8 @@
             ${p.attachments.map(f => {
               const isDrive = f.source === 'drive';
               const dlArgs  = isDrive
-                ? `'${f.fileId}','${escHtml(f.name)}','drive','${f.downloadUrl}'`
-                : `'${f.fileId}','${escHtml(f.name)}','local',''`;
+                ? `'${jsAttr(f.fileId)}','${jsAttr(f.name)}','drive','${jsAttr(f.downloadUrl)}'`
+                : `'${jsAttr(f.fileId)}','${jsAttr(f.name)}','local',''`;
               const badge   = isDrive
                 ? '<span class="attach-src-badge drive-badge">Google Drive</span>'
                 : '<span class="attach-src-badge local-badge">로컬</span>';
@@ -646,7 +659,7 @@
     document.getElementById('wPin').checked  = !!p.pin;
     document.getElementById('wTitle').value  = p.title;
     document.getElementById('wAuthor').value = p.author;
-    document.getElementById('wEditor').innerHTML = p.content || '';
+    document.getElementById('wEditor').innerHTML = sanitizeHtml(p.content || '');
     renderPendingFiles();
     openModal('writeModal');
   };
@@ -748,19 +761,44 @@
     setTimeout(() => document.getElementById('adminPwInput').focus(), 120);
   };
   window.closeAdminLogin = function () { closeModal('adminLoginModal'); };
-  window.doAdminLogin    = function () {
-    if (document.getElementById('adminPwInput').value === CFG.pw) {
-      S.isAdmin = true;
-      sessionStorage.setItem('tieum_admin', '1');
-      closeModal('adminLoginModal');
-      render();
-    } else {
-      document.getElementById('adminLoginErr').textContent = '비밀번호가 올바르지 않습니다.';
+  window.doAdminLogin    = async function () {
+    const pw  = document.getElementById('adminPwInput').value;
+    const err = document.getElementById('adminLoginErr');
+    err.textContent = '';
+    if (!pw) { err.textContent = '비밀번호를 입력하세요.'; return; }
+    if (!API) { err.textContent = '서버가 설정되지 않아 로그인할 수 없습니다.'; return; }
+    err.textContent = '확인 중…';
+    try {
+      /* 현재 상태를 그대로 되쓰며 비밀번호 검증 — 데이터는 변하지 않고,
+         비밀번호가 틀리면 Worker가 401을 반환한다(서버측 검증). */
+      const cur = await fetch(API + '/board/' + RKEY, { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : { edit:{}, add:[], del:[] })
+        .catch(() => ({ edit:{}, add:[], del:[] }));
+      const res = await fetch(API + '/board/' + RKEY, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Pass': pw },
+        body   : JSON.stringify({ edit: cur.edit || {}, add: cur.add || [], del: cur.del || [] }),
+      });
+      if (res.ok) {
+        S.isAdmin = true;
+        sessionStorage.setItem('tieum_admin', '1');
+        sessionStorage.setItem(ADMIN_PW_KEY, pw);   // 세션 동안만 보관(소스에는 없음)
+        err.textContent = '';
+        closeModal('adminLoginModal');
+        render();
+      } else if (res.status === 401 || res.status === 403) {
+        err.textContent = '비밀번호가 올바르지 않습니다.';
+      } else {
+        err.textContent = '로그인 실패 (서버 오류 ' + res.status + ')';
+      }
+    } catch (e) {
+      err.textContent = '네트워크 오류로 로그인할 수 없습니다. 잠시 후 다시 시도해 주세요.';
     }
   };
   window.adminLogout = function () {
     S.isAdmin = false;
     sessionStorage.removeItem('tieum_admin');
+    sessionStorage.removeItem(ADMIN_PW_KEY);
     render();
   };
 
@@ -776,11 +814,39 @@
 
   /* ── HTML 이스케이프 ─────────────────────────────── */
   function escHtml(s) {
-    return String(s)
+    return String(s == null ? '' : s)
       .replace(/&/g,'&amp;')
       .replace(/</g,'&lt;')
       .replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;');
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&#39;');
+  }
+
+  /* 인라인 onclick="fn('${id}')" 안에 안전하게 넣기 위한 이스케이프
+     (JS 문자열 이스케이프 후 HTML 속성 이스케이프) */
+  function jsAttr(s) {
+    return escHtml(String(s == null ? '' : s).replace(/\\/g,'\\\\').replace(/'/g,"\\'"));
+  }
+
+  /* 게시글 본문(리치 HTML) 소독 — 서식 태그는 유지하되
+     스크립트·이벤트핸들러·javascript: 등 위험 요소만 제거.
+     DOMParser는 스크립트 실행·외부 리소스 로드를 하지 않는다. */
+  function sanitizeHtml(html) {
+    var doc;
+    try { doc = new DOMParser().parseFromString(String(html == null ? '' : html), 'text/html'); }
+    catch (e) { return ''; }
+    doc.querySelectorAll('script,style,iframe,object,embed,link,meta,base,form,input,button,textarea,svg,math,noscript')
+       .forEach(function (el) { el.remove(); });
+    doc.querySelectorAll('*').forEach(function (el) {
+      Array.prototype.slice.call(el.attributes).forEach(function (a) {
+        var name = a.name.toLowerCase();
+        var val  = (a.value || '').replace(/\s+/g, '').toLowerCase();
+        if (name.indexOf('on') === 0) el.removeAttribute(a.name);                       // onclick 등 이벤트 핸들러
+        else if ((name === 'href' || name === 'src' || name === 'xlink:href') && val.indexOf('javascript:') === 0) el.removeAttribute(a.name);
+        else if (name === 'style' && /url\(|expression|javascript:/.test(val)) el.removeAttribute(a.name);
+      });
+    });
+    return doc.body.innerHTML;
   }
 
   /* ── 초기화 ─────────────────────────────────────── */
