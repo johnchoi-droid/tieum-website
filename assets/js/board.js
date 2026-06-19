@@ -383,7 +383,7 @@
       <span class="meta-author">${escHtml(p.author)}</span>
       <span class="meta-date">${escHtml(p.date)}</span>
       <span class="meta-views">조회 ${escHtml(p.views)}</span>`;
-    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalTitle').textContent = p.fullTitle || p.title;
     renderPostContent(p.content);
 
     // 첨부파일 영역
