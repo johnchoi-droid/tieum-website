@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://tieum.org/lms.html" />
   <meta name="twitter:card"       content="summary_large_image" />
   <title>티움 러닝센터 — LMS</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=47" />
+  <link rel="stylesheet" href="assets/css/style.css?v=48" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -122,52 +122,201 @@
 <section class="lms-hero">
   <div class="lms-hero-inner">
     <div class="lms-hero-badge" data-i18n="lms.hero.badge">티움 러닝센터</div>
-    <h1 class="lms-hero-title" data-i18n-html="lms.hero.title">AI 시대의 교육<br>전문가 과정</h1>
-    <p class="lms-hero-sub" data-i18n="lms.hero.sub">교사·교육자·현장 전문가를 위한 온라인 심화 학습 플랫폼</p>
-    <div class="lms-hero-stats">
-      <div class="lms-stat"><span class="lms-stat-num">3</span><span class="lms-stat-label" data-i18n="lms.stat.courses">개 과정</span></div>
-      <div class="lms-stat-div"></div>
-      <div class="lms-stat"><span class="lms-stat-num">30</span><span class="lms-stat-label" data-i18n="lms.stat.lessons">개 강의</span></div>
-      <div class="lms-stat-div"></div>
-      <div class="lms-stat"><span class="lms-stat-num">10</span><span class="lms-stat-label" data-i18n="lms.stat.weeks">주 과정</span></div>
+    <h1 class="lms-hero-title" data-i18n-html="lms.hero.title">하나의 러닝센터,<br>두 갈래의 배움</h1>
+    <p class="lms-hero-sub" data-i18n="lms.hero.sub">누구나 무료로 누리는 공익 교육과, 전문성을 더하는 유료 과정 — 사단법인 티움과 한국인재연구소가 함께 만듭니다.</p>
+    <div class="lms-hero-ctas">
+      <a href="#track-free" class="lms-hero-cta lms-hero-cta--free" data-i18n="lms.hero.cta.free">무료 공익 교육 →</a>
+      <a href="#track-pro" class="lms-hero-cta lms-hero-cta--pro" data-i18n="lms.hero.cta.pro">전문 유료 과정 →</a>
     </div>
   </div>
 </section>
 
 <main class="lms-main" id="lmsMain">
 
-  <!-- 로그인 전: 잠김 배너 + 샘플 미리보기 -->
-  <div class="lms-locked-banner" id="lmsLockedBanner">
-    <div class="lms-locked-inner">
-      <div class="lms-locked-icon">🔓</div>
-      <h2 class="lms-locked-title" data-i18n="lms.lock.title">무료 멤버십으로 모두 열립니다</h2>
-      <p class="lms-locked-desc" data-i18n-html="lms.lock.desc">티움 러닝센터는 <strong>회원가입(무료)</strong> 후 바로 모든 강좌와 자료를 이용할 수 있습니다.<br>아래에서 어떤 과정이 있는지 먼저 둘러보세요.</p>
-      <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()">무료로 시작하기</button>
+  <!-- ═══════ 두 트랙 개요 ═══════ -->
+  <section class="lms-lanes" aria-labelledby="lanesHeading">
+    <h2 id="lanesHeading" class="lms-lanes-title">두 갈래로 운영되는 러닝센터</h2>
+    <p class="lms-lanes-sub">목적과 운영 주체가 다른 두 트랙을 한 곳에서 제공합니다.</p>
+    <div class="lms-lanes-grid">
+
+      <!-- 개요: 트랙 A (무료) -->
+      <article class="lms-lane-card lms-lane-card--free">
+        <span class="lms-lane-badge lms-lane-badge--free">무료 · 공익</span>
+        <h3 class="lms-lane-name">티움 무료 교육</h3>
+        <p class="lms-lane-op"><span class="lms-lane-op-label">운영</span> 사단법인 티움</p>
+        <p class="lms-lane-desc">후원으로 운영되는 공익 교육입니다. 무료 회원가입만으로 교수학습법·연구·진로 등 모든 학습 트랙을 바로 이용할 수 있습니다.</p>
+        <ul class="lms-lane-points">
+          <li>누구나 무료 — 후원 기반 운영</li>
+          <li>교사·교육자·청소년·청년 대상</li>
+          <li>사단법인 티움 공익목적사업</li>
+        </ul>
+        <a href="#track-free" class="lms-lane-cta lms-lane-cta--free">무료로 시작하기 →</a>
+      </article>
+
+      <!-- 개요: 트랙 B (유료) -->
+      <article class="lms-lane-card lms-lane-card--pro">
+        <span class="lms-lane-badge lms-lane-badge--pro">유료 · 전문</span>
+        <h3 class="lms-lane-name">전문 유료 교육</h3>
+        <p class="lms-lane-op"><span class="lms-lane-op-label">운영</span> 한국인재연구소</p>
+        <p class="lms-lane-desc">직무 역량과 수료·인증을 목표로 하는 전문 과정입니다. 수강 신청·결제·수료 안내는 한국인재연구소가 운영합니다.</p>
+        <ul class="lms-lane-points">
+          <li>직무 역량 · 전문성 중심</li>
+          <li>수료·인증 제공 [확정 시 표기]</li>
+          <li>운영·결제: 한국인재연구소</li>
+        </ul>
+        <a href="#track-pro" class="lms-lane-cta lms-lane-cta--pro">전문 과정 보기 →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════ TRACK A — 무료 / 후원 기반 (사단법인 티움 운영) ═══════ -->
+  <section id="track-free" class="lms-track" aria-labelledby="trackFreeHeading">
+    <header class="lms-track-head lms-track-head--free">
+      <span class="lms-track-tag lms-track-tag--free">TRACK A · 무료 공익 교육</span>
+      <h2 id="trackFreeHeading" class="lms-track-title">티움 무료 러닝센터</h2>
+      <p class="lms-track-sub">운영: <strong>사단법인 티움</strong> · 후원으로 운영되는 누구나의 공익 교육</p>
+    </header>
+
+    <!-- 로그인 전: 잠김 배너 + 샘플 미리보기 -->
+    <div class="lms-locked-banner" id="lmsLockedBanner">
+      <div class="lms-locked-inner">
+        <div class="lms-locked-icon">🔓</div>
+        <h2 class="lms-locked-title" data-i18n="lms.lock.title">무료 멤버십으로 모두 열립니다</h2>
+        <p class="lms-locked-desc" data-i18n-html="lms.lock.desc">티움 러닝센터는 <strong>회원가입(무료)</strong> 후 바로 모든 강좌와 자료를 이용할 수 있습니다.<br>아래에서 어떤 과정이 있는지 먼저 둘러보세요.</p>
+        <button class="btn-primary lms-login-open-btn" onclick="openLmsLogin()">무료로 시작하기</button>
+      </div>
+
+      <!-- 샘플 미리보기 (로그인 전) -->
+      <div class="lms-sample-wrap">
+        <h3 class="lms-sample-h">🎁 미리보기 — 4개 학습 트랙</h3>
+        <p class="lms-sample-sub">로그인하면 각 트랙의 강좌·자료를 무료로 바로 수강할 수 있어요.</p>
+        <div class="lms-sample-grid" id="lmsSampleGrid"></div>
+      </div>
     </div>
 
-    <!-- 샘플 미리보기 (로그인 전) -->
-    <div class="lms-sample-wrap">
-      <h3 class="lms-sample-h">🎁 미리보기 — 4개 학습 트랙</h3>
-      <p class="lms-sample-sub">로그인하면 각 트랙의 강좌·자료를 무료로 바로 수강할 수 있어요.</p>
-      <div class="lms-sample-grid" id="lmsSampleGrid"></div>
+    <!-- 로그인 후: 4레인 대시보드 -->
+    <div class="lms-catalog" id="lmsCatalog" style="display:none;">
+      <div class="lms-dash" id="lmsDash">
+        <aside class="lms-dash-side">
+          <div class="lms-dash-brand">🎓 러닝센터</div>
+          <div class="lms-dash-user"><span class="lms-welcome-name" id="lmsWelcomeName"></span>님</div>
+          <nav class="lms-dash-nav" id="lmsDashNav"></nav>
+          <button class="lms-dash-logout" onclick="lmsLogout(); location.reload();">로그아웃</button>
+        </aside>
+        <main class="lms-dash-content">
+          <header class="lms-dash-header" id="lmsDashHeader"></header>
+          <div class="lms-dash-cards" id="lmsDashCards"></div>
+        </main>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- 로그인 후: 4레인 대시보드 -->
-  <div class="lms-catalog" id="lmsCatalog" style="display:none;">
-    <div class="lms-dash" id="lmsDash">
-      <aside class="lms-dash-side">
-        <div class="lms-dash-brand">🎓 러닝센터</div>
-        <div class="lms-dash-user"><span class="lms-welcome-name" id="lmsWelcomeName"></span>님</div>
-        <nav class="lms-dash-nav" id="lmsDashNav"></nav>
-        <button class="lms-dash-logout" onclick="lmsLogout(); location.reload();">로그아웃</button>
-      </aside>
-      <main class="lms-dash-content">
-        <header class="lms-dash-header" id="lmsDashHeader"></header>
-        <div class="lms-dash-cards" id="lmsDashCards"></div>
-      </main>
+  <!-- ═══════ TRACK B — 유료 / 전문 교육 (한국인재연구소 운영) ═══════ -->
+  <section id="track-pro" class="lms-track lms-track--pro" aria-labelledby="trackProHeading">
+    <header class="lms-track-head lms-track-head--pro">
+      <span class="lms-track-tag lms-track-tag--pro">TRACK B · 전문 유료 교육</span>
+      <h2 id="trackProHeading" class="lms-track-title">전문 유료 과정</h2>
+      <p class="lms-track-sub">운영: <strong>한국인재연구소</strong> · 직무 역량과 수료·인증 중심의 심화 과정</p>
+    </header>
+
+    <p class="lms-pro-intro">실무 전문성과 직무 역량 강화를 목표로 하는 유료 교육 과정입니다. 수강 신청·결제·수료증 발급은 협력 기관인 한국인재연구소가 운영합니다.</p>
+
+    <!-- 유료 강좌 (강좌명·가격·일정 등은 미확정 → 플레이스홀더) -->
+    <div class="lms-pro-grid">
+
+      <article class="lms-pro-card">
+        <div class="lms-pro-card-top">
+          <span class="lms-pro-card-tag">전문 과정</span>
+          <h3 class="lms-pro-card-title">[강좌명 — 확정 예정]</h3>
+          <p class="lms-pro-card-sub">[한 줄 소개 — 확정 예정]</p>
+        </div>
+        <div class="lms-pro-card-body">
+          <ul class="lms-pro-card-meta">
+            <li><span>대상</span> [대상 — 확정 예정]</li>
+            <li><span>형식</span> [온라인/오프라인 — 확정 예정]</li>
+            <li><span>수료</span> [수료증·인증 — 확정 예정]</li>
+            <li><span>수강료</span> [금액 — 한국인재연구소 안내]</li>
+          </ul>
+          <!-- 결제·신청은 한국인재연구소 페이지로 연결 (도메인 확정 시 교체) -->
+          <a href="[한국인재연구소 수강신청 링크]" class="lms-pro-card-cta" target="_blank" rel="noopener">수강 신청 (한국인재연구소) →</a>
+        </div>
+      </article>
+
+      <article class="lms-pro-card">
+        <div class="lms-pro-card-top">
+          <span class="lms-pro-card-tag">전문 과정</span>
+          <h3 class="lms-pro-card-title">[강좌명 — 확정 예정]</h3>
+          <p class="lms-pro-card-sub">[한 줄 소개 — 확정 예정]</p>
+        </div>
+        <div class="lms-pro-card-body">
+          <ul class="lms-pro-card-meta">
+            <li><span>대상</span> [대상 — 확정 예정]</li>
+            <li><span>형식</span> [온라인/오프라인 — 확정 예정]</li>
+            <li><span>수료</span> [수료증·인증 — 확정 예정]</li>
+            <li><span>수강료</span> [금액 — 한국인재연구소 안내]</li>
+          </ul>
+          <!-- 결제·신청은 한국인재연구소 페이지로 연결 (도메인 확정 시 교체) -->
+          <a href="[한국인재연구소 수강신청 링크]" class="lms-pro-card-cta" target="_blank" rel="noopener">수강 신청 (한국인재연구소) →</a>
+        </div>
+      </article>
+
+      <article class="lms-pro-card">
+        <div class="lms-pro-card-top">
+          <span class="lms-pro-card-tag">전문 과정</span>
+          <h3 class="lms-pro-card-title">[강좌명 — 확정 예정]</h3>
+          <p class="lms-pro-card-sub">[한 줄 소개 — 확정 예정]</p>
+        </div>
+        <div class="lms-pro-card-body">
+          <ul class="lms-pro-card-meta">
+            <li><span>대상</span> [대상 — 확정 예정]</li>
+            <li><span>형식</span> [온라인/오프라인 — 확정 예정]</li>
+            <li><span>수료</span> [수료증·인증 — 확정 예정]</li>
+            <li><span>수강료</span> [금액 — 한국인재연구소 안내]</li>
+          </ul>
+          <!-- 결제·신청은 한국인재연구소 페이지로 연결 (도메인 확정 시 교체) -->
+          <a href="[한국인재연구소 수강신청 링크]" class="lms-pro-card-cta" target="_blank" rel="noopener">수강 신청 (한국인재연구소) →</a>
+        </div>
+      </article>
+
     </div>
-  </div>
+
+    <div class="lms-pro-actions">
+      <!-- 기업·기관 도입 문의 — 한국인재연구소 (링크 확정 시 교체) -->
+      <a href="[한국인재연구소 도입문의 링크]" class="lms-pro-inquiry" target="_blank" rel="noopener">기업·기관 도입 문의 (한국인재연구소) →</a>
+    </div>
+  </section>
+
+  <!-- ═══════ 두 트랙 비교 ═══════ -->
+  <section class="lms-compare" aria-labelledby="compareHeading">
+    <h2 id="compareHeading" class="lms-compare-title">두 트랙 한눈에 비교</h2>
+    <div class="lms-compare-wrap">
+      <table class="lms-compare-table">
+        <caption class="sr-only">티움 무료 교육(트랙 A)과 한국인재연구소 전문 유료 교육(트랙 B) 비교</caption>
+        <thead>
+          <tr>
+            <th scope="col">구분</th>
+            <th scope="col">티움 무료 교육 <span class="lms-compare-th-tag lms-compare-th-tag--free">트랙 A</span></th>
+            <th scope="col">전문 유료 교육 <span class="lms-compare-th-tag lms-compare-th-tag--pro">트랙 B</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">운영 주체</th><td>사단법인 티움</td><td>한국인재연구소</td></tr>
+          <tr><th scope="row">대상</th><td>누구나 (교사·교육자·청소년·청년 등)</td><td>[실무자·기관 등 — 확정 예정]</td></tr>
+          <tr><th scope="row">비용</th><td>무료 (후원으로 운영)</td><td>유료 [수강료 — 한국인재연구소 안내]</td></tr>
+          <tr><th scope="row">수료·인증</th><td>학습 이력 제공</td><td>[수료증·인증 — 확정 예정]</td></tr>
+          <tr><th scope="row">신청·결제</th><td>무료 회원가입</td><td>한국인재연구소 신청·결제</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════ 두 법인 관계 고지 ═══════ -->
+  <aside class="lms-relation" aria-label="운영 주체 안내">
+    <span class="lms-relation-icon" aria-hidden="true">ℹ️</span>
+    <p class="lms-relation-text">티움 무료 교육은 사단법인 티움의 공익목적사업으로 후원을 통해 운영됩니다. 유료 전문 교육 과정은 협력 기관인 한국인재연구소가 운영합니다.</p>
+  </aside>
+
 </main>
 
 <!-- 큐레이션 상세 모달 (전체 한글 내용) -->
@@ -351,7 +500,7 @@ function lmsLoginSubmit(e) {
 }
 </script>
   <script src="assets/js/main.js?v=5"></script>
-  <script src="assets/js/i18n-map.js?v=18"></script>
-  <script src="assets/js/i18n.js?v=17"></script>
+  <script src="assets/js/i18n-map.js?v=19"></script>
+  <script src="assets/js/i18n.js?v=18"></script>
 </body>
 </html>

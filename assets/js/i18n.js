@@ -358,8 +358,9 @@
       /* ── LMS ── */
       'lms.nav.home': '홈', 'lms.nav.teaching': '교수학습', 'lms.nav.research': '연구·데이터',
       'lms.nav.lms': '러닝센터', 'lms.nav.pbl': 'PBL 워크스페이스', 'lms.nav.nl': '뉴스레터',
-      'lms.hero.badge': '티움 러닝센터', 'lms.hero.title': 'AI 시대의 교육<br>전문가 과정',
-      'lms.hero.sub': '교사·교육자·현장 전문가를 위한 온라인 심화 학습 플랫폼',
+      'lms.hero.badge': '티움 러닝센터', 'lms.hero.title': '하나의 러닝센터,<br>두 갈래의 배움',
+      'lms.hero.sub': '누구나 무료로 누리는 공익 교육과, 전문성을 더하는 유료 과정 — 사단법인 티움과 한국인재연구소가 함께 만듭니다.',
+      'lms.hero.cta.free': '무료 공익 교육 →', 'lms.hero.cta.pro': '전문 유료 과정 →',
       'lms.stat.courses': '개 과정', 'lms.stat.lessons': '개 강의', 'lms.stat.weeks': '주 과정',
       'lms.lock.title': '무료 멤버십으로 모두 열립니다',
       'lms.lock.desc': '티움 러닝센터는 회원가입(무료) 후 바로 모든 강좌와 자료를 이용할 수 있습니다.<br>아래에서 어떤 과정이 있는지 먼저 둘러보세요.',
@@ -846,8 +847,9 @@
       /* ── LMS ── */
       'lms.nav.home': 'Home', 'lms.nav.teaching': 'Teaching', 'lms.nav.research': 'Research · Data',
       'lms.nav.lms': 'Learning Center', 'lms.nav.pbl': 'PBL Workspace', 'lms.nav.nl': 'Newsletter',
-      'lms.hero.badge': 'TIEUM Learning Center', 'lms.hero.title': 'Professional Development<br>for the AI Era',
-      'lms.hero.sub': 'An online advanced learning platform for teachers, educators, and field professionals',
+      'lms.hero.badge': 'TIEUM Learning Center', 'lms.hero.title': 'One Learning Center,<br>Two Paths of Learning',
+      'lms.hero.sub': 'Free public-interest education for everyone, plus professional paid courses — built together by TIEUM and the Korea Talent Institute.',
+      'lms.hero.cta.free': 'Free Public Education →', 'lms.hero.cta.pro': 'Professional Courses →',
       'lms.stat.courses': 'Courses', 'lms.stat.lessons': 'Lessons', 'lms.stat.weeks': 'Weeks',
       'lms.lock.title': 'Everything Opens with Free Membership',
       'lms.lock.desc': 'With a free TIEUM Learning Center account, you get instant access to all courses and materials.<br>Browse the tracks below to see what\'s available.',
