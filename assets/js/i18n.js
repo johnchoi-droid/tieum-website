@@ -848,7 +848,7 @@
       'lms.nav.home': 'Home', 'lms.nav.teaching': 'Teaching', 'lms.nav.research': 'Research · Data',
       'lms.nav.lms': 'Learning Center', 'lms.nav.pbl': 'PBL Workspace', 'lms.nav.nl': 'Newsletter',
       'lms.hero.badge': 'TIEUM Learning Center', 'lms.hero.title': 'One Learning Center,<br>Two Paths of Learning',
-      'lms.hero.sub': 'Free public-interest education for everyone, plus professional paid courses — built together by TIEUM and the Korea Talent Institute.',
+      'lms.hero.sub': 'Free public-interest education for everyone, plus professional paid courses — built together by TIEUM and the Korea Institute of Talent Education.',
       'lms.hero.cta.free': 'Free Public Education →', 'lms.hero.cta.pro': 'Professional Courses →',
       'lms.stat.courses': 'Courses', 'lms.stat.lessons': 'Lessons', 'lms.stat.weeks': 'Weeks',
       'lms.lock.title': 'Everything Opens with Free Membership',
