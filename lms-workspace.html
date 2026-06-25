@@ -300,7 +300,7 @@ function getEmbedUrl(url) {
   if (url.includes('canva.com'))
     return url.includes('?') ? url.replace(/\?.*/, '?embed') : url + '?embed';
   if (url.includes('docs.google.com/presentation'))
-    return url.replace('/edit.*', '/embed').replace('/pub.*', '/embed') + '?start=false&loop=false';
+    return url.replace(/\/(edit|pub|preview).*$/, '/embed') + '?start=false&loop=false';
   if (url.includes('padlet.com'))
     return url.replace(/\/$/, '') + (url.includes('/embed') ? '' : '/embed');
   if (url.includes('figma.com') && !url.includes('embed'))

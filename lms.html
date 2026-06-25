@@ -148,9 +148,10 @@
         <ul class="lms-lane-points">
           <li>누구나 무료 — 후원 기반 운영</li>
           <li>교사·교육자·청소년·청년 대상</li>
+          <li>학습 이력 · 수료 확인</li>
           <li>사단법인 티움 공익목적사업</li>
         </ul>
-        <a href="#track-free" class="lms-lane-cta lms-lane-cta--free">무료로 시작하기 →</a>
+        <a href="#track-free" class="lms-lane-cta lms-lane-cta--free" onclick="openLmsLogin(); return false;">무료로 시작하기 →</a>
       </article>
 
       <!-- 개요: 트랙 B (유료) -->
@@ -161,7 +162,7 @@
         <p class="lms-lane-desc">직무 역량과 수료·인증을 목표로 하는 전문 과정입니다. 수강 신청·결제·수료 안내는 한국인재연구소가 운영합니다.</p>
         <ul class="lms-lane-points">
           <li>직무 역량 · 전문성 중심</li>
-          <li>수료·인증 제공 [확정 시 표기]</li>
+          <li>공식 수료증 · 인증 (한국인재연구소 발급)</li>
           <li>운영·결제: 한국인재연구소</li>
         </ul>
         <a href="#track-pro" class="lms-lane-cta lms-lane-cta--pro">전문 과정 보기 →</a>
@@ -220,7 +221,7 @@
       <p class="lms-track-sub">운영: <strong>한국인재연구소</strong> · 직무 역량과 수료·인증 중심의 심화 과정</p>
     </header>
 
-    <p class="lms-pro-intro">실무 전문성과 직무 역량 강화를 목표로 하는 유료 교육 과정입니다. 수강 신청·결제·수료증 발급은 협력 기관인 한국인재연구소가 운영합니다.</p>
+    <p class="lms-pro-intro">전문 유료 과정은 티움의 교육 콘텐츠를 기반으로, 인재 개발 전문 기관인 한국인재연구소가 운영합니다. 실무 전문성과 직무 역량 강화를 목표로 하는 유료 교육 과정으로, 수강 신청·결제·수료증 발급은 한국인재연구소가 담당합니다.</p>
 
     <!-- 유료 강좌 (강좌명·가격·일정 등은 미확정 → 플레이스홀더) -->
     <div class="lms-pro-grid">
@@ -304,7 +305,7 @@
           <tr><th scope="row">운영 주체</th><td>사단법인 티움</td><td>한국인재연구소</td></tr>
           <tr><th scope="row">대상</th><td>누구나 (교사·교육자·청소년·청년 등)</td><td>[실무자·기관 등 — 확정 예정]</td></tr>
           <tr><th scope="row">비용</th><td>무료 (후원으로 운영)</td><td>유료 [수강료 — 한국인재연구소 안내]</td></tr>
-          <tr><th scope="row">수료·인증</th><td>학습 이력 제공</td><td>[수료증·인증 — 확정 예정]</td></tr>
+          <tr><th scope="row">수료·인증</th><td>학습 이력 · 수료 확인</td><td>공식 수료증 · 인증 (한국인재연구소 발급)</td></tr>
           <tr><th scope="row">신청·결제</th><td>무료 회원가입</td><td>한국인재연구소 신청·결제</td></tr>
         </tbody>
       </table>
@@ -487,7 +488,8 @@ function openLmsLogin() {
 }
 function closeLmsLogin() {
   document.getElementById('lmsLoginModal').classList.remove('open');
-  document.getElementById('lmsLoginErr').style.display = 'none';
+  var err = document.getElementById('lmsLoginErr');
+  if (err) err.style.display = 'none';
 }
 function lmsLoginSubmit(e) {
   e.preventDefault();
