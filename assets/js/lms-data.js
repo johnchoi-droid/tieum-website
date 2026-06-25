@@ -34,6 +34,18 @@ window.LMS_CONFIG = {
   groqApiKey:      '',   // 절대 채우지 말 것(공개됨). 사용자 BYOK 사용.
   claudeApiKey:    '',   // 절대 채우지 말 것(공개됨). 프록시 사용.
   chatApiEndpoint: '',   // 서버 프록시 URL만 입력
+
+  /* ── 무료 멤버십 회원 명단 수집 백엔드(선택) ──────────────────────────
+     무료 가입자 정보를 보낼 서버 주소. 비워두면 로컬에만 저장(기존 동작 그대로).
+     권장: Google Apps Script 웹앱 URL을 붙여넣으면 가입자 명단이 그 시트로 모입니다.
+       예) 'https://script.google.com/macros/s/AKfyc..../exec'
+     회원 정보는 { name, email, category, source, ts } JSON으로 전송됩니다.
+     (수신 전용 엔드포인트라 API 키와 달리 공개돼도 안전) */
+  signupEndpoint:   '',
+
+  /* 학습 진도·일지를 서버와 동기화(2단계). 인증 기반 백엔드를 갖춘 뒤 true.
+     지금은 모든 학습 데이터가 사용자 브라우저(localStorage)에만 저장됩니다. 기본 false. */
+  syncLearningData: false,
 };
 
 window.LMS_COURSES = [

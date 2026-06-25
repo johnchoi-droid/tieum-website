@@ -18,13 +18,55 @@
     try { return JSON.parse(localStorage.getItem(USER_KEY)); } catch (e) { return null; }
   };
 
+  /* ── 회원 명단 백엔드 적재(선택) ──────────────────────────────────
+     LMS_CONFIG.signupEndpoint(예: Google Apps Script 웹앱)가 설정돼 있으면
+     무료 가입자 정보를 JSON POST 한다. 비어 있으면 아무것도 보내지 않고 로컬 저장만(기존 동작).
+     · Content-Type 미지정 → text/plain 전송으로 CORS 프리플라이트 없이 동작(Apps Script 친화).
+     · 전송 실패해도 화면 흐름은 막지 않는다(로컬 세션은 이미 설정됨). */
+  function lmsBackendRegister(member) {
+    var cfg = window.LMS_CONFIG || {};
+    var ep  = cfg.signupEndpoint;
+    if (!ep) return Promise.resolve({ ok: false, skipped: true });
+    try {
+      return fetch(ep, {
+        method: 'POST',
+        body: JSON.stringify({
+          name:     member.name || '',
+          email:    member.email || '',
+          category: member.category || '',
+          source:   member.source || 'lms',
+          ts:       Date.now()
+        })
+      }).then(function () { return { ok: true }; })
+        .catch(function (e) {
+          console.warn('[LMS] 회원 전송 실패(로컬 세션은 유지됨):', e && e.message);
+          return { ok: false, error: e };
+        });
+    } catch (e) {
+      return Promise.resolve({ ok: false, error: e });
+    }
+  }
+
   /* 무료 멤버십 — 이름(+선택 이메일)만으로 등록.
-     기존의 노출된 수강 코드 검증은 제거됨(콘텐츠는 어차피 공개 자료라 코드가 보호하지 못함). */
-  window.lmsLogin = function (name, email) {
+     기존의 노출된 수강 코드 검증은 제거됨(콘텐츠는 어차피 공개 자료라 코드가 보호하지 못함).
+     로컬 세션을 즉시 설정(동기)하고, signupEndpoint 가 있으면 회원 명단을 비동기 적재한다. */
+  window.lmsLogin = function (name, email, category) {
     if (!name || !name.trim()) return false;
-    var user = { name: name.trim(), email: (email || '').trim(), loginAt: Date.now() };
-    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    var user = { name: name.trim(), email: (email || '').trim(), category: (category || '').trim(), loginAt: Date.now() };
+    localStorage.setItem(USER_KEY, JSON.stringify(user));   // 동기: 즉시 로그인 상태
+    lmsBackendRegister({ name: user.name, email: user.email, category: user.category, source: 'lms-login' });
     return true;
+  };
+
+  /* 별도 멤버십 신청 폼이 쓸 공개 함수 — Promise 반환으로 성공/실패 처리 가능.
+     (현재 lms.html 은 lmsLogin 으로 즉시 가입하지만, 향후 신청 폼에서 활용) */
+  window.lmsRegisterMember = function (name, email, category) {
+    return lmsBackendRegister({
+      name: (name || '').trim(),
+      email: (email || '').trim().toLowerCase(),
+      category: (category || '').trim(),
+      source: 'membership'
+    });
   };
 
   window.lmsLogout = function () {
@@ -44,6 +86,7 @@
     if (!p[courseId]) p[courseId] = {};
     p[courseId][lessonId] = true;
     saveProgress(p);
+    /* [2단계] 인증 백엔드 준비 후: LMS_CONFIG.syncLearningData 가 true 면 여기서 서버로 진도 동기화. */
   };
 
   window.lmsIsComplete = function (courseId, lessonId) {
