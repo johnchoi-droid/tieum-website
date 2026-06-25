@@ -72,7 +72,7 @@ window.LMS_COURSES = [
       {
         id: 'm1', title: '1주차: AI 교육의 이해', title_en: 'Week 1: Understanding AI in Education',
         lessons: [
-          { id: 'l1',  title: 'AI 시대의 교육 패러다임 변화', title_en: 'Educational Paradigm Shift in the AI Era',   type: 'video', duration: '23분', videoId: '10DjwiJT_ShIF6k-Ashi4vujghjArblMD', videoType: 'drive' },
+          { id: 'l1',  title: 'AI 시대의 교육 패러다임 변화', title_en: 'Educational Paradigm Shift in the AI Era',   type: 'video', duration: '23분', videoId: '', videoType: 'drive' },
           { id: 'l2',  title: 'ChatGPT를 수업에 활용하기', title_en: 'Using ChatGPT in the Classroom',      type: 'video', duration: '31분', videoId: '', videoType: 'drive' },
           { id: 'l3',  title: '1주차 이해도 점검 퀴즈', title_en: 'Week 1 Knowledge Check Quiz',         type: 'quiz',  duration: '10분', quiz: [
             { q: 'AI 시대에 가장 중요한 교육 역량은 무엇인가요?',
