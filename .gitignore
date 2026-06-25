@@ -1,2 +1,8 @@
 .claude/
 .DS_Store
+
+# 루트의 LMS 참고용 사본 — 실제 사이트는 assets/js/ 를 사용하므로 배포 제외
+/lms-core.js
+/lms-dashboard.js
+/lms-data.js
+/lms-insights.js
