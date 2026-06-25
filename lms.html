@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://tieum.org/lms.html" />
   <meta name="twitter:card"       content="summary_large_image" />
   <title>티움 러닝센터 — LMS</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=49" />
+  <link rel="stylesheet" href="assets/css/style.css?v=50" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -352,6 +352,22 @@
         <label class="lf-label" data-i18n="lms.login.email">이메일</label>
         <input type="email" id="lmsEmail" class="lf-input" placeholder="example@email.com" maxlength="80" />
       </div>
+      <div class="lf-group">
+        <label class="lf-label">구분</label>
+        <select id="lmsCategory" class="lf-input">
+          <option value="">선택해 주세요</option>
+          <option value="교사">교사</option>
+          <option value="교육자">교육자</option>
+          <option value="학부모">학부모</option>
+          <option value="청소년">청소년</option>
+          <option value="청년">청년</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div class="lf-group">
+        <label class="lf-label">연락처 <span class="lf-optional">(선택)</span></label>
+        <input type="tel" id="lmsPhone" class="lf-input" placeholder="010-0000-0000" maxlength="20" />
+      </div>
       <button type="submit" class="btn-primary" style="width:100%;margin-top:4px;" data-i18n="lms.lock.btn">무료로 시작하기</button>
     </form>
   </div>
@@ -379,7 +395,7 @@
 if (location.hash === '#pbl') { location.replace('lms-pbl.html'); }
 </script>
 <script src="assets/js/lms-data.js?v=18"></script>
-<script src="assets/js/lms-core.js?v=3"></script>
+<script src="assets/js/lms-core.js?v=4"></script>
 <script src="assets/js/lms-insights.js?v=3"></script>
 <script src="assets/js/lms-dashboard.js?v=2"></script>
 <script>
@@ -494,16 +510,18 @@ function closeLmsLogin() {
 }
 function lmsLoginSubmit(e) {
   e.preventDefault();
-  var name  = document.getElementById('lmsName').value.trim();
-  var email = document.getElementById('lmsEmail').value.trim();
+  var name     = document.getElementById('lmsName').value.trim();
+  var email    = document.getElementById('lmsEmail').value.trim();
+  var category = document.getElementById('lmsCategory').value;
+  var phone    = document.getElementById('lmsPhone').value.trim();
   if (!name) return;
-  lmsLogin(name, email);   // 무료 멤버십 — 이름만으로 등록
+  lmsLogin(name, email, category, phone);   // 무료 멤버십 — 이름 필수, 이메일·구분·연락처 선택
   closeLmsLogin();
   showCatalog();
 }
 </script>
   <script src="assets/js/main.js?v=5"></script>
-  <script src="assets/js/i18n-map.js?v=20"></script>
+  <script src="assets/js/i18n-map.js?v=21"></script>
   <script src="assets/js/i18n.js?v=19"></script>
 </body>
 </html>

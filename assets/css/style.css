@@ -3515,6 +3515,8 @@ html[lang="en"] .hero-title em {
   font-family: inherit;
 }
 .lf-input:focus { outline: none; border-color: var(--primary); }
+select.lf-input { background: #fff; cursor: pointer; }
+.lf-optional { font-weight: 400; font-size: .85em; color: var(--text-3); }
 
 .lms-login-hint {
   font-size: .78rem;

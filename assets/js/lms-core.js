@@ -34,6 +34,7 @@
           name:     member.name || '',
           email:    member.email || '',
           category: member.category || '',
+          phone:    member.phone || '',
           source:   member.source || 'lms',
           ts:       Date.now()
         })
@@ -50,21 +51,22 @@
   /* 무료 멤버십 — 이름(+선택 이메일)만으로 등록.
      기존의 노출된 수강 코드 검증은 제거됨(콘텐츠는 어차피 공개 자료라 코드가 보호하지 못함).
      로컬 세션을 즉시 설정(동기)하고, signupEndpoint 가 있으면 회원 명단을 비동기 적재한다. */
-  window.lmsLogin = function (name, email, category) {
+  window.lmsLogin = function (name, email, category, phone) {
     if (!name || !name.trim()) return false;
-    var user = { name: name.trim(), email: (email || '').trim(), category: (category || '').trim(), loginAt: Date.now() };
+    var user = { name: name.trim(), email: (email || '').trim(), category: (category || '').trim(), phone: (phone || '').trim(), loginAt: Date.now() };
     localStorage.setItem(USER_KEY, JSON.stringify(user));   // 동기: 즉시 로그인 상태
-    lmsBackendRegister({ name: user.name, email: user.email, category: user.category, source: 'lms-login' });
+    lmsBackendRegister({ name: user.name, email: user.email, category: user.category, phone: user.phone, source: 'lms-login' });
     return true;
   };
 
   /* 별도 멤버십 신청 폼이 쓸 공개 함수 — Promise 반환으로 성공/실패 처리 가능.
      (현재 lms.html 은 lmsLogin 으로 즉시 가입하지만, 향후 신청 폼에서 활용) */
-  window.lmsRegisterMember = function (name, email, category) {
+  window.lmsRegisterMember = function (name, email, category, phone) {
     return lmsBackendRegister({
       name: (name || '').trim(),
       email: (email || '').trim().toLowerCase(),
       category: (category || '').trim(),
+      phone: (phone || '').trim(),
       source: 'membership'
     });
   };
