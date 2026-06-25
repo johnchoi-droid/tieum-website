@@ -201,7 +201,8 @@
       <div class="lms-dash" id="lmsDash">
         <aside class="lms-dash-side">
           <div class="lms-dash-brand">🎓 러닝센터</div>
-          <div class="lms-dash-user"><span class="lms-welcome-name" id="lmsWelcomeName"></span>님</div>
+          <!-- 환영 문구는 lms-dashboard.js 가 언어별로 렌더 (KO "{이름}님" / EN "Welcome, {이름}") -->
+          <div class="lms-dash-user"></div>
           <nav class="lms-dash-nav" id="lmsDashNav"></nav>
           <button class="lms-dash-logout" onclick="lmsLogout(); location.reload();">로그아웃</button>
         </aside>
