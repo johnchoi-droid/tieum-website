@@ -1671,11 +1671,12 @@
           <div class="wf-group" style="margin-bottom:0;">
             <label class="wf-label" for="msRole">구분</label>
             <select class="wf-input wf-select" id="msRole">
-              <option value="">선택</option>
-              <option value="학부모">학부모</option>
+              <option value="">선택해 주세요</option>
+              <option value="교사">교사</option>
               <option value="교육자">교육자</option>
+              <option value="학부모">학부모</option>
               <option value="청소년">청소년</option>
-              <option value="후원자">후원자</option>
+              <option value="청년">청년</option>
               <option value="기타">기타</option>
             </select>
           </div>
@@ -1685,6 +1686,12 @@
         <div class="wf-group" style="margin-top:14px;">
           <label class="wf-label" for="msEmail">이메일 <span class="req">*</span></label>
           <input class="wf-input" id="msEmail" type="email" placeholder="example@email.com" autocomplete="email" />
+        </div>
+
+        <!-- 연락처 -->
+        <div class="wf-group" style="margin-top:14px;">
+          <label class="wf-label" for="msPhone">연락처 <span class="lf-optional">(선택)</span></label>
+          <input class="wf-input" id="msPhone" type="tel" placeholder="010-0000-0000" maxlength="20" autocomplete="tel" />
         </div>
 
         <p class="membership-privacy">
@@ -1733,21 +1740,42 @@
     document.getElementById('msName').value = '';
     document.getElementById('msEmail').value = '';
     document.getElementById('msRole').value = '';
+    document.getElementById('msPhone').value = '';
     document.getElementById('msErrorMsg').style.display = 'none';
   }
   function closeMembershipModal() {
     document.getElementById('membershipModal').classList.remove('open');
     document.body.style.overflow = '';
   }
+  /* 멤버십 회원 명단 수집 엔드포인트.
+     ※ assets/js/lms-data.js 의 LMS_CONFIG.signupEndpoint 와 동일한 '티움 멤버십' 시트로 보냅니다.
+        URL을 바꿀 때는 두 곳을 함께 수정하세요. */
+  var MEMBERSHIP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxl_pawEG9DCRfTRldf6i70bWURLZ4KAs93Zb9Sji6DYZb27JsPR_eDNJW62XLP9n0Nkw/exec';
+
   function submitMembership() {
     var name  = document.getElementById('msName').value.trim();
     var email = document.getElementById('msEmail').value.trim();
+    var role  = document.getElementById('msRole').value;
+    var phone = document.getElementById('msPhone').value.trim();
     var errEl = document.getElementById('msErrorMsg');
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errEl.style.display = 'block';
       return;
     }
     errEl.style.display = 'none';
+
+    /* '티움 멤버십' 시트로 적재(출처 membership). text/plain → CORS 프리플라이트 없이 전송.
+       전송 실패해도 화면 흐름은 막지 않습니다(가입 안내는 그대로 진행). */
+    try {
+      fetch(MEMBERSHIP_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: name, email: email, category: role, phone: phone,
+          source: 'membership', ts: Date.now()
+        })
+      }).catch(function () {});
+    } catch (e) {}
+
     document.getElementById('msThankName').textContent = name;
     document.getElementById('msMembershipForm').style.display = 'none';
     document.getElementById('msMembershipThank').style.display = '';
