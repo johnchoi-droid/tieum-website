@@ -515,6 +515,8 @@
               </div>
               <div class="wf-editor" id="wEditor" contenteditable="true"
                    data-placeholder="내용을 입력하세요. 위 버튼으로 굵게·기울임·제목·목록·인용 등을 적용할 수 있습니다."></div>
+              <!-- 묶음(브리핑) 글: 아티클별 삭제 관리 (제목<h3> 2개 이상일 때만 표시) -->
+              <div class="wf-article-mgr" id="wArticleManager" style="display:none"></div>
             </div>
 
             <!-- ── 파일 첨부 ── -->
@@ -643,6 +645,7 @@
     document.getElementById('wTitle').value  = '';
     document.getElementById('wAuthor').value = '티움 사무국';
     document.getElementById('wEditor').innerHTML = '';
+    renderArticleManager();   // 새 글은 보통 단일 → 패널 숨김
     renderPendingFiles();
     openModal('writeModal');
   };
@@ -660,6 +663,7 @@
     document.getElementById('wTitle').value  = p.title;
     document.getElementById('wAuthor').value = p.author;
     document.getElementById('wEditor').innerHTML = sanitizeHtml(p.content || '');
+    renderArticleManager();   // 묶음 글이면 아티클별 삭제 패널 표시
     renderPendingFiles();
     openModal('writeModal');
   };
@@ -669,6 +673,52 @@
     S.editId = null;
     S.pendingNew  = [];
     S.pendingKeep = [];
+  };
+
+  /* ── 묶음(브리핑) 글: 아티클별 삭제 관리 ──────────────
+     wEditor의 현재 내용을 <h3> 단위로 파싱해 목록을 그린다. 삭제 시점에 항상
+     에디터의 최신 내용을 다시 파싱하므로 직접 편집과도 동기화된다. 개수·번호·
+     "N개의 아티클" 문구는 저장 후 parseArticles 가 자동 산출하므로 별도 갱신 불필요. */
+  function renderArticleManager() {
+    const ed  = document.getElementById('wEditor');
+    const mgr = document.getElementById('wArticleManager');
+    if (!ed || !mgr) return;
+    const parsed = parseArticles(ed.innerHTML);
+    if (parsed.articles.length < 2) {           // 묶음 글이 아니면 패널 숨김
+      mgr.style.display = 'none';
+      mgr.innerHTML = '';
+      return;
+    }
+    const items = parsed.articles.map((html, i) => {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      const h3 = tmp.querySelector('h3');
+      const title = (h3 ? h3.textContent : '').trim() || '(제목 없음)';
+      return '<li class="wf-art-item">'
+        + '<span class="wf-art-num">' + (i + 1) + '</span>'
+        + '<span class="wf-art-title">' + escHtml(title) + '</span>'
+        + '<button type="button" class="wf-art-del" onclick="bDelArticle(' + i + ')">🗑 삭제</button>'
+        + '</li>';
+    }).join('');
+    mgr.style.display = 'block';
+    mgr.innerHTML =
+      '<div class="wf-art-head">📚 묶음 아티클 <b>' + parsed.articles.length + '개</b>'
+      + ' — 삭제하면 개수·번호가 자동 반영됩니다</div>'
+      + '<ul class="wf-art-list">' + items + '</ul>';
+  }
+
+  window.bDelArticle = function (idx) {
+    const ed = document.getElementById('wEditor');
+    if (!ed) return;
+    const parsed = parseArticles(ed.innerHTML);
+    if (idx < 0 || idx >= parsed.articles.length) return;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = parsed.articles[idx];
+    const t = ((tmp.querySelector('h3') || {}).textContent || '').trim().slice(0, 40);
+    if (!confirm((idx + 1) + '번 아티클을 삭제할까요?\n\n"' + t + '…"\n\n(저장하기를 눌러야 최종 반영됩니다)')) return;
+    parsed.articles.splice(idx, 1);
+    ed.innerHTML = parsed.intro + parsed.articles.join('');
+    renderArticleManager();
   };
 
   /* ── 저장 ─────────────────────────────────────────── */

@@ -6818,6 +6818,17 @@ html[lang="en"] #outreach .section-desc {
 .wf-editor ul,.wf-editor ol{padding-left:22px;margin:6px 0}
 .wf-editor a{color:#175c3f;text-decoration:underline}
 
+/* 묶음(브리핑) 글 — 아티클별 삭제 패널 */
+.wf-article-mgr{margin-top:12px;border:1px solid #d7e3dc;background:#f3faf6;border-radius:10px;padding:14px 16px}
+.wf-art-head{font-size:13px;color:#175c3f;margin-bottom:10px}
+.wf-art-head b{color:#0f4030}
+.wf-art-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.wf-art-item{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:9px 12px}
+.wf-art-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:#175c3f;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.wf-art-title{flex:1;min-width:0;font-size:13.5px;color:#16243a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-art-del{flex-shrink:0;background:#fff;color:#e53e3e;border:1px solid #e53e3e;border-radius:7px;padding:5px 11px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.wf-art-del:hover{background:#fff5f5}
+
 /* ══════════ 러닝센터 4레인 대시보드 (다크 SaaS) ══════════ */
 /* 로그인 전 샘플 미리보기 */
 .lms-sample-wrap{max-width:1080px;margin:36px auto 0;padding:0 16px}
