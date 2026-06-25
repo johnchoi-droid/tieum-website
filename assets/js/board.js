@@ -368,6 +368,29 @@
     if (box) box.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  /* ── 모달 제목: 끊기지 않은 전체 제목 결정 ──
+     큐레이션 글의 title 은 목록용으로 끝이 "…"로 잘려 있다. fullTitle 이 있으면
+     그것을, 없으면 본문(content)에서 같은 문장(보통 '📌 한 줄 핵심')을 찾아 복원한다.
+     → 큐레이션 자동 재생성으로 fullTitle 이 사라져도 모달 제목은 항상 전체로 표시. */
+  function bestTitle(p) {
+    if (p.fullTitle) return p.fullTitle;
+    const title = (p.title || '').trim();
+    if (!/[…]\s*$|\.{3,}\s*$/.test(title)) return title;   // 잘린 제목이 아니면 그대로
+    const prefix = title.replace(/[…]+\s*$|\.{3,}\s*$/, '').trim();
+    if (prefix.length < 6 || !p.content) return title;
+    try {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = p.content;
+      const key = prefix.slice(0, 16);
+      const els = tmp.querySelectorAll('p, li, h3, h4');
+      for (let i = 0; i < els.length; i++) {
+        const t = (els[i].textContent || '').replace(/\s+/g, ' ').trim();
+        if (t.length > prefix.length && t.indexOf(key) === 0) return t;   // 같은 문장의 전체본
+      }
+    } catch (e) { /* 무시 */ }
+    return title;
+  }
+
   window.bOpenPost = function (id) {
     const p = getAllPosts().find(x => String(x.id) === String(id));
     if (!p) return;
@@ -383,7 +406,7 @@
       <span class="meta-author">${escHtml(p.author)}</span>
       <span class="meta-date">${escHtml(p.date)}</span>
       <span class="meta-views">조회 ${escHtml(p.views)}</span>`;
-    document.getElementById('modalTitle').textContent = p.fullTitle || p.title;
+    document.getElementById('modalTitle').textContent = bestTitle(p);
     renderPostContent(p.content);
 
     // 첨부파일 영역
