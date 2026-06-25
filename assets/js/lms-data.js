@@ -41,7 +41,7 @@ window.LMS_CONFIG = {
        예) 'https://script.google.com/macros/s/AKfyc..../exec'
      회원 정보는 { name, email, category, source, ts } JSON으로 전송됩니다.
      (수신 전용 엔드포인트라 API 키와 달리 공개돼도 안전) */
-  signupEndpoint:   '',
+  signupEndpoint:   'https://script.google.com/macros/s/AKfycbxl_pawEG9DCRfTRldf6i70bWURLZ4KAs93Zb9Sji6DYZb27JsPR_eDNJW62XLP9n0Nkw/exec',
 
   /* 학습 진도·일지를 서버와 동기화(2단계). 인증 기반 백엔드를 갖춘 뒤 true.
      지금은 모든 학습 데이터가 사용자 브라우저(localStorage)에만 저장됩니다. 기본 false. */
