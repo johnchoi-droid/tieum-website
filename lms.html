@@ -345,15 +345,15 @@
     <p class="lms-login-desc" data-i18n="lms.login.desc">이름과 이메일만 입력하면 무료로 바로 시작합니다.</p>
     <form class="lms-login-form" onsubmit="lmsLoginSubmit(event)">
       <div class="lf-group">
-        <label class="lf-label" data-i18n-html="lms.login.name">이름 <span class="req">*</span></label>
+        <label class="lf-label" for="lmsName" data-i18n-html="lms.login.name">이름 <span class="req">*</span></label>
         <input type="text" id="lmsName" class="lf-input" placeholder="홍길동" data-i18n-placeholder="form.ph.name" required maxlength="20" />
       </div>
       <div class="lf-group">
-        <label class="lf-label" data-i18n="lms.login.email">이메일</label>
+        <label class="lf-label" for="lmsEmail" data-i18n="lms.login.email">이메일</label>
         <input type="email" id="lmsEmail" class="lf-input" placeholder="example@email.com" maxlength="80" />
       </div>
       <div class="lf-group">
-        <label class="lf-label">구분</label>
+        <label class="lf-label" for="lmsCategory">구분</label>
         <select id="lmsCategory" class="lf-input">
           <option value="">선택해 주세요</option>
           <option value="교사">교사</option>
@@ -365,7 +365,7 @@
         </select>
       </div>
       <div class="lf-group">
-        <label class="lf-label">연락처 <span class="lf-optional">(선택)</span></label>
+        <label class="lf-label" for="lmsPhone">연락처 <span class="lf-optional">(선택)</span></label>
         <input type="tel" id="lmsPhone" class="lf-input" placeholder="010-0000-0000" maxlength="20" />
       </div>
       <button type="submit" class="btn-primary" style="width:100%;margin-top:4px;" data-i18n="lms.lock.btn">무료로 시작하기</button>
