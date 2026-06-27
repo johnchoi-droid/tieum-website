@@ -527,6 +527,8 @@ function detectEmbedType() {
 /* ════════ 제출 모달 ════════ */
 function openWsModal() {
   document.getElementById('wsModal').classList.add('open');
+  var wsBtn = document.querySelector('#wsModal .ws-submit-btn');
+  if (wsBtn) wsBtn.disabled = false;   // 재오픈 시 제출 버튼 복구
   setTimeout(function(){ document.getElementById('wsTitle').focus(); }, 150);
 }
 function closeWsModal() {
@@ -543,6 +545,10 @@ function submitWsPost(e) {
   var tagsRaw = document.getElementById('wsTags').value.trim();
 
   if (!title || !week) return;
+
+  /* 중복 제출 방지 — 저장 직후 폼 초기화로도 막히지만 버튼도 비활성화(재오픈 시 openWsModal 에서 복구) */
+  var wsBtn = e.target.querySelector('.ws-submit-btn');
+  if (wsBtn) wsBtn.disabled = true;
 
   var tags = tagsRaw ? tagsRaw.split(',').map(function(t){ return t.trim(); }).filter(Boolean) : [];
   var posts = wsLoad();

@@ -1759,13 +1759,29 @@
     var phone = document.getElementById('msPhone').value.trim();
     var errEl = document.getElementById('msErrorMsg');
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = '이름과 올바른 이메일 주소를 입력해주세요.';
       errEl.style.display = 'block';
       return;
     }
     errEl.style.display = 'none';
 
+    /* 중복 제출 방지 — 전송 중 버튼 비활성화 */
+    var btn = document.querySelector('#msMembershipForm .btn-primary');
+    if (btn) { btn.disabled = true; btn.textContent = '전송 중…'; }
+
+    function msDone() {
+      document.getElementById('msThankName').textContent = name;
+      document.getElementById('msMembershipForm').style.display = 'none';
+      document.getElementById('msMembershipThank').style.display = '';
+    }
+    function msFail() {
+      errEl.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.';
+      errEl.style.display = 'block';
+      if (btn) { btn.disabled = false; btn.textContent = '가입 신청하기'; }
+    }
+
     /* '티움 멤버십' 시트로 적재(출처 membership). text/plain → CORS 프리플라이트 없이 전송.
-       전송 실패해도 화면 흐름은 막지 않습니다(가입 안내는 그대로 진행). */
+       성공 시 완료 화면, 실패 시 안내 후 재시도 가능(서버가 이메일 기준 1인 1행 정리). */
     try {
       fetch(MEMBERSHIP_ENDPOINT, {
         method: 'POST',
@@ -1773,12 +1789,8 @@
           name: name, email: email, category: role, phone: phone,
           source: 'membership', ts: Date.now()
         })
-      }).catch(function () {});
-    } catch (e) {}
-
-    document.getElementById('msThankName').textContent = name;
-    document.getElementById('msMembershipForm').style.display = 'none';
-    document.getElementById('msMembershipThank').style.display = '';
+      }).then(msDone, msFail);
+    } catch (e) { msFail(); }
   }
   </script>
 
