@@ -366,10 +366,10 @@
     <div class="fr-admin-panel">
       <div class="fr-admin-title">📂 재정 자료 업로드</div>
       <div class="fr-upload-form">
-        <input type="text" id="frDocTitle" placeholder="문서 제목 (예: 2024년 재정 결산 보고서)" maxlength="80" />
+        <input type="text" id="frDocTitle" aria-label="문서 제목" placeholder="문서 제목 (예: 2024년 재정 결산 보고서)" maxlength="80" />
         <div class="fr-form-row">
-          <input type="text" id="frDocYear" placeholder="연도 (예: 2024)" maxlength="10" />
-          <select id="frDocType">
+          <input type="text" id="frDocYear" aria-label="연도" placeholder="연도 (예: 2024)" maxlength="10" />
+          <select id="frDocType" aria-label="문서 유형">
             <option value="">문서 유형 선택</option>
             <option value="결산보고서">결산보고서</option>
             <option value="감사보고서">감사보고서</option>
@@ -378,9 +378,9 @@
             <option value="기타">기타</option>
           </select>
         </div>
-        <textarea id="frDocDesc" placeholder="설명 (선택사항 — 예: 과학기술정보통신부 제출용 연간 결산 자료)" rows="2"></textarea>
+        <textarea id="frDocDesc" aria-label="문서 설명" placeholder="설명 (선택사항 — 예: 과학기술정보통신부 제출용 연간 결산 자료)" rows="2"></textarea>
         <div class="fr-file-drop" id="frFileDrop">
-          <input type="file" id="frFileInput" accept=".pdf,.xlsx,.xls,.docx,.doc,.hwp,.hwpx" onchange="onFileSelected(this)" />
+          <input type="file" id="frFileInput" aria-label="재정 자료 파일 선택" accept=".pdf,.xlsx,.xls,.docx,.doc,.hwp,.hwpx" onchange="onFileSelected(this)" />
           <div class="fr-file-drop-label">
             <strong>📎 파일을 여기에 드래그하거나 클릭해서 선택</strong>
             PDF · Excel · Word · 한글 파일 지원

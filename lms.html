@@ -368,6 +368,7 @@
         <label class="lf-label" for="lmsPhone">연락처 <span class="lf-optional">(선택)</span></label>
         <input type="tel" id="lmsPhone" class="lf-input" placeholder="010-0000-0000" maxlength="20" />
       </div>
+      <p id="lmsLoginErr" style="color:#e53e3e;font-size:.84rem;margin:0 0 10px;display:none;"></p>
       <button type="submit" class="btn-primary" style="width:100%;margin-top:4px;" data-i18n="lms.lock.btn">무료로 시작하기</button>
     </form>
   </div>
@@ -514,7 +515,13 @@ function lmsLoginSubmit(e) {
   var email    = document.getElementById('lmsEmail').value.trim();
   var category = document.getElementById('lmsCategory').value;
   var phone    = document.getElementById('lmsPhone').value.trim();
-  if (!name) return;
+  var err      = document.getElementById('lmsLoginErr');
+  if (!name) { if (err) { err.textContent = '이름을 입력해 주세요.'; err.style.display = 'block'; } return; }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (err) { err.textContent = '이메일 형식을 확인해 주세요.'; err.style.display = 'block'; }
+    return;
+  }
+  if (err) err.style.display = 'none';
   lmsLogin(name, email, category, phone);   // 무료 멤버십 — 이름 필수, 이메일·구분·연락처 선택
   closeLmsLogin();
   showCatalog();

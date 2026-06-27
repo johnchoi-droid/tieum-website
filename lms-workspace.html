@@ -179,28 +179,28 @@
 
     <form class="ws-form" onsubmit="submitWsPost(event)">
       <div class="ws-form-row">
-        <label class="ws-label">제목 <span class="req">*</span></label>
+        <label class="ws-label" for="wsTitle">제목 <span class="req">*</span></label>
         <input type="text" id="wsTitle" class="ws-input" placeholder="프로젝트 제목을 입력하세요" required maxlength="80" />
       </div>
       <div class="ws-form-row">
-        <label class="ws-label">설명</label>
+        <label class="ws-label" for="wsDesc">설명</label>
         <textarea id="wsDesc" class="ws-textarea" rows="3" maxlength="300"
           placeholder="어떤 프로젝트인지 간단히 설명해주세요. (선택사항)"></textarea>
       </div>
       <div class="ws-form-row">
-        <label class="ws-label">임베드·공유 링크</label>
+        <label class="ws-label" for="wsEmbedUrl">임베드·공유 링크</label>
         <input type="url" id="wsEmbedUrl" class="ws-input" oninput="detectEmbedType()"
           placeholder="https://www.canva.com/design/... 또는 YouTube, Slides, Padlet 등" />
         <div class="ws-embed-detect" id="wsEmbedDetect" style="display:none;"></div>
       </div>
       <div class="ws-form-row">
-        <label class="ws-label">썸네일 이미지 URL <span class="ws-opt">(선택)</span></label>
+        <label class="ws-label" for="wsThumbnailUrl">썸네일 이미지 URL <span class="ws-opt">(선택)</span></label>
         <input type="url" id="wsThumbnailUrl" class="ws-input"
           placeholder="https://... (이미지 URL — 비워두면 자동 생성)" />
       </div>
       <div class="ws-form-two-col">
         <div class="ws-form-row">
-          <label class="ws-label">주차 태그 <span class="req">*</span></label>
+          <label class="ws-label" for="wsWeekTag">주차 태그 <span class="req">*</span></label>
           <select id="wsWeekTag" class="ws-select" required>
             <option value="">선택하세요</option>
             <option value="1주차">1주차 — AI 교육 이해</option>
@@ -211,7 +211,7 @@
           </select>
         </div>
         <div class="ws-form-row">
-          <label class="ws-label">추가 태그 <span class="ws-opt">(쉼표 구분)</span></label>
+          <label class="ws-label" for="wsTags">추가 태그 <span class="ws-opt">(쉼표 구분)</span></label>
           <input type="text" id="wsTags" class="ws-input" placeholder="PBL, 네팔, 교사연수" maxlength="80" />
         </div>
       </div>
@@ -279,6 +279,14 @@ var WS_STATE = { tag: 'all', currentPostId: null };
 
 function wsEscape(s) {
   return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* URL 안전화 — http(s) 스킴만 허용(javascript:/data: 차단) + CSS url()·속성 탈출 문자 제거.
+   썸네일·임베드 URL이 style 배경/iframe src 에 들어가기 전 통과시킨다(stored XSS 차단). */
+function wsSafeUrl(u) {
+  u = (u || '').trim();
+  if (!/^https?:\/\//i.test(u)) return '';
+  return u.replace(/["'()\s\\<>]/g, '');
 }
 
 function getEmbedType(url) {
@@ -371,7 +379,7 @@ function renderCard(post) {
   var preview;
   if (post.thumbnailUrl) {
     preview = '<div class="ws-card-preview thumb-preview" onclick="openDetail(\'' + post.id + '\')"' +
-              ' style="background-image:url(' + wsEscape(post.thumbnailUrl) + ')"></div>';
+              ' style="background-image:url(\'' + wsSafeUrl(post.thumbnailUrl) + '\')"></div>';
   } else if (post.embedUrl) {
     preview = '<div class="ws-card-preview embed-badge-preview" onclick="openDetail(\'' + post.id + '\')"' +
               ' style="background:' + wm.light + ';border-top:4px solid ' + wm.color + '">' +
@@ -382,7 +390,7 @@ function renderCard(post) {
   } else {
     preview = '<div class="ws-card-preview placeholder-preview" onclick="openDetail(\'' + post.id + '\')"' +
               ' style="background:linear-gradient(135deg,' + wm.color + 'dd,' + wm.color + '88)">' +
-              '<div class="ws-placeholder-initial">' + post.title.replace(/\s/g,'').slice(0,2) + '</div>' +
+              '<div class="ws-placeholder-initial">' + wsEscape(post.title.replace(/\s/g,'').slice(0,2)) + '</div>' +
               '<div class="ws-placeholder-icon">' + wm.icon + '</div>' +
               '</div>';
   }
@@ -401,7 +409,7 @@ function renderCard(post) {
     '</div>',
     '<div class="ws-card-foot">',
     '  <div class="ws-card-author">',
-    '    <span class="ws-av" style="background:' + wm.color + '">' + post.author.slice(0,1) + '</span>',
+    '    <span class="ws-av" style="background:' + wm.color + '">' + wsEscape(post.author.slice(0,1)) + '</span>',
     '    <span class="ws-author-name">' + wsEscape(post.author) + '</span>',
     '    <span class="ws-time-ago">· ' + getTimeAgo(post.createdAt) + '</span>',
     '  </div>',
@@ -575,26 +583,26 @@ function openDetail(postId) {
   /* 프리뷰 영역 */
   var previewHtml;
   if (post.thumbnailUrl && !post.embedUrl) {
-    previewHtml = '<div class="wsd-thumb" style="background-image:url(' + wsEscape(post.thumbnailUrl) + ')"></div>';
+    previewHtml = '<div class="wsd-thumb" style="background-image:url(\'' + wsSafeUrl(post.thumbnailUrl) + '\')"></div>';
   } else if (post.embedUrl) {
-    previewHtml = '<div class="wsd-embed-wrap"><iframe src="' + wsEscape(embedSrc) + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+    previewHtml = '<div class="wsd-embed-wrap"><iframe src="' + wsSafeUrl(embedSrc) + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
   } else {
     previewHtml = '<div class="wsd-placeholder" style="background:linear-gradient(135deg,' + wm.color + 'ee,' + wm.color + '88)">' +
-                  '<div class="wsd-ph-initial">' + post.title.replace(/\s/g,'').slice(0,2) + '</div>' +
+                  '<div class="wsd-ph-initial">' + wsEscape(post.title.replace(/\s/g,'').slice(0,2)) + '</div>' +
                   '<div class="wsd-ph-icon">' + wm.icon + '</div></div>';
   }
 
   /* 댓글 목록 */
   var commentsHtml = post.comments.length
     ? post.comments.map(function(c){
-        return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + c.author.slice(0,1) + '</span>' +
+        return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + wsEscape(c.author.slice(0,1)) + '</span>' +
                '<div class="wsd-cmt-body"><div class="wsd-cmt-meta"><strong>' + wsEscape(c.author) + '</strong><span>' + getTimeAgo(c.createdAt) + '</span></div>' +
                '<p>' + wsEscape(c.text) + '</p></div></div>';
       }).join('')
     : '<p class="wsd-no-cmt">첫 번째 댓글을 남겨보세요 💬</p>';
 
   var commentInputHtml = user
-    ? '<div class="wsd-cmt-input-row"><span class="ws-av sm" style="background:' + wm.color + '">' + user.name.slice(0,1) + '</span>' +
+    ? '<div class="wsd-cmt-input-row"><span class="ws-av sm" style="background:' + wm.color + '">' + wsEscape(user.name.slice(0,1)) + '</span>' +
       '<input type="text" id="wsdCmtInput" class="wsd-cmt-input" placeholder="응원·피드백·질문을 남겨보세요..." ' +
       'onkeydown="if(event.key===\'Enter\')addWsComment(\'' + postId + '\')" />' +
       '<button class="wsd-cmt-send" onclick="addWsComment(\'' + postId + '\')">전송</button></div>'
@@ -611,7 +619,7 @@ function openDetail(postId) {
     '  <h2 class="wsd-title">' + wsEscape(post.title) + '</h2>',
     post.desc ? '  <p class="wsd-desc">' + wsEscape(post.desc) + '</p>' : '',
     '  <div class="wsd-meta">',
-    '    <span class="ws-av" style="background:' + wm.color + '">' + post.author.slice(0,1) + '</span>',
+    '    <span class="ws-av" style="background:' + wm.color + '">' + wsEscape(post.author.slice(0,1)) + '</span>',
     '    <strong>' + wsEscape(post.author) + '</strong>',
     '    <span class="ws-time-ago">' + getTimeAgo(post.createdAt) + '</span>',
     post.embedUrl ? '    <a class="wsd-open-link" href="' + wsEscape(post.embedUrl) + '" target="_blank" rel="noopener">📎 원본 열기</a>' : '',
@@ -653,7 +661,7 @@ function addWsComment(postId) {
   /* 댓글 목록 즉시 업데이트 */
   var wm = WEEK_META[post.weekTag] || WEEK_META['기타'];
   var newHtml = post.comments.map(function(c){
-    return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + c.author.slice(0,1) + '</span>' +
+    return '<div class="wsd-cmt-item"><span class="ws-av sm" style="background:' + wm.color + '">' + wsEscape(c.author.slice(0,1)) + '</span>' +
            '<div class="wsd-cmt-body"><div class="wsd-cmt-meta"><strong>' + wsEscape(c.author) + '</strong><span>' + getTimeAgo(c.createdAt) + '</span></div>' +
            '<p>' + wsEscape(c.text) + '</p></div></div>';
   }).join('');
