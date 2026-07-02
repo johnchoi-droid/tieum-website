@@ -10,14 +10,20 @@
   <meta property="og:site_name"   content="사단법인 티움" />
   <meta property="og:title"       content="사단법인 티움 | TIEUM — 인공지능 시대의 교육 혁신" />
   <meta property="og:description" content="사단법인 티움(TIEUM)은 인공지능 시대 교육 혁신을 위해 2021년 설립된 비영리 기관입니다. 서울 서초구를 거점으로 교수학습법 연구, AI·문화·예술 교육, 글로벌 아웃리치 사업을 운영합니다." />
-  <meta property="og:image"       content="https://tieum.org/assets/images/tieum-logo.png" />
+  <meta property="og:image"       content="https://tieum.org/assets/images/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="티움 교육 현장 — 다음 세대와 함께하는 AI 교육" />
   <meta property="og:url"         content="https://tieum.org/" />
   <link rel="canonical" href="https://tieum.org/" />
   <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:image"      content="https://tieum.org/assets/images/og-image.jpg" />
+  <meta name="theme-color"        content="#1B4F8A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=50" />
+  <link rel="stylesheet" href="assets/css/style.css?v=51" />
+  <link rel="preload" as="image" href="assets/images/Main/main1.jpg" fetchpriority="high" />
   <link rel="icon" type="image/png" href="assets/images/tieum-icon-192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/tieum-icon-32.png" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -73,7 +79,7 @@
 <body>
 
 <div class="news-popup-overlay" id="newsPopupOverlay">
-    <div class="news-popup">
+    <div class="news-popup" role="dialog" aria-modal="true" aria-label="티움 최신 소식">
       <div class="news-popup-header">
         <span class="news-popup-tag">📢 티움 최신 소식</span>
         <button class="news-popup-close" onclick="closeNewsPopup()">✕</button>
@@ -83,9 +89,9 @@
       <div class="news-popup-slides" id="newsPopupSlides"></div>
 
       <div class="news-popup-nav">
-        <button class="news-popup-prev" id="npPrev" onclick="npMove(-1)">←</button>
+        <button class="news-popup-prev" id="npPrev" aria-label="이전 소식" onclick="npMove(-1)">←</button>
         <div class="news-popup-dots" id="npDots"></div>
-        <button class="news-popup-next" id="npNext" onclick="npMove(1)">→</button>
+        <button class="news-popup-next" id="npNext" aria-label="다음 소식" onclick="npMove(1)">→</button>
       </div>
 
       <div class="news-popup-footer">
@@ -115,11 +121,11 @@
       <button class="btn-membership" id="btnMembership" onclick="openMembershipModal()" data-i18n="nav.membership">멤버십 가입</button>
       <a href="#support" class="btn-donate" data-i18n="nav.donate">후원하기</a>
       <div class="lang-switcher">
-        <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+        <button class="lang-btn" data-lang="ko" aria-pressed="true" onclick="setLang('ko')">한국어</button>
         <span class="lang-sep">|</span>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">English</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false" onclick="setLang('en')">English</button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="megaPanel">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -142,7 +148,7 @@
         <div class="mega-col">
           <p class="mega-col-title" data-i18n="mega.col2.title">아카데미</p>
           <ul>
-            <li><a href="#academy">공지사항</a></li>
+            <li><a href="#academy">프로그램 소개</a></li>
             <li><a href="#future-makers" data-i18n="mega.col2.l2">TFM Academy</a></li>
             <li><a href="#future-academy">제1기 미래아카데미</a></li>
             <li><a href="teaching.html"  data-i18n="mega.col2.l4">교수학습법</a></li>
@@ -193,9 +199,9 @@
   <section id="hero">
     <div class="hero-bg" style="position:absolute;inset:0;"></div>
     <div class="hero-slides" aria-hidden="true">
-      <img src="assets/images/Main/main1.jpg" class="hero-slide" alt="">
-      <img src="assets/images/Main/main2.jpg" class="hero-slide" alt="">
-      <img src="assets/images/Main/main3.jpg" class="hero-slide" alt="">
+      <img src="assets/images/Main/main1.jpg" class="hero-slide" alt="" fetchpriority="high" decoding="async">
+      <img src="assets/images/Main/main2.jpg" class="hero-slide" alt="" fetchpriority="low" decoding="async">
+      <img src="assets/images/Main/main3.jpg" class="hero-slide" alt="" fetchpriority="low" decoding="async">
     </div>
     <div class="hero-overlay" style="position:absolute;inset:0;"></div>
     <canvas class="hero-canvas" id="heroCanvas"></canvas>
@@ -252,8 +258,8 @@
           </p>
         </div>
         <div class="about-intro-slides" aria-hidden="true">
-          <img src="assets/images/Introduction/introduction1.jpg" class="intro-slide" alt="">
-          <img src="assets/images/Introduction/introduction2.jpg" class="intro-slide" alt="">
+          <img src="assets/images/Introduction/introduction1.jpg" class="intro-slide" alt="" loading="lazy" decoding="async">
+          <img src="assets/images/Introduction/introduction2.jpg" class="intro-slide" alt="" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="crisis-grid">
@@ -372,6 +378,7 @@
               src="assets/images/gobongik.jpg"
               alt="고봉익 이사장"
               class="portrait-photo"
+              loading="lazy" decoding="async"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <div class="portrait-placeholder" style="display:none;">
@@ -387,15 +394,15 @@
           <!-- 3가지 핵심 질문 카드 -->
           <div class="greeting-questions">
             <div class="gq-item">
-              <span class="gq-icon">💡</span>
+              <span class="gq-icon" aria-hidden="true">💡</span>
               <p data-i18n="greeting.q1">이 아이들에게 꿈 꿀 수 있는 기회를 줄 수 있을까요?</p>
             </div>
             <div class="gq-item">
-              <span class="gq-icon">🔍</span>
+              <span class="gq-icon" aria-hidden="true">🔍</span>
               <p data-i18n="greeting.q2">이 아이들이 자기 자신과 세상에 대해 진심으로 탐색할 수 있을까요?</p>
             </div>
             <div class="gq-item">
-              <span class="gq-icon">🌱</span>
+              <span class="gq-icon" aria-hidden="true">🌱</span>
               <p data-i18n="greeting.q3">이 아이들이 세상에 선한 영향력을 끼치는 사람으로 성장할 수 있을까요?</p>
             </div>
           </div>
@@ -457,7 +464,7 @@
         <div class="team-row team-row-single">
           <div class="team-card team-card-lead">
             <div class="team-photo-wrap">
-              <img src="assets/images/gobongik.jpg" alt="고봉익 이사장"
+              <img src="assets/images/gobongik.jpg" alt="고봉익 이사장" loading="lazy" decoding="async"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <div class="team-avatar-fallback" style="display:none;">고</div>
             </div>
@@ -483,7 +490,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/kimhyungil.jpg" alt="김형길 교수" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/kimhyungil.jpg" alt="김형길 교수" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-blue" style="display:none;">김</div>
             </div>
             <div class="team-info">
@@ -498,7 +505,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/leehyeobseung.jpg" alt="이협승 박사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/leehyeobseung.jpg" alt="이협승 박사" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-teal" style="display:none;">이</div>
             </div>
             <div class="team-info">
@@ -512,7 +519,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/jangjaehi.jpg" alt="장재기" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/jangjaehi.jpg" alt="장재기" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-purple" style="display:none;">장</div>
             </div>
             <div class="team-info">
@@ -527,7 +534,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/hangeonso.jpg" alt="한건수 대표" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/hangeonso.jpg" alt="한건수 대표" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-green" style="display:none;">한</div>
             </div>
             <div class="team-info">
@@ -542,7 +549,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/imchaejong.jpg" alt="임채종 대표" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/imchaejong.jpg" alt="임채종 대표" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-orange" style="display:none;">임</div>
             </div>
             <div class="team-info">
@@ -564,7 +571,7 @@
         <div class="team-row team-row-single">
           <div class="team-card team-card-lead fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/chojuan.jpg?v=2" alt="최주안 박사" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/chojuan.jpg?v=2" alt="최주안 박사" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-navy" style="display:none;">최</div>
             </div>
             <div class="team-info">
@@ -585,7 +592,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/kimkyeongon.jpg" alt="김경은" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/kimkyeongon.jpg" alt="김경은" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-pink" style="display:none;">김</div>
             </div>
             <div class="team-info">
@@ -599,7 +606,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/kimhyungju.jpg" alt="김형주" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/kimhyungju.jpg" alt="김형주" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-blue" style="display:none;">김</div>
             </div>
             <div class="team-info">
@@ -613,7 +620,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/parkeunhyeon.jpg" alt="박은현" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/parkeunhyeon.jpg" alt="박은현" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-teal" style="display:none;">박</div>
             </div>
             <div class="team-info">
@@ -627,7 +634,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/seoungkyo.jpg" alt="서응교" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/seoungkyo.jpg" alt="서응교" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-green" style="display:none;">서</div>
             </div>
             <div class="team-info">
@@ -641,7 +648,7 @@
 
           <div class="team-card fade-in">
             <div class="team-photo-wrap">
-              <img src="assets/images/yunhuijin.jpg" alt="윤희진" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+              <img src="assets/images/yunhuijin.jpg" alt="윤희진" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
               <div class="team-avatar-fallback av-purple" style="display:none;">윤</div>
             </div>
             <div class="team-info">
@@ -772,7 +779,7 @@
       <!-- ── 세계 지도 ── -->
       <div class="outreach-worldmap">
         <div class="worldmap-img-wrap">
-          <img src="assets/images/worldmap.jpeg" alt="세계 지도" class="worldmap-img"/>
+          <img src="assets/images/worldmap.jpeg" alt="세계 지도" class="worldmap-img" width="941" height="530" loading="lazy" decoding="async"/>
 
           <!-- 미국 (워싱턴 DC): ~27%, ~31% -->
           <div class="mpo" id="pin-us" style="left:22%;top:35%">
@@ -1009,7 +1016,7 @@
       </div>
       <div class="news-grid" id="newsGrid"></div>
       <script src="assets/js/board-drive-config.js?v=2"></script>
-      <script src="assets/js/news-data.js?v=19"></script>
+      <script src="assets/js/news-data.js?v=20"></script>
       <script>
       (function () {
         /* 소식의 단일 출처 = news-data.js (NEWS_POSTS).
@@ -1077,7 +1084,7 @@
       </div>
       <div class="support-grid">
         <div class="support-card fade-in">
-          <div class="support-icon">♻️</div>
+          <div class="support-icon" aria-hidden="true">♻️</div>
           <h3 data-i18n="sup.reg.h">정기 후원</h3>
           <p data-i18n="sup.reg.p">매월 정기적인 후원으로 지속 가능한 교육 활동을 지원합니다.</p>
           <div class="support-amounts" id="regularAmounts">
@@ -1095,7 +1102,7 @@
           </button>
         </div>
         <div class="support-card fade-in">
-          <div class="support-icon">🎁</div>
+          <div class="support-icon" aria-hidden="true">🎁</div>
           <h3 data-i18n="sup.one.h">일시 후원</h3>
           <p data-i18n="sup.one.p">특별한 활동이나 프로젝트에 일회성 후원으로 함께합니다.</p>
           <div class="support-amounts" id="oneTimeAmounts">
@@ -1113,7 +1120,7 @@
           </button>
         </div>
         <div class="support-card fade-in">
-          <div class="support-icon">🌍</div>
+          <div class="support-icon" aria-hidden="true">🌍</div>
           <h3 data-i18n="sup.par.h">교육 파트너</h3>
           <p data-i18n="sup.par.p">기업 및 단체가 교육의 동반자가 되어 더 큰 변화를 만듭니다.</p>
           <ul class="partner-benefits">
@@ -1145,7 +1152,7 @@
           <!-- ── 1페이지 ── -->
           <div class="testi-page">
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.1.p">퓨처 메이커스 캠프에 참가하고 나서 아이가 완전히 달라졌어요. 코딩에 자신감이 생기고, 무엇보다 '내가 세상에 기여할 수 있다'는 비전을 갖게 됐습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av1">학부모</div>
@@ -1153,7 +1160,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.2.p">티움의 교수학습법 워크숍은 제 수업을 완전히 바꿔놓았습니다. AI 도구를 교육에 어떻게 접목하는지 구체적으로 배울 수 있었어요.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av2">교육자</div>
@@ -1161,7 +1168,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.3.p">글로벌 아웃리치를 통해 단순한 지식 전달이 아니라, 아이들의 삶을 통째로 변화시키는 교육의 힘을 직접 목격했습니다. 티움의 활동에 깊이 감동받았습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av3">후원자</div>
@@ -1173,7 +1180,7 @@
           <!-- ── 2페이지 ── -->
           <div class="testi-page">
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.4.p">처음엔 코딩이 막연히 어렵다고 생각했는데, 캠프를 통해 직접 만들어보니 너무 재밌었어요. 이제 AI로 뭔가를 만들고 싶다는 꿈이 생겼습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av4">학생</div>
@@ -1181,7 +1188,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.5.p">현직 교사로서 AI를 어떻게 수업에 활용할지 막막했는데, 티움의 워크숍을 통해 실질적인 방법을 배웠습니다. 학생들의 반응이 완전히 달라졌어요.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av5">교사</div>
@@ -1189,7 +1196,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.6.p">자녀를 티움 캠프에 보냈는데, 돌아온 아이들에게서 놀라운 변화를 보았습니다. 인문적 가치와 AI 기술이 연결되는 새로운 가능성을 발견했습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av6">교육자</div>
@@ -1201,7 +1208,7 @@
           <!-- ── 3페이지 ── -->
           <div class="testi-page">
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.7.p">아이가 미국 비전캠프에 다녀온 후 영어와 코딩 실력이 늘었을 뿐만 아니라, 세계를 품는 큰 꿈을 갖게 됐어요. 티움에 정말 감사합니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av7">학부모</div>
@@ -1209,7 +1216,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.8.p">레바논에서 아이들을 가르치는 것이 쉽지 않았는데, 티움의 커리큘럼 덕분에 언어와 문화를 넘어 소통할 수 있었습니다. 아이들 눈이 빛났어요.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av8">교육자</div>
@@ -1217,7 +1224,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.9.p">티움과의 CSR 파트너십을 통해 임직원들도 교육봉사의 의미를 발견했습니다. 단순한 후원을 넘어 함께 성장하는 경험이었습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av1">기업</div>
@@ -1229,7 +1236,7 @@
           <!-- ── 4페이지 ── -->
           <div class="testi-page">
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.10.p">티움 아카데미에서 배운 AI 프롬프트 활용법이 학교 과제에도 큰 도움이 됐어요. 단순히 기술만 배운 게 아니라 올바르게 사용하는 법도 배웠습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av2">학생</div>
@@ -1237,7 +1244,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.11.p">네팔에서 교육받은 아이들이 지금은 마을에서 선생님 역할을 하고 있습니다. 티움이 뿌린 씨앗이 이렇게 열매 맺는 것을 보며 눈물이 났습니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av3">교육자</div>
@@ -1245,7 +1252,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.12.p">방학마다 어디를 보내야 할지 고민이었는데, 퓨처 메이커스 캠프를 발견하고 확신이 생겼습니다. 아이가 다음 캠프를 벌써 기다리고 있어요.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av4">학부모</div>
@@ -1257,7 +1264,7 @@
           <!-- ── 5페이지 ── -->
           <div class="testi-page">
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.13.p">티움 캠프 졸업 후 지금은 대학에서 컴퓨터공학을 전공하고 있습니다. 당시 받은 영감이 제 진로를 바꿔놓았고, 지금도 그 감사함을 기억합니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av5">청년</div>
@@ -1265,7 +1272,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.14.p">매달 후원금이 어떻게 쓰이는지 투명하게 보고받을 수 있어 신뢰가 갑니다. 작은 금액이지만 멀리 있는 아이들에게 닿는다는 것이 큰 보람입니다.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av6">후원자</div>
@@ -1273,7 +1280,7 @@
               </div>
             </div>
             <div class="testi-card">
-              <div class="testi-quote">"</div>
+              <div class="testi-quote" aria-hidden="true">"</div>
               <p data-i18n="testi.15.p">티움의 AI 수업 설계 특강은 지금까지 들어본 교사 연수 중 가장 실용적이었습니다. 이론이 아니라 실제 수업에서 바로 쓸 수 있는 내용이었어요.</p>
               <div class="testi-author">
                 <div class="testi-avatar testi-av7">교사</div>
@@ -1367,18 +1374,18 @@
       <div class="partners-marquee">
         <div class="marquee-track">
           <!-- 1세트 -->
-          <a class="partner-logo" href="http://tmdedu.com/" target="_blank" rel="noopener"><img src="assets/images/partner/TMD.jpeg" alt="TMD교육그룹"></a>
-          <a class="partner-logo" href="https://familyontherock.co.kr/" target="_blank" rel="noopener"><img src="assets/images/partner/familyontherock.jpeg" alt="패밀리온더락"></a>
-          <a class="partner-logo" href="https://kohif.or.kr/" target="_blank" rel="noopener"><img src="assets/images/partner/Koreahistory.jpeg" alt="대한민국역사와미래재단"></a>
-          <a class="partner-logo" href="https://www.pas.or.kr/" target="_blank" rel="noopener"><img src="assets/images/partner/pacific.jpeg" alt="태평양아시아협회"></a>
-          <a class="partner-logo" href="https://www.sciencecenter.go.kr/gnsm/" target="_blank" rel="noopener"><img src="assets/images/partner/Gwacheon.jpeg" alt="국립과천과학관"></a>
+          <a class="partner-logo" href="http://tmdedu.com/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/images/partner/TMD.jpeg" alt="TMD교육그룹"></a>
+          <a class="partner-logo" href="https://familyontherock.co.kr/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/images/partner/familyontherock.jpeg" alt="패밀리온더락"></a>
+          <a class="partner-logo" href="https://kohif.or.kr/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/images/partner/Koreahistory.jpeg" alt="대한민국역사와미래재단"></a>
+          <a class="partner-logo" href="https://www.pas.or.kr/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/images/partner/pacific.jpeg" alt="태평양아시아협회"></a>
+          <a class="partner-logo" href="https://www.sciencecenter.go.kr/gnsm/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/images/partner/Gwacheon.jpeg" alt="국립과천과학관"></a>
           <div class="partner-logo partner-logo-text">창경(创境)</div>
           <!-- 2세트 (무한 루프용 복제) -->
-          <a class="partner-logo" href="http://tmdedu.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/images/partner/TMD.jpeg" alt=""></a>
-          <a class="partner-logo" href="https://familyontherock.co.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/images/partner/familyontherock.jpeg" alt=""></a>
-          <a class="partner-logo" href="https://kohif.or.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/images/partner/Koreahistory.jpeg" alt=""></a>
-          <a class="partner-logo" href="https://www.pas.or.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/images/partner/pacific.jpeg" alt=""></a>
-          <a class="partner-logo" href="https://www.sciencecenter.go.kr/gnsm/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/images/partner/Gwacheon.jpeg" alt=""></a>
+          <a class="partner-logo" href="http://tmdedu.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img loading="lazy" decoding="async" src="assets/images/partner/TMD.jpeg" alt=""></a>
+          <a class="partner-logo" href="https://familyontherock.co.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img loading="lazy" decoding="async" src="assets/images/partner/familyontherock.jpeg" alt=""></a>
+          <a class="partner-logo" href="https://kohif.or.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img loading="lazy" decoding="async" src="assets/images/partner/Koreahistory.jpeg" alt=""></a>
+          <a class="partner-logo" href="https://www.pas.or.kr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img loading="lazy" decoding="async" src="assets/images/partner/pacific.jpeg" alt=""></a>
+          <a class="partner-logo" href="https://www.sciencecenter.go.kr/gnsm/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img loading="lazy" decoding="async" src="assets/images/partner/Gwacheon.jpeg" alt=""></a>
           <div class="partner-logo partner-logo-text" aria-hidden="true">창경(创境)</div>
         </div>
       </div>
@@ -1414,7 +1421,7 @@
               </div>
               <div>
                 <strong data-i18n="cont.phone.label">전화</strong>
-                <p>010-6579-0602</p>
+                <p><a href="tel:010-6579-0602" style="color:inherit;text-decoration:none;">010-6579-0602</a></p>
               </div>
             </li>
             <li>
@@ -1426,7 +1433,7 @@
               </div>
               <div>
                 <strong data-i18n="cont.email.label">이메일</strong>
-                <p>johnchoi@tieum.org</p>
+                <p><a href="mailto:johnchoi@tieum.org" style="color:inherit;text-decoration:none;">johnchoi@tieum.org</a></p>
               </div>
             </li>
             <li>
@@ -1477,7 +1484,7 @@
               <circle cx="12" cy="12" r="10"/>
               <path d="M9 12l2 2 4-4"/>
             </svg>
-            <p data-i18n="form.success">메시지가 전송되었습니다. 곧 연락드리겠습니다!</p>
+            <p data-i18n="form.success">메일 앱이 열렸습니다. 메일에서 '보내기'를 눌러야 접수가 완료됩니다. 메일 앱이 열리지 않으면 johnchoi@tieum.org로 직접 보내주세요.</p>
           </div>
         </div>
       </div>
@@ -1512,7 +1519,7 @@
         </div>
         <div class="map-placeholder fade-in">
           <div class="map-frame" style="padding:0;overflow:hidden;position:relative;">
-            <img src="assets/images/tieum-map.jpeg" alt="티움 위치 지도"  />
+            <img src="assets/images/tieum-map.jpeg" alt="티움 위치 지도" width="695" height="336" loading="lazy" decoding="async" />
             <a href="https://map.naver.com/v5/search/서초구%20효령로%2057길%203" target="_blank" rel="noopener" class="btn-map" style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);white-space:nowrap;">
               <span data-i18n="loc.map">네이버 지도에서 보기 →</span>
             </a>
@@ -1598,7 +1605,7 @@
 
   <!-- ===== 이메일무단수집거부 모달 ===== -->
   <div class="modal-overlay" id="emailRefusalModal" onclick="if(event.target===this)closeEmailRefusalModal()">
-    <div class="modal-box email-refusal-box">
+    <div class="modal-box email-refusal-box" role="dialog" aria-modal="true" aria-label="이메일무단수집거부 안내">
       <div class="modal-head">
         <h2 class="modal-title">이메일무단수집거부</h2>
         <button class="modal-close" onclick="closeEmailRefusalModal()">✕</button>
@@ -1646,7 +1653,7 @@
 
   <!-- ===== 멤버십 가입 모달 ===== -->
   <div class="modal-overlay" id="membershipModal" onclick="if(event.target===this)closeMembershipModal()">
-    <div class="modal-box membership-modal-box">
+    <div class="modal-box membership-modal-box" role="dialog" aria-modal="true" aria-label="멤버십 가입">
 
       <!-- 헤더 -->
       <div class="modal-head">
@@ -1727,7 +1734,7 @@
     </svg>
   </button>
 
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=7"></script>
 
   <script>
   /* ═══ 멤버십 가입 모달 ══════════════════════════════════════ */
@@ -1751,6 +1758,11 @@
      ※ assets/js/lms-data.js 의 LMS_CONFIG.signupEndpoint 와 동일한 '티움 멤버십' 시트로 보냅니다.
         URL을 바꿀 때는 두 곳을 함께 수정하세요. */
   var MEMBERSHIP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxl_pawEG9DCRfTRldf6i70bWURLZ4KAs93Zb9Sji6DYZb27JsPR_eDNJW62XLP9n0Nkw/exec';
+
+  /* 문의·후원 접수 엔드포인트 — Apps Script '티움 접수' 웹앱 URL.
+     _docs/후원문의_접수시트_설정방법.txt 순서대로 배포한 뒤 그 URL을 여기 붙여넣으세요.
+     비어 있는 동안에는 기존 방식(메일 앱 열기)으로 동작하므로 안전합니다. */
+  window.INTAKE_ENDPOINT = '';
 
   function submitMembership() {
     var name  = document.getElementById('msName').value.trim();
@@ -1924,7 +1936,7 @@
 
   <!-- ===== 정기 후원 모달 ===== -->
   <div class="modal-overlay" id="donationModal">
-    <div class="modal-box donation-modal">
+    <div class="modal-box donation-modal" role="dialog" aria-modal="true" aria-label="정기 후원 신청">
       <div class="modal-head">
         <h2 class="modal-title">정기 후원 신청</h2>
         <button class="modal-close" onclick="closeDonationModal()">✕</button>
@@ -2007,7 +2019,7 @@
           </div>
 
           <div class="transfer-note">
-            <span class="note-icon">💡</span>
+            <span class="note-icon" aria-hidden="true">💡</span>
             <span>이체 시 <strong>입금자명에 성함</strong>을 기재해 주시면 후원 확인 및 기부금 영수증 발급에 도움이 됩니다. 문의: <strong>johnchoi@tieum.org</strong> / 070-7204-2004</span>
           </div>
 
@@ -2019,10 +2031,10 @@
 
         <!-- 감사 화면 -->
         <div id="donThank" style="display:none;" class="don-thank">
-          <div class="thank-icon">🙏</div>
+          <div class="thank-icon" aria-hidden="true">🙏</div>
           <h3>감사합니다!</h3>
           <p><strong id="donThankName"></strong>님의<br />매월 <strong id="donThankAmount"></strong> 후원 신청이 접수되었습니다.</p>
-          <p>이메일 신청서 전송 후 담당자가<br />빠른 시일 내 연락드리겠습니다.</p>
+          <p id="donThankHow">이메일 신청서 전송 후 담당자가<br />빠른 시일 내 연락드리겠습니다.</p>
           <p class="thank-contact">문의: <a href="mailto:johnchoi@tieum.org">johnchoi@tieum.org</a> · 070-7204-2004</p>
           <button class="btn-primary" style="margin-top:24px;" onclick="closeDonationModal()">닫기</button>
         </div>
@@ -2034,7 +2046,7 @@
 
   <!-- ===== 일시 후원 모달 ===== -->
   <div class="modal-overlay" id="oneTimeModal">
-    <div class="modal-box donation-modal">
+    <div class="modal-box donation-modal" role="dialog" aria-modal="true" aria-label="일시 후원 신청">
       <div class="modal-head">
         <h2 class="modal-title">일시 후원 신청</h2>
         <button class="modal-close" onclick="closeOneTimeModal()">✕</button>
@@ -2126,7 +2138,7 @@
           </div>
 
           <div class="transfer-note">
-            <span class="note-icon">💡</span>
+            <span class="note-icon" aria-hidden="true">💡</span>
             <span>이체 시 <strong>입금자명에 성함</strong>을 기재해 주시면 후원 확인 및 기부금 영수증 발급에 도움이 됩니다. 문의: <strong>johnchoi@tieum.org</strong> / 070-7204-2004</span>
           </div>
 
@@ -2138,10 +2150,10 @@
 
         <!-- 감사 화면 -->
         <div id="otThank" style="display:none;" class="don-thank">
-          <div class="thank-icon">🙏</div>
+          <div class="thank-icon" aria-hidden="true">🙏</div>
           <h3>감사합니다!</h3>
           <p><strong id="otThankName"></strong>님의<br /><strong id="otThankAmount"></strong> 일시 후원 신청이 접수되었습니다.</p>
-          <p>이메일 신청서 전송 후 담당자가<br />빠른 시일 내 연락드리겠습니다.</p>
+          <p id="otThankHow">이메일 신청서 전송 후 담당자가<br />빠른 시일 내 연락드리겠습니다.</p>
           <p class="thank-contact">문의: <a href="mailto:johnchoi@tieum.org">johnchoi@tieum.org</a> · 070-7204-2004</p>
           <button class="btn-primary" style="margin-top:24px;" onclick="closeOneTimeModal()">닫기</button>
         </div>
@@ -2251,26 +2263,51 @@
     var amount = parseInt(document.getElementById('donAmountHidden').value);
     var amtFmt = amount.toLocaleString();
 
-    document.getElementById('donStep2').style.display = 'none';
-    document.getElementById('donThank').style.display  = '';
-    document.querySelectorAll('.don-step').forEach(function(el) { el.classList.add('done'); el.classList.remove('active'); });
-    document.getElementById('donThankName').textContent   = name;
-    document.getElementById('donThankAmount').textContent = '₩' + amtFmt;
+    function showThank(viaMail) {
+      document.getElementById('donStep2').style.display = 'none';
+      document.getElementById('donThank').style.display  = '';
+      document.querySelectorAll('.don-step').forEach(function(el) { el.classList.add('done'); el.classList.remove('active'); });
+      document.getElementById('donThankName').textContent   = name;
+      document.getElementById('donThankAmount').textContent = '₩' + amtFmt;
+      document.getElementById('donThankHow').textContent = viaMail
+        ? '이메일 신청서 전송 후 담당자가 빠른 시일 내 연락드리겠습니다.'
+        : '신청 정보가 접수되었습니다. 담당자가 빠른 시일 내 연락드리겠습니다.';
+    }
 
-    var subject = encodeURIComponent('[정기 후원 신청] ' + name + '님의 월 ₩' + amtFmt + ' 후원 신청');
-    var body = encodeURIComponent(
-      '안녕하세요, 티움에 정기 후원을 신청합니다.\n\n' +
-      '■ 후원자 정보\n' +
-      '이름: ' + name + '\n' +
-      '연락처: ' + (phone || '미입력') + '\n' +
-      '이메일: ' + (email || '미입력') + '\n\n' +
-      '■ 후원 금액\n월 ₩' + amtFmt + '\n\n' +
-      '■ 입금 계좌\n국민은행 240801-04-519163 (사단법인 티움)\n\n' +
-      '매월 위 계좌로 정기 이체 신청 예정입니다.\n감사합니다.'
-    );
-    setTimeout(function() {
-      window.location.href = 'mailto:johnchoi@tieum.org?subject=' + subject + '&body=' + body;
-    }, 300);
+    function viaMailto() {
+      var subject = encodeURIComponent('[정기 후원 신청] ' + name + '님의 월 ₩' + amtFmt + ' 후원 신청');
+      var body = encodeURIComponent(
+        '안녕하세요, 티움에 정기 후원을 신청합니다.\n\n' +
+        '■ 후원자 정보\n' +
+        '이름: ' + name + '\n' +
+        '연락처: ' + (phone || '미입력') + '\n' +
+        '이메일: ' + (email || '미입력') + '\n\n' +
+        '■ 후원 금액\n월 ₩' + amtFmt + '\n\n' +
+        '■ 입금 계좌\n국민은행 240801-04-519163 (사단법인 티움)\n\n' +
+        '매월 위 계좌로 정기 이체 신청 예정입니다.\n감사합니다.'
+      );
+      showThank(true);
+      setTimeout(function() {
+        window.location.href = 'mailto:johnchoi@tieum.org?subject=' + subject + '&body=' + body;
+      }, 300);
+    }
+
+    /* 접수 시트(Apps Script)가 연결돼 있으면 서버로 바로 접수, 실패 시 메일 방식 폴백 */
+    if (window.INTAKE_ENDPOINT) {
+      var btn = document.querySelector('#donStep2 .btn-primary');
+      if (btn) { btn.disabled = true; btn.textContent = '접수 중…'; }
+      function donReset() { if (btn) { btn.disabled = false; btn.textContent = '신청 완료'; } }
+      try {
+        fetch(window.INTAKE_ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify({ source: 'donation-regular', name: name, phone: phone,
+                                 email: email, amount: amount, ts: Date.now() })
+        }).then(function () { donReset(); showThank(false); },
+                function () { donReset(); viaMailto(); });
+      } catch (e) { donReset(); viaMailto(); }
+    } else {
+      viaMailto();
+    }
   }
 
   document.getElementById('donationModal').addEventListener('click', function(e) {
@@ -2381,29 +2418,54 @@
     var amount  = parseInt(document.getElementById('otAmountHidden').value);
     var amtFmt  = amount.toLocaleString();
 
-    document.getElementById('otStep2').style.display = 'none';
-    document.getElementById('otThank').style.display  = '';
-    [document.getElementById('otStep1Dot'), document.getElementById('otStep2Dot')].forEach(function(el) {
-      el.classList.add('done'); el.classList.remove('active');
-    });
-    document.getElementById('otThankName').textContent   = name;
-    document.getElementById('otThankAmount').textContent = '₩' + amtFmt;
+    function showThank(viaMail) {
+      document.getElementById('otStep2').style.display = 'none';
+      document.getElementById('otThank').style.display  = '';
+      [document.getElementById('otStep1Dot'), document.getElementById('otStep2Dot')].forEach(function(el) {
+        el.classList.add('done'); el.classList.remove('active');
+      });
+      document.getElementById('otThankName').textContent   = name;
+      document.getElementById('otThankAmount').textContent = '₩' + amtFmt;
+      document.getElementById('otThankHow').textContent = viaMail
+        ? '이메일 신청서 전송 후 담당자가 빠른 시일 내 연락드리겠습니다.'
+        : '신청 정보가 접수되었습니다. 담당자가 빠른 시일 내 연락드리겠습니다.';
+    }
 
-    var subject = encodeURIComponent('[일시 후원 신청] ' + name + '님의 ₩' + amtFmt + ' 후원 신청');
-    var body = encodeURIComponent(
-      '안녕하세요, 티움에 일시 후원을 신청합니다.\n\n' +
-      '■ 후원자 정보\n' +
-      '이름: ' + name + '\n' +
-      '연락처: ' + (phone || '미입력') + '\n' +
-      '이메일: ' + (email || '미입력') + '\n' +
-      '후원 목적: ' + (purpose || '미입력') + '\n\n' +
-      '■ 후원 금액\n₩' + amtFmt + ' (일시 후원)\n\n' +
-      '■ 입금 계좌\n국민은행 240801-04-519163 (사단법인 티움)\n\n' +
-      '위 계좌로 이체 예정입니다.\n감사합니다.'
-    );
-    setTimeout(function() {
-      window.location.href = 'mailto:johnchoi@tieum.org?subject=' + subject + '&body=' + body;
-    }, 300);
+    function viaMailto() {
+      var subject = encodeURIComponent('[일시 후원 신청] ' + name + '님의 ₩' + amtFmt + ' 후원 신청');
+      var body = encodeURIComponent(
+        '안녕하세요, 티움에 일시 후원을 신청합니다.\n\n' +
+        '■ 후원자 정보\n' +
+        '이름: ' + name + '\n' +
+        '연락처: ' + (phone || '미입력') + '\n' +
+        '이메일: ' + (email || '미입력') + '\n' +
+        '후원 목적: ' + (purpose || '미입력') + '\n\n' +
+        '■ 후원 금액\n₩' + amtFmt + ' (일시 후원)\n\n' +
+        '■ 입금 계좌\n국민은행 240801-04-519163 (사단법인 티움)\n\n' +
+        '위 계좌로 이체 예정입니다.\n감사합니다.'
+      );
+      showThank(true);
+      setTimeout(function() {
+        window.location.href = 'mailto:johnchoi@tieum.org?subject=' + subject + '&body=' + body;
+      }, 300);
+    }
+
+    /* 접수 시트(Apps Script)가 연결돼 있으면 서버로 바로 접수, 실패 시 메일 방식 폴백 */
+    if (window.INTAKE_ENDPOINT) {
+      var btn = document.querySelector('#otStep2 .btn-primary');
+      if (btn) { btn.disabled = true; btn.textContent = '접수 중…'; }
+      function otReset() { if (btn) { btn.disabled = false; btn.textContent = '신청 완료'; } }
+      try {
+        fetch(window.INTAKE_ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify({ source: 'donation-onetime', name: name, phone: phone,
+                                 email: email, amount: amount, purpose: purpose, ts: Date.now() })
+        }).then(function () { otReset(); showThank(false); },
+                function () { otReset(); viaMailto(); });
+      } catch (e) { otReset(); viaMailto(); }
+    } else {
+      viaMailto();
+    }
   }
 
   document.getElementById('oneTimeModal').addEventListener('click', function(e) {
@@ -2416,7 +2478,7 @@
 
 <!-- ══════════════ 재정 보고 모달 (데스크탑) ══════════════ -->
 <div class="modal-overlay" id="frModal" onclick="if(event.target===this)closeFinanceReport()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="재정 투명성 보고">
     <button class="modal-close" onclick="closeFinanceReport()">✕</button>
     <iframe id="frIframe" src="" title="재정 투명성 보고" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2461,7 +2523,7 @@ function closeFinanceReport() {
 
 <!-- ══════════════ 퓨처 메이커스 모달 (데스크탑) ══════════════ -->
 <div class="modal-overlay" id="fmModal" onclick="if(event.target===this)closeFutureMakers()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="TFM Academy 소개">
     <button class="modal-close" onclick="closeFutureMakers()">✕</button>
     <iframe id="fmIframe" src="" title="퓨처 메이커스" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2564,7 +2626,7 @@ function closeProlife2() {
 
 <!-- ══════════════ 글로벌 아웃리치 모달 ══════════════ -->
 <div class="modal-overlay" id="globalOutreachModal" onclick="if(event.target===this)closeGlobalOutreach()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="글로벌 아웃리치 소개">
     <button class="modal-close" onclick="closeGlobalOutreach()">✕</button>
     <iframe id="goIframe" src="" title="글로벌 아웃리치" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2572,7 +2634,7 @@ function closeProlife2() {
 
 <!-- ══════════════ 견미단 모달 ══════════════ -->
 <div class="modal-overlay" id="gyeonmidanModal" onclick="if(event.target===this)closeGyeonmidan()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="견미단 × 프로라이프 소개">
     <button class="modal-close" onclick="closeGyeonmidan()">✕</button>
     <iframe id="gmIframe" src="" title="견미단 × 프로라이프" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2580,7 +2642,7 @@ function closeProlife2() {
 
 <!-- ══════════════ 청소년 프로라이프 2기 모달 ══════════════ -->
 <div class="modal-overlay" id="prolife2Modal" onclick="if(event.target===this)closeProlife2()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="청소년 프로라이프 비전 캠프 2기 소개">
     <button class="modal-close" onclick="closeProlife2()">✕</button>
     <iframe id="pl2Iframe" src="" title="청소년 프로라이프 비전 캠프 2기" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2588,7 +2650,7 @@ function closeProlife2() {
 
 <!-- ══════════════ 미래 아카데미 모달 (데스크탑) ══════════════ -->
 <div class="modal-overlay" id="faModal" onclick="if(event.target===this)closeFutureAcademy()">
-  <div class="modal-box fm-modal-box">
+  <div class="modal-box fm-modal-box" role="dialog" aria-modal="true" aria-label="제1기 미래아카데미 소개">
     <button class="modal-close" onclick="closeFutureAcademy()">✕</button>
     <iframe id="faIframe" src="" title="제1기 미래아카데미" frameborder="0" allowfullscreen></iframe>
   </div>
@@ -2630,190 +2692,19 @@ function closeProlife2() {
 })();
 </script>
 
-<!-- ══════════════ 쌍핵각성 캠프 모달 ══════════════ -->
-<div class="modal-overlay" id="campModal" onclick="if(event.target===this)closeCampModal()">
-  <div class="modal-box camp-modal-box">
-    <button class="modal-close" onclick="closeCampModal()">✕</button>
 
-    <!-- 헤더 -->
-    <div class="camp-modal-hero">
-      <div class="camp-modal-hero-left">
-        <p class="camp-modal-cn">双核觉醒</p>
-        <h2 class="camp-modal-title-ko">쌍핵각성</h2>
-        <p class="camp-modal-en">Double Identity, Double Power</p>
-        <p class="camp-modal-sub">여섯 개의 연결, 하나의 미래</p>
-      </div>
-      <div class="camp-modal-hero-right">
-        <div class="camp-info-row">📅 2026년 7월 13일(월) ~ 16일(목) · 3박 4일</div>
-        <div class="camp-info-row">📍 제주도 (펄 호텔 + AI미래교육캠퍼스)</div>
-        <div class="camp-info-row">👦 연길 거주 조선족 초4 ~ 중3 · 선착순 25명</div>
-        <div class="camp-info-row">🎓 주최: 티움 · 코치: 고봉익 대표 (TMD교육그룹 · 티움 이사장)</div>
-      </div>
-    </div>
-
-    <div class="camp-modal-body">
-
-      <!-- 캠프 배경 -->
-      <div class="camp-section">
-        <div class="camp-problem-box">
-          <p class="camp-quote">"AI가 모든 것을 대신하는 시대, 나는 무엇을 위해 존재하는가?"</p>
-          <p class="camp-quote-sub">"빠르게 변하는 세상 속에서 흔들리지 않는 나만의 정체성을 찾고 싶다."</p>
-        </div>
-        <p class="camp-body-text">AI 시대는 정보와 기술이 넘쳐나지만, 정작 '나는 누구인가'라는 질문에 답하지 못하는 청소년들이 늘어가고 있습니다. 쌍핵각성은 두 문화와 언어를 품은 연길 청소년들이 그 고유한 정체성을 <strong>흔들림 없는 강점</strong>으로 각성하도록 돕는 캠프입니다.</p>
-      </div>
-
-      <!-- 여섯 개의 연결 -->
-      <div class="camp-section">
-        <h3 class="camp-section-title">🔗 여섯 개의 연결</h3>
-        <div class="camp-connections-grid">
-          <div class="camp-conn-card" style="--cc:#c0392b">
-            <span class="camp-conn-num">①</span>
-            <strong>정체성</strong>
-            <p>중국인도 한국인도 아닌, 둘을 잇는 사람</p>
-          </div>
-          <div class="camp-conn-card" style="--cc:#1b4f8a">
-            <span class="camp-conn-num">②</span>
-            <strong>언어</strong>
-            <p>中文 거대 시장 + 한국어 문화 감각의 시너지</p>
-          </div>
-          <div class="camp-conn-card" style="--cc:#276749">
-            <span class="camp-conn-num">③</span>
-            <strong>기술·문화</strong>
-            <p>AI 생성 도구 × 조선족 전통 문화 자산</p>
-          </div>
-          <div class="camp-conn-card" style="--cc:#6b46c1">
-            <span class="camp-conn-num">④</span>
-            <strong>지역</strong>
-            <p>고향 연길(내면의 기반) ↔ 새로운 제주(확장의 공간)</p>
-          </div>
-          <div class="camp-conn-card" style="--cc:#c05621">
-            <span class="camp-conn-num">⑤</span>
-            <strong>교류</strong>
-            <p>또래 공감대 형성 + 현지 전문가 멘토링</p>
-          </div>
-          <div class="camp-conn-card" style="--cc:#2c7a7b">
-            <span class="camp-conn-num">⑥</span>
-            <strong>세계</strong>
-            <p>나만의 이야기가 세계적 콘텐츠가 되는 시대</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3박 4일 일정 -->
-      <div class="camp-section">
-        <h3 class="camp-section-title">📅 3박 4일 선순환 여정</h3>
-        <div class="camp-days-grid">
-          <div class="camp-day">
-            <div class="camp-day-header" style="background:#c0392b">DAY 1<br><span>만남</span></div>
-            <div class="camp-day-body">
-              <p><strong>낮</strong> 아르떼 뮤지엄 입체 미디어 탐방</p>
-              <p><strong>저녁</strong> Object Talk 정서 공유 및 연대</p>
-            </div>
-          </div>
-          <div class="camp-day">
-            <div class="camp-day-header" style="background:#c05621">DAY 2<br><span>발견</span></div>
-            <div class="camp-day-body">
-              <p><strong>낮</strong> AI 캠퍼스 첨단 기술 마스터</p>
-              <p><strong>저녁</strong> 인공지능 미래 직업 상상도 제작</p>
-            </div>
-          </div>
-          <div class="camp-day">
-            <div class="camp-day-header" style="background:#1b4f8a">DAY 3<br><span>연결</span></div>
-            <div class="camp-day-body">
-              <p><strong>낮</strong> 유네스코 성산일출봉 탐방</p>
-              <p><strong>저녁</strong> 한국 전문가들과 밀착 멘토링</p>
-            </div>
-          </div>
-          <div class="camp-day">
-            <div class="camp-day-header" style="background:#276749">DAY 4<br><span>선포</span></div>
-            <div class="camp-day-body">
-              <p><strong>낮</strong> 제주 기업 탐방 & 해녀 문화 체험</p>
-              <p><strong>마무리</strong> 수료식 & 미래 뉴스 선포</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 투트랙 커리큘럼 -->
-      <div class="camp-section">
-        <h3 class="camp-section-title">📚 학령별 맞춤 투트랙 교육과정</h3>
-        <div class="camp-tracks">
-          <div class="camp-track">
-            <div class="camp-track-head" style="background:#f5a623">주니어 트랙 (초4 ~ 초6)</div>
-            <div class="camp-track-body">
-              <p>직관적 감각과 기술 흥미 중심</p>
-              <ul>
-                <li>이미지 카드 중심의 강점 찾기 워크숍</li>
-                <li>직관적 시각 도구 실습 (상징 제작)</li>
-                <li>"내 생각대로 만들어진다"는 즉각적 성취감</li>
-              </ul>
-            </div>
-          </div>
-          <div class="camp-track">
-            <div class="camp-track-head" style="background:#1b4f8a">시니어 트랙 (중1 ~ 중3)</div>
-            <div class="camp-track-body">
-              <p>논리적 설계와 진로 비전 중심</p>
-              <ul>
-                <li>Prediger 6각형 직업 적성 도구 심층 분석</li>
-                <li>인공지능 명령어 고도화 설계 실습</li>
-                <li>10년 후 입체적 진로 시나리오 도출</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <p class="camp-tools-note">🌐 세계 공용: ChatGPT · Canva · Midjourney · CapCut &nbsp;|&nbsp; 🇨🇳 중국 현지: 두바오 · 쿼크 · 위안바오 · 어니봇</p>
-      </div>
-
-      <!-- 결과물 -->
-      <div class="camp-section">
-        <h3 class="camp-section-title">🎁 캠프가 끝나면 손에 남는 것</h3>
-        <div class="camp-outputs">
-          <div class="camp-output">
-            <div class="camp-output-num">01</div>
-            <strong>B5 컬러 진로 기록 책자</strong>
-            <p>적성 진단 데이터 · 코치 평어 · 포트폴리오 · 10년 후 미래 뉴스 수록</p>
-          </div>
-          <div class="camp-output">
-            <div class="camp-output-num">02</div>
-            <strong>AI 음성 타임캡슐</strong>
-            <p>아이가 쓴 미래 편지를 AI 음성으로 재현 · 책자 내 QR코드로 영구 소장</p>
-          </div>
-          <div class="camp-output">
-            <div class="camp-output-num">03</div>
-            <strong>수료식 당일 위챗 영상</strong>
-            <p>전문 촬영팀 당일 편집 · 위챗으로 고향 가족에게 즉시 전송</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="camp-cta">
-        <p>⚡ 선착순 25명 한정 — 사춘기 골든타임을 놓치지 마세요!</p>
-        <a href="#contact" class="btn-primary" onclick="closeCampModal()" style="display:inline-block;margin-top:14px;">참가 문의하기 →</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<script>
-function openCampModal()  { document.getElementById('campModal').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeCampModal() { document.getElementById('campModal').classList.remove('open'); document.body.style.overflow=''; }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCampModal(); });
-</script>
-
-  <script src="assets/js/i18n-map.js?v=21"></script>
-  <script src="assets/js/i18n.js?v=19"></script>
+  <script src="assets/js/i18n-map.js?v=22"></script>
+  <script src="assets/js/i18n.js?v=20"></script>
 
 <!-- ══ 아웃리치 상세 모달 ══ -->
-      <div class="outreach-detail" id="ext-global" onclick="if(event.target===this)closeOutreachDetail()">
+      <div class="outreach-detail" id="ext-global" role="dialog" aria-modal="true" aria-label="글로벌 아웃리치 상세" onclick="if(event.target===this)closeOutreachDetail()">
         <div class="outreach-detail-inner">
           <div class="outreach-detail-head"><h3>글로벌 아웃리치 — 티움 청소년 봉사단</h3><button class="outreach-detail-close" onclick="closeOutreachDetail()" aria-label="닫기">✕ 닫기</button></div>
 <div class="fm-body">
 
     <!-- 프로그램 소개 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h2>
+      <h4 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h4>
       <p class="fm-desc">
         글로벌 아웃리치는 AI·문화·예술 교육으로 세계 현장에 직접 나가는 티움의 청소년 봉사단입니다. 단순한 체험 여행을 넘어, 현지 아이들과 청소년들에게 최신 교육 콘텐츠를 전달하며 인류 보편의 가치를 실천합니다.<br><br>
         사전 교육 → 현장 활동 → 발표회·해단식의 3단계로 운영되며, 아웃리치를 통해 글로벌 시민으로 성장하고 올바른 세계관을 삶으로 실천하는 리더를 세웁니다.
@@ -2822,7 +2713,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 2024 Winter — 폴란드 우크라이나 난민 활동 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">⚡</span> 2024 Winter — 폴란드 우크라이나 난민 활동</h2>
+      <h4 class="fm-section-title"><span class="icon">⚡</span> 2024 Winter — 폴란드 우크라이나 난민 활동</h4>
       <div class="fm-feature-grid">
         <div class="fm-feature-item">
           <div class="fm-feature-icon">🤖</div>
@@ -2849,7 +2740,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 2024 Winter 주요 일정 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📅</span> 2024 Winter 주요 일정</h2>
+      <h4 class="fm-section-title"><span class="icon">📅</span> 2024 Winter 주요 일정</h4>
       <div class="fm-curriculum">
         <div class="fm-cur-item">
           <div class="fm-cur-num">사전</div>
@@ -2894,14 +2785,14 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
         </div>
       </div>
 
-      <div class="outreach-detail" id="ext-gyeon" onclick="if(event.target===this)closeOutreachDetail()">
+      <div class="outreach-detail" id="ext-gyeon" role="dialog" aria-modal="true" aria-label="견미단 × 프로라이프 상세" onclick="if(event.target===this)closeOutreachDetail()">
         <div class="outreach-detail-inner">
           <div class="outreach-detail-head"><h3>견미단 × 프로라이프</h3><button class="outreach-detail-close" onclick="closeOutreachDetail()" aria-label="닫기">✕ 닫기</button></div>
 <div class="fm-body">
 
     <!-- 프로그램 소개 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h2>
+      <h4 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h4>
       <p class="fm-desc">
         <strong>티움 아카데미 for 견미단 × 프로라이프</strong>는 글로벌 아웃리치 참여자들이 보수주의·생명윤리 등의 가치관을 재정립하고, 글로벌 인재로 성장하도록 설계된 사전·사후 교육 및 프로젝트 아카데미입니다.<br><br>
         글로벌 정치가·법률가·미디어 커뮤니케이터·NGO 설립가 4개 팀이 코치와 함께 미국 워싱턴 DC 현장에서 실전 프로젝트를 수행하고, 한국어·영어 산출물로 결실을 맺습니다.
@@ -2912,12 +2803,13 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
     <div class="fm-section" style="padding:0;">
       <img src="assets/images/gyeonmidan-screenshot.png"
            alt="견미단 × 프로라이프 프로그램 소개"
+           loading="lazy" decoding="async"
            style="width:100%; border-radius:12px; display:block; box-shadow:0 2px 12px rgba(0,0,0,.1);" />
     </div>
 
     <!-- 공통 교육 내용 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📚</span> 공통 교육 내용</h2>
+      <h4 class="fm-section-title"><span class="icon">📚</span> 공통 교육 내용</h4>
       <div class="fm-feature-grid">
         <div class="fm-feature-item">
           <div class="fm-feature-icon">🏛</div>
@@ -2944,7 +2836,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 4개 글로벌 프로젝트 팀 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">🌐</span> 4개 글로벌 프로젝트 팀</h2>
+      <h4 class="fm-section-title"><span class="icon">🌐</span> 4개 글로벌 프로젝트 팀</h4>
       <div class="fm-curriculum">
         <div class="fm-cur-item">
           <div class="fm-cur-num" style="background:#8B0000;">정치</div>
@@ -2979,7 +2871,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 교육 일정 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📅</span> 교육 일정</h2>
+      <h4 class="fm-section-title"><span class="icon">📅</span> 교육 일정</h4>
       <div class="fm-curriculum">
         <div class="fm-cur-item">
           <div class="fm-cur-num">1회</div>
@@ -3042,7 +2934,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 강사진 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">👨‍🏫</span> 강사진 & 코치</h2>
+      <h4 class="fm-section-title"><span class="icon">👨‍🏫</span> 강사진 & 코치</h4>
       <div class="fm-lecturer-list">
         <div class="fm-lecturer-item">
           <div class="fm-lecturer-icon">🎯</div>
@@ -3084,7 +2976,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 산출물 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📦</span> 주요 산출물</h2>
+      <h4 class="fm-section-title"><span class="icon">📦</span> 주요 산출물</h4>
       <div class="fm-target-list">
         <div class="fm-target-item">팀 프로젝트 산출물 — 포토북 · 리포트 · 영상 (한국어 & 영어)</div>
         <div class="fm-target-item">개인 산출물 — 나만의 비전 · 미션 · 드림 로드맵</div>
@@ -3094,11 +2986,12 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 영상 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">🎬</span> 관련 영상</h2>
+      <h4 class="fm-section-title"><span class="icon">🎬</span> 관련 영상</h4>
       <a href="https://www.youtube.com/watch?v=CHUDGCjsS_w" target="_blank" rel="noopener"
          style="display:block; position:relative; border-radius:12px; overflow:hidden; cursor:pointer; text-decoration:none;">
         <img src="https://img.youtube.com/vi/CHUDGCjsS_w/maxresdefault.jpg"
              alt="견미단 × 프로라이프 관련 영상"
+             loading="lazy" decoding="async"
              style="width:100%; display:block; border-radius:12px;" />
         <!-- 재생 버튼 오버레이 -->
         <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
@@ -3122,14 +3015,14 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
         </div>
       </div>
 
-      <div class="outreach-detail" id="ext-prolife" onclick="if(event.target===this)closeOutreachDetail()">
+      <div class="outreach-detail" id="ext-prolife" role="dialog" aria-modal="true" aria-label="청소년 프로라이프 비전 캠프 2기 상세" onclick="if(event.target===this)closeOutreachDetail()">
         <div class="outreach-detail-inner">
           <div class="outreach-detail-head"><h3>청소년 프로라이프 비전 캠프 2기</h3><button class="outreach-detail-close" onclick="closeOutreachDetail()" aria-label="닫기">✕ 닫기</button></div>
 <div class="fm-body">
 
     <!-- 프로그램 소개 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h2>
+      <h4 class="fm-section-title"><span class="icon">📌</span> 프로그램 소개</h4>
       <p class="fm-desc">
         청소년 프로라이프 비전 캠프 2기는 균형 잡힌 세계관을 기반으로 생명 가치 담론을 이끌 청소년 리더를 세우는 미국 비전캠프입니다. '아하 모먼트(Aha Moment)' — 각자의 소명을 발견하고 삶의 방향을 결정하는 변곡점을 경험하도록 설계되었습니다.<br><br>
         주관: (사)티움 | 협력: 패밀리온더락 · 험블미니스트리
@@ -3140,12 +3033,13 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
     <div class="fm-section" style="padding:0;">
       <img src="assets/images/prolife2-march.jpg"
            alt="청소년 프로라이프 비전 캠프 2기 — March for Life"
+           loading="lazy" decoding="async"
            style="width:100%; border-radius:12px; display:block; box-shadow:0 2px 12px rgba(0,0,0,.1);" />
     </div>
 
     <!-- 4개 프로젝트 팀 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">⚡</span> 4개 프로젝트 팀</h2>
+      <h4 class="fm-section-title"><span class="icon">⚡</span> 4개 프로젝트 팀</h4>
       <div class="fm-feature-grid">
         <div class="fm-feature-item">
           <div class="fm-feature-icon">🎤</div>
@@ -3172,7 +3066,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 4단계 프로그램 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">📅</span> 4단계 프로그램</h2>
+      <h4 class="fm-section-title"><span class="icon">📅</span> 4단계 프로그램</h4>
       <div class="fm-curriculum">
         <div class="fm-cur-item">
           <div class="fm-cur-num">1</div>
@@ -3207,7 +3101,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 강사진 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">👨‍🏫</span> 강사진</h2>
+      <h4 class="fm-section-title"><span class="icon">👨‍🏫</span> 강사진</h4>
       <div class="fm-lecturer-list">
         <div class="fm-lecturer-item">
           <div class="fm-lecturer-icon">✝️</div>
@@ -3249,7 +3143,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCamp
 
     <!-- 2026년 수료생 24명 -->
     <div class="fm-section">
-      <h2 class="fm-section-title"><span class="icon">🏆</span> 2026년 수료생 24명</h2>
+      <h4 class="fm-section-title"><span class="icon">🏆</span> 2026년 수료생 24명</h4>
       <p class="fm-desc">
         2026년 2월 22일 수료식에서 24명의 청소년이 '청소년 프로라이프 비전 캠프 2기' 수료증을 받았습니다. 수료 번호 2026-0001호부터 2026-0024호까지, 오피니언 리더·펀드레이징·스토리텔러·체인지메이커 4개 팀이 각자의 소명을 품고 생명 가치 담론의 미래 리더로 세워졌습니다.
       </p>

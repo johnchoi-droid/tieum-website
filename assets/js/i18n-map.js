@@ -1823,5 +1823,17 @@ window.KO2EN = {
  "무료 회원가입": "Free sign-up",
  "한국인재연구소 신청·결제": "Enroll & pay via Korea Institute of Talent Education",
  /* 법인 관계 고지 */
- "티움 무료 교육은 사단법인 티움의 공익목적사업으로 후원을 통해 운영됩니다. 유료 전문 교육 과정은 협력 기관인 한국인재연구소가 운영합니다.": "TIEUM's free education is operated as a public-interest program of TIEUM, funded by donations. The paid professional courses are run by our partner, the Korea Institute of Talent Education."
+ "티움 무료 교육은 사단법인 티움의 공익목적사업으로 후원을 통해 운영됩니다. 유료 전문 교육 과정은 협력 기관인 한국인재연구소가 운영합니다.": "TIEUM's free education is operated as a public-interest program of TIEUM, funded by donations. The paid professional courses are run by our partner, the Korea Institute of Talent Education.",
+
+ /* 2026-07 점검 추가분 — 최신 소식·뉴스레터·통계 단위·게시판 편집기 */
+ "교수학습법과 연구 Data 게시판 오픈": "Teaching Methods & Research Data Boards Now Open",
+ "안녕하세요, 저희 티움에서 상단 헤더의 '아카데미' 안에 있는 교수학습법과 연구 Data 게시판을 오픈하였습니다. 여기에는 다양한 공신력 있는 저널, 학술지, 논…": "TIEUM has opened its Teaching Methods and Research Data boards under 'Academy' in the top menu — expert-curated insights from trusted journals, papers, and news, updated weekly.",
+ "웹사이트 오픈, 제1기 미래아카데미 개강, 청소년 프로라이프 2기 수료 소식을 전합니다.": "News of our website launch, the opening of the 1st Future Academy, and the completion of the 2nd Youth Pro-Life cohort.",
+ "개": "",
+ "소제목": "Subheading",
+ "본문": "Body",
+ "• 목록": "• List",
+ "1. 목록": "1. List",
+ "❝ 인용": "❝ Quote",
+ "⌫ 서식": "⌫ Clear"
 };

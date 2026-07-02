@@ -8,6 +8,8 @@
 (function initParticles() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
+  // 시스템 설정에서 '동작 줄이기'를 켠 사용자에게는 파티클을 그리지 않는다
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles = [], mouse = { x: -9999, y: -9999 };
   const COUNT = 70;
@@ -83,12 +85,22 @@
     }
   }
 
+  // 히어로가 화면 밖으로 스크롤되면 애니메이션을 멈춰 CPU·배터리를 아낀다
+  let running = true;
   function loop() {
+    if (!running) return;
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
     ctx.globalAlpha = 1;
     drawLines();
     requestAnimationFrame(loop);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      const visible = entries[0].isIntersecting;
+      if (visible && !running) { running = true; loop(); }
+      else if (!visible) { running = false; }
+    }).observe(canvas);
   }
   loop();
 })();
@@ -109,11 +121,13 @@ function isMobile() { return window.innerWidth <= 768; }
 
 function openMobileDrawer() {
   hamburger.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
   if (megaPanel) megaPanel.classList.add('mob-drawer-open');
   document.body.style.overflow = 'hidden';
 }
 function closeMobileDrawer() {
   hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
   if (megaPanel) megaPanel.classList.remove('mob-drawer-open');
   document.body.style.overflow = '';
 }
@@ -134,6 +148,7 @@ if (megaPanel) {
   megaPanel.querySelectorAll('ul a').forEach(function(a) {
     a.addEventListener('click', function() {
       if (isMobile()) closeMobileDrawer();
+      else a.blur(); // 데스크탑: 클릭 후 focus-within으로 패널이 계속 열려 있지 않게
     });
   });
 
@@ -229,8 +244,8 @@ document.querySelectorAll('.support-card').forEach(card => {
 });
 
 // ---------- Contact form ----------
-/* 연락처 폼 — 메일 클라이언트로 전송(후원 폼과 동일한 mailto 방식).
-   기존 Formspree 엔드포인트가 유효하지 않아 전송이 실패하던 문제를 해결. */
+/* 연락처 폼 — index.html의 INTAKE_ENDPOINT(Apps Script 접수 시트)가 설정돼 있으면
+   서버로 바로 접수하고, 미설정·전송 실패 시에는 메일 앱(mailto) 방식으로 폴백. */
 function handleSubmit(e) {
   e.preventDefault();
   const form    = document.getElementById('contactForm');
@@ -245,19 +260,45 @@ function handleSubmit(e) {
   const sel     = document.getElementById('subject');
   const subjectLabel = (sel && sel.selectedIndex >= 0) ? sel.options[sel.selectedIndex].text.trim() : '';
 
-  const mailSubject = (en ? '[TIEUM Inquiry] ' : '[티움 문의] ')
-    + (subjectLabel ? subjectLabel + ' — ' : '') + name;
-  const mailBody = en
-    ? `Name: ${name}\nEmail: ${email}\nInquiry type: ${subjectLabel}\n\n${message}`
-    : `이름: ${name}\n이메일: ${email}\n문의 유형: ${subjectLabel}\n\n${message}`;
+  const showDone = (msg) => {
+    if (form) form.classList.add('hidden');
+    if (success) {
+      const p = success.querySelector('p');
+      if (p && msg) p.textContent = msg;
+      success.classList.remove('hidden');
+    }
+  };
 
-  window.location.href = 'mailto:johnchoi@tieum.org'
-    + '?subject=' + encodeURIComponent(mailSubject)
-    + '&body='    + encodeURIComponent(mailBody);
+  const viaMailto = () => {
+    const mailSubject = (en ? '[TIEUM Inquiry] ' : '[티움 문의] ')
+      + (subjectLabel ? subjectLabel + ' — ' : '') + name;
+    const mailBody = en
+      ? `Name: ${name}\nEmail: ${email}\nInquiry type: ${subjectLabel}\n\n${message}`
+      : `이름: ${name}\n이메일: ${email}\n문의 유형: ${subjectLabel}\n\n${message}`;
+    window.location.href = 'mailto:johnchoi@tieum.org'
+      + '?subject=' + encodeURIComponent(mailSubject)
+      + '&body='    + encodeURIComponent(mailBody);
+    showDone(null); // 기본 문구(메일 앱 안내) 그대로 표시
+  };
 
-  // 메일 앱이 열린 뒤 확인 메시지 표시
-  if (form)    form.classList.add('hidden');
-  if (success) success.classList.remove('hidden');
+  if (window.INTAKE_ENDPOINT) {
+    const btn = document.getElementById('contactSubmitBtn');
+    if (btn) btn.disabled = true;
+    try {
+      fetch(window.INTAKE_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify({ source: 'contact', name: name, email: email,
+                               category: subjectLabel, message: message, ts: Date.now() })
+      }).then(
+        () => showDone(en
+          ? "Your message has been received. We'll get back to you soon!"
+          : '문의가 접수되었습니다. 곧 연락드리겠습니다!'),
+        () => { if (btn) btn.disabled = false; viaMailto(); }
+      );
+    } catch (err) { if (btn) btn.disabled = false; viaMailto(); }
+  } else {
+    viaMailto();
+  }
 }
 
 // ---------- Back to top ----------

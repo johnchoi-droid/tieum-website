@@ -28,7 +28,7 @@
       'mega.col1.l7': '찾아오시는 길',
 
       'mega.col2.title': '아카데미',
-      'mega.col2.l1': '공지사항',
+      'mega.col2.l1': '프로그램 소개',
       'mega.col2.l2': 'TFM Academy',
       'mega.col2.l3': '제1기 미래아카데미',
       'mega.col2.l4': '교수학습법',
@@ -243,7 +243,7 @@
       'form.subject': '문의 유형',
       'form.msg':     '메시지 *',
       'form.submit':  '메시지 보내기',
-      'form.success': '메시지가 전송되었습니다. 곧 연락드리겠습니다!',
+      'form.success': "메일 앱이 열렸습니다. 메일에서 '보내기'를 눌러야 접수가 완료됩니다. 메일 앱이 열리지 않으면 johnchoi@tieum.org로 직접 보내주세요.",
       'form.sel':     '선택해 주세요',
       'form.opt1':    '아카데미 프로그램',
       'form.opt2':    '후원 문의',
@@ -488,7 +488,7 @@
       'mega.col1.l7': 'Location',
 
       'mega.col2.title': 'Academy',
-      'mega.col2.l1': 'Announcements',
+      'mega.col2.l1': 'Programs',
       'mega.col2.l2': 'TFM Academy',
       'mega.col2.l3': '1st Future Academy',
       'mega.col2.l4': 'Teaching Methods',
@@ -703,7 +703,7 @@
       'form.subject': 'Inquiry Type',
       'form.msg':     'Message *',
       'form.submit':  'Send Message',
-      'form.success': 'Your message has been sent. We\'ll get back to you soon!',
+      'form.success': 'Your mail app has opened — please press "Send" there to complete your inquiry. If it did not open, email johnchoi@tieum.org directly.',
       'form.sel':     'Please select',
       'form.opt1':    'Academy Program',
       'form.opt2':    'Donation Inquiry',
@@ -1093,7 +1093,9 @@
   /* ── Update lang button active states ───────────── */
   function updateLangButtons(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('lang-btn-active', btn.getAttribute('data-lang') === lang);
+      const active = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('lang-btn-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
     document.documentElement.lang = lang;
   }

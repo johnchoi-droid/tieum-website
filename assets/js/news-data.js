@@ -10,23 +10,8 @@ window.NEWS_TABS = [
 ];
 
 window.NEWS_POSTS = [
-  {
-    id: 'news-camp1', pin: false, category: 'notice', categoryLabel: '공지',
-    title: '双核觉醒 쌍핵각성 — 연길 조선족 청소년 제주 캠프',
-    summary: '중국 연길 조선족 청소년(초4~중3)을 위한 3박 4일 정체성·AI 진로 캠프. 2026년 7월 제주에서 열립니다.',
-    date: '2026.05.30', author: '티움 사무국', views: 0,
-    content: `
-      <h3>双核觉醒 쌍핵각성 캠프 안내</h3>
-      <p>중국 연길 거주 조선족 청소년(초4~중3)을 위한 3박 4일 몰입형 정체성·AI 진로 캠프입니다.<br>두 개의 정체성을 강점으로 전환하는 여섯 가지 연결 프로그램으로 구성됩니다.</p>
-      <ul>
-        <li><strong>일시:</strong> 2026년 7월 13일(월) ~ 16일(목) · 3박 4일</li>
-        <li><strong>장소:</strong> 제주도 (펄 호텔 + SW미래채움 AI교육캠퍼스)</li>
-        <li><strong>대상:</strong> 초등 4학년 ~ 중학 3학년 · 선착순 25명</li>
-        <li><strong>총괄 코치:</strong> 고봉익 대표 (TMD교육그룹 · 티움 이사장)</li>
-      </ul>
-      <p>문의: <strong>johnchoi&#64;tieum&#46;org</strong> / 010-6579-0602</p>
-    `
-  },
+  /* 쌍핵각성 캠프 소식(news-camp1)은 2026-07 미개최 결정으로 숨김 —
+     원문은 _archive/camp-ssanghaek-2026.html 에 보관 */
   {
     id: 'news-l1', pin: false, category: 'edu', categoryLabel: '교육·연구',
     title: '티움 러닝센터 정식 오픈 안내',

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ===================================================
    사단법인 티움 (TIEUM) — Main Stylesheet
    =================================================== */
@@ -7386,3 +7387,24 @@ html[lang="en"] #outreach .section-desc {
 .fm-info-grid {grid-template-columns: 1fr;}
 /* 커리큘럼 */
     .fm-curriculum {display: flex; flex-direction: column; gap: 10px;}
+/* ═══════════════════════════════════════════════════
+   접근성·성능 보강 (2026-07 점검)
+   ═══════════════════════════════════════════════════ */
+/* 키보드(Tab) 사용자도 메가메뉴를 열 수 있도록 — 데스크탑 한정 */
+@media (min-width: 769px) {
+  #header:focus-within .mega-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* 시스템 '동작 줄이기(Reduce Motion)' 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide, .intro-slide { animation: none; }
+  .hero-slide:not(:first-child), .intro-slide:not(:first-child) { display: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
+  .marquee-track [aria-hidden="true"] { display: none; }
+  .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .mpo-ripple, .mpo-aura { animation: none !important; }
+}
