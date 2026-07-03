@@ -11,6 +11,7 @@
 
 // ── 설정값 ──────────────────────────────────────────
 var SPREADSHEET_NAME = '티움 접수(문의·후원)';
+var FOLDER_ID         = '1SPSvPABWmH4CuHjn2c3GnMBT66Mctwtc'; // 접수 시트 보관 폴더
 // ────────────────────────────────────────────────────
 
 function doPost(e) {
@@ -76,10 +77,17 @@ function getSheet(tabName, headers) {
     try { ss = SpreadsheetApp.openById(ssId); } catch (e) { ss = null; }
   }
   if (!ss) {
-    // 이름으로 탐색, 없으면 새로 생성 (내 드라이브 루트)
+    // 이름으로 탐색(드라이브 전체 대상 — 폴더 위치 무관), 없으면 지정 폴더에 새로 생성
     var iter = DriveApp.getFilesByName(SPREADSHEET_NAME);
-    ss = iter.hasNext() ? SpreadsheetApp.open(iter.next())
-                        : SpreadsheetApp.create(SPREADSHEET_NAME);
+    if (iter.hasNext()) {
+      ss = SpreadsheetApp.open(iter.next());
+    } else {
+      ss = SpreadsheetApp.create(SPREADSHEET_NAME);
+      var file   = DriveApp.getFileById(ss.getId());
+      var folder = DriveApp.getFolderById(FOLDER_ID);
+      folder.addFile(file);
+      DriveApp.getRootFolder().removeFile(file); // 루트 중복 노출 제거
+    }
     props.setProperty('SS_ID', ss.getId());
   }
   var sheet = ss.getSheetByName(tabName);
