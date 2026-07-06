@@ -1146,12 +1146,10 @@
       if (key && t[key] !== undefined) el.textContent = t[key];
     });
 
-    /* Standalone page: fm-mobile-title gets translated via data-i18n if set */
-    /* Lang button active state (standalone pages) */
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.style.fontWeight = btn.getAttribute('data-lang') === lang ? '700' : '400';
-      btn.style.color = btn.getAttribute('data-lang') === lang ? '#1b4f8a' : '#888';
-    });
+    /* Lang button 활성 상태는 updateLangButtons()의 .lang-btn-active 클래스가
+       전담한다(헤더 배경에 따라 색이 자동 조정됨). 여기서 인라인 color를 직접
+       지정하면 어두운 히어로 헤더 위에서 비활성 '한국어' 버튼이 회색으로 묻혀
+       안 보이므로, 인라인 지정을 두지 않는다. */
 
     /* Update html lang */
     document.documentElement.lang = isEn ? 'en' : 'ko';

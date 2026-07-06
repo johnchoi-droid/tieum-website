@@ -216,7 +216,9 @@ input, textarea, select {
   height: 72px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  /* 영어 모드는 메뉴 라벨이 한글보다 길어 gap이 크면 언어 전환기가 폭 밖으로
+     밀려난다(1200px 컨테이너 초과). gap을 줄여 영어에서도 전환기가 보이게 유지. */
+  gap: 16px;
 }
 .logo {
   font-family: 'Montserrat', sans-serif;
@@ -242,13 +244,13 @@ input, textarea, select {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   margin-left: auto;
 }
 .nav-item { position: relative; }
 .nav-item > a {
   display: block;
-  padding: 8px 16px;
+  padding: 8px 10px;
   font-size: .9rem;
   font-weight: 600;
   color: rgba(255,255,255,.9);
