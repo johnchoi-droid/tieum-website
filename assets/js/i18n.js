@@ -33,6 +33,7 @@
       'mega.col2.l3': '제1기 미래아카데미',
       'mega.col2.l4': '교수학습법',
       'mega.col2.l5': '연구 Data',
+      'mega.col2.l6': '티움 학술 연구',
       'mega.col2.l6': '🎓 러닝센터',
 
       'mega.col3.title': '아웃리치',
@@ -493,6 +494,7 @@
       'mega.col2.l3': '1st Future Academy',
       'mega.col2.l4': 'Teaching Methods',
       'mega.col2.l5': 'Research Data',
+      'mega.col2.l6': 'TIEUM Research Papers',
       'mega.col2.l6': '🎓 Learning Center',
 
       'mega.col3.title': 'Outreach',

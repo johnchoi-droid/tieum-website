@@ -21,6 +21,119 @@
   <link rel="icon" type="image/png" href="assets/images/tieum-icon-192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/tieum-icon-32.png" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+  <!-- ── 학술 논문 구조화 데이터 (Google Scholar / 검색 노출) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "디자인씽킹 기반 단계별 메타버스, 생성형 AI, 스크래치를 활용한 기독교 에듀테크 프로그램에서 학습자의 감사 성향이 컴퓨터 사고력과 디지털 효능감에 미치는 영향",
+    "alternativeHeadline": "The impact of learners' gratitude disposition on computer thinking ability and digital efficacy in a Christian edu-tech program utilizing metaverse, generative AI, and Scratch based on a design thinking-based step-by-step process",
+    "inLanguage": "ko",
+    "datePublished": "2024-06-30",
+    "author": [
+      { "@type": "Person", "name": "김수연", "affiliation": { "@type": "Organization", "name": "중앙대학교" } },
+      { "@type": "Person", "name": "고봉익", "affiliation": { "@type": "Organization", "name": "사단법인 티움" } },
+      { "@type": "Person", "name": "서응교", "affiliation": { "@type": "Organization", "name": "단국대학교" } }
+    ],
+    "isPartOf": {
+      "@type": "PublicationIssue",
+      "issueNumber": "78",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "기독교교육논총",
+        "issn": ["1229-781X", "2671-5759"]
+      }
+    },
+    "pageStart": "231",
+    "pageEnd": "262",
+    "identifier": "https://doi.org/10.17968/jcek.2024..78.009",
+    "sameAs": "https://doi.org/10.17968/jcek.2024..78.009",
+    "keywords": ["디자인씽킹", "메타버스", "생성형 AI", "스크래치", "기독교 교육", "기독교 디지털 수업"],
+    "funder": { "@type": "Organization", "name": "사단법인 티움", "url": "https://tieum.org" },
+    "url": "https://tieum.org/research.html#papers"
+  }
+  </script>
+
+  <!-- ── 티움 학술 연구(논문) 섹션 전용 스타일 ── -->
+  <style>
+    .papers-lead {
+      max-width: 760px; margin: 0 0 32px;
+      color: var(--text-2); font-size: 1.02rem; line-height: 1.85;
+    }
+    .paper-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+      padding: 34px 36px; transition: var(--transition);
+    }
+    .paper-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    .paper-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .paper-badge {
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      background: var(--bg-light); color: var(--text-3);
+      font-size: .78rem; font-weight: 600; letter-spacing: .01em;
+    }
+    .paper-badge.kci { background: rgba(27,79,138,.10); color: var(--primary); }
+
+    .paper-title {
+      font-size: 1.32rem; line-height: 1.6; font-weight: 700;
+      color: var(--text); margin: 0 0 14px; word-break: keep-all;
+    }
+    .paper-authors { font-size: .95rem; color: var(--text-2); margin: 0 0 20px; word-break: keep-all; }
+    .paper-authors strong { color: var(--primary); font-weight: 700; }
+    .paper-aff { font-size: .82rem; color: var(--text-3); }
+
+    .paper-summary {
+      background: var(--bg-light); border-radius: var(--radius-sm);
+      padding: 18px 20px; margin: 0 0 24px;
+      font-size: 1rem; line-height: 1.8; color: var(--text-2); word-break: keep-all;
+    }
+    .paper-summary strong { color: var(--primary); font-weight: 700; }
+
+    .paper-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; margin-bottom: 26px;
+    }
+    .paper-stat {
+      text-align: center; padding: 16px 10px;
+      background: var(--bg-light); border-radius: var(--radius-sm);
+    }
+    .paper-stat-num {
+      display: block; font-size: 1.5rem; font-weight: 800;
+      color: var(--primary); line-height: 1.2; margin-bottom: 4px;
+    }
+    .paper-stat-label { display: block; font-size: .8rem; color: var(--text-3); word-break: keep-all; }
+
+    .paper-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+    .btn-paper, .btn-paper-ghost {
+      display: inline-block; padding: 13px 26px; border-radius: var(--radius-sm);
+      font-size: .95rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: var(--transition); border: 2px solid var(--primary);
+      font-family: inherit;
+    }
+    .btn-paper { background: var(--primary); color: #fff; }
+    .btn-paper:hover { background: var(--primary-dk); border-color: var(--primary-dk); transform: translateY(-2px); }
+    .btn-paper-ghost { background: transparent; color: var(--primary); }
+    .btn-paper-ghost:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+    .btn-paper:focus-visible, .btn-paper-ghost:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    .paper-fund {
+      margin: 0; padding-top: 18px; border-top: 1px dashed var(--border);
+      font-size: .85rem; color: var(--text-3); word-break: keep-all;
+    }
+
+    @media (max-width: 640px) {
+      .paper-card { padding: 26px 22px; }
+      .paper-title { font-size: 1.12rem; }
+      .paper-stats { grid-template-columns: 1fr; gap: 10px; }
+      .paper-stat { display: flex; align-items: baseline; justify-content: center; gap: 10px; padding: 12px; }
+      .paper-stat-num { font-size: 1.25rem; margin-bottom: 0; }
+      .paper-actions { flex-direction: column; }
+      .btn-paper, .btn-paper-ghost { text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -75,6 +188,7 @@
             <li><a href="index.html#future-academy">제1기 미래아카데미</a></li>
             <li><a href="teaching.html">교수학습법</a></li>
             <li><a href="research.html">연구 Data</a></li>
+            <li><a href="research.html#papers">티움 학술 연구</a></li>
           </ul>
         </div>
         <div class="mega-col">
@@ -203,8 +317,71 @@
     </div>
   </section>
 
+  <!-- ===== 티움 학술 연구 (논문) ===== -->
+  <section class="section section-light" id="papers">
+    <div class="container">
+      <div class="section-tag">학술 성과</div>
+      <h2 class="section-title" style="margin-bottom:14px;">티움 학술 연구</h2>
+      <p class="papers-lead">
+        티움이 연구비를 지원하고 직접 참여한 학술 논문입니다.
+        티움의 교육은 현장의 경험에 머무르지 않고, 학계의 검증을 거쳐 근거로 축적됩니다.
+      </p>
+
+      <article class="paper-card fade-in">
+        <div class="paper-badges">
+          <span class="paper-badge kci">KCI 등재</span>
+          <span class="paper-badge">기독교교육논총 제78집</span>
+          <span class="paper-badge">2024.06</span>
+        </div>
+
+        <h3 class="paper-title">
+          디자인씽킹 기반 단계별 메타버스, 생성형 AI, 스크래치를 활용한 기독교 에듀테크 프로그램에서
+          학습자의 감사 성향이 컴퓨터 사고력과 디지털 효능감에 미치는 영향
+        </h3>
+
+        <p class="paper-authors">
+          김수연 <span class="paper-aff">중앙대학교</span>
+          · <strong>고봉익</strong> <span class="paper-aff">사단법인 티움</span>
+          · 서응교 <span class="paper-aff">단국대학교</span>
+        </p>
+
+        <p class="paper-summary">
+          감사 성향이 높은 청소년일수록 <strong>컴퓨팅 사고력</strong>과 <strong>디지털 자신감</strong>이
+          뚜렷하게 높았습니다. 인성과 디지털 역량이 서로 분리된 것이 아님을 데이터로 보여준 연구입니다.
+        </p>
+
+        <div class="paper-stats">
+          <div class="paper-stat">
+            <span class="paper-stat-num">22명</span>
+            <span class="paper-stat-label">참여 중·고생</span>
+          </div>
+          <div class="paper-stat">
+            <span class="paper-stat-num">19.7%</span>
+            <span class="paper-stat-label">컴퓨팅 사고력 설명력</span>
+          </div>
+          <div class="paper-stat">
+            <span class="paper-stat-num">35.5%</span>
+            <span class="paper-stat-label">디지털 자신감 설명력</span>
+          </div>
+        </div>
+
+        <div class="paper-actions">
+          <button type="button" class="btn-paper" onclick="bOpenPost('paper-jcek78')">
+            연구 요약 자세히 읽기
+          </button>
+          <a class="btn-paper-ghost" href="https://doi.org/10.17968/jcek.2024..78.009"
+             target="_blank" rel="noopener">
+            KCI 원문 보기 ↗
+          </a>
+        </div>
+
+        <p class="paper-fund">※ 본 연구는 사단법인 티움의 연구비 지원을 통해 수행되었습니다.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- ===== BOARD ===== -->
-  <section class="section section-light">
+  <section class="section">
     <div class="container">
       <div class="section-tag">연구 자료</div>
       <h2 class="section-title" style="margin-bottom:32px;">연구 &amp; 데이터 게시판</h2>
@@ -341,6 +518,80 @@
     { cat: 'resource', label: '자료' }
   ];
                               window.BOARD_POSTS = [
+    {
+      id: 'paper-jcek78', pin: true, category: 'research', categoryLabel: '연구',
+      title: `[학술논문] 감사 성향이 청소년의 컴퓨팅 사고력·디지털 효능감에 미치는 영향 — 기독교교육논총 제78집`,
+      date: '2024.06.30', author: '티움 사무국', views: 0,
+      content: `
+<div style="background:#f7f9fc;border-left:4px solid #1B4F8A;border-radius:8px;padding:20px 22px;margin-bottom:28px;">
+  <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#1B4F8A;letter-spacing:.02em;">학술지 게재 논문 · KCI 등재</p>
+  <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
+    <strong style="color:#1a1a2e;">게재지</strong> &nbsp;기독교교육논총 제78집 (2024.06.30), 231–262<br/>
+    <strong style="color:#1a1a2e;">저자</strong> &nbsp;김수연(중앙대학교) · 고봉익(사단법인 티움 이사장) · 서응교(단국대학교, 교신저자)<br/>
+    <strong style="color:#1a1a2e;">ISSN</strong> &nbsp;pISSN 1229-781X / eISSN 2671-5759<br/>
+    <strong style="color:#1a1a2e;">DOI</strong> &nbsp;<a href="https://doi.org/10.17968/jcek.2024..78.009" target="_blank" rel="noopener">10.17968/jcek.2024..78.009 ↗</a><br/>
+    <strong style="color:#1a1a2e;">심사</strong> &nbsp;2024.05.19 접수 · 06.28 심사완료 · 06.29 게재확정
+  </p>
+</div>
+
+<h4>📌 한 줄 핵심</h4>
+<p>감사할 줄 아는 청소년일수록 문제를 논리적으로 풀어내는 <strong>컴퓨팅 사고력</strong>이 높았고, 디지털 기기를 다루는 <strong>자신감</strong>도 높았습니다. 인성과 디지털 역량은 따로 노는 것이 아니었습니다.</p>
+
+<h4>🎯 왜 이 연구를 했나</h4>
+<p>AI 디지털 교과서 도입을 앞두고 "학생에게 어떤 디지털 역량을 길러줄 것인가"라는 논의는 활발했지만, 정작 <strong>그 역량을 떠받치는 인성적 태도</strong>에 대한 논의는 부족했습니다. 티움은 디지털 도구를 다루는 기술만으로는 다음 세대를 세울 수 없다고 보았고, <strong>감사(gratitude)</strong>라는 태도가 실제로 학습에 영향을 주는지를 데이터로 확인하고자 했습니다.</p>
+
+<h4>🧩 어떤 프로그램이었나 — 디자인씽킹 4단계</h4>
+<p>2024년 1월 20일과 27일, 2주에 걸쳐 진행된 청소년 기독교 프로그램입니다. 참가자들은 <strong>선교지의 실제 문제</strong>를 주제로 6개 조를 이루어 디자인씽킹 단계를 밟았고, 단계마다 다른 디지털 도구를 사용했습니다.</p>
+<ul>
+<li><strong>1단계 · 공감</strong> — <em>메타버스</em>로 선교지 상황에 몰입하고, 아바타 커스터마이징을 통해 페르소나 캐릭터를 제작</li>
+<li><strong>2단계 · 문제 정의</strong> — 생성형 AI 플랫폼 <em>뤼튼(wrtn)</em>으로 조별로 정의한 문제를 이미지로 시각화</li>
+<li><strong>3단계 · 아이디어 &amp; 프로토타입</strong> — 팀 회의를 거쳐 <em>스크래치</em> 코딩으로 해결책을 직접 구현</li>
+<li><strong>4단계 · 테스트</strong> — 조별 발표와 상호 피드백으로 결과물을 다듬음</li>
+</ul>
+<p style="color:#5e6b7d;font-size:14px;">조별로 정의한 문제 예시 — "얇은 옷과 천막 집이라 난방을 할 수 없다", "땅이 좁아 쓰레기를 처리할 방법이 없다", "선교지 사람들과 언어·문화적 소통이 어렵다", "아이들 주변 시설이 열악해 제대로 된 교육을 받지 못한다", "빈곤하여 의식주를 제공받지 못한다", "위생이 나쁜 난민촌 환경이라 질병에 취약하다"</p>
+
+<h4>📐 무엇을 어떻게 측정했나</h4>
+<p>프로그램을 마친 뒤 참여 중·고등학생 <strong>22명</strong>을 대상으로 사후 설문을 실시하고, SPSS 25.0으로 단순회귀분석을 진행했습니다. 개방형 문항은 별도로 질적 코딩해 학습자 인식을 분석했습니다.</p>
+<ul>
+<li><strong>감사 성향</strong> — 한국판 감사 질문지(K-GQ-6) 중 3문항 · 5점 척도 · 신뢰도 α = .87</li>
+<li><strong>컴퓨팅 사고력</strong> — 문제 이해, 추상화, 알고리즘 절차, 자동화 등 5문항 · α = .70</li>
+<li><strong>디지털 효능감</strong> — 자신감 / 친숙도 / 유용성 3개 하위 구인 9문항 · α = .74</li>
+</ul>
+
+<h4>📊 연구 결과</h4>
+<p><strong>① 감사 성향은 컴퓨팅 사고력을 유의하게 높였습니다.</strong><br/>
+회귀모형이 통계적으로 유의했고(F = 4.921, p &lt; .05), 감사 성향이 컴퓨팅 사고력 차이의 약 <strong>19.7%</strong>를 설명했습니다(R² = .197). 감사 성향이 1점 올라가면 컴퓨팅 사고력은 0.394점 올라갔습니다(β = .444, p = .038).</p>
+<p><strong>② 감사 성향은 디지털 자신감에 더 크게 작용했습니다.</strong><br/>
+모형이 유의했고(F = 11.010, p &lt; .01), 설명력은 약 <strong>35.5%</strong>에 달했습니다(R² = .355). 감사 성향이 1점 올라가면 디지털 자신감은 0.565점 올라갔습니다(β = .596, p = .003).</p>
+<p><strong>③ 디지털 친숙도에도 유의한 영향이 있었습니다.</strong></p>
+<p><strong>④ 다만 디지털 유용성에는 유의한 영향이 없었습니다.</strong><br/>
+"디지털 기기가 삶을 풍요롭게 한다"처럼 <em>도구의 쓸모를 판단하는 인식</em>은 감사 성향으로 설명되지 않았습니다.</p>
+
+<h4>🧭 이 결과가 현장에 주는 의미</h4>
+<ul>
+<li><strong>인성 교육과 디지털 교육은 두 갈래 길이 아닙니다.</strong> 감사하는 태도를 기르는 일이 곧 문제해결력과 디지털 자신감의 토대를 놓는 일이었습니다. 티움이 신앙·인성과 에듀테크를 한 프로그램에 담아 온 이유가 데이터로 확인된 셈입니다.</li>
+<li><strong>"할 수 있다"는 자신감이 가장 크게 움직였습니다.</strong> 디지털 격차는 기기 보유의 문제만이 아니라 <em>두려움</em>의 문제이기도 합니다. 감사 성향이 높은 학생일수록 새로운 도구 앞에서 덜 위축되었습니다.</li>
+<li><strong>도구의 유용성 인식은 따로 가르쳐야 합니다.</strong> 감사만으로는 채워지지 않았던 부분으로, 도구가 실제로 무엇을 바꾸는지 경험시키는 별도의 설계가 필요합니다.</li>
+</ul>
+
+<div style="background:#fff8ec;border:1px solid #f0d9a8;border-radius:8px;padding:16px 18px;margin:24px 0;">
+  <p style="margin:0;font-size:14px;line-height:1.85;color:#4a5568;"><strong style="color:#1a1a2e;">⚠️ 해석 시 유의점</strong><br/>
+  이 연구는 참여자 22명의 소규모 사례 연구이며, 사전·사후 비교가 아닌 프로그램 종료 후 단일 시점 측정에 기반합니다. 따라서 결과를 일반화하거나 인과관계로 단정하기보다는, 후속 연구를 위한 기초 자료로 읽는 것이 적절합니다. 논문 저자들도 같은 취지를 밝히고 있습니다.</p>
+</div>
+
+<h4>🔑 주요어</h4>
+<p>디자인씽킹 · 메타버스 · 생성형 AI · 스크래치 · 기독교 교육 · 기독교 디지털 수업</p>
+
+<h4>📚 인용 정보</h4>
+<p style="font-size:14px;color:#4a5568;line-height:1.9;">김수연, 고봉익, 서응교 (2024). 디자인씽킹 기반 단계별 메타버스, 생성형 AI, 스크래치를 활용한 기독교 에듀테크 프로그램에서 학습자의 감사 성향이 컴퓨터 사고력과 디지털 효능감에 미치는 영향. <em>기독교교육논총, 78</em>, 231–262.</p>
+
+<p style="margin-top:22px;">📎 <a href="https://doi.org/10.17968/jcek.2024..78.009" target="_blank" rel="noopener">KCI에서 원문 보기 ↗</a></p>
+
+<hr/>
+<p style="color:#5e6b7d;font-size:13.5px;line-height:1.85;">※ 본 연구는 사단법인 티움의 연구비 지원을 통해 수행되었습니다.<br/>
+※ 위 내용은 티움 사무국이 작성한 요약이며, 정확한 내용은 반드시 원문을 확인해 주시기 바랍니다. 논문 전문의 저작권은 한국기독교교육학회에 있습니다.</p>
+      `,
+    },
     {
       id: 'cur1', pin: false, category: 'research', categoryLabel: '연구',
       title: `[AI 교수학습 리포트] 2026.07.20`,
@@ -940,7 +1191,7 @@
   ];
   </script>
   <script src="assets/js/board.js?v=9"></script>
-  <script src="assets/js/i18n-map.js?v=22"></script>
-  <script src="assets/js/i18n.js?v=21"></script>
+  <script src="assets/js/i18n-map.js?v=23"></script>
+  <script src="assets/js/i18n.js?v=22"></script>
 </body>
 </html>

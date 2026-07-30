@@ -1,5 +1,22 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 티움 학술 연구(논문) 섹션 ── */
+ "학술 성과": "Research Publications",
+ "티움 학술 연구": "TIEUM Research Papers",
+ "티움이 연구비를 지원하고 직접 참여한 학술 논문입니다. 티움의 교육은 현장의 경험에 머무르지 않고, 학계의 검증을 거쳐 근거로 축적됩니다.": "Peer-reviewed papers funded by TIEUM and co-authored by our team. TIEUM's education does not stop at field experience — it is validated by academia and accumulated as evidence.",
+ "KCI 등재": "KCI-Indexed",
+ "기독교교육논총 제78집": "Journal of Christian Education in Korea, Vol. 78",
+ "디자인씽킹 기반 단계별 메타버스, 생성형 AI, 스크래치를 활용한 기독교 에듀테크 프로그램에서 학습자의 감사 성향이 컴퓨터 사고력과 디지털 효능감에 미치는 영향": "The impact of learners' gratitude disposition on computer thinking ability and digital efficacy in a Christian edu-tech program utilizing metaverse, generative AI, and Scratch based on a design thinking-based step-by-step process",
+ "김수연": "Su Yeon Kim",
+ "중앙대학교": "Chung-Ang University",
+ "단국대학교": "Dankook University",
+ "참여 중·고생": "Middle & high schoolers",
+ "컴퓨팅 사고력 설명력": "Variance explained — CT",
+ "디지털 자신감 설명력": "Variance explained — confidence",
+ "연구 요약 자세히 읽기": "Read the full summary",
+ "KCI 원문 보기 ↗": "View on KCI ↗",
+ "※ 본 연구는 사단법인 티움의 연구비 지원을 통해 수행되었습니다.": "* This work was supported by a Tium Foundation Research Grant.",
+
  "\"AI가 모든 것을 대신하는 시대, 나는 무엇을 위해 존재하는가?\"": "\"In an era where AI does everything, what do I exist for?\"",
  "\"내 생각대로 만들어진다\"는 즉각적 성취감": "The instant sense of achievement of \"it's built the way I imagined\"",
  "\"보수적 가치를 기반으로 AI 시대 미래를 준비하고": "\"Preparing for the AI-era future on a foundation of conservative values,",
