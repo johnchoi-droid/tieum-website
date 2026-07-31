@@ -1,5 +1,25 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 미래아카데미 1기 결산(영상·성과·후기·강사진) ── */
+ "🎓 제1기 수료 완료 — 19명 배출 · 만족도 4.12/5": "🎓 Cohort 1 completed — 19 graduates · 4.12/5 satisfaction",
+ "제1기 12주의 기록": "Cohort 1 — A Record of 12 Weeks",
+ "제1기 운영 성과": "Cohort 1 Results",
+ "수료생이 남긴 말": "What Our Graduates Said",
+ "제1기와 함께한 강사진": "Cohort 1 Faculty",
+ "수료생 배출": "Graduates",
+ "12주 전 과정 완주": "Completed all 12 weeks",
+ "전반적 만족도": "Overall satisfaction",
+ "긍정 응답 81%": "81% positive responses",
+ "현장 만족도": "On-site satisfaction",
+ "10회차 137건 평균": "Average of 137 responses over 10 sessions",
+ "운영·소통 만족도": "Operations & communication",
+ "전 항목 중 최고점": "Highest-rated item overall",
+ "— 1기 수료생": "— Cohort 1 graduate",
+ "기반 다지기": "Building the Foundation",
+ "가치 정립과 팀 빌딩": "Values & Team Building",
+ "디자인씽킹 팀 프로젝트": "Design Thinking Team Project",
+ "성과 공유 & 수료": "Showcase & Graduation",
+
  /* ── 티움 학술 연구(논문) 섹션 ── */
  "학술 성과": "Research Publications",
  "티움 학술 연구": "TIEUM Research Papers",

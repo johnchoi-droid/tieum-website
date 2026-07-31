@@ -283,6 +283,68 @@
       .fa-value-grid { grid-template-columns: 1fr; }
       .fa-track-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── 1기 결산: 영상 · 성과 · 후기 · 강사진 ── */
+    .fa-video-wrap {
+      position: relative; width: 100%; padding-top: 56.25%;
+      border-radius: 14px; overflow: hidden; background: #000;
+      box-shadow: 0 10px 34px rgba(0,0,0,.18);
+    }
+    .fa-video-wrap iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+    .fa-video-cap {
+      margin: 12px 2px 0; font-size: .88rem; color: #5e6b7d; line-height: 1.7;
+    }
+
+    .fa-result-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .fa-result-item {
+      background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid #1B4F8A;
+      border-radius: 12px; padding: 20px 14px; text-align: center;
+    }
+    .fa-result-item.gold { border-top-color: #F5A623; }
+    .fa-result-num {
+      display: block; font-size: 1.85rem; font-weight: 800;
+      color: #1B4F8A; line-height: 1.15; margin-bottom: 6px;
+    }
+    .fa-result-item.gold .fa-result-num { color: #c47f0b; }
+    .fa-result-label { display: block; font-size: .84rem; font-weight: 600; color: #1a1a2e; margin-bottom: 3px; word-break: keep-all; }
+    .fa-result-sub   { display: block; font-size: .76rem; color: #5e6b7d; word-break: keep-all; }
+    .fa-result-note  { margin: 14px 0 0; font-size: .8rem; color: #5e6b7d; line-height: 1.7; }
+
+    .fa-quote-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .fa-quote {
+      background: #f7f9fc; border-left: 4px solid #F5A623; border-radius: 10px;
+      padding: 20px 22px; display: flex; flex-direction: column;
+    }
+    .fa-quote-mark { font-size: 1.6rem; line-height: 1; color: #F5A623; margin-bottom: 8px; }
+    .fa-quote-text {
+      margin: 0 0 14px; font-size: .96rem; line-height: 1.9; color: #2d3748;
+      word-break: keep-all; flex: 1;
+    }
+    .fa-quote-who { margin: 0; font-size: .84rem; font-weight: 600; color: #1B4F8A; }
+
+    .fa-faculty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .fa-faculty-item {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+      padding: 15px 16px; transition: .25s ease;
+    }
+    .fa-faculty-item:hover { border-color: #1B4F8A; box-shadow: 0 5px 16px rgba(0,0,0,.07); }
+    .fa-faculty-name { display: block; font-size: .95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .fa-faculty-topic { display: block; font-size: .82rem; color: #5e6b7d; line-height: 1.6; word-break: keep-all; }
+
+    @media (max-width: 767px) {
+      .fa-result-grid  { grid-template-columns: 1fr 1fr; }
+      .fa-quote-grid   { grid-template-columns: 1fr; }
+      .fa-faculty-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .fa-result-grid  { grid-template-columns: 1fr; }
+      .fa-faculty-grid { grid-template-columns: 1fr; }
+      .fa-result-num   { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
@@ -417,7 +479,109 @@
         청년 리더십 양성 프로그램입니다.<br><br>
         대한민국의 핵심 가치를 계승하고, AI 시대의 급격한 변화에 능동적으로 대응할 수 있는
         실천형 미래 리더를 양성합니다. 단순한 지식 전달을 넘어 프로젝트 기반 학습(PBL)을 통해
-        각 분야에서 실질적인 변화를 만들어낼 역량을 키웁니다.
+        각 분야에서 실질적인 변화를 만들어낼 역량을 키웁니다.<br><br>
+        <strong>제1기는 2026년 5월 2일 개강해 12주 과정을 마치고, 7월 18일 양재 aT센터에서
+        19명의 수료생을 배출하며 성공적으로 마무리되었습니다.</strong>
+      </p>
+    </div>
+
+    <!-- 1기 수료 영상 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>🎬</span> 제1기 12주의 기록</h2>
+      <div class="fa-video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Hp4LcQ9Io1s"
+          title="제 1기 미래아카데미, 첫 걸음부터 마지막까지 | 12주 과정의 기록"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <p class="fa-video-cap">
+        「제 1기 미래아카데미, 첫 걸음부터 마지막까지 — 12주 과정의 기록」 ·
+        <a href="https://youtu.be/Hp4LcQ9Io1s" target="_blank" rel="noopener">YouTube에서 보기 ↗</a>
+      </p>
+    </div>
+
+    <!-- 1기 운영 성과 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>📊</span> 제1기 운영 성과</h2>
+      <div class="fa-result-grid">
+        <div class="fa-result-item gold">
+          <span class="fa-result-num">19명</span>
+          <span class="fa-result-label">수료생 배출</span>
+          <span class="fa-result-sub">12주 전 과정 완주</span>
+        </div>
+        <div class="fa-result-item">
+          <span class="fa-result-num">4.12<small>/5</small></span>
+          <span class="fa-result-label">전반적 만족도</span>
+          <span class="fa-result-sub">긍정 응답 81%</span>
+        </div>
+        <div class="fa-result-item">
+          <span class="fa-result-num">4.36<small>/5</small></span>
+          <span class="fa-result-label">현장 만족도</span>
+          <span class="fa-result-sub">10회차 137건 평균</span>
+        </div>
+        <div class="fa-result-item gold">
+          <span class="fa-result-num">4.75<small>/5</small></span>
+          <span class="fa-result-label">운영·소통 만족도</span>
+          <span class="fa-result-sub">전 항목 중 최고점</span>
+        </div>
+      </div>
+      <p class="fa-result-note">
+        이 밖에 <strong>강사진 만족도 4.19</strong>, <strong>교육 장소·시설 4.56</strong>,
+        <strong>운영진 지원 4.50</strong>을 기록했으며, 수료생의 <strong>63%</strong>가
+        지인에게 미래아카데미를 추천할 의향이 있다고 응답했습니다.<br>
+        <span style="font-size:.94em;">※ 수료생 대상 최종 설문(2026.7.23~29, 19명 중 16명 응답·84%) 및
+        10회차 주차별 설문(총 137건) 기준. 5점 만점.</span>
+      </p>
+    </div>
+
+    <!-- 수료생 후기 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>💬</span> 수료생이 남긴 말</h2>
+      <div class="fa-quote-grid">
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">혼자였다면 절대 도달하지 못했을 시야의 확장을 선물해 준, 가장 실질적인 프로그램이었습니다.</p>
+          <p class="fa-quote-who">— 1기 수료생</p>
+        </div>
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">토요일의 황금시간을 반납하는 것이 쉽지는 않았지만, 그 시간을 통해 오히려 제 인생의 황금 같은 시간을 얻게 된 것 같습니다.</p>
+          <p class="fa-quote-who">— 박신애 수료생</p>
+        </div>
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">여기가 제대로 된 곳인지 걱정되시죠? 저도 그랬어서 이해합니다. 정말 검증된 강사님들만 모시는 건강하고 안전한 곳이니 맘 편히 오셔도 괜찮습니다.</p>
+          <p class="fa-quote-who">— 문채원 수료생</p>
+        </div>
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">보수의 가치와 AI 시대를 함께 고민할 수 있었던 뜻깊은 시간이었습니다. 다양한 사람들과 이야기를 나누며 다가올 시대를 새로운 시각으로 바라볼 수 있었습니다.</p>
+          <p class="fa-quote-who">— 엄주은 수료생</p>
+        </div>
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">표현하지 않은 마음은 알 수 없습니다. 행동하지 않으면 당신의 가능성을 알 수 없습니다. 미래아카데미에서 자신을 뛰어넘어 미래를 움켜쥐길 바랍니다.</p>
+          <p class="fa-quote-who">— 곽동우 수료생</p>
+        </div>
+
+        <div class="fa-quote">
+          <div class="fa-quote-mark">&ldquo;</div>
+          <p class="fa-quote-text">미래아카데미에서 당신의 잠재력을 발견하고, 뜻을 현실로 만드는 소중한 시간을 함께하시길 바랍니다.</p>
+          <p class="fa-quote-who">— 1기 수료생</p>
+        </div>
+
+      </div>
+      <p class="fa-result-note">
+        ※ 수료생 피드백 설문에서 <strong>홍보 활용에 동의한 응답</strong>만 게재했습니다.
+        익명 활용을 요청한 분은 '1기 수료생'으로 표기했습니다.
       </p>
     </div>
 
@@ -484,20 +648,20 @@
           <div class="fa-stage-head">
             <div class="fa-stage-num">Ⅰ</div>
             <div class="fa-stage-info">
-              <div class="fa-stage-title">공통 모듈</div>
-              <div class="fa-stage-weeks">1~4주 · 기반 다지기</div>
+              <div class="fa-stage-title">기반 다지기</div>
+              <div class="fa-stage-weeks">1~4주 · 국가 · 기술 · 경제의 기초</div>
             </div>
           </div>
           <div class="fa-stage-body">
             <ul class="fa-stage-items">
-              <li>1주: 오리엔테이션 & 비전워크숍 — 아카데미 철학, 리더 목표 설정</li>
-              <li>2주: 미래 리터러시(Future Literacy) — 기술·사회 변화 읽기, AI의 필요성</li>
-              <li>3주: 나의 분야 찾기 — 정치·경제·문화·교육·기술·예술 탐색</li>
-              <li>4주: 나의 철학 정립 — 가치와 분야 연결, 리더십 선언문 초안 워크샵</li>
+              <li>1주 (5/2): 오프닝 데이 · 법과 국가 시스템 — 이은경 변호사</li>
+              <li>2주 (5/9): AI 기술 트렌드 · 옳은 가치 정립 — 박은지 교수 · 노태정 작가</li>
+              <li>3주 (5/16): 경제와 시장의 본질 · NGO의 역할 — 양준모 교수 · 최지혜 대표</li>
+              <li>4주 (5/23): 나의 분야 찾기 (강연 + 워크숍) — 정승인 대표</li>
             </ul>
             <div class="fa-stage-outcome">
               <strong>📄 성과물</strong>
-              나의 분야 찾기 리포트 (AI 도구 기반) · 리더십 선언문
+              나의 분야 찾기 리포트 (AI 도구 기반)
             </div>
           </div>
         </div>
@@ -506,20 +670,20 @@
           <div class="fa-stage-head">
             <div class="fa-stage-num">Ⅱ</div>
             <div class="fa-stage-info">
-              <div class="fa-stage-title">분야별 전문 강의</div>
-              <div class="fa-stage-weeks">5~6주 · 전문가 특강 + 토론</div>
+              <div class="fa-stage-title">가치 정립과 팀 빌딩</div>
+              <div class="fa-stage-weeks">5~6주 · 보수주의의 뿌리 · 팀 매칭</div>
             </div>
           </div>
           <div class="fa-stage-body">
             <ul class="fa-stage-items">
-              <li>[공통특강] AI와 인간의 역할 변화 — 산업 구조 변혁, 직업의 재정의</li>
-              <li>[트랙①] 기술·경제 — 생성형 AI, 자동화, 데이터 경제</li>
-              <li>[트랙②] 교육·문화 — AI 시대 교육 방향, 콘텐츠·예술 융합</li>
-              <li>[트랙③] 정치·사회 — 민주주의, 법치, 여론의 미래, 신뢰의 리더십</li>
+              <li>5주 (5/30): 보수주의의 뿌리와 역사 — 조평세 박사</li>
+              <li>6주 (6/6): AI 시대의 자유와 행복 — 김형주 교수</li>
+              <li>6주: 리더십 선언문 작성 워크숍</li>
+              <li>6주: 프로젝트 팀 매칭 — 분야별 팀 구성</li>
             </ul>
             <div class="fa-stage-outcome">
               <strong>📄 성과물</strong>
-              미래 키워드 리서치 리포트 · 분야별 트렌드 인포그래픽
+              나의 리더십 선언문 · 프로젝트 팀 구성
             </div>
           </div>
         </div>
@@ -528,21 +692,20 @@
           <div class="fa-stage-head">
             <div class="fa-stage-num">Ⅲ</div>
             <div class="fa-stage-info">
-              <div class="fa-stage-title">팀 프로젝트</div>
-              <div class="fa-stage-weeks">7~11주 · 실천형 미래 설계</div>
+              <div class="fa-stage-title">디자인씽킹 팀 프로젝트</div>
+              <div class="fa-stage-weeks">7~10주 · 실천형 문제 해결</div>
             </div>
           </div>
           <div class="fa-stage-body">
             <ul class="fa-stage-items">
-              <li>7주: 프로젝트 주제 선정 — 분야별 핵심 변화 포인트 발굴</li>
-              <li>8주: 미래 예측 리서치 — 국내외 사례·데이터 기반 시나리오 작성</li>
-              <li>9주: 현재 문제 분석 — 구조적 문제 도출</li>
-              <li>10주: 대안 설계 — 가치 기반 정책·교육·콘텐츠 기획</li>
-              <li>11주: 결과물 제작 — 영상·리포트·정책제안서 완성</li>
+              <li>7주 (6/13): 미래이슈 스캐닝 · 디자인씽킹 팀빌딩 — 서응교 교수</li>
+              <li>8주 (6/20): 디자인씽킹 ① 공감(Empathize) — 김수연 교수</li>
+              <li>9주 (6/27): 디자인씽킹 ② 문제 정의 + 정치 현장 실무 특강 — 김수연 교수 · 임진기 상임대표</li>
+              <li>10주 (7/4): 디자인씽킹 ③ 아이디어 발산 (크레이지8 · AI 활용) — 김수연 교수</li>
             </ul>
             <div class="fa-stage-outcome">
               <strong>📄 성과물</strong>
-              분야별 미래 리포트 · 영상 콘텐츠 · 정책제안서
+              팀별 문제 정의서 · 아이디어 프로토타입
             </div>
           </div>
         </div>
@@ -551,23 +714,42 @@
           <div class="fa-stage-head">
             <div class="fa-stage-num">Ⅳ</div>
             <div class="fa-stage-info">
-              <div class="fa-stage-title">성과 공유 & 포럼</div>
-              <div class="fa-stage-weeks">12주 + α · 수료 및 네트워킹</div>
+              <div class="fa-stage-title">성과 공유 & 수료</div>
+              <div class="fa-stage-weeks">11~12주 · 발표 및 네트워킹</div>
             </div>
           </div>
           <div class="fa-stage-body">
             <ul class="fa-stage-items">
-              <li>세대 간 리더십 포럼 — 원로·현직 리더 초청 토크콘서트</li>
-              <li>성과 공유회 — 팀별 결과 발표, 리더 선언문 낭독</li>
-              <li>수료식 & 네트워킹 — 동문 커뮤니티 구축, 후속 연계</li>
+              <li>11주: 팀별 최종 발표 준비 모임</li>
+              <li>12주 (7/18): 수료식 및 성과 공유회 — 양재 aT센터</li>
+              <li>팀별 프로젝트 결과 발표 · 리더십 선언문 공유</li>
+              <li>수료증 수여 및 동문 네트워킹 — 19명 수료</li>
             </ul>
             <div class="fa-stage-outcome">
               <strong>📄 성과물</strong>
-              AI 시대 분야별 미래 리포트 · 리더 선언문 디지털북 · 영상 콘텐츠
+              팀 프로젝트 발표 · 리더십 선언문 · 수료증
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- 1기 강사진 -->
+    <div class="fa-section">
+      <h2 class="fa-section-title"><span>👩‍🏫</span> 제1기와 함께한 강사진</h2>
+      <div class="fa-faculty-grid">
+        <div class="fa-faculty-item"><span class="fa-faculty-name">이은경 변호사</span><span class="fa-faculty-topic">법과 국가 시스템</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">박은지 교수</span><span class="fa-faculty-topic">AI 기술 트렌드</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">노태정 작가</span><span class="fa-faculty-topic">옳은 가치 정립</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">양준모 교수</span><span class="fa-faculty-topic">경제와 시장의 본질</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">최지혜 대표</span><span class="fa-faculty-topic">NGO의 역할과 현장</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">정승인 대표</span><span class="fa-faculty-topic">나의 분야 찾기</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">조평세 박사</span><span class="fa-faculty-topic">보수주의의 뿌리와 역사</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">김형주 교수</span><span class="fa-faculty-topic">AI 시대의 자유와 행복</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">서응교 교수</span><span class="fa-faculty-topic">미래이슈 스캐닝 · 디자인씽킹</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">김수연 교수</span><span class="fa-faculty-topic">디자인씽킹 팀 프로젝트</span></div>
+        <div class="fa-faculty-item"><span class="fa-faculty-name">임진기 상임대표</span><span class="fa-faculty-topic">정치 현장 실무 특강</span></div>
       </div>
     </div>
 
@@ -641,7 +823,7 @@ function goBack() {
   }
 })();
 </script>
-  <script src="assets/js/i18n-map.js?v=23"></script>
+  <script src="assets/js/i18n-map.js?v=24"></script>
   <script src="assets/js/i18n.js?v=22"></script>
   <script src="assets/js/main.js?v=7"></script>
 </body>
