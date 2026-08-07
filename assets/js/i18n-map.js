@@ -1,5 +1,10 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 전문위원 김수연 ── */
+ "김수연": "Kim Su-yeon",
+ "성결대학교 교수학습지원센터": "Sungkyul University CTL",
+ "전임 조교수": "Assistant Professor",
+
  /* ── 미래아카데미 1기 결산(영상·성과·후기·강사진) ── */
  "🎓 제1기 수료 완료 — 19명 배출 · 만족도 4.36/5": "🎓 Cohort 1 completed — 19 graduates · 4.36/5 satisfaction",
  "제1기 12주의 기록": "Cohort 1 — A Record of 12 Weeks",
