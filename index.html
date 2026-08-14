@@ -1825,10 +1825,19 @@
 
   <script>
   /* ═══ 최신 소식 팝업 ═══════════════════════════════════════ */
+  /* 팝업 사용 여부 스위치 — 다시 띄우려면 true 로 바꾸세요. */
+  var NEWS_POPUP_ENABLED = false;
+
   (function () {
     var DISMISS_KEY = 'tieum-popup-dismissed';
     var overlay = document.getElementById('newsPopupOverlay');
     if (!overlay) return;
+
+    /* 팝업 해제 상태 — 마크업은 숨기고 아무 동작도 하지 않음 */
+    if (!NEWS_POPUP_ENABLED) {
+      overlay.remove();
+      return;
+    }
 
     /* 오늘 날짜 YYYY-MM-DD (로컬 시간 기준) */
     function today() {
