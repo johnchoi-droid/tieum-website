@@ -83,13 +83,24 @@ window.escHtml = function (s) {
   });
 };
 
+/* 텍스트로 새어 들어온 HTML 태그 조각 제거.
+   외부 API에서 넘어온 제목에 <b>…</b> 같은 마크업이 섞이면 화면에 태그가
+   글자 그대로 보인다. 제목·요약은 평문이어야 하므로 원시/이스케이프 모두 지운다. */
+window.stripStrayTags = (function () {
+  var TAGS = 'b|i|u|em|strong|span|small|font|mark|sub|sup|br|p|div';
+  var RE = new RegExp('(?:&lt;|<)\\s*/?\\s*(?:' + TAGS + ')\\b[^<>&]{0,80}?(?:&gt;|>)', 'gi');
+  return function (s) {
+    return String(s == null ? '' : s).replace(RE, '').replace(/\s{2,}/g, ' ').trim();
+  };
+})();
+
 /* 글 요약 — summary 우선, 없으면 content에서 텍스트만 안전 추출.
    DOMParser는 스크립트 실행·리소스 로드를 하지 않아 onerror 류 XSS가 발생하지 않는다.
    반환값은 평문이며, 호출부에서 다시 escHtml로 감싸 출력한다. */
 window.newsExcerpt = function (p, n) {
   n = n || 90;
   if (p && p.summary) {
-    var s = String(p.summary).trim().replace(/\s+/g, ' ');
+    var s = window.stripStrayTags(String(p.summary)).replace(/\s+/g, ' ');
     return s.length > n ? s.slice(0, n) + '…' : s;
   }
   if (!p || !p.content) return '';
@@ -100,5 +111,6 @@ window.newsExcerpt = function (p, n) {
   } catch (e) {
     text = String(p.content).replace(/<[^>]*>/g, '').trim().replace(/\s+/g, ' ');
   }
+  text = window.stripStrayTags(text);   // 본문에 태그가 글자로 있던 경우까지 정리
   return text.length > n ? text.slice(0, n) + '…' : text;
 };

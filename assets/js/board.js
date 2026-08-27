@@ -232,7 +232,7 @@
           <td class="col-num">${p.pin ? '<span class="pin-icon">📌</span>' : n--}</td>
           <td class="col-cat"><span class="board-badge badge-${escHtml(p.category)}">${escHtml(p.categoryLabel)}</span></td>
           <td>
-            <span class="title-cell" onclick="bOpenPost('${jsAttr(p.id)}')">${escHtml(p.title)}</span>${hasFiles ? ' <span class="attach-chip" title="첨부파일 ' + p.attachments.length + '개">📎 ' + p.attachments.length + '</span>' : ''}
+            <span class="title-cell" onclick="bOpenPost('${jsAttr(p.id)}')">${escHtml(cleanText(p.title))}</span>${hasFiles ? ' <span class="attach-chip" title="첨부파일 ' + p.attachments.length + '개">📎 ' + p.attachments.length + '</span>' : ''}
             ${S.isAdmin ? `
               <span class="admin-row-btns">
                 <button class="row-btn edit-btn" onclick="bEditPost('${jsAttr(p.id)}')">수정</button>
@@ -308,6 +308,7 @@
   }
 
   function renderPostContent(content) {
+    content = stripEscapedTags(content); // 글자로 노출되는 태그 조각 제거
     content = sanitizeHtml(content);   // 위험 요소 제거(서식 유지) 후 렌더
     const parsed = parseArticles(content);
     const head = document.querySelector('#modalOverlay .modal-head');
@@ -406,7 +407,7 @@
       <span class="meta-author">${escHtml(p.author)}</span>
       <span class="meta-date">${escHtml(p.date)}</span>
       <span class="meta-views">조회 ${escHtml(p.views)}</span>`;
-    document.getElementById('modalTitle').textContent = bestTitle(p);
+    document.getElementById('modalTitle').textContent = cleanText(bestTitle(p));
     renderPostContent(p.content);
 
     // 첨부파일 영역
@@ -886,6 +887,23 @@
   });
 
   /* ── HTML 이스케이프 ─────────────────────────────── */
+  /* ── 텍스트로 새어 들어온 HTML 태그 조각 제거 ──────────────
+     외부 API(학술 검색 등)에서 넘어온 제목에 <b>…</b> 같은 마크업이 섞여
+     들어오면, 저장 시 이스케이프되어 화면에 태그가 글자 그대로 노출된다.
+     - stripEscapedTags: 본문용. 이스케이프된 태그(&lt;b&gt;)만 지우고
+       게시글이 실제로 쓰는 서식 마크업(<p>, <strong> 등)은 건드리지 않는다.
+     - cleanText: 제목·요약처럼 순수 텍스트여야 하는 값용. 원시/이스케이프 모두 제거. */
+  const INLINE_TAGS = 'b|i|u|em|strong|span|small|font|mark|sub|sup|br|p|div';
+  const ESCAPED_TAG_RE = new RegExp('&lt;\\s*/?\\s*(?:' + INLINE_TAGS + ')\\b[^&]{0,80}?&gt;', 'gi');
+  const ANY_TAG_RE     = new RegExp('(?:&lt;|<)\\s*/?\\s*(?:' + INLINE_TAGS + ')\\b[^<>&]{0,80}?(?:&gt;|>)', 'gi');
+
+  function stripEscapedTags(s) {
+    return String(s == null ? '' : s).replace(ESCAPED_TAG_RE, '');
+  }
+  function cleanText(s) {
+    return String(s == null ? '' : s).replace(ANY_TAG_RE, '').replace(/\s{2,}/g, ' ').trim();
+  }
+
   function escHtml(s) {
     return String(s == null ? '' : s)
       .replace(/&/g,'&amp;')
