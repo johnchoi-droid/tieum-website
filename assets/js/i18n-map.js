@@ -526,7 +526,7 @@ window.KO2EN = {
  "님의": "—",
  "님의 ₩": "— ₩",
  "님의 월 ₩": "— monthly ₩",
- "다랫(주) 대표이사": "CEO, Darat Co., Ltd.",
+ "디넷뜨(주) 대표이사": "CEO, Dinette Co., Ltd.",
  "다수": "Multiple",
  "다시 보기": "Watch Again",
  "다시 풀기": "Retry",
