@@ -7410,3 +7410,24 @@ html[lang="en"] #outreach .section-desc {
   .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
   .mpo-ripple, .mpo-aura { animation: none !important; }
 }
+
+/* ── 푸터 슬로건 ─────────────────────────────────────── */
+.footer-slogan { font-family: 'Montserrat', sans-serif; font-style: italic; font-size: .86rem; color: var(--accent); letter-spacing: .01em; margin: 6px 0 14px; }
+.site-footer .footer-slogan { text-align: center; margin: 10px auto 14px; }
+
+/* ── 티움이 하는 일 (about.html #work) ──────────────── */
+.work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.work-card {
+  background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--primary);
+  border-radius: var(--radius-md); padding: 28px 22px; box-shadow: var(--shadow-sm); transition: var(--transition);
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.work-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(27,79,138,.10); color: var(--primary); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.work-icon svg { width: 22px; height: 22px; }
+.work-card h3 { font-size: 1.12rem; font-weight: 700; color: var(--text); margin: 0 0 8px; }
+.work-lead { font-size: .9rem; color: var(--text-2); line-height: 1.65; margin: 0 0 14px; word-break: keep-all; }
+.work-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+.work-card li { position: relative; padding-left: 14px; font-size: .84rem; color: var(--text-3); line-height: 1.6; word-break: keep-all; }
+.work-card li::before { content: ''; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+@media (max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .work-grid { grid-template-columns: 1fr; } }

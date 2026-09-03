@@ -1,5 +1,27 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 소개: 티움이 하는 일 (#work) ── */
+ "하는 일": "What We Do",
+ "티움이 하는 일": "What TIEUM Does",
+ "기획부터 콘텐츠, 운영, 홍보까지 — 네 가지 기능이 맞물려 하나의 교육 사업을 완성합니다.": "From planning to content, operations, and outreach — four functions work together to complete every education program.",
+ "전략기획": "Strategic Planning",
+ "사업 기획·분석을 통한 사업 설계와 신사업 발굴": "Designing programs and discovering new initiatives through planning and analysis",
+ "사업 기획 및 신사업 발굴": "Program planning and new business development",
+ "지방자치단체·정부기관 입찰 및 공모사업 제안": "Bids and grant proposals for local and national government",
+ "기업 사회공헌 사업 제안": "CSR program proposals for corporations",
+ "콘텐츠개발": "Content Development",
+ "R&D 팀을 통한 교육 콘텐츠 개발": "Educational content developed by our R&D team",
+ "교재·진단도구·교구 등 교육 콘텐츠 개발": "Textbooks, assessment tools, and teaching materials",
+ "디지털 교육 전문 인력을 통한 정보기술 인재 양성": "IT talent development led by digital-education specialists",
+ "사업운영": "Program Operations",
+ "프로젝트별 업무 집중으로 능동적인 역할 수행": "Dedicated project teams for proactive execution",
+ "SW·AI·디지털·진로진학·인성 등 다양한 분야의 사업 운영": "Programs across software, AI, digital literacy, career guidance, and character education",
+ "스마트스쿨 등 체험센터 구축 및 디지털 교육 강사 양성": "Building smart-school experience centers and training digital-education instructors",
+ "디자인·영상": "Design & Video",
+ "다양한 미디어 콘텐츠 제작": "Producing diverse media content",
+ "온라인 강의 등 디지털 교육 자료 제작": "Online lectures and digital learning materials",
+ "브로슈어·팸플릿·SNS·커뮤니티 홍보물 제작": "Brochures, pamphlets, social media, and community materials",
+
  /* ── 전문위원 김수연 ── */
  "김수연": "Kim Su-yeon",
  "성결대학교 교수학습지원센터": "Sungkyul University CTL",
