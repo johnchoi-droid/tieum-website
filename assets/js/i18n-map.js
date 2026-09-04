@@ -1349,12 +1349,13 @@ window.KO2EN = {
 
  /* ── 2026-06 추가: index/about/lms/news/404 미번역 보완 ── */
  /* index.html — 팀 카드(이사장 경력) */
- "前 EBS '부모광장' 메인 패널": "Former Main Panelist, EBS 'Parents' Square'",
- "前 조선일보 선정 교육전문가 1호": "Former No.1 Education Expert Selected by Chosun Ilbo",
- "前 한국교육개발원(KEDI) 자문위원": "Former Advisory Member, Korean Educational Development Institute (KEDI)",
+ "前 EBS 「60분 부모」 부모특강 강사": "Former Parenting Lecturer, EBS '60-Minute Parents'",
+ "1999 조선일보 선정": "1999 Selected by Chosun Ilbo",
+ "'밀레니엄 리더 21인'": "'21 Millennium Leaders'",
  "2020 중소벤처기업부": "2020 Ministry of SMEs & Startups",
  "'존경받는 기업인' 선정": "Selected as 'Most Admired Entrepreneur'",
- "대표 저서: 『공부감성』 『꿈의교실』 외 다수": "Selected Books: 'Study Sensibility', 'Dream Classroom' & more",
+ "대표 저서: 『공부감성』 『꿈의 교실』": "Selected Books: 'Study Sensibility', 'Dream Classroom',",
+ "『소리치지 않고 화내지 않고 초등학생 공부시키기』 외 다수": "'Teaching Your Child Without Yelling or Anger' & more",
  /* index.html — 언론 속 티움(보도) */
  "📰 언론 속 티움": "📰 TIEUM in the Media",
  "티움의 활동이 여러 언론을 통해 소개되었습니다.": "TIEUM's activities have been featured across various media outlets.",
