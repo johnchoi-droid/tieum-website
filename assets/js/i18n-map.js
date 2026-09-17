@@ -1,5 +1,10 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 푸터: 공익위반사항 제보 (법인세법 시행령 제39조) ── */
+ "공익위반사항 제보 (법인세법 시행령 제39조) :": "Report public-interest violations (Corporate Tax Act Enforcement Decree, Art. 39):",
+ "국민권익위원회": "Anti-Corruption & Civil Rights Commission",
+ "국세청": "National Tax Service",
+
  /* ── 소개: 티움이 하는 일 (#work) ── */
  "하는 일": "What We Do",
  "티움이 하는 일": "What TIEUM Does",

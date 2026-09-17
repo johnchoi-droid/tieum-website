@@ -7431,3 +7431,9 @@ html[lang="en"] #outreach .section-desc {
 .work-card li::before { content: ''; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 @media (max-width: 1024px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px)  { .work-grid { grid-template-columns: 1fr; } }
+
+/* ── 공익위반사항 제보 링크 (법인세법 시행령 제39조) ── */
+.footer-report { font-size: .8rem; opacity: .8; margin-top: 8px; line-height: 1.7; word-break: keep-all; }
+.footer-report a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.footer-report a:hover { opacity: 1; color: var(--accent); }
+.site-footer .footer-report { text-align: center; }
