@@ -4,6 +4,7 @@ window.KO2EN = {
  "공익위반사항 제보 (법인세법 시행령 제39조) :": "Report public-interest violations (Corporate Tax Act Enforcement Decree, Art. 39):",
  "국민권익위원회": "Anti-Corruption & Civil Rights Commission",
  "국세청": "National Tax Service",
+ "과학기술정보통신부": "Ministry of Science and ICT",
 
  /* ── 소개: 티움이 하는 일 (#work) ── */
  "하는 일": "What We Do",
