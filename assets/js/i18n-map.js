@@ -1,5 +1,17 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 티움 위클리 (weekly.html) ── */
+ "티움 위클리": "TIEUM Weekly",
+ "🗞 주간 리포트": "🗞 Weekly Report",
+ "이번 주 교육 뉴스,": "This Week in Education News,",
+ "한 자리에": "All in One Place",
+ "매일 아침 모은 국내외 AI·교육 소식을 한 주 단위로 다시 읽고,": "We re-read a week of Korean and global AI & education news gathered every morning,",
+ "사무국장의 생각을 보태어 전합니다.": "and add the Executive Director's perspective.",
+ "후원자께 드리는 월간 소식은": "Our monthly letter to supporters is in the",
+ "에서 보실 수 있습니다.": ".",
+ "발행 주": "Weeks",
+ "아직 발행된 위클리가 없습니다.": "No weekly reports published yet.",
+
  /* ── 푸터: 공익위반사항 제보 (법인세법 시행령 제39조) ── */
  "공익위반사항 제보 (법인세법 시행령 제39조) :": "Report public-interest violations (Corporate Tax Act Enforcement Decree, Art. 39):",
  "국민권익위원회": "Anti-Corruption & Civil Rights Commission",

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="티움 뉴스레터. 티움의 한 달을 담은 소식지를 구독하고 가장 먼저 소식을 받아보세요." />
+  <meta name="description" content="티움 위클리. 한 주간의 국내외 AI·교육 뉴스를 사무국장이 한 자리에 모으고 생각을 보태는 주간 리포트입니다." />
   <meta property="og:type"        content="website" />
   <meta property="og:locale"      content="ko_KR" />
   <meta property="og:site_name"   content="사단법인 티움" />
-  <meta property="og:title"       content="뉴스레터 | 티움" />
-  <meta property="og:description" content="티움 뉴스레터. 티움의 한 달을 담은 소식지를 구독하고 가장 먼저 소식을 받아보세요." />
+  <meta property="og:title"       content="티움 위클리 | 티움" />
+  <meta property="og:description" content="한 주간의 국내외 AI·교육 뉴스를 사무국장이 한 자리에 모으고 생각을 보태는 주간 리포트입니다." />
   <meta property="og:image"       content="https://tieum.org/assets/images/og-image.jpg" />
-  <meta property="og:url"         content="https://tieum.org/newsletter.html" />
-  <link rel="canonical" href="https://tieum.org/newsletter.html" />
+  <meta property="og:url"         content="https://tieum.org/weekly.html" />
+  <link rel="canonical" href="https://tieum.org/weekly.html" />
   <meta name="twitter:card"       content="summary_large_image" />
-  <title>뉴스레터 — 티움(TIEUM)</title>
+  <title>티움 위클리 — 티움(TIEUM)</title>
   <link rel="stylesheet" href="assets/css/style.css?v=55" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,7 @@
         <li class="nav-item"><a href="index.html#outreach">아웃리치</a></li>
         <li class="nav-item"><a href="lms.html">러닝센터</a></li>
         <li class="nav-item"><a href="news.html">소식</a></li>
-        <li class="nav-item"><a href="newsletter.html" class="active">뉴스레터</a></li>
+        <li class="nav-item"><a href="newsletter.html">뉴스레터</a></li>
         <li class="nav-item"><a href="index.html#support">후원</a></li>
       </ul>
       <a href="index.html#support" class="btn-donate">후원하기</a>
@@ -123,11 +123,12 @@
 <!-- ══════════════ HERO ══════════════ -->
 <section class="nl-hero">
   <div class="nl-hero-inner">
-    <div class="nl-hero-badge">📮 정기 뉴스레터</div>
-    <h1 class="nl-hero-title">티움 소식을<br>매달 전합니다</h1>
-    <p class="nl-hero-sub">사단법인 티움이 한 달 동안 걸어온 발자취를 후원자 여러분과 나눕니다.<br>교육 활동 현장 소식, 캠프 이야기, 그리고 감사 보고.</p>
+    <div class="nl-hero-badge">🗞 주간 리포트</div>
+    <h1 class="nl-hero-title">이번 주 교육 뉴스,<br>한 자리에</h1>
+    <p class="nl-hero-sub">매일 아침 모은 국내외 AI·교육 소식을 한 주 단위로 다시 읽고,<br>사무국장의 생각을 보태어 전합니다.</p>
+    <p class="nl-hero-sub" style="margin-top:-6px;font-size:.9rem;opacity:.85;">후원자께 드리는 월간 소식은 <a href="newsletter.html" style="color:inherit;text-decoration:underline;">뉴스레터</a>에서 보실 수 있습니다.</p>
     <div class="nl-hero-stats">
-      <div class="nl-stat"><span class="nl-stat-num" id="nlStatCount">0</span><span class="nl-stat-label">발행호</span></div>
+      <div class="nl-stat"><span class="nl-stat-num" id="nlStatCount">0</span><span class="nl-stat-label">발행 주</span></div>
     </div>
   </div>
 </section>
@@ -164,17 +165,17 @@
 </footer>
 
 <!-- ══════════════ SCRIPTS ══════════════ -->
-<script src="assets/js/newsletter-data.js?v=10"></script>
+<script src="assets/js/weekly-data.js?v=1"></script>
 <script>
 /* ── 렌더링 ── */
 function renderCards() {
-  var data = window.NEWSLETTER_DATA || [];
+  var data = window.WEEKLY_DATA || [];
   var grid = document.getElementById('nlGrid');
 
   document.getElementById('nlStatCount').textContent = data.length;
 
   if (!data.length) {
-    grid.innerHTML = '<div class="nl-empty"><p>아직 발행된 뉴스레터가 없습니다.</p></div>';
+    grid.innerHTML = '<div class="nl-empty"><p>아직 발행된 위클리가 없습니다.</p></div>';
     return;
   }
 
@@ -182,7 +183,7 @@ function renderCards() {
     return [
       '<article class="nl-card" onclick="openNlModal(\'' + nl.id + '\')">',
       '  <div class="nl-card-accent" style="background:' + nl.color + '">',
-      '    <span class="nl-issue-badge">통권 ' + nl.issue + '호</span>',
+      '    <span class="nl-issue-badge">제' + nl.issue + '호</span>',
       '    <div class="nl-card-date">' + nl.label + '</div>',
       '  </div>',
       '  <div class="nl-card-body">',
@@ -199,14 +200,14 @@ function renderCards() {
 
 /* ── 모달 ── */
 function openNlModal(id) {
-  var data = window.NEWSLETTER_DATA || [];
+  var data = window.WEEKLY_DATA || [];
   var nl   = data.find(function(n){ return n.id === id; });
   if (!nl) return;
 
   document.getElementById('nlModalContent').innerHTML = [
     '<div class="nl-modal-header" style="background:' + nl.color + '">',
     '  <div class="nl-modal-meta-row">',
-    '    <span class="nl-issue-badge">통권 ' + nl.issue + '호</span>',
+    '    <span class="nl-issue-badge">제' + nl.issue + '호</span>',
     '    <p class="nl-modal-date">' + nl.label + '</p>',
     '  </div>',
     '  <h2 class="nl-modal-title">' + nl.title + '</h2>',

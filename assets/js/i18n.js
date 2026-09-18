@@ -51,6 +51,7 @@
 
       'mega.col5.title1': '뉴스레터',
       'mega.col5.l1': '뉴스레터 전체 보기',
+      'mega.col5.wk': '티움 위클리',
       'mega.col5.title2': '후원',
       'mega.col5.l2': '정기 후원',
       'mega.col5.l3': '일시 후원',
@@ -511,6 +512,7 @@
 
       'mega.col5.title1': 'Newsletter',
       'mega.col5.l1': 'View All Newsletters',
+      'mega.col5.wk': 'TIEUM Weekly',
       'mega.col5.title2': 'Support',
       'mega.col5.l2': 'Regular Donation',
       'mega.col5.l3': 'One-time Donation',
