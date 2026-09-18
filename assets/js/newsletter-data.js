@@ -12,6 +12,45 @@
 window.NEWSLETTER_DATA = [
 
   {
+    id:      'nl-2026-09',
+    issue:   4,
+    date:    '2026-09',
+    label:   '2026년 9월',
+    title:   '통권 4호 — 이웃에게 찾아가는 AI 스쿨',
+    summary: '지역 주민과 함께하는 인공지능 아카데미의 첫 걸음, 그리고 겨울방학 해외 프로그램 준비 소식을 전합니다.',
+    color:   '#9c4221',
+    content: `
+      <p style="color:#718096;font-size:.9rem;margin-bottom:24px;">2026년 9월 · 통권 제4호</p>
+
+      <p>사랑하는 티움 후원자 여러분, 안녕하세요.</p>
+      <p>티움 사무국장 최주안입니다. 무더운 여름을 어떻게 보내셨는지요. 이 더위가 언제쯤 꺾일까 싶었는데, 시간이 지나니 선선한 가을이 어느새 곁에 반갑게 찾아왔습니다. 추석을 앞둔 지금, 티움은 하반기에 펼칠 일들을 구상하고 기획하며 하나씩 구체화해 나가고 있습니다.</p>
+
+      <h3>📌 이달의 주요 소식</h3>
+      <ul>
+        <li><strong>이웃에게 찾아가는 AI 스쿨을 준비합니다</strong> — &ldquo;인공지능 시대, 교육으로 세상을 변화시킵니다&rdquo;라는 슬로건대로, 티움이 직접 이웃들을 찾아가는 AI 스쿨을 준비하고 있습니다.<br/><br/>AI를 다루는 온라인 강의는 많지만, 정작 오프라인에서 이런 강의를 찾아보기는 쉽지 않았습니다. 그래서 발상을 바꾸어, 지역 주민들과 함께하는 인공지능 아카데미를 열기로 했습니다.<br/><br/></li>
+        <li><strong>겨울방학 해외 프로그램을 기획하고 있습니다</strong> — 티움이 겨울 방학 기간에 해외에서 진행할 캠프와 프로그램을 준비하고 있습니다. 내용이 정리되는 대로 계속 소식 전해 드리겠습니다.</li>
+      </ul>
+
+      <div style="background:#fdf6f2;border-left:4px solid #9c4221;border-radius:8px;padding:18px 22px;margin:20px 0;">
+        <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#9c4221;letter-spacing:.02em;">제1회 인공지능 아카데미</p>
+        <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
+          <strong style="color:#1a1a2e;">일시</strong> &nbsp;2026년 9월 22일(화) 오전 10시<br/>
+          <strong style="color:#1a1a2e;">장소</strong> &nbsp;용인 기흥구 북카페 &lsquo;꿈꾸는 정원&rsquo;<br/>
+          <strong style="color:#1a1a2e;">참가비</strong> &nbsp;무료
+        </p>
+      </div>
+
+      <p>첫 걸음이라 조심스럽지만, 그만큼 설레는 마음으로 준비하고 있습니다. 많은 관심과 성원 부탁드립니다.</p>
+
+      <h3>🙏 추석 인사</h3>
+      <p>티움이 이렇게 새로운 걸음을 준비할 수 있는 것은 한 분 한 분의 관심과 후원 덕분입니다. 늘 곁에서 함께해 주시는 마음에 깊이 감사드립니다.</p>
+      <p>사랑하는 가족들과 함께 풍성한 한가위 보내시기를 바랍니다.</p>
+
+      <p style="margin-top:24px;">감사합니다.<br><strong>사단법인 티움 사무국장 최주안 드림</strong></p>
+    `,
+  },
+
+  {
     id:      'nl-2026-07',
     issue:   2,
     date:    '2026-07',
