@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=54" />
+  <link rel="stylesheet" href="assets/css/style.css?v=55" />
   <link rel="preload" as="image" href="assets/images/Main/main1.jpg" fetchpriority="high" />
   <link rel="icon" type="image/png" href="assets/images/tieum-icon-192.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/tieum-icon-32.png" />
@@ -1020,7 +1020,7 @@
       </div>
       <div class="news-grid" id="newsGrid"></div>
       <script src="assets/js/board-drive-config.js?v=2"></script>
-      <script src="assets/js/news-data.js?v=21"></script>
+      <script src="assets/js/news-data.js?v=22"></script>
       <script>
       (function () {
         /* 소식의 단일 출처 = news-data.js (NEWS_POSTS).
@@ -1841,7 +1841,7 @@
   <script>
   /* ═══ 최신 소식 팝업 ═══════════════════════════════════════ */
   /* 팝업 사용 여부 스위치 — 다시 띄우려면 true 로 바꾸세요. */
-  var NEWS_POPUP_ENABLED = false;
+  var NEWS_POPUP_ENABLED = true;
 
   (function () {
     var DISMISS_KEY = 'tieum-popup-dismissed';
@@ -1886,8 +1886,12 @@
           .slice(0, 4);
         wrap.innerHTML = posts.map(function (p, i) {
           var c = CAT[p.category] || { emoji: '📌', grad: 'linear-gradient(135deg,#1B4F8A,#2d6ec4)' };
+          /* 포스터 등 대표 이미지가 있으면 이미지로, 없으면 기존 이모지 블록으로 */
+          var head = p.image
+            ? '<div class="news-popup-img has-photo"><img src="' + npEsc(p.image) + '" alt="' + npEsc(p.title) + '"></div>'
+            : '<div class="news-popup-img" style="background:' + c.grad + ';">' + c.emoji + '</div>';
           return '<div class="news-popup-slide' + (i === 0 ? ' active' : '') + '">'
-            + '<div class="news-popup-img" style="background:' + c.grad + ';">' + c.emoji + '</div>'
+            + head
             + '<div class="news-popup-body">'
             + '<span class="news-badge badge-' + npEsc(p.category) + '">' + npEsc(p.categoryLabel) + '</span>'
             + '<h3>' + npEsc(p.title) + '</h3>'

@@ -13,6 +13,37 @@ window.NEWS_POSTS = [
   /* 쌍핵각성 캠프 소식(news-camp1)은 2026-07 미개최 결정으로 숨김 —
      원문은 _archive/camp-ssanghaek-2026.html 에 보관 */
   {
+    id: 'news-aischool-1', pin: true, category: 'notice', categoryLabel: '공지',
+    title: '[모집] TIEUM AI 수다방 — AI, 엄마가 먼저 알아야 자녀도 도울 수 있습니다',
+    summary: '티움이 이웃을 직접 찾아가는 AI 스쿨을 시작합니다. 9월 22일(화) 오전 10시, 용인 기흥구 북카페 꿈꾸는 정원에서 무료로 진행합니다.',
+    date: '2026.09.18', author: '티움 사무국', views: 0,
+    image: 'assets/images/news/ai-sudabang-poster2.jpg',
+    content: `
+      <h3>배우고 끝이 아닌, 결과물이 남는 동네 모임</h3>
+      <p>&ldquo;인공지능 시대, 교육으로 세상을 변화시킵니다&rdquo;라는 슬로건대로, 티움이 직접 이웃들을 찾아가는 <strong>AI 스쿨</strong>을 시작합니다.</p>
+      <p>AI를 다루는 온라인 강의는 많지만, 정작 오프라인에서 이런 강의를 찾아보기는 쉽지 않았습니다. 그래서 발상을 바꾸어, 지역 주민들과 함께하는 인공지능 아카데미를 열기로 했습니다. AI 시대에 부모가 먼저 알아야 할 이야기를 함께 나눕니다.</p>
+
+      <div style="background:#f7f9fc;border-left:4px solid #1B4F8A;border-radius:8px;padding:20px 22px;margin:24px 0;">
+        <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#1B4F8A;letter-spacing:.02em;">TIEUM AI 수다방</p>
+        <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
+          <strong style="color:#1a1a2e;">일시</strong> &nbsp;2026년 9월 22일(화) 오전 10시<br/>
+          <strong style="color:#1a1a2e;">장소</strong> &nbsp;북카페 꿈꾸는 정원 (용인시 기흥구 중동 665-28)<br/>
+          <strong style="color:#1a1a2e;">주차</strong> &nbsp;무료 (중동 668-20 또는 중동 665-49, 도보 2분)<br/>
+          <strong style="color:#1a1a2e;">대상</strong> &nbsp;AI와 자녀교육에 관심 있는 부모님<br/>
+          <strong style="color:#1a1a2e;">참가비</strong> &nbsp;무료<br/>
+          <strong style="color:#1a1a2e;">주최</strong> &nbsp;교육 비영리 사단법인 티움<br/>
+          <strong style="color:#1a1a2e;">문의</strong> &nbsp;010-6579-0602
+        </p>
+      </div>
+
+      <p>신청은 아래 포스터의 <strong>신청 QR</strong>을 스마트폰으로 촬영하시면 됩니다. 문의는 위 연락처로 주셔도 됩니다.</p>
+
+      <p style="margin:24px 0 8px;font-weight:700;color:#1a1a2e;">포스터</p>
+      <p style="margin:0 0 16px;"><img src="assets/images/news/ai-sudabang-poster2.jpg" alt="TIEUM AI 수다방 안내 포스터 — 우리 아이, AI를 써도 괜찮을까요?" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
+      <p style="margin:0;"><img src="assets/images/news/ai-sudabang-poster1.jpg" alt="TIEUM AI 수다방 안내 포스터 — AI, 엄마가 먼저 알아야 자녀도 도울 수 있습니다" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
+    `
+  },
+  {
     id: 'news-l1', pin: false, category: 'edu', categoryLabel: '교육·연구',
     title: '티움 러닝센터 정식 오픈 안내',
     summary: '교수학습법·연구·데이터·TMD 리더십 과정을 온라인으로 수강할 수 있는 티움 러닝센터가 문을 열었습니다.',

@@ -7437,3 +7437,7 @@ html[lang="en"] #outreach .section-desc {
 .footer-report a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .footer-report a:hover { opacity: 1; color: var(--accent); }
 .site-footer .footer-report { text-align: center; }
+
+/* ── 소식 팝업: 포스터 등 실제 이미지 슬라이드 ── */
+.news-popup-img.has-photo { height: auto; max-height: 320px; padding: 0; background: #f7f9fc; overflow: hidden; }
+.news-popup-img.has-photo img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
