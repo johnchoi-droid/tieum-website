@@ -1842,6 +1842,10 @@
   /* ═══ 최신 소식 팝업 ═══════════════════════════════════════ */
   /* 팝업 사용 여부 스위치 — 다시 띄우려면 true 로 바꾸세요. */
   var NEWS_POPUP_ENABLED = true;
+  /* 노출 종료일(YYYY-MM-DD, 이 날짜까지 노출). 다음 날부터 저절로 안 뜹니다.
+     기간 제한 없이 계속 띄우려면 빈 문자열('')로 두세요.
+     현재 값: AI 수다방(9/22) 안내 — 9월 23일부터 자동 종료 */
+  var NEWS_POPUP_UNTIL = '2026-09-22';
 
   (function () {
     var DISMISS_KEY = 'tieum-popup-dismissed';
@@ -1850,6 +1854,12 @@
 
     /* 팝업 해제 상태 — 마크업은 숨기고 아무 동작도 하지 않음 */
     if (!NEWS_POPUP_ENABLED) {
+      overlay.remove();
+      return;
+    }
+
+    /* 종료일이 지났으면 자동 종료 — 별도 조치 없이 스스로 내려갑니다 */
+    if (NEWS_POPUP_UNTIL && today() > NEWS_POPUP_UNTIL) {
       overlay.remove();
       return;
     }
