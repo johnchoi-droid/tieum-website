@@ -14,33 +14,46 @@ window.NEWS_POSTS = [
      원문은 _archive/camp-ssanghaek-2026.html 에 보관 */
   {
     id: 'news-aischool-1', pin: true, category: 'notice', categoryLabel: '공지',
-    title: '[모집] TIEUM AI 수다방 — AI, 엄마가 먼저 알아야 자녀도 도울 수 있습니다',
-    summary: '티움이 이웃을 직접 찾아가는 AI 스쿨을 시작합니다. 9월 22일(화) 오전 10시, 용인 기흥구 북카페 꿈꾸는 정원에서 무료로 진행합니다.',
+    title: '[모집] TIEUM AI 수다방 — AI 어렵지 않습니다. 앱 하나 만들러 오세요',
+    summary: '컴퓨터를 몰라도 괜찮습니다. 2시간 뒤 내가 직접 만든 앱 하나가 손에 남습니다. 9월 22일(화) 오전 10시, 용인 기흥 북카페 꿈꾸는 정원에서 무료로 진행합니다.',
     date: '2026.09.18', author: '티움 사무국', views: 0,
-    image: 'assets/images/news/ai-sudabang-poster2.jpg',
+    image: 'assets/images/news/ai-sudabang-poster3.jpg',
     content: `
       <h3>배우고 끝이 아닌, 결과물이 남는 동네 모임</h3>
-      <p>&ldquo;인공지능 시대, 교육으로 세상을 변화시킵니다&rdquo;라는 슬로건대로, 티움이 직접 이웃들을 찾아가는 <strong>AI 스쿨</strong>을 시작합니다.</p>
-      <p>AI를 다루는 온라인 강의는 많지만, 정작 오프라인에서 이런 강의를 찾아보기는 쉽지 않았습니다. 그래서 발상을 바꾸어, 지역 주민들과 함께하는 인공지능 아카데미를 열기로 했습니다. AI 시대에 부모가 먼저 알아야 할 이야기를 함께 나눕니다.</p>
+      <p>&ldquo;인공지능 시대, 교육을 통해 세상을 변화시킵니다&rdquo;라는 슬로건대로, 티움이 직접 이웃들을 찾아가는 <strong>AI 수다방</strong>을 시작합니다.</p>
+      <p>AI를 다루는 온라인 강의는 많지만, 정작 오프라인에서 편하게 물어볼 자리는 찾기 어려웠습니다. 그래서 발상을 바꾸어, 지역 주민들과 함께 앉아 직접 만들어 보는 자리를 마련했습니다.</p>
+
+      <ul>
+        <li><strong>당신도 앱 하나 만들 수 있습니다.</strong> 못 할 것 같아도, 정말 됩니다.</li>
+        <li><strong>컴퓨터 몰라도 괜찮습니다.</strong> 하나씩, 차근차근 가르쳐 드립니다.</li>
+        <li><strong>2시간 뒤, 내가 직접 만든 앱 하나</strong>가 손에 남습니다.</li>
+      </ul>
 
       <div style="background:#f7f9fc;border-left:4px solid #1B4F8A;border-radius:8px;padding:20px 22px;margin:24px 0;">
-        <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#1B4F8A;letter-spacing:.02em;">TIEUM AI 수다방</p>
+        <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#1B4F8A;letter-spacing:.02em;">TIEUM AI 수다방 &mdash; 동네 엄마아빠들의 AI 수다방</p>
         <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
           <strong style="color:#1a1a2e;">일시</strong> &nbsp;2026년 9월 22일(화) 오전 10시<br/>
-          <strong style="color:#1a1a2e;">장소</strong> &nbsp;북카페 꿈꾸는 정원 (용인시 기흥구 중동 665-28)<br/>
-          <strong style="color:#1a1a2e;">주차</strong> &nbsp;무료 (중동 668-20 또는 중동 665-49, 도보 2분)<br/>
-          <strong style="color:#1a1a2e;">대상</strong> &nbsp;AI와 자녀교육에 관심 있는 부모님<br/>
-          <strong style="color:#1a1a2e;">참가비</strong> &nbsp;무료<br/>
+          <strong style="color:#1a1a2e;">장소</strong> &nbsp;북카페 꿈꾸는 정원 (경기 용인시 기흥구 중동 665-28)<br/>
+          <strong style="color:#1a1a2e;">주차</strong> &nbsp;무료 주차 (도보 2분)<br/>
+          <strong style="color:#1a1a2e;">대상</strong> &nbsp;AI가 궁금한 성인 누구나 &mdash; 컴퓨터를 몰라도 됩니다<br/>
+          <strong style="color:#1a1a2e;">참가비</strong> &nbsp;0원<br/>
+          <strong style="color:#1a1a2e;">정원</strong> &nbsp;20명 (선착순)<br/>
+          <strong style="color:#1a1a2e;">강사</strong> &nbsp;최주안 교육학 박사<br/>
           <strong style="color:#1a1a2e;">주최</strong> &nbsp;교육 비영리 사단법인 티움<br/>
-          <strong style="color:#1a1a2e;">문의</strong> &nbsp;010-6579-0602
+          <strong style="color:#1a1a2e;">문의</strong> &nbsp;010-6579-0602 (전화 &middot; 문자)
         </p>
       </div>
 
-      <p>신청은 아래 포스터의 <strong>신청 QR</strong>을 스마트폰으로 촬영하시면 됩니다. 문의는 위 연락처로 주셔도 됩니다.</p>
+      <p><strong>준비물 &middot; 노트북 또는 태블릿</strong>을 가져오시면 훨씬 편하게 만들어 가실 수 있습니다. 없어도 괜찮습니다 &mdash; 옆에서 함께 만들어 드립니다.</p>
+
+      <p><strong>가져가실 것</strong> &mdash; 내가 만든 앱 1개, 내 상황에 맞춘 AI 사용법, 프롬프트 카드.</p>
+
+      <p><strong>왜 무료일까요?</strong> 사단법인 티움은 교육을 위한 비영리 단체입니다. 수익이 아니라, 교육으로 세상을 바꾸려 합니다.</p>
+
+      <p>신청은 아래 포스터의 <strong>신청 QR</strong>을 스마트폰으로 촬영하시면 됩니다. 전화나 문자로 주셔도 됩니다.</p>
 
       <p style="margin:24px 0 8px;font-weight:700;color:#1a1a2e;">포스터</p>
-      <p style="margin:0 0 16px;"><img src="assets/images/news/ai-sudabang-poster2.jpg" alt="TIEUM AI 수다방 안내 포스터 — 우리 아이, AI를 써도 괜찮을까요?" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
-      <p style="margin:0;"><img src="assets/images/news/ai-sudabang-poster1.jpg" alt="TIEUM AI 수다방 안내 포스터 — AI, 엄마가 먼저 알아야 자녀도 도울 수 있습니다" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
+      <p style="margin:0;"><img src="assets/images/news/ai-sudabang-poster3.jpg" alt="TIEUM AI 수다방 안내 포스터 — AI 어렵지 않습니다. 앱 하나 만들러 오세요. 9월 22일 화요일 오전 10시, 용인 기흥 북카페 꿈꾸는 정원" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
     `
   },
   {
