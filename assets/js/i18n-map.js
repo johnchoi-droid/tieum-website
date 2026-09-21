@@ -1397,6 +1397,9 @@ window.KO2EN = {
  "제2기 청소년 프로라이프 비전 캠프, 워싱턴 D.C. '생명 행진' 참가": "2nd Youth Pro-Life Vision Camp Joins the 'March for Life' in Washington, D.C.",
  "제2기 청소년 프로라이프 비전 캠프, 워싱턴 '생명 행진(March for Life)' 참가": "2nd Youth Pro-Life Vision Camp Joins Washington's 'March for Life'",
  "뉴스파워": "Newspower",
+ "중앙일보": "JoongAng Ilbo",
+ "언론 보도": "Media Coverage",
+ "대한민국역사와미래, '미래아카데미' 1기 19명 수료": "History and Future of Korea Foundation: 19 Complete the 1st Future Academy",
  /* index.html — 이메일무단수집거부 팝업 */
  "웹사이트에 게시된 이메일 주소가 전자우편수집 프로그램이나 그 밖의 기술적장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반시 정보통신망법에 의해 형사처벌을 유념하시기 바랍니다.": "We refuse any unauthorized collection of email addresses posted on this website by email-harvesting programs or other technical devices. Please note that violations are subject to criminal punishment under the Act on Promotion of Information and Communications Network Utilization.",
  "전자우편주소의 무단수집행위 등 금지": "Prohibition of Unauthorized Collection of Email Addresses",
