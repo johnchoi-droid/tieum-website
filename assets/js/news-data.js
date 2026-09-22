@@ -15,7 +15,7 @@ window.NEWS_POSTS = [
   {
     id: 'news-aischool-1-review', pin: true, category: 'notice', categoryLabel: '공지',
     title: '[후기] 제1회 TIEUM AI 수다방 — "AI는 동료다"',
-    summary: '9월 22일 용인 기흥 북카페에서 첫 AI 수다방을 열었습니다. 두 시간 뒤, 참가자들은 저마다 직접 만든 앱 하나를 손에 들고 돌아가셨습니다.',
+    summary: '9월 22일 용인 기흥 북카페에서 첫 AI 수다방을 열었습니다. 두 시간 뒤, 참가자들은 저마다 직접 만든 결과물을 손에 들고 돌아가셨습니다.',
     date: '2026.09.22', author: '티움 사무국', views: 0,
     image: 'assets/images/news/sudabang1-06.jpg',
     content: `
@@ -25,7 +25,7 @@ window.NEWS_POSTS = [
       <p style="margin:22px 0 6px;"><img src="assets/images/news/sudabang1-06.jpg" alt="TIEUM AI 수다방 — 북카페에 모여 각자 노트북으로 실습하는 참가자들" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
       <p style="margin:0 0 24px;font-size:13px;color:#718096;">각자 노트북을 펴고, 직접 만들어 보는 두 시간.</p>
 
-      <p>두 시간 동안 이웃들과 마주 앉아 AI가 무엇인지, 우리 일상에서 어떻게 쓸 수 있는지 이야기를 나누었습니다. 그리고 각자 손으로 앱을 하나씩 만들어 보았습니다. 강의를 듣기만 하는 자리가 아니라, 옆에 앉아 같이 만들어 보는 자리였습니다.</p>
+      <p>두 시간 동안 이웃들과 마주 앉아 AI가 무엇인지, 우리 일상에서 어떻게 쓸 수 있는지 이야기를 나누었습니다. 그리고 각자 손으로 결과물을 하나씩 만들어 보았습니다. 강의를 듣기만 하는 자리가 아니라, 옆에 앉아 같이 만들어 보는 자리였습니다.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:24px 0 10px;">
         <img src="assets/images/news/sudabang1-01.jpg" alt="TIEUM AI 수다방 — 화면을 가리키며 설명하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
