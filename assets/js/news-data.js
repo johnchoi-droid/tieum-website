@@ -15,57 +15,47 @@ window.NEWS_POSTS = [
   {
     id: 'news-aischool-1-review', pin: true, category: 'notice', categoryLabel: '공지',
     title: '[후기] 제1회 TIEUM AI 수다방 — "AI는 동료다"',
-    summary: '9월 22일 용인 기흥 북카페에서 첫 AI 수다방을 열었습니다. 참가자 전원이 설문에서 "매우 도움이 되었다"고 답했고, 모두가 4주 정규 과정에 관심을 보였습니다.',
+    summary: '9월 22일 용인 기흥 북카페에서 첫 AI 수다방을 열었습니다. 두 시간 뒤, 참가자들은 저마다 직접 만든 앱 하나를 손에 들고 돌아가셨습니다.',
     date: '2026.09.22', author: '티움 사무국', views: 0,
-    image: 'assets/images/news/sudabang1-01.jpg',
+    image: 'assets/images/news/sudabang1-06.jpg',
     content: `
       <h3>첫 AI 수다방, 이렇게 열렸습니다</h3>
       <p>2026년 9월 22일(화) 오전, 용인 기흥 북카페 <strong>꿈꾸는 정원</strong>에서 첫 번째 <strong>TIEUM AI 수다방</strong>을 열었습니다. 컴퓨터를 잘 몰라도 괜찮다는 약속 하나로 모인 자리였습니다.</p>
+
+      <p style="margin:22px 0 6px;"><img src="assets/images/news/sudabang1-06.jpg" alt="TIEUM AI 수다방 — 북카페에 모여 각자 노트북으로 실습하는 참가자들" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">각자 노트북을 펴고, 직접 만들어 보는 두 시간.</p>
+
       <p>두 시간 동안 이웃들과 마주 앉아 AI가 무엇인지, 우리 일상에서 어떻게 쓸 수 있는지 이야기를 나누었습니다. 그리고 각자 손으로 앱을 하나씩 만들어 보았습니다. 강의를 듣기만 하는 자리가 아니라, 옆에 앉아 같이 만들어 보는 자리였습니다.</p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:24px 0;">
-        <img src="assets/images/news/sudabang1-01.jpg" alt="제1회 TIEUM AI 수다방 — 최주안 사무국장이 화면을 가리키며 설명하고 있다" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
-        <img src="assets/images/news/sudabang1-02.jpg" alt="제1회 TIEUM AI 수다방 — 참가자 옆에서 직접 도와주는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
-        <img src="assets/images/news/sudabang1-04.jpg" alt="제1회 TIEUM AI 수다방 — 질문에 답하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:24px 0 10px;">
+        <img src="assets/images/news/sudabang1-01.jpg" alt="TIEUM AI 수다방 — 화면을 가리키며 설명하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+        <img src="assets/images/news/sudabang1-02.jpg" alt="TIEUM AI 수다방 — 참가자 옆에서 함께 살펴보는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+        <img src="assets/images/news/sudabang1-04.jpg" alt="TIEUM AI 수다방 — 질문에 답하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
       </div>
-      <p style="margin:0 0 6px;"><img src="assets/images/news/sudabang1-03.jpg" alt="제1회 TIEUM AI 수다방 — 북카페 꿈꾸는 정원에 둘러앉은 참가자들" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
-      <p style="margin:0 0 24px;font-size:13px;color:#718096;">북카페 꿈꾸는 정원에 둘러앉아 함께 만들어 본 두 시간.</p>
-
-      <h4>참가자 설문 결과</h4>
-      <p>마치고 나서 참가자들께 짧은 설문을 부탁드렸고, <strong>3분이 응답</strong>해 주셨습니다.</p>
-
-      <div style="background:#f7f9fc;border-left:4px solid #1B4F8A;border-radius:8px;padding:22px 24px;margin:20px 0;">
-        <p style="margin:0 0 16px;line-height:1.7;font-size:14.5px;color:#4a5568;">
-          <strong style="color:#1a1a2e;">&ldquo;오늘 시간이 도움이 되셨나요?&rdquo;</strong><br/>
-          <span style="display:inline-block;margin-top:6px;font-size:26px;font-weight:800;color:#1B4F8A;">100%</span>
-          <span style="color:#1a1a2e;font-weight:700;">&nbsp;&lsquo;매우 그렇다&rsquo;</span>
-          <span style="color:#718096;font-size:13px;">&nbsp;(3명 중 3명)</span>
-        </p>
-        <p style="margin:0;line-height:1.7;font-size:14.5px;color:#4a5568;border-top:1px solid #e2e8f0;padding-top:16px;">
-          <strong style="color:#1a1a2e;">&ldquo;4주 정규 과정이 열린다면 어떠세요?&rdquo;</strong><br/>
-          <span style="display:inline-block;margin-top:6px;">응답해 주신 <strong style="color:#1a1a2e;">3분 모두</strong>가 관심을 보여 주셨습니다.<br/>
-          &lsquo;꼭 듣고 싶다&rsquo; 1명 &middot; &lsquo;관심 있다, 안내를 받고 싶다&rsquo; 2명</span>
-        </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:0 0 6px;">
+        <img src="assets/images/news/sudabang1-05.jpg" alt="TIEUM AI 수다방 — 휴대폰 화면을 함께 보며 일대일로 도와주는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+        <img src="assets/images/news/sudabang1-03.jpg" alt="TIEUM AI 수다방 — 북카페 꿈꾸는 정원에 둘러앉은 참가자들" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
       </div>
+      <p style="margin:0 0 26px;font-size:13px;color:#718096;">막히는 곳은 옆에 앉아 하나씩 함께 풀어 갔습니다.</p>
 
-      <h4>참가자가 남긴 말</h4>
-      <p>설문에 적어 주신 답을 그대로 옮깁니다.</p>
+      <h4>참가자들이 남긴 말</h4>
+      <p>마치고 나서 짧은 설문을 부탁드렸습니다. 답해 주신 분들은 모두 오늘 시간이 <strong>&lsquo;매우 도움이 되었다&rsquo;</strong>고 해 주셨습니다. 적어 주신 말을 그대로 옮깁니다.</p>
 
-      <p style="margin:18px 0 8px;font-weight:700;color:#1a1a2e;">오늘 가장 기억에 남는 한 장면은?</p>
+      <p style="margin:20px 0 8px;font-weight:700;color:#1a1a2e;">오늘 가장 기억에 남는 한 장면은?</p>
       <ul>
         <li>편안한 분위기와 소통</li>
         <li>누구나 됩니다</li>
         <li>AI는 동료다</li>
       </ul>
 
-      <p style="margin:18px 0 8px;font-weight:700;color:#1a1a2e;">오늘 이 시간을 한 문장으로 표현한다면?</p>
+      <p style="margin:20px 0 8px;font-weight:700;color:#1a1a2e;">오늘 이 시간을 한 문장으로 표현한다면?</p>
       <ul>
         <li>편안하고 유익한 시간이었습니다.</li>
         <li>새 세상의 문 안에 들어왔다</li>
         <li>피하지 않고 함께 가기</li>
       </ul>
 
-      <p style="margin:18px 0 8px;font-weight:700;color:#1a1a2e;">이번 주에 한 가지 해본다면?</p>
+      <p style="margin:20px 0 8px;font-weight:700;color:#1a1a2e;">이번 주에 한 가지 해본다면?</p>
       <ul>
         <li>뉴스 클리핑</li>
         <li>안내문 만들기</li>
@@ -75,7 +65,8 @@ window.NEWS_POSTS = [
       <p>&lsquo;AI는 동료다&rsquo;, &lsquo;누구나 됩니다&rsquo;. 두 시간 전만 해도 AI를 멀게 느끼셨던 분들이 남긴 말입니다. 저희가 바라던 바로 그 자리였습니다.</p>
 
       <h4>다음 모임</h4>
-      <p>AI 수다방은 계속 이어집니다. 4주 정규 과정도 준비하고 있습니다. 다음 모임 안내를 받고 싶으시거나, 저희 단체를 초청해 동네에서 함께 열고 싶으시면 편하게 연락 주세요.</p>
+      <p>AI 수다방은 계속 이어집니다. 참가자들께서 <strong>4주 정규 과정</strong>이 열리면 참여하고 싶다는 뜻을 전해 주셔서, 지금 과정을 준비하고 있습니다.</p>
+      <p>다음 모임 안내를 받고 싶으시거나, 저희를 초청해 동네에서 함께 열고 싶으시면 편하게 연락 주세요.</p>
 
       <div style="background:#f7f9fc;border-left:4px solid #F5A623;border-radius:8px;padding:20px 22px;margin:20px 0;">
         <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
@@ -85,7 +76,7 @@ window.NEWS_POSTS = [
         </p>
       </div>
 
-      <p style="font-size:13px;color:#718096;">※ 참가자 사진은 본인 동의를 받아 게재했습니다.</p>
+      <p style="font-size:13px;color:#718096;">※ 참가자 사진은 개인정보 보호를 위해 얼굴을 가려 게재했습니다.</p>
     `
   },
   {
