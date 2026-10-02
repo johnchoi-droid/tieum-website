@@ -72,7 +72,7 @@
       /* ── Stats band ── */
       'stat.students': '교육 수혜 학생',
       'stat.schools':  '협력 학교',
-      'stat.years':    '교육 전문 경험',
+      'stat.years':    '교육 전문가 경력',
       'stat.countries':'글로벌 아웃리치',
 
       /* ── About ── */
@@ -521,7 +521,7 @@
       /* ── Stats ── */
       'stat.students': 'Students Benefited',
       'stat.schools':  'Partner Schools',
-      'stat.years':    'Years of Expertise',
+      'stat.years':    "Our Educators' Experience",
       'stat.countries':'Countries Reached',
 
       /* ── About ── */
