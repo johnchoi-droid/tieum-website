@@ -35,7 +35,8 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: hidden;   /* clip 미지원 구형 브라우저용 */
+  overflow-x: clip;     /* hidden 과 달리 스크롤 컨테이너를 만들지 않아 sticky 요소가 그대로 동작 */
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -197,6 +198,15 @@ input, textarea, select {
 /* ===================================================
    HEADER / NAV
    =================================================== */
+/* 안전장치: 내용이 가로로 넘쳐도 페이지 폭이 늘어나지 않게 한다.
+   (폭이 늘어나면 fixed 헤더가 같이 넓어져 모바일에서 메뉴 버튼이 화면 밖으로 나간다)
+   body 도 반드시 clip 이어야 한다 — body 가 hidden 이면 body 가 스크롤 컨테이너가 되어
+   position:sticky(소개 페이지 탭 등)가 동작하지 않는다. */
+html { overflow-x: clip; }
+/* 메뉴·팝업이 열리면 스크립트가 body 에 overflow:hidden 을 걸어 뒤 화면 스크롤을 잠근다.
+   html 이 clip 이면 그 값이 화면으로 전달되지 않으므로 html 에도 같이 걸어 준다. */
+html:has(> body[style*="overflow: hidden"]) { overflow: hidden; }
+
 #header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -971,7 +981,9 @@ html[lang="en"] .hero-title em {
   .team-card-lead .team-info h4 { justify-content: center; }
 }
 @media (max-width: 480px) {
-  .team-row { grid-template-columns: 1fr 1fr; }
+  /* minmax(0,1fr): 긴 단어가 있는 칸이 넓어지며 옆 칸을 화면 밖으로 밀어내지 않게 */
+  .team-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .team-row > .team-card { min-width: 0; }
   /* 이사장·사무국장 등 단독 카드는 풀폭 유지 (글씨 잘림 방지) */
   .team-row-single { grid-template-columns: 1fr; }
   .team-card-lead { padding: 28px 22px; gap: 16px; }
@@ -2282,7 +2294,9 @@ html[lang="en"] .hero-title em {
   .philos-grid.three-col { grid-template-columns: 1fr; }
   .philos-grid.two-col   { grid-template-columns: 1fr; }
   .about-intro { grid-template-columns: 1fr; gap: 28px; margin-bottom: 36px; }
-  .about-intro-slides { aspect-ratio: 16 / 9; }
+  /* min-height:260px 이 aspect-ratio 와 만나면 폭이 462px 로 강제돼 화면 밖으로 넘친다 */
+  .about-intro-slides { aspect-ratio: 16 / 9; min-height: 0; min-width: 0; }
+  .about-intro > * { min-width: 0; }
 }
 
 @media (max-width: 480px) {
@@ -6675,10 +6689,18 @@ select.lf-input { background: #fff; cursor: pointer; }
   text-align: center;
 }
 
+/* ── 구성원 소개 문구: 넓은 화면에서만 한 줄. 좁은 화면에서 nowrap 이면 페이지 폭이
+      늘어나 상단 메뉴(햄버거)가 화면 밖으로 밀려난다 ── */
+@media (min-width: 1024px) {
+  #team .section-desc { white-space: nowrap; }
+}
+
 /* ── English mode: prevent unwanted wrapping on specific section-desc ── */
-html[lang="en"] #outreach .section-desc {
-  white-space: nowrap;
-  max-width: none;
+@media (min-width: 1024px) {
+  html[lang="en"] #outreach .section-desc {
+    white-space: nowrap;
+    max-width: none;
+  }
 }
 
 /* ===================================================
@@ -7111,7 +7133,8 @@ html[lang="en"] #outreach .section-desc {
   .support-head-text .section-title,.support-head-text .section-desc{text-align:center}
 }
 @media (max-width:430px){
-  .sp{width:92px;margin-left:-24px}
+  /* 5장이 겹쳐 놓이는 묶음 — 고정 92px 이면 375px 이하에서 화면 밖으로 넘친다 */
+  .sp{width:clamp(58px,19vw,92px);margin-left:-5vw}
 }
 
 /* ── 언론 속 티움 (보도 기사) — 다크 섹션 ── */
@@ -7442,3 +7465,18 @@ html[lang="en"] #outreach .section-desc {
 /* ── 소식 팝업: 포스터 등 실제 이미지 슬라이드 ── */
 .news-popup-img.has-photo { height: auto; max-height: 320px; padding: 0; background: #f7f9fc; overflow: hidden; }
 .news-popup-img.has-photo img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
+
+/* ===================================================
+   작은 폰(360px 이하) — 헤더·통계가 화면 폭을 넘지 않게
+   =================================================== */
+@media (max-width: 360px) {
+  .nav-container { padding: 0 14px; gap: 8px; }
+  .logo { font-size: 1.3rem; }
+  .logo-kr { display: none; }            /* 영문 로고만 남겨 메뉴 버튼 자리를 확보 */
+  .hamburger { width: 44px; }
+  .stat-item { padding: 16px 8px; min-width: 0; }
+  .stat-number { font-size: 2.2rem; }
+  .stat-unit { font-size: 1.1rem; }
+  .team-row { gap: 12px; }
+  .team-row > .team-card { padding: 20px 12px; }
+}
