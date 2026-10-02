@@ -1881,6 +1881,11 @@ window.KO2EN = {
  "형식": "Format",
  "수강료": "Tuition",
  "수강 신청 (한국인재연구소) →": "Enroll (Korea Institute of Talent Education) →",
+ "전문 유료 과정은 현재 준비 중입니다": "Professional paid courses are in preparation",
+ "강좌와 일정이 확정되면 이곳에 안내하겠습니다.": "Courses and schedules will be posted here once confirmed.",
+ "개설 일정·기관 도입 문의 →": "Ask about schedules & institutional adoption →",
+ "실무자·기관 (과정별 안내 예정)": "Professionals & institutions (details per course to follow)",
+ "유료 (과정별 안내 예정)": "Paid (details per course to follow)",
  "기업·기관 도입 문의 (한국인재연구소) →": "Corporate & institutional inquiries (Korea Institute of Talent Education) →",
  /* 트랙 B — 미확정 플레이스홀더 */
  "[강좌명 — 확정 예정]": "[Course title — TBD]",
