@@ -595,7 +595,7 @@ function openDetail(postId) {
   if (post.thumbnailUrl && !post.embedUrl) {
     previewHtml = '<div class="wsd-thumb" style="background-image:url(\'' + wsSafeUrl(post.thumbnailUrl) + '\')"></div>';
   } else if (post.embedUrl) {
-    previewHtml = '<div class="wsd-embed-wrap"><iframe src="' + wsSafeUrl(embedSrc) + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+    previewHtml = '<div class="wsd-embed-wrap"><iframe src="' + wsSafeUrl(embedSrc) + '" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
   } else {
     previewHtml = '<div class="wsd-placeholder" style="background:linear-gradient(135deg,' + wm.color + 'ee,' + wm.color + '88)">' +
                   '<div class="wsd-ph-initial">' + wsEscape(post.title.replace(/\s/g,'').slice(0,2)) + '</div>' +

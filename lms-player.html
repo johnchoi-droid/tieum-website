@@ -475,7 +475,7 @@ function renderVideo(lesson) {
     src = 'https://drive.google.com/file/d/' + videoId + '/preview';
   }
 
-  container.innerHTML = '<iframe src="' + src + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  container.innerHTML = '<iframe src="' + src + '" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
 }
 
 /* ════════════════════ 퀴즈 렌더링 ════════════════════ */
@@ -1247,7 +1247,7 @@ function showMtPlayer() {
 
   var wrap = document.getElementById('mtIframeWrap');
   wrap.innerHTML = src
-    ? '<iframe src="'+src+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+    ? '<iframe src="'+src+'" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     : '<div class="mt-invalid-url"><p>⚠️ 인식할 수 없는 URL입니다.<br>Google Drive 또는 YouTube 링크를 사용하세요.</p></div>';
 }
 
