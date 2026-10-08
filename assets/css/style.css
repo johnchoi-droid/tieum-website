@@ -7484,3 +7484,9 @@ select.lf-input { background: #fff; cursor: pointer; }
   .team-row { gap: 12px; }
   .team-row > .team-card { padding: 20px 12px; }
 }
+
+/* 사무국장 학위 표기: PC에서는 학교명 2줄 + '교육학 박사 (미국 텍사스)' 1줄로 고정,
+   휴대폰에서는 자연스럽게 줄바꿈 */
+@media (min-width: 768px) {
+  .degree-lines > span { display: block; }
+}
