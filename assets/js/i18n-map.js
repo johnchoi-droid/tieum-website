@@ -298,7 +298,7 @@ window.KO2EN = {
  "PDF · Excel · Word · 한글 파일 지원": "PDF · Excel · Word · HWP files supported",
  "PDF · Word · Excel · PowerPoint · HWP · 이미지 (파일당 최대 50MB)": "PDF · Word · Excel · PowerPoint · HWP · images (max 50MB per file)",
  "Prediger 6각형 직업 적성 도구 심층 분석": "In-depth analysis with the Prediger hexagonal career aptitude tool",
- "SWBTS 교육학 박사": "Ed.D., SWBTS",
+ "Southwestern Baptist Theological Seminary 교육학 박사 (미국 텍사스)": "Ed.D., Southwestern Baptist Theological Seminary (Texas, USA)",
  "SW융합학부 교수": "Professor, School of Software Convergence",
  "TFM Academy — 창의융합과정": "TFM Academy — Creative Convergence Course",
  "TFM Academy 개설 & 청소년 프로라이프 비전캠프 2기": "TFM Academy launched & 2nd Youth Pro-Life Vision Camp",
