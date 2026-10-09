@@ -108,7 +108,7 @@
       'ieum.e.h':    'Education <span class="philos-kr">교육</span>',
       'ieum.e.p':    '모든 활동의 중심에 교육이 있으며, 어떤 활동에도 교육이 담겨 있습니다.',
       'ieum.u.h':    'Underserved Learners <span class="philos-kr">교육 소외 학습자</span>',
-      'ieum.u.p':    '정식 교육의 기회를 받지 못한 소외된 이들에게 교육의 기회를 제공하고 조력합니다.',
+      'ieum.u.p':    '정식 교육의 기회가 닿지 않은 학습자들과 함께 배움의 길을 엽니다.',
       'ieum.m.h':    'Majority <span class="philos-kr">다수</span>',
       'ieum.m.p':    '소수를 위한 특권이 아닌 다양한 배경을 가진 모든 아이들에게 적용됩니다.',
 
@@ -557,7 +557,7 @@
       'ieum.e.h':    'Education <span class="philos-kr">Education</span>',
       'ieum.e.p':    'Education is at the center of all activities, and education is embedded in every endeavor.',
       'ieum.u.h':    'Underserved Learners <span class="philos-kr">Equal Access</span>',
-      'ieum.u.p':    'Providing and supporting educational opportunities to the marginalized who lack access to formal education.',
+      'ieum.u.p':    'Opening paths to learning alongside learners whom formal education has not yet reached.',
       'ieum.m.h':    'Majority <span class="philos-kr">For All</span>',
       'ieum.m.p':    'Applied not as a privilege for the few, but to all children from diverse backgrounds.',
 
