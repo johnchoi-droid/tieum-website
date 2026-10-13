@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="대한민국역사와미래재단과 티움이 공동 운영하는 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
+  <meta name="description" content="재단법인 대한민국역사와미래가 주최하고 사단법인 티움이 주관한 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
   <meta property="og:type"        content="website" />
   <meta property="og:locale"      content="ko_KR" />
   <meta property="og:site_name"   content="사단법인 티움" />
   <meta property="og:title"       content="제1기 미래아카데미 | 티움" />
-  <meta property="og:description" content="대한민국역사와미래재단과 티움이 공동 운영하는 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
+  <meta property="og:description" content="재단법인 대한민국역사와미래가 주최하고 사단법인 티움이 주관한 청년 리더 양성 프로그램, 제1기 미래아카데미를 소개합니다." />
   <meta property="og:image"       content="https://tieum.org/assets/images/og-image.jpg" />
   <meta property="og:url"         content="https://tieum.org/future-academy.html" />
   <link rel="canonical" href="https://tieum.org/future-academy.html" />
@@ -92,6 +92,13 @@
       color: rgba(255,255,255,.85);
     }
     .fa-hero-partner span { opacity: .5; }
+    .fa-hero-partner .fa-org { opacity: 1; white-space: nowrap; }
+    .fa-hero-partner .fa-role { opacity: .6; margin-right: 6px; }
+    @media (max-width: 600px) {
+      /* 휴대폰: 주최·주관을 한 줄씩 */
+      .fa-hero-partner { flex-direction: column; gap: 4px; border-radius: 16px; padding: 10px 18px; }
+      .fa-hero-partner .fa-sep { display: none; }
+    }
     .fa-hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
     .fa-hero-tag {
       background: rgba(255,255,255,.1);
@@ -468,9 +475,9 @@
         "보수적 가치를 기반으로 AI 시대 미래를 준비하고<br>선도하는 각 분야의 Top 리더를 키운다."
       </p>
       <div class="fa-hero-partner">
-        재단법인 대한민국역사와미래
-        <span>×</span>
-        사단법인 티움
+        <span class="fa-org"><span class="fa-role">주최</span>재단법인 대한민국역사와미래</span>
+        <span class="fa-sep">|</span>
+        <span class="fa-org"><span class="fa-role">주관</span>사단법인 티움</span>
       </div>
       <div class="fa-hero-tags">
         <span class="fa-hero-tag">보수주의 가치</span>
@@ -487,8 +494,8 @@
     <div class="fa-section">
       <h2 class="fa-section-title"><span>📌</span> 프로그램 소개</h2>
       <p class="fa-desc">
-        제1기 미래아카데미는 대한민국역사와미래재단과 사단법인 티움이 공동으로 기획·운영하는
-        청년 리더십 양성 프로그램입니다.<br><br>
+        제1기 미래아카데미는 재단법인 대한민국역사와미래가 주최하고
+        사단법인 티움이 주관한 청년 리더십 양성 프로그램입니다.<br><br>
         대한민국의 핵심 가치를 계승하고, AI 시대의 급격한 변화에 능동적으로 대응할 수 있는
         실천형 미래 리더를 양성합니다. 단순한 지식 전달을 넘어 프로젝트 기반 학습(PBL)을 통해
         각 분야에서 실질적인 변화를 만들어낼 역량을 키웁니다.<br><br>
@@ -845,8 +852,8 @@ function goBack() {
   }
 })();
 </script>
-  <script src="assets/js/i18n-map.js?v=38"></script>
-  <script src="assets/js/i18n.js?v=31"></script>
+  <script src="assets/js/i18n-map.js?v=39"></script>
+  <script src="assets/js/i18n.js?v=32"></script>
   <script src="assets/js/main.js?v=7"></script>
 </body>
 </html>
