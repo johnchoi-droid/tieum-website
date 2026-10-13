@@ -110,7 +110,7 @@
       'ieum.u.h':    'Underserved <span class="philos-kr">교육 소외</span>',
       'ieum.u.p':    '정식 교육의 기회가 닿지 않은 학습자들과 함께 배움의 길을 엽니다.',
       'ieum.m.h':    'Majority <span class="philos-kr">다수</span>',
-      'ieum.m.p':    '소수를 위한 특권이 아닌 다양한 배경을 가진 모든 아이들에게 적용됩니다.',
+      'ieum.m.p':    '배움이 소수의 특권이 아닌, 다양한 배경을 가진 모든 학습자의 몫이 되도록 합니다.',
 
       /* ── Greeting ── */
       'greeting.tag':       '이사장 인사말',
@@ -559,7 +559,7 @@
       'ieum.u.h':    'Underserved <span class="philos-kr">Equal Access</span>',
       'ieum.u.p':    'Opening paths to learning alongside learners whom formal education has not yet reached.',
       'ieum.m.h':    'Majority <span class="philos-kr">For All</span>',
-      'ieum.m.p':    'Applied not as a privilege for the few, but to all children from diverse backgrounds.',
+      'ieum.m.p':    'Making learning not a privilege of the few, but something every learner can claim, whatever their background.',
 
       /* ── Greeting ── */
       'greeting.tag':       "Chairman's Message",
