@@ -192,6 +192,7 @@ section{padding:92px 0}
 .band-fog{background:var(--fog);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band-navy{background:var(--navy);color:#C6D6E4}
 .head{margin-bottom:44px;max-width:820px}
+#why .head{max-width:940px}
 .head .eyebrow{color:var(--orange);display:block;margin-bottom:16px}
 .head h2{font-size:clamp(1.5rem,2.85vw,2.1rem);font-weight:900;color:var(--ink);letter-spacing:-.035em;line-height:1.4}
 .band-navy .head h2{color:#fff}
@@ -217,6 +218,7 @@ section{padding:92px 0}
 .ksea-copy h2{font-size:clamp(1.42rem,2.6vw,1.95rem);font-weight:900;color:#fff;letter-spacing:-.035em;line-height:1.45}
 .ksea-copy p{margin-top:20px;color:#AFBFD0;font-size:.99rem;line-height:1.88;max-width:620px}
 .ksea-copy p strong{color:#fff;font-weight:700}
+.ksea-copy p strong.ln{display:block}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.18);border-left:1px solid rgba(255,255,255,.18);margin-top:40px}
 .facts > div{border-right:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);padding:22px 18px 24px}
 .facts .v{font-family:var(--grot);font-weight:700;font-size:1.34rem;color:var(--gold);line-height:1.2;letter-spacing:-.02em}
@@ -224,7 +226,7 @@ section{padding:92px 0}
 .ksea-img{position:relative;min-height:420px;background:var(--navy)}
 .ksea-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.72)}
 .ksea-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,44,74,.96) 0%,rgba(14,44,74,.24) 42%,rgba(14,44,74,.5) 100%)}
-.ksea-img .cap{position:absolute;left:34px;bottom:32px;z-index:2;color:#DCE7F1;font-size:.82rem;max-width:300px;line-height:1.7}
+.ksea-img .cap{position:absolute;left:34px;bottom:32px;z-index:2;color:#DCE7F1;font-size:.82rem;max-width:340px;line-height:1.7}
 .ksea-img .cap b{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
 
 /* ---------- why ---------- */
@@ -423,6 +425,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
   .proof-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:900px){
+  br.dk{display:none}
   .nav{display:none}
   .why,.tracks,.gates{grid-template-columns:1fr}
   .outs{grid-template-columns:1fr 1fr}
@@ -502,7 +505,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
       <a href="#faq">자주 묻는 질문</a>
     </nav>
     <div class="act">
-      <a class="tel" href="tel:+821080146730">010-8014-6730</a>
+      <a class="tel" href="tel:+821065790602">010-6579-0602</a>
       <a class="btn btn-o btn-sm" href="#apply">1차 사전 등록</a>
     </div>
   </div>
@@ -643,7 +646,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
       <p>
         KSEA(재미한인과학기술자협회)는 1971년 워싱턴 D.C.에서 한인 과학기술자 69명이 모여 창설한 단체입니다.
         미국 전역에 70여 개 지부와 30여 개 대학별 지부를 두고 있으며, 등록회원 3만 명 · 활동회원 7,000명 이상이 소속되어 있습니다.
-        <strong>이 프로그램은 그 선배 과학자들이 직접 한국 학생의 연구를 지도하는 자리입니다.</strong>
+        <strong class="ln">이 프로그램은 그 선배 과학자들이 직접 한국 학생의 연구를 지도하는 자리입니다.</strong>
       </p>
       <div class="facts">
         <div><div class="v">1971</div><div class="l">워싱턴 D.C. 창립</div></div>
@@ -654,7 +657,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
     </div>
     <div class="ksea-img">
       <img src="img/ksea.jpg" alt="안개 속 금문교" loading="lazy">
-      <div class="cap"><b>Golden Gate · 1937</b>미국과 태평양을 잇는 다리. 이 프로그램은 서울과 실리콘밸리를 잇습니다.</div>
+      <div class="cap"><b>Golden Gate · 1937</b>미국과 태평양을 잇는 다리.<br>이 프로그램은 서울과 실리콘밸리를 잇습니다.</div>
     </div>
   </div>
 </section>
@@ -666,7 +669,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
       <span class="eyebrow mono">01 / 왜 이 프로그램인가</span>
       <h2>실제 연구 지도가 되는 해외 프로그램은<br>거의 없습니다.</h2>
       <p class="sub">
-        무료로 참여하는 최상위 프로그램은 합격률이 한 자릿수로 극히 낮고, 고가의 유료 프로그램은 대부분 논문·에세이 지도에 그칩니다.
+        무료로 참여하는 최상위 프로그램은 합격률이 한 자릿수로 극히 낮고, 고가의 유료 프로그램은 대부분 논문·에세이 지도에 그칩니다.<br class="dk">
         그 사이 — <strong>선발이 있고, 비용을 내고, 현직 연구자가 직접 지도하는</strong> 자리가 비어 있습니다.
       </p>
     </div>
@@ -716,7 +719,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
         <div class="when">2026. 12<span>Step 02 · 선발</span></div>
         <div class="what">
           <h3>서류 심사 → 온라인 면접</h3>
-          <p>이름과 학교를 가린 블라인드 서류 심사로 60명을 선정하고, 3인 패널 면접을 거쳐 <strong>30명과 예비 5명</strong>을 선발합니다. 합격 발표 후 5일 안에 계약금(참가비의 30%)을 납부하면 참가가 확정됩니다.</p>
+          <p>이름과 학교를 가린 블라인드 서류 심사로 60명을 선정하고, 3인 패널 면접을 거쳐 <strong>30명과 예비 5명</strong>을 선발합니다.<br class="dk"> 합격 발표 후 5일 안에 계약금(참가비의 30%)을 납부하면 참가가 확정됩니다.</p>
         </div>
         <div class="no">02</div>
       </div>
@@ -740,7 +743,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
         <div class="when">2027. 3<span>Step 05 · 성과발표회</span></div>
         <div class="what">
           <h3>국내 성과발표회</h3>
-          <p>학부모와 학교를 초청해 연구 결과를 발표합니다. 연구계획서 → 연구보고서 → 현지 발표 → 연구자 평가 의견까지 전 과정이 기록으로 남습니다.</p>
+          <p>학부모와 학교를 초청해 연구 결과를 발표합니다. 연구계획서 → 연구보고서 → 현지 발표 → 연구자 평가 의견까지<br class="dk"> 전 과정이 기록으로 남습니다.</p>
         </div>
         <div class="no">05</div>
       </div>
@@ -1147,8 +1150,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
         <dl>
           <dt>담당</dt><dd>최주안 사무국장</dd>
           <dt>이메일</dt><dd><a href="mailto:johnchoi@tieum.org">johnchoi@tieum.org</a></dd>
-          <dt>전화</dt><dd><a href="tel:+821080146730">010-8014-6730</a></dd>
-          <dt>사무실</dt><dd><a href="tel:+821065790602">010-6579-0602</a></dd>
+          <dt>전화</dt><dd><a href="tel:+821065790602">010-6579-0602</a></dd>
           <dt>주소</dt><dd>서울특별시 서초구 효령로 57길 3</dd>
         </dl>
         <div class="box">
@@ -1169,7 +1171,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
     <p>1차 사전 등록은 비용이 없고 선발과 무관합니다. 모집 공고와 설명회 일정을 가장 먼저 받아보세요.</p>
     <div class="btns">
       <a class="btn btn-o" href="#apply">1차 사전 등록하기 <span class="arrow">→</span></a>
-      <a class="btn btn-ghost" href="tel:+821080146730">전화 상담 010-8014-6730</a>
+      <a class="btn btn-ghost" href="tel:+821065790602">전화 상담 010-6579-0602</a>
     </div>
     <p class="fine">사단법인 티움 × SVReBoot · 공동 주관 실리콘밸리 중소벤처기업협회 · 주최 KSEA 실리콘밸리</p>
   </div>
@@ -1179,7 +1181,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
 <footer>
   <div class="wrap">
     <div class="orgs">
-      <div><h4>주최</h4><p>KSEA Silicon Valley<span>재미한인과학기술자협회 실리콘밸리 · 회장 김지현</span></p></div>
+      <div><h4>주최</h4><p>KSEA Silicon Valley<span>재미한인과학기술자협회 실리콘밸리<br>회장 김지현</span></p></div>
       <div><h4>공동 주관</h4><p>실리콘밸리 중소벤처기업협회<span>산타클라라 상공회의소</span></p></div>
       <div><h4>운영</h4><p>사단법인 티움<span>이사장 고봉익</span></p></div>
       <div><h4>현지 프로그램 운영</h4><p>SVReBoot<span>대표 이원표</span></p></div>
@@ -1208,7 +1210,7 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
       <span>비용 없음 · 선발과 무관 · 회신 2영업일 이내</span>
     </div>
     <div class="acts">
-      <a class="btn btn-ghost btn-sm" href="tel:+821080146730">전화 상담</a>
+      <a class="btn btn-ghost btn-sm" href="tel:+821065790602">전화 상담</a>
       <a class="btn btn-o btn-sm" href="#apply">1차 사전 등록</a>
     </div>
   </div>
@@ -1337,9 +1339,19 @@ footer{background:#081A2C;color:#93AEC6;padding:64px 0 42px;font-size:.85rem}
   var sticky = document.getElementById('sticky');
   var hero = document.querySelector('.hero');
   if (sticky && hero && 'IntersectionObserver' in window) {
+    var foot = document.querySelector('footer');
+    var heroIn = true, footIn = false;
+    var sync = function(){ sticky.classList.toggle('on', !heroIn && !footIn); };
     new IntersectionObserver(function(entries){
-      sticky.classList.toggle('on', !entries[0].isIntersecting);
+      entries.forEach(function(e){
+        if (e.target === hero) heroIn = e.isIntersecting;
+        else footIn = e.isIntersecting;
+      });
+      sync();
     }, { threshold: 0 }).observe(hero);
+    if (foot) new IntersectionObserver(function(entries){
+      footIn = entries[0].isIntersecting; sync();
+    }, { threshold: 0 }).observe(foot);
   }
 })();
 </script>
