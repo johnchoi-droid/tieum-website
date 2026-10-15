@@ -729,7 +729,7 @@ window.KO2EN = {
  "분야별 미래 리포트 · 영상 콘텐츠 · 정책제안서": "Future reports by field · video content · policy proposals",
  "분야별 전문 강의": "Specialized Lectures by Field",
  "분쟁 지역 어린이를 위한 트라우마 인식 교수법(TIE)과 PBL을 통합한 교육 프로그램. UNHCR 지침을 반영한 안전한 학습 환경 설계안.": "An education program integrating trauma-informed education (TIE) and PBL for children in conflict zones. A safe learning environment design reflecting UNHCR guidelines.",
- "블루미 대표": "CEO, Bloomy",
+ "플루미 대표": "CEO, Plumi",
  "비고란에": "in the memo field",
  "비고츠키의 근접발달영역(ZPD) 이론과 메지로의 변혁적 학습 이론을 기반으로 스캐폴딩 역할을 합니다.": "Provides scaffolding based on Vygotsky's Zone of Proximal Development (ZPD) and Mezirow's transformative learning theory.",
  "비밀번호": "Password",
