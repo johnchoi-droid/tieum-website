@@ -13,6 +13,51 @@ window.NEWS_POSTS = [
   /* 쌍핵각성 캠프 소식(news-camp1)은 2026-07 미개최 결정으로 숨김 —
      원문은 _archive/camp-ssanghaek-2026.html 에 보관 */
   {
+    id: 'news-aischool-2-review', pin: true, category: 'notice', categoryLabel: '공지',
+    title: 'AI 수다방 두 번째 시간 — "배우는 날이 아니라, 장만하는 날입니다"',
+    summary: '10월 7일, 용인 기흥 북카페 꿈꾸는 정원에서 AI 수다방 두 번째 시간이 열렸습니다. 참석자 한 분 한 분이 집에 돌아가 바로 쓸 AI 도구 세 가지를 직접 만들었습니다.',
+    date: '2026.10.07', author: '티움 사무국', views: 0,
+    image: 'assets/images/news/sudabang2-01.jpg',
+    content: `
+      <p>지난 10월 7일, 용인 기흥의 북카페 <strong>꿈꾸는 정원</strong>에서 티움 AI 수다방 두 번째 시간이 열렸습니다. 이번 주제는 <strong>&ldquo;오늘 바로 3개 만들어 갑니다&rdquo;</strong>였습니다. 강의를 듣고 끝나는 자리가 아니었습니다. 집에 돌아가 내 휴대폰에서 바로 쓸 AI 도구 세 가지를 참석자 한 분 한 분이 직접 만들었습니다. 1회차에 오지 못한 분들도 앱 설치와 첫 인사부터 함께 시작했습니다.</p>
+
+      <p style="margin:22px 0 6px;"><img src="assets/images/news/sudabang2-01.jpg" alt="TIEUM AI 수다방 두 번째 시간 — 북카페에 둘러앉아 강의를 듣는 참석자들" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">&ldquo;오늘, 세 가지를 장만합니다.&rdquo;</p>
+
+      <h4>오늘 장만한 세 가지</h4>
+      <p style="margin:18px 0 6px;font-weight:700;color:#1a1a2e;">① 흩어진 일정 정리 비서</p>
+      <p>가정통신문, 학원 공지, 예약 문자, 단톡방 공지를 사진 한 장으로 올렸습니다. 그러면 AI가 날짜와 할 일만 뽑아 달력처럼 정리해 줍니다. 참석자들은 가방과 휴대폰 속 실제 공지로 바로 실습했습니다.</p>
+
+      <p style="margin:18px 0 6px;font-weight:700;color:#1a1a2e;">② 대신 써주는 비서</p>
+      <p>세 번 썼다 지우던 문자 한 통을 AI에게 맡겨 봤습니다. 선생님께 보내는 문자, 모임 공지, 가게 안내 문자가 그 대상이었습니다. 원칙은 <strong>&ldquo;초안은 AI가, 마무리는 내가&rdquo;</strong>였습니다. 받은 초안을 반드시 한 번은 직접 고쳐 보는 것이 이날의 규칙이었습니다.</p>
+
+      <p style="margin:18px 0 6px;font-weight:700;color:#1a1a2e;">③ 나만의 맞춤형 조언자</p>
+      <p>이날 실습의 핵심이었습니다. AI는 내 상황을 모르고, 그 상황을 아는 사람은 나입니다. 빈칸 채움형 문장으로 나의 고민과 상황을 넣고, 나에게 맞는 구체적인 방법을 물었습니다. 실명과 연락처는 빼고, 조언은 참고하되 판단은 내가 한다는 원칙도 함께 지켰습니다.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:24px 0 6px;">
+        <img src="assets/images/news/sudabang2-02.jpg" alt="TIEUM AI 수다방 두 번째 시간 — 참석자 화면을 함께 살펴보는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+        <img src="assets/images/news/sudabang2-03.jpg" alt="TIEUM AI 수다방 두 번째 시간 — '오늘 바로 3개 만들어 갑니다' 화면 앞에서 설명하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+        <img src="assets/images/news/sudabang2-04.jpg" alt="TIEUM AI 수다방 두 번째 시간 — 실습 순서를 안내하는 모습" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
+      </div>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">가방과 휴대폰 속 실제 공지로, 그 자리에서 바로 만들어 보았습니다.</p>
+
+      <p>마무리로 각자 결과물을 캡처해 휴대폰 앨범의 <strong>&lsquo;나의 AI&rsquo; 폴더</strong>에 남겼습니다. <strong>&ldquo;배우면, 남아야 합니다.&rdquo;</strong> 티움이 모든 교육에서 지키는 원칙입니다.</p>
+
+      <h4>&ldquo;AI에게 어디까지 맡겨도 될까요?&rdquo; — 깊이 있는 토론</h4>
+      <p>질의응답 시간에는 예상보다 훨씬 깊은 이야기가 오갔습니다. 질문은 기능을 넘어 AI 시대의 기준으로 이어졌습니다.</p>
+      <ul>
+        <li>AI에게 어디까지 허용하고 맡겨야 할까?</li>
+        <li>AI에게 일을 시키는 것 자체가 두렵다</li>
+        <li>AI에게도 존댓말을 써야 하는 게 아닐까?</li>
+      </ul>
+      <p>참석자들은 각자의 경험과 생각을 꺼내 놓으며 오랜 시간 토론했습니다. 정답을 하나로 정하기보다, 실습에서 지켰던 원칙들을 다시 짚어 보며 저마다의 기준을 세워 보는 시간이었습니다. 그 원칙은 이렇습니다. 첫 답은 언제나 초안입니다. 조언은 참고하고, 판단은 내가 합니다. 마지막 확인은 언제나 사람의 몫입니다. AI를 어떻게 대할지 묻는 질문은 결국 AI와 어떤 관계를 맺을지에 대한 질문이라는 것을 함께 확인했습니다.</p>
+
+      <p>많은 분들이 &ldquo;유익했다&rdquo;, &ldquo;좋았다&rdquo;는 소감을 남겨 주셨습니다. 함께해 주신 모든 분께 감사드립니다.</p>
+
+      <p style="font-size:13px;color:#718096;">※ 참가자 사진은 개인정보 보호를 위해 얼굴을 가려 게재했습니다.</p>
+    `
+  },
+  {
     id: 'news-aischool-1-review', pin: true, category: 'notice', categoryLabel: '공지',
     title: '[후기] 제1회 TIEUM AI 수다방 — "AI는 동료다"',
     summary: '9월 22일 용인 기흥 북카페에서 첫 AI 수다방을 열었습니다. 두 시간 뒤, 참가자들은 저마다 직접 만든 결과물을 손에 들고 돌아가셨습니다.',
