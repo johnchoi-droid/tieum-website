@@ -8,7 +8,7 @@ window.KO2EN = {
  "WISET(한국여성과학기술인육성재단) 정책자문위원장": "Chair, Policy Advisory Committee, WISET (Korea Foundation for Women in Science, Engineering and Technology)",
  "현대차 정몽구재단 그린 소사이어티 총괄운영위원장": "General Steering Committee Chair, Green Society, Hyundai Motor Chung Mong-Koo Foundation",
  "전) 고려대학교 제20대 총장": "Former 20th President, Korea University",
- "박하식": "Park Ha-sik",
+ "박하식": "Park Ha-shik",
  "교장": "Principal",
  "하나고등학교 교장": "Principal, Hana Academy Seoul",
  "전) 민족사관고등학교 교장": "Former Principal, Korean Minjok Leadership Academy",
