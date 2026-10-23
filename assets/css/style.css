@@ -967,6 +967,7 @@ html[lang="en"] .hero-title em {
   line-height: 1.5;
 }
 .team-card-lead .team-info li { font-size: .83rem; }
+.team-info li.wrap-any { overflow-wrap: anywhere; }  /* 띄어쓰기 없는 긴 기관명(WISET(…))만 좁은 카드에서 줄바꿈 허용 */
 
 /* 반응형 */
 @media (max-width: 1023px) {

@@ -1,5 +1,20 @@
 /* TIEUM KO→EN text-node translation map — auto-applied by i18n.js applyTextMap() */
 window.KO2EN = {
+ /* ── 이사 (2026-10-23 추가) ── */
+ "정진택": "Chung Jin-taek",
+ "총장": "President",
+ "고려대학교 공과대학 교수": "Professor, College of Engineering, Korea University",
+ "교육부 대학규제개혁협의회 위원장": "Chair, University Regulatory Reform Council, Ministry of Education",
+ "WISET(한국여성과학기술인육성재단) 정책자문위원장": "Chair, Policy Advisory Committee, WISET (Korea Foundation for Women in Science, Engineering and Technology)",
+ "현대차 정몽구재단 그린 소사이어티 총괄운영위원장": "General Steering Committee Chair, Green Society, Hyundai Motor Chung Mong-Koo Foundation",
+ "전) 고려대학교 제20대 총장": "Former 20th President, Korea University",
+ "박하식": "Park Ha-sik",
+ "교장": "Principal",
+ "하나고등학교 교장": "Principal, Hana Academy Seoul",
+ "전) 민족사관고등학교 교장": "Former Principal, Korean Minjok Leadership Academy",
+ "전) 충남평생교육진흥원 초대 원장": "Former Founding President, Chungnam Institute for Lifelong Education",
+ "전) 충남삼성고등학교 초대 교장": "Former Founding Principal, Chungnam Samsung High School",
+ "전) 경기외국어고등학교 교장": "Former Principal, Gyeonggi Foreign Language High School",
  /* ── 티움 위클리 (weekly.html) ── */
  "티움 위클리": "TIEUM Weekly",
  "🗞 주간 리포트": "🗞 Weekly Report",
