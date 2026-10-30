@@ -9,6 +9,140 @@
  */
 
 window.WEEKLY_DATA = [
+  {
+    id:      'wk-2026-44',
+    issue:   7,
+    period:  '2026-10-26/2026-10-30',
+    label:   '2026년 10월 26일 – 30일',
+    title:   '제7호 — 안경을 막는 일과 눈을 키우는 일',
+    summary: '이번 주 국내외 AI·교육 뉴스 70건. AI 안경 제재와 학교 AI 금지처럼 막는 규칙이 빠르게 늘어나는 사이, 학생들은 제대로 가르쳐 달라고 요구했고 AI 역량에 값이 매겨지며 격차도 벌어졌습니다.',
+    color:   '#1B4F8A',
+    content: `
+      <p style="color:#718096;font-size:.9rem;margin-bottom:24px;">2026년 10월 26일 – 30일 · 티움 위클리 제7호</p>
+
+      <p>사랑하는 티움 후원자 여러분, 그리고 티움을 찾아 주신 방문자 여러분, 안녕하세요. 티움 사무국장 최주안입니다.</p>
+      <p>혹시 이번 주에 이런 질문을 떠올려 보신 적이 있으신가요? &ldquo;시험장의 AI 안경은 어떻게 막아야 할까?&rdquo; &ldquo;우리 아이 학교는 AI를 어디까지 허용할까?&rdquo; &ldquo;아이가 나보다 AI에게 먼저 묻는다면 나는 무엇을 해야 할까?&rdquo; 이번 주 뉴스는 이 질문들로 가득했습니다. 닷새 치 기사를 모아 다시 읽어 보니, 결국 한 가지 물음으로 모였습니다. <strong>막는 것으로 충분할까요?</strong></p>
+
+      <p style="margin:22px 0 6px;"><img src="assets/images/weekly/wk-2026-44.jpg" alt="일러스트 — 저녁 식탁에서 부모와 학생이 공책을 함께 보며 이야기를 나누고, 닫힌 노트북과 벗어 둔 안경이 곁에 놓여 있는 모습" width="1600" height="900" style="width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">안경은 규칙으로 막을 수 있습니다. 판단하는 눈은 곁에 앉아 함께 키웁니다.</p>
+      <h3>📊 이번 주 한눈에</h3>
+      <p>닷새 동안 <strong>70건</strong>의 기사를 읽었습니다. 국내 38건, 해외 32건입니다.</p>
+<svg viewBox="0 0 640 224" width="100%" role="img" aria-label="이번 주 일별 국내·해외 기사 수" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.nm{font-size:12px;fill:#fff;font-weight:700}.lg{font-size:12px;fill:#4a5568}</style>
+<text class="lb" x="68" y="35" text-anchor="end">10/26(월)</text>
+<rect x="78" y="20" width="281.1" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="218.6" y="35" text-anchor="middle">8</text>
+<rect x="359.1" y="20" width="210.9" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="464.6" y="35" text-anchor="middle">6</text>
+<text class="lb" x="580.0" y="35">14건</text>
+<text class="lb" x="68" y="69" text-anchor="end">10/27(화)</text>
+<rect x="78" y="54" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="69" text-anchor="middle">7</text>
+<rect x="324.0" y="54" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="69" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="69">14건</text>
+<text class="lb" x="68" y="103" text-anchor="end">10/28(수)</text>
+<rect x="78" y="88" width="281.1" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="218.6" y="103" text-anchor="middle">8</text>
+<rect x="359.1" y="88" width="210.9" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="464.6" y="103" text-anchor="middle">6</text>
+<text class="lb" x="580.0" y="103">14건</text>
+<text class="lb" x="68" y="137" text-anchor="end">10/29(목)</text>
+<rect x="78" y="122" width="281.1" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="218.6" y="137" text-anchor="middle">8</text>
+<rect x="359.1" y="122" width="210.9" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="464.6" y="137" text-anchor="middle">6</text>
+<text class="lb" x="580.0" y="137">14건</text>
+<text class="lb" x="68" y="171" text-anchor="end">10/30(금)</text>
+<rect x="78" y="156" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="171" text-anchor="middle">7</text>
+<rect x="324.0" y="156" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="171" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="171">14건</text>
+<rect x="78" y="196" width="12" height="12" rx="2" fill="#1B4F8A"/><text class="lg" x="96" y="206">국내</text>
+<rect x="148" y="196" width="12" height="12" rx="2" fill="#F5A623"/><text class="lg" x="166" y="206">해외</text>
+</svg>
+      <p style="margin-top:18px;">하루에 한 줄씩, 그날의 흐름을 이렇게 적어 두었습니다.</p>
+      <ul style="font-size:.95em;">
+        <li><strong>월</strong> — 미국 학교에서는 AI 도구에 대한 규제와 반발이 커지고, 한국은 청소년부터 시니어까지 전 세대 AI 리터러시 콘텐츠 확산에 속도를 내고 있습니다.</li>
+        <li><strong>화</strong> — 국내는 교육청과 지자체가 공공 AI 교육과 성인 실용 교육을 넓히는 가운데 '수능 AI 안경' 같은 오남용 문제가 불거졌고, 해외는 빅테크 주도의 학교 AI 보급에 학생·학부모·정치권이 제동을 걸었습니다.</li>
+        <li><strong>수</strong> — 시험장의 AI 안경부터 뉴욕시의 금지, 테네시의 협력 모델까지, 세계가 &ldquo;AI를 막을 것인가, 가르칠 것인가&rdquo;의 갈림길에서 서로 다른 답을 내놓고 있습니다.</li>
+        <li><strong>목</strong> — AI 안경 부정행위, 채용시장의 'AI 리터러시 프리미엄', 빅테크의 교실 진입 논란까지, 질문은 하나로 모입니다. AI를 어떻게 책임 있게, 격차 없이 가르칠 것인가.</li>
+        <li><strong>금</strong> — 국내는 AI 리터러시와 스마트기기 과의존 대응이 교육청·지자체의 의제로 떠올랐고, 해외는 학생을 AI의 주도자로 키우는 교육과 K-12 AI 가이드라인 정착이 공통 흐름이 되었습니다.</li>
+      </ul>
+
+      <h3>🔍 이번 주 흐름 세 가지</h3>
+      <ul>
+        <li><strong>막는 규칙이 먼저 움직였습니다</strong> — 수능을 앞두고 가장 많이 오르내린 말은 'AI 안경'이었습니다. 교사의 <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9kcExDRjRVU3FEYWsyTGRqRlFHX0M0Vy1vTUdBNnZ3TllhUnJSUHBJNG1YVXpPRWdmYU9nWENEOHBnX0Y4LUU4U2wzenFQZnVLR29sVE1lVlN1VXhsd2VESNIBYEFVX3lxTE9kcExDRjRVU3FEYWsyTGRqRlFHX0M0Vy1vTUdBNnZ3TllhUnJSUHBJNG1YVXpPRWdmYU9nWENEOHBnX0Y4LUU4U2wzenFQZnVLR29sVE1lVlN1VXhsd2VESA?oc=5" target="_blank" rel="noopener">82%가 수능·모의고사에서 AI 안경을 식별하기 어렵다</a>고 답했고, 교육부는 <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsVlNqYTBsTVdEczRnYVBMa2c4ZG0zYXVxNGg5cUVHdFZKcWRSNDJKRWc2M3dYTjJaQTFnZEVXR3VCZWZidjI5NVg4Skd6SHQtSno5YVVFM2dLbTQ?oc=5" target="_blank" rel="noopener">형사고발과 응시자격 정지 3년이라는 강화된 제재</a>를 발표했습니다. 해외도 비슷합니다. 뉴욕시 공립학교는 <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPQVFUVERKNGMyTDlwWUQ2Z29SYldYc1pyRHZvZHNFXzhsRFVROWE2T05vZ3lfLUE3Nm5tYWtxbU9fZVhIMUNXWFZ0aktrTHBUNHlFQll2QW94ZGdBbWFUT0tUcElMT1NMb2VkNDM3NkN4ZGYtb3E0eThhVHhsbkZkZEJLM2RSM2d1M3piNThHQWp4QzRDZjJfdl9qM0nSAaIBQVVfeXFMTl9KZ3YzOW9vdV9PcWhjTmV6bDZxTjZZYmRtZmNKdXRaenlXbEhETXZrRXVPdFJFZFNlcUM3WTZwRl9KS3VMWndXZS04NW53Vy1rUlFiWlkyRThhamNiVEg5bEdrOFBGYXFpelNnRUtLN2hLUWxxZjZoekhueHRjLUJ4aVJrNEFqSWtDUnNTVDlJSkxXM043R1lDbFdBME13ZHJ3?oc=5" target="_blank" rel="noopener">중학교까지 학생의 AI 사용을 금지</a>하는 정책을 시행합니다. 그런데 다른 길을 고른 곳도 있습니다. 에스토니아는 <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE11cDdrVHBjdUpxR28zZ3BhbjlLYXVCTF80XzFBVlF6VmZJSHlLZzlsVnd2WHp6WHAtdU9GeG8tcnRGcnJIUS01MG1QaFpCVEdGR0dHM1g1OHY3ME1LQzdfOTNxNHRnZw?oc=5" target="_blank" rel="noopener">금지하는 대신 활용 구조를 설계</a>하고 있고, 텍사스 학교들은 <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQb3IzaDhaY3Ywc1VoOEVmSkFoN1EzOTJPaDYzSWRKYzBUZW4yZmFCWTB3dTBiaVRzU0R2TE1YdTdKZnlQNm9aNkxwWlloLUN1YzB5M1ZfVHh1RTZ2bVQ2RU05a3JLbjhQNjRNVDV4NF9TZkdGcW9yMDBDZXlpU3BpYTctckR2MTE3bkVuLTdPbGNvNk02Um5vVHRCdlJMa1FsR0lR?oc=5" target="_blank" rel="noopener">AI가 학습을 대체하지 않고 보완하는 방식</a>을 넓혀 가고 있습니다. 같은 고민 앞에서 답이 갈린 한 주였습니다.<br/><br/></li>
+        <li><strong>어른은 치우자 하고, 학생은 가르쳐 달라고 합니다</strong> — 구글이 학교에 AI 도구를 적극 들여오자 <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxONHBjNXQ2cTBrbXE0dmpEYTVZU3NjdUE5V212cnhveW1BX3pGSnNYUS1iUjNURTlYS005QkZibmhsMkwxY3lBYko5RklPcHlOUXlRcENvakx2dE9GYXFSNnk0Q2FjS2xiWFpzLUVSVVRJUTE4d3JvamUwT2xHeFVXLV9BSTIxc1BLaHpEZzBEZ3hiX2VXek5jUmR6Rlk2a3Q3WktMWnRGN2FZelhiQ3ZjRlZQT3BreVdHX3VHcDQ2WQ?oc=5" target="_blank" rel="noopener">학생들은 그 확산이 지나치다고 지적</a>했습니다. 실리콘밸리의 테크 업계 부모들은 <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxObU9iYUhYRFBtWGtacnFPMDFsYkpsdHZrNDk4by1MQlpuVzQ0U0RydmxnMFA4bEVOU1RqSnVUaXZVdFVJSkoyYnJnaXpRclZ1X1h5YWdmOTY4QzB0QXVmNnhiR2NKTC1YRjFvanJ5bE5HVWZ2cWQwazdZRGFzdkhPQXdmZVVXWmlhYjBLY1BMdG1hZEw2TVlqTXFHVGJsbGdtWXc?oc=5" target="_blank" rel="noopener">자신이 만든 기술을 자녀 학교에서는 빼 달라</a>고 요구하고 있습니다. 그런데 같은 주에 미국 학생들이 <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOTTBHdXRwX2lVWV9hNXN0VzhyaEpNTEtqSUdQLU5RekVqalAxVGJ3NldrSkRnUTBxSmtVeXdpVFJjV05KMVV1SVlNUnBwZTZHUThQQWFUMWYzZ21CY2tTVjRRNVFvdjgyQ1N0MmEwcVVieEFGME43bVY1TUkzNTNKV0k3b2dHLVFEZ2JtejlzLV9KNXB0bWNzcFNBLUlMQ29K?oc=5" target="_blank" rel="noopener">목적 있는 기술 활용과 AI 리터러시 교육을 학교에 직접 요구</a>한다는 소식도 나왔습니다. 칼럼 하나는 <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQMDlpbHhlZGFnS0JUV1Y1bXMtVkpiTER1bUJZQnhjeFAzMWRoWjJmVEVSQ2NTem5PSWl3M2o1ZTJMemlUQW90VG1uWEhPaFNjdDhlaVV0TjhMRlpFZEYwTGZ3ZUFxemhoVE5qdW9nYVN5VHcwVVp0TUk1alRiTlU4Zzk0Wmg0djl6N0N0Mmx1MnBFN0psRVVERlp0OF9SNTJW?oc=5" target="_blank" rel="noopener">학생을 AI의 '승객'이 아니라 '운전자'로 키워야 한다</a>고 주장했습니다. 국내에서는 <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1JYmZXZzF2SXc2TFc4ZjR4WEh5Y0F6T1J6M3Noc3hBa2RNTFMtV2lVTHVCLWJwWWJIaVE0eTVnTzhKX2tESU9EOVFFRERJT0hqWkdrRzRLQzdjSktfX0NRN3NCRmoycEtuYmotTktzanlWRGhJTUVnbko2cW4?oc=5" target="_blank" rel="noopener">아이들이 부모보다 AI에게 먼저 묻는 현상</a>을 다룬 글이 실렸습니다. 학생들이 거부하는 것은 배움이 아니라, 설명 없이 쥐여 준 도구일지 모릅니다.<br/><br/></li>
+        <li><strong>역량에는 값이 매겨지고, 격차는 벌어집니다</strong> — 하반기 공채에서 AI 활용 역량을 점검하는 흐름이 번지면서 <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE55Ty1veWhBeXRnbFoxOEtpaEtTZXlhV1AzWngzZl85RFJvNFlzQWZOY2Z3bjVnUjE2eVRSalRFckQydHBHekNVWURucGZqcGp3aFV5a1ptWHdleUxpdEVKaTB6emxCMUdjLU10aA?oc=5" target="_blank" rel="noopener">인크루트 AI 리터러시 서비스 결제가 전월보다 50% 늘었습니다</a>. 링크드인 데이터에서는 <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQdXpxSVpZRmZQVDJqbkp3MmoxQXFneG41TzRDYk03SG1kZVZEU0NEVmhVRE5CRzA1RDVfeU85VVgtVHRibFRwejVMTXNxYVFTb2pZR3RtZ1lzT2pIWmFqWHhXMXowRFlLaWRrX25BcXdzWjN4NXFjclhSZDZ3c0ppQmJLd2dTT3hDREtnd2VR?oc=5" target="_blank" rel="noopener">AI 리터러시 역량을 가진 회원의 채용 가능성이 78% 더 높게</a> 나타났습니다. 반대편 소식도 있었습니다. AI에 많이 노출된 직종에서 고용 격차가 커지면서 <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1SbmVkaUZ2QzFfc2c1TlBfTV9iMkx1VmJWV0FabjNYTURiSVd1eXRVaXdneVdHQVZkN0FJdDgwRmhYQWNkZk5hN0NKRjRSNTlZaTdzNWMydVVxa1N1UmFVNTh6N2JFWjVpeVHSAW5BVV95cUxOZkQwckVpUnctcFlpZ0E0SGQ0bEtrcDA1N0Q4NEZtMnFjeUtid1YzNDBwbmJUSVZDN1k2QlNQQ0dtUGExZFlGa0QtYlVHelRpQmtrcGtCYXg4YnJUZzdpRTJNbHJCMWdBbjdZMERVdw?oc=5" target="_blank" rel="noopener">고졸 이하 여성의 고용률이 9.5%포인트 줄었습니다</a>. 사교육 시장에는 <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE01M08wY253SnZ1X2hUVG1peFBvMnNsbTBaODRDRGU0TFZVcXV3RzV5andrOFYxLVVaeWhsTDh0akNkTFItTHBCWEhGc2RYWXJ3WG5lMXQyRm9qN2pUYzY1dXg2TFlGN0RHdUpJ?oc=5" target="_blank" rel="noopener">유아 대상 300만원대 AI 캠프</a>까지 등장했습니다. 배움이 기회가 될수록, 그 기회에 닿지 못하는 사람이 누구인지도 함께 물어야 합니다.</li>
+      </ul>
+
+      <h3>📊 주제별로 나누어 보면</h3>
+      <p>사무국이 70건을 여덟 가지 주제로 나누어 보았습니다.</p>
+<svg viewBox="0 0 640 260" width="100%" role="img" aria-label="이번 주 기사 주제별 분포" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.ct{font-size:13px;fill:#1a1a2e;font-weight:700}</style>
+<text class="lb" x="140" y="29" text-anchor="end">정책·가이드라인</text>
+<rect x="150" y="15" width="430.0" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="588.0" y="29">20</text>
+<text class="lb" x="140" y="59" text-anchor="end">리터러시 제도화</text>
+<rect x="150" y="45" width="236.5" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="394.5" y="59">11</text>
+<text class="lb" x="140" y="89" text-anchor="end">사고력·정서·의존 경고</text>
+<rect x="150" y="75" width="193.5" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="351.5" y="89">9</text>
+<text class="lb" x="140" y="119" text-anchor="end">현장·체험·진로</text>
+<rect x="150" y="105" width="150.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="308.5" y="119">7</text>
+<text class="lb" x="140" y="149" text-anchor="end">격차·형평</text>
+<rect x="150" y="135" width="150.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="308.5" y="149">7</text>
+<text class="lb" x="140" y="179" text-anchor="end">교사·리더의 역할</text>
+<rect x="150" y="165" width="129.0" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="287.0" y="179">6</text>
+<text class="lb" x="140" y="209" text-anchor="end">기업·직장 AI교육</text>
+<rect x="150" y="195" width="107.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="265.5" y="209">5</text>
+<text class="lb" x="140" y="239" text-anchor="end">안전·개인정보</text>
+<rect x="150" y="225" width="107.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="265.5" y="239">5</text>
+</svg>
+      <p style="margin-top:14px;">가장 많은 것은 <strong>정책·가이드라인</strong>으로 20건이었습니다. 지난주 12건에서 크게 늘어 첫째가 되었습니다. <strong>리터러시 제도화</strong>도 8건에서 11건으로 늘었습니다. 반대로 지난주 첫째였던 <strong>교사·리더의 역할</strong>은 13건에서 6건으로 절반 넘게 줄었습니다. 사고력·정서·의존 경고 9건, 현장·체험·진로 7건, 격차·형평 7건, 기업·직장 AI교육 5건, 안전·개인정보 5건이 뒤를 이었습니다. 숫자가 보여 주는 것은 분명합니다. 이번 주에는 사람보다 규칙이 더 많이 다뤄졌습니다.</p>
+
+      <h3>💬 사무국장의 생각</h3>
+      <p>세 흐름을 한 줄로 잇는다면 이렇습니다. <strong>안경은 규칙으로 막을 수 있지만, 판단하는 눈은 사람이 곁에서 함께 키워야 합니다.</strong></p>
+      <p>규칙이 필요 없다는 말이 아닙니다. 시험의 공정함을 지키는 일은 꼭 필요합니다. 다만 규칙은 시작이지 끝이 아닙니다. 규칙은 밖에서 막아 주지만, 판단은 안에서 자라기 때문입니다.</p>
+      <p>예를 들어 같은 반에 두 학생이 있다고 해 봅시다. 한 학생은 &ldquo;걸리면 3년 동안 수능을 못 본다&rdquo;는 생각으로 AI 안경을 쓰지 않습니다. 다른 학생은 &ldquo;그건 내 실력이 아니다&rdquo;라는 생각으로 쓰지 않습니다. 겉으로 보이는 행동은 똑같습니다. 그러나 감독관이 없는 자리에서 두 학생은 달라집니다. 앞 학생에게는 규칙이 있고, 뒤 학생에게는 기준이 있습니다. 교육이 키워야 할 것은 바로 이 기준입니다.</p>
+      <p>저 역시 이번 주 기사를 읽으며 먼저 &ldquo;어떻게 막을까?&rdquo;를 떠올렸습니다. 그러다 지난 10월 7일 <a href="news.html#news-aischool-2-review">AI 수다방 두 번째 시간</a>이 생각났습니다. 그날 참석자들의 질문은 기능을 넘어 이렇게 이어졌습니다. &ldquo;AI에게 어디까지 맡겨도 될까요?&rdquo; 우리는 정답을 하나로 정하지 않았습니다. 대신 각자의 기준을 세워 보았습니다. 첫 답은 언제나 초안입니다. 조언은 참고하고, 판단은 내가 합니다. 마지막 확인은 언제나 사람의 몫입니다. 기준은 규칙표가 아니라 마주 앉은 대화에서 세워집니다.</p>
+      <p style="margin:22px 0 6px;"><img src="assets/images/news/sudabang2-01.jpg" alt="AI 수다방 두 번째 시간 — 북카페에 둘러앉아 이야기를 나누는 참석자들" style="width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">10월 7일, AI 수다방 두 번째 시간. 참가자 얼굴은 개인정보 보호를 위해 가렸습니다.</p>
+      <p>그래서 이번 주에는 가정이나 일터에서 한 가지만 해 보시면 좋겠습니다. 곁에 있는 사람에게 이렇게 물어보십시오. &ldquo;AI에게 맡기지 않고 꼭 내가 직접 하고 싶은 일은 무엇인가요?&rdquo; 답이 바로 나오지 않아도 괜찮습니다. 그 질문을 함께 나누는 것이 기준을 세우는 첫걸음입니다.</p>
+      <p>다음 주에도 이 자리에서 뵙겠습니다.</p>
+
+      <h3>📎 이번 주 출처</h3>
+      <ul style="font-size:.92em;line-height:1.75;">
+        <li><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPQVFUVERKNGMyTDlwWUQ2Z29SYldYc1pyRHZvZHNFXzhsRFVROWE2T05vZ3lfLUE3Nm5tYWtxbU9fZVhIMUNXWFZ0aktrTHBUNHlFQll2QW94ZGdBbWFUT0tUcElMT1NMb2VkNDM3NkN4ZGYtb3E0eThhVHhsbkZkZEJLM2RSM2d1M3piNThHQWp4QzRDZjJfdl9qM0nSAaIBQVVfeXFMTl9KZ3YzOW9vdV9PcWhjTmV6bDZxTjZZYmRtZmNKdXRaenlXbEhETXZrRXVPdFJFZFNlcUM3WTZwRl9KS3VMWndXZS04NW53Vy1rUlFiWlkyRThhamNiVEg5bEdrOFBGYXFpelNnRUtLN2hLUWxxZjZoekhueHRjLUJ4aVJrNEFqSWtDUnNTVDlJSkxXM043R1lDbFdBME13ZHJ3?oc=5" target="_blank" rel="noopener">뉴욕시 공립학교, 중학교까지 AI 사용 전면 금지</a> <span style="color:#718096;font-size:.86em;">· ABC News · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsVlNqYTBsTVdEczRnYVBMa2c4ZG0zYXVxNGg5cUVHdFZKcWRSNDJKRWc2M3dYTjJaQTFnZEVXR3VCZWZidjI5NVg4Skd6SHQtSno5YVVFM2dLbTQ?oc=5" target="_blank" rel="noopener">교육부, AI 안경 수능 부정행위 땐 '형사고발'…응시자격 정지 3년으로 강화</a> <span style="color:#718096;font-size:.86em;">· 경기일보 · 10/30</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE9kcExDRjRVU3FEYWsyTGRqRlFHX0M0Vy1vTUdBNnZ3TllhUnJSUHBJNG1YVXpPRWdmYU9nWENEOHBnX0Y4LUU4U2wzenFQZnVLR29sVE1lVlN1VXhsd2VESNIBYEFVX3lxTE9kcExDRjRVU3FEYWsyTGRqRlFHX0M0Vy1vTUdBNnZ3TllhUnJSUHBJNG1YVXpPRWdmYU9nWENEOHBnX0Y4LUU4U2wzenFQZnVLR29sVE1lVlN1VXhsd2VESA?oc=5" target="_blank" rel="noopener">중고교 교사 82% "수능·모의고사서 AI안경 식별 어려워"</a> <span style="color:#718096;font-size:.86em;">· 연합뉴스 · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE11cDdrVHBjdUpxR28zZ3BhbjlLYXVCTF80XzFBVlF6VmZJSHlLZzlsVnd2WHp6WHAtdU9GeG8tcnRGcnJIUS01MG1QaFpCVEdGR0dHM1g1OHY3ME1LQzdfOTNxNHRnZw?oc=5" target="_blank" rel="noopener">에스토니아의 'AI 도약'…금지 대신 설계</a> <span style="color:#718096;font-size:.86em;">· 이로운넷 · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQb3IzaDhaY3Ywc1VoOEVmSkFoN1EzOTJPaDYzSWRKYzBUZW4yZmFCWTB3dTBiaVRzU0R2TE1YdTdKZnlQNm9aNkxwWlloLUN1YzB5M1ZfVHh1RTZ2bVQ2RU05a3JLbjhQNjRNVDV4NF9TZkdGcW9yMDBDZXlpU3BpYTctckR2MTE3bkVuLTdPbGNvNk02Um5vVHRCdlJMa1FsR0lR?oc=5" target="_blank" rel="noopener">텍사스 학교들, AI로 학습을 대체하지 않고 보완하는 방식 확산</a> <span style="color:#718096;font-size:.86em;">· GovTech · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxONHBjNXQ2cTBrbXE0dmpEYTVZU3NjdUE5V212cnhveW1BX3pGSnNYUS1iUjNURTlYS005QkZibmhsMkwxY3lBYko5RklPcHlOUXlRcENvakx2dE9GYXFSNnk0Q2FjS2xiWFpzLUVSVVRJUTE4d3JvamUwT2xHeFVXLV9BSTIxc1BLaHpEZzBEZ3hiX2VXek5jUmR6Rlk2a3Q3WktMWnRGN2FZelhiQ3ZjRlZQT3BreVdHX3VHcDQ2WQ?oc=5" target="_blank" rel="noopener">Google, 학교에 AI를 밀어붙이다…학생들 "도가 지나치다"</a> <span style="color:#718096;font-size:.86em;">· WSJ · 10/27</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxObU9iYUhYRFBtWGtacnFPMDFsYkpsdHZrNDk4by1MQlpuVzQ0U0RydmxnMFA4bEVOU1RqSnVUaXZVdFVJSkoyYnJnaXpRclZ1X1h5YWdmOTY4QzB0QXVmNnhiR2NKTC1YRjFvanJ5bE5HVWZ2cWQwazdZRGFzdkhPQXdmZVVXWmlhYjBLY1BMdG1hZEw2TVlqTXFHVGJsbGdtWXc?oc=5" target="_blank" rel="noopener">실리콘밸리 부모들, 자녀 학교에서 '자신이 만든 기술' 빼달라 요구</a> <span style="color:#718096;font-size:.86em;">· The Guardian · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOTTBHdXRwX2lVWV9hNXN0VzhyaEpNTEtqSUdQLU5RekVqalAxVGJ3NldrSkRnUTBxSmtVeXdpVFJjV05KMVV1SVlNUnBwZTZHUThQQWFUMWYzZ21CY2tTVjRRNVFvdjgyQ1N0MmEwcVVieEFGME43bVY1TUkzNTNKV0k3b2dHLVFEZ2JtejlzLV9KNXB0bWNzcFNBLUlMQ29K?oc=5" target="_blank" rel="noopener">학생들, AI 리터러시와 목적 있는 기술 활용 교육을 요구하다</a> <span style="color:#718096;font-size:.86em;">· GovTech · 10/30</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQMDlpbHhlZGFnS0JUV1Y1bXMtVkpiTER1bUJZQnhjeFAzMWRoWjJmVEVSQ2NTem5PSWl3M2o1ZTJMemlUQW90VG1uWEhPaFNjdDhlaVV0TjhMRlpFZEYwTGZ3ZUFxemhoVE5qdW9nYVN5VHcwVVp0TUk1alRiTlU4Zzk0Wmg0djl6N0N0Mmx1MnBFN0psRVVERlp0OF9SNTJW?oc=5" target="_blank" rel="noopener">학생을 AI의 '승객'이 아닌 '운전자'로 가르칠 때</a> <span style="color:#718096;font-size:.86em;">· The 74 · 10/30</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE1JYmZXZzF2SXc2TFc4ZjR4WEh5Y0F6T1J6M3Noc3hBa2RNTFMtV2lVTHVCLWJwWWJIaVE0eTVnTzhKX2tESU9EOVFFRERJT0hqWkdrRzRLQzdjSktfX0NRN3NCRmoycEtuYmotTktzanlWRGhJTUVnbko2cW4?oc=5" target="_blank" rel="noopener">[디지털 리터러시] 부모보다 AI 찾는 아이들</a> <span style="color:#718096;font-size:.86em;">· 부산일보 · 10/29</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE55Ty1veWhBeXRnbFoxOEtpaEtTZXlhV1AzWngzZl85RFJvNFlzQWZOY2Z3bjVnUjE2eVRSalRFckQydHBHekNVWURucGZqcGp3aFV5a1ptWHdleUxpdEVKaTB6emxCMUdjLU10aA?oc=5" target="_blank" rel="noopener">하반기 공채에 AI 역량 점검 열풍…인크루트 AI 리터러시 결제 50%↑</a> <span style="color:#718096;font-size:.86em;">· 한경매거진 · 10/29</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQdXpxSVpZRmZQVDJqbkp3MmoxQXFneG41TzRDYk03SG1kZVZEU0NEVmhVRE5CRzA1RDVfeU85VVgtVHRibFRwejVMTXNxYVFTb2pZR3RtZ1lzT2pIWmFqWHhXMXowRFlLaWRrX25BcXdzWjN4NXFjclhSZDZ3c0ppQmJLd2dTT3hDREtnd2VR?oc=5" target="_blank" rel="noopener">링크드인, AI 리터러시 역량 보유자 채용 가능성 78% 높아</a> <span style="color:#718096;font-size:.86em;">· PPC Land · 10/29</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1SbmVkaUZ2QzFfc2c1TlBfTV9iMkx1VmJWV0FabjNYTURiSVd1eXRVaXdneVdHQVZkN0FJdDgwRmhYQWNkZk5hN0NKRjRSNTlZaTdzNWMydVVxa1N1UmFVNTh6N2JFWjVpeVHSAW5BVV95cUxOZkQwckVpUnctcFlpZ0E0SGQ0bEtrcDA1N0Q4NEZtMnFjeUtid1YzNDBwbmJUSVZDN1k2QlNQQ0dtUGExZFlGa0QtYlVHelRpQmtrcGtCYXg4YnJUZzdpRTJNbHJCMWdBbjdZMERVdw?oc=5" target="_blank" rel="noopener">'AI 노출 직종' 고용격차 확대…고졸 이하 여성 -9.5%</a> <span style="color:#718096;font-size:.86em;">· 넷제로뉴스 · 10/28</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE01M08wY253SnZ1X2hUVG1peFBvMnNsbTBaODRDRGU0TFZVcXV3RzV5andrOFYxLVVaeWhsTDh0akNkTFItTHBCWEhGc2RYWXJ3WG5lMXQyRm9qN2pUYzY1dXg2TFlGN0RHdUpJ?oc=5" target="_blank" rel="noopener">AI 교육 열풍에 사교육 시장 확대…유아 대상 300만원대 캠프까지 등장</a> <span style="color:#718096;font-size:.86em;">· 서울뉴스통신 · 10/30</span></li>
+      </ul>
+
+      <p style="margin-top:22px;padding:14px 16px;background:#f7f9fc;border-radius:8px;font-size:.86em;color:#5e6b7d;line-height:1.75;">티움 위클리는 매일 아침 AI가 국내외 뉴스를 추려 정리한 브리핑을, 사무국이 한 주 단위로 다시 읽고 흐름과 생각을 더해 씁니다. 기사 내용은 각 원문을 기준으로 하며, 주제 분류와 판단은 사무국의 것입니다.</p>
+
+      <p style="margin-top:24px;">감사합니다.<br><strong>사단법인 티움 사무국장 최주안 드림</strong></p>
+`,
+  },
+
 
   {
     id:      'wk-2026-43',
