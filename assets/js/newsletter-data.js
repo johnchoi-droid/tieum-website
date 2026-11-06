@@ -12,6 +12,93 @@
 window.NEWSLETTER_DATA = [
 
   {
+    id:      'nl-2026-10',
+    issue:   5,
+    date:    '2026-10',
+    label:   '2026년 10월',
+    title:   '통권 5호 — 새 이사님을 모시고, 목회자 AI 아카데미와 함께합니다',
+    summary: '정진택 전 고려대학교 총장님과 박하식 하나고등학교 교장선생님을 새 이사로 모셨습니다. 또한 11월 3일 개강하는 「목회자를 위한 AI 아카데미」 1기에 티움이 교육 협력으로 함께하고, 고봉익 이사장님이 강사로 나섭니다.',
+    color:   '#2c5282',
+    content: `
+      <p style="color:#718096;font-size:.9rem;margin-bottom:24px;">2026년 10월 30일 · 통권 제5호</p>
+
+      <p>사랑하는 티움 후원자 여러분, 안녕하세요.</p>
+      <p>티움 사무국장 최주안입니다. 어느새 10월의 끝자락입니다. 단풍이 짙어지는 요즘, 평안히 지내고 계신지요. 이번 호에는 티움에 새로 모신 이사님 두 분의 소식과, 다음 주 화요일에 시작하는 새로운 교육 협력 소식을 전해 드립니다.</p>
+
+      <h3>📌 이달의 주요 소식</h3>
+      <ul>
+        <li><strong>새 이사님 두 분을 모셨습니다</strong> — 정진택 전 고려대학교 총장님과 박하식 하나고등학교 교장선생님이 티움의 이사로 함께해 주십니다.<br/><br/></li>
+        <li><strong>목회자를 위한 AI 아카데미에 교육 협력으로 함께합니다</strong> — 주식회사 한국인재연구소가 주최하고 운영하는 이 과정의 제1기가 11월 3일 개강합니다. 티움은 교육 협력 기관으로 참여하며, 고봉익 이사장님이 강사로 나서십니다.</li>
+      </ul>
+
+      <h3>🤝 새 이사님을 소개합니다</h3>
+      <p>티움이 걸어갈 길을 함께 살펴 주실 이사님 두 분을 새로 모시게 되었습니다. 대학과 중등 교육의 현장에서 오랜 시간을 보내 오신 분들입니다.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-start;background:#f2f6fb;border-left:4px solid #2c5282;border-radius:8px;padding:18px 22px;margin:18px 0;">
+        <img src="assets/images/jungjintaek.jpg?v=2" alt="정진택 이사" width="300" height="300" style="width:96px;height:96px;flex:none;border-radius:50%;object-fit:cover;" loading="lazy" decoding="async">
+        <div style="flex:1 1 220px;min-width:0;">
+          <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#2c5282;letter-spacing:.02em;">정진택 이사 · 전 고려대학교 총장</p>
+          <ul style="margin:0;padding-left:18px;line-height:1.85;font-size:14.5px;color:#4a5568;overflow-wrap:anywhere;">
+            <li>전) 고려대학교 제20대 총장</li>
+            <li>고려대학교 공과대학 교수</li>
+            <li>교육부 대학규제개혁협의회 위원장</li>
+            <li>WISET(한국여성과학기술인육성재단) 정책자문위원장</li>
+            <li>현대차 정몽구재단 그린 소사이어티 총괄운영위원장</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-start;background:#f2f6fb;border-left:4px solid #2c5282;border-radius:8px;padding:18px 22px;margin:18px 0;">
+        <img src="assets/images/parkhasik.jpg" alt="박하식 이사" width="300" height="300" style="width:96px;height:96px;flex:none;border-radius:50%;object-fit:cover;" loading="lazy" decoding="async">
+        <div style="flex:1 1 220px;min-width:0;">
+          <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#2c5282;letter-spacing:.02em;">박하식 이사 · 하나고등학교 교장</p>
+          <ul style="margin:0;padding-left:18px;line-height:1.85;font-size:14.5px;color:#4a5568;overflow-wrap:anywhere;">
+            <li>하나고등학교 교장</li>
+            <li>전) 민족사관고등학교 교장</li>
+            <li>전) 충남평생교육진흥원 초대 원장</li>
+            <li>전) 충남삼성고등학교 초대 교장, 경기외국어고등학교 교장</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>대학에서 학교 밖 사회까지, 그리고 고등학교 교실에서 평생교육까지. 두 분이 걸어오신 길은 티움이 마주한 질문과 닿아 있습니다. 인공지능 시대에 어떤 사람을, 어떻게 길러 낼 것인가 하는 질문입니다. 귀한 시간을 내어 함께해 주시는 두 분께 깊이 감사드립니다. 두 분의 경험과 조언을 귀하게 듣고, 티움의 걸음에 담아 가겠습니다.</p>
+
+      <h3>🎓 목회자를 위한 AI 아카데미, 교육 협력으로 함께합니다</h3>
+      <p>인공지능 시대, 교육으로 세상을 변화시킨다는 티움의 슬로건은 학교 안에만 머물지 않습니다. 이번에는 목회 현장의 리더들을 만납니다. 주식회사 한국인재연구소가 주최하고 운영하는 <strong>「목회자를 위한 AI 아카데미」</strong> 제1기가 11월 3일 문을 열고, 티움이 교육 협력 기관으로 함께합니다. 티움의 고봉익 이사장님이 강사로 직접 나서시고, 사무국장인 저도 이사장님을 모시고 함께 강단에 섭니다.</p>
+
+      <div style="background:#f2f6fb;border-left:4px solid #2c5282;border-radius:8px;padding:18px 22px;margin:20px 0;">
+        <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#2c5282;letter-spacing:.02em;">목회자를 위한 AI 아카데미 · 2026년 제1기</p>
+        <p style="margin:0;line-height:2;font-size:14.5px;color:#4a5568;">
+          <strong style="color:#1a1a2e;">일정</strong> &nbsp;11월 3일 · 10일 · 17일 · 24일 (매주 화요일 오전 10시, 4회)<br/>
+          <strong style="color:#1a1a2e;">방식</strong> &nbsp;Zoom 온라인 실시간 (실습 중심, 개인 노트북 지참)<br/>
+          <strong style="color:#1a1a2e;">대상</strong> &nbsp;담임목사 · 부교역자 · 사모 · 신학생<br/>
+          <strong style="color:#1a1a2e;">주최·운영</strong> &nbsp;주식회사 한국인재연구소 &nbsp;|&nbsp; <strong style="color:#1a1a2e;">협력</strong> &nbsp;사단법인 티움<br/>
+          <strong style="color:#1a1a2e;">강사</strong> &nbsp;고봉익 이사장(티움 이사장, TMD교육그룹 대표) · 최주안 목사(Ed.D., 티움 사무국장)
+        </p>
+      </div>
+
+      <p>이번 과정에는 고봉익 이사장님의 마음이 담겨 있습니다. 이사장님은 과학기술정보통신부와 NIA 등의 공공 AI·디지털윤리 교육을 수행해 왔고, 경기도민 13만 명 AI 교육과 전국 80여 개 미래교육센터 운영을 이끌어 온 교육 전문가입니다. 그런 이사장님이 이번에는 목회자들 앞에 서십니다. 교회와 이웃을 지키는 목회자들의 수고를 깊이 존경하는 마음으로, 그분들이 반복되는 일에 눌리지 않고 말씀과 사람에게 쓸 시간을 되찾도록 돕고 싶다는 뜻에서입니다. 저는 이사장님 곁에서 목회 현장에 맞춘 실습을 함께 설계하고 진행하며 힘을 보태겠습니다.</p>
+
+      <p>이 과정은 일반 AI 강의를 목회자용으로 옮긴 것이 아니라, 주보와 회의록, 심방일지로 직접 실습하도록 목회 현장에 맞춰 새로 설계했습니다. 4주 동안 이렇게 진행됩니다.</p>
+      <ul>
+        <li><strong>1강 (11/3) 목회 행정을 절반으로</strong> — 생성형 AI의 원리와 프롬프트 기본 구조, 주보 문안·공지문·회의록 요약 자동화. AI가 만든 문서를 사람이 검토하고 책임진다는 원칙을 함께 세웁니다.</li>
+        <li><strong>2강 (11/10) 설교와 돌봄</strong> — 설교 준비의 자료 정리를 보조받는 법, 심방일지에서 기도 목록 정리, 다음 세대의 눈높이로 옮기기. &lsquo;설교는 누가 하는가&rsquo;라는 AI 대필의 경계도 다룹니다.</li>
+        <li><strong>3강 (11/17) 교회 콘텐츠와 자동화</strong> — 카드뉴스·썸네일·숏폼 제작, 뉴스 브리핑 에이전트, 코딩 없이 만드는 교회 홈페이지.</li>
+        <li><strong>4강 (11/24) AI 시대의 기준</strong> — AI는 확신 있게 틀린다는 사실을 직접 겪어 보는 분별 훈련, 그리고 우리 교회의 AI 윤리를 선언문으로 정리합니다. 기준은 성경 말씀입니다.</li>
+      </ul>
+
+      <p>앞 회차는 실전의 비중이 높고, 마지막 회차로 갈수록 기준의 비중이 커집니다. 쓰는 법과 분별하는 법을 함께 배우도록 한 것입니다. 목회자가 AI를 두려워하거나 맹신하지 않고, 말씀과 사람에게 쓸 시간을 되찾도록 곁에서 돕겠습니다.</p>
+      <p>신청 마감은 11월 2일(월)입니다. 참가비와 신청 방법 등 자세한 내용은 한국인재연구소의 <a href="https://talentium.co.kr/aiacademy/" target="_blank" rel="noopener">안내 페이지</a>에서 확인하실 수 있습니다. 주변에 이 과정이 필요한 목회자분이 계시다면 함께 나누어 주세요.</p>
+
+      <h3>🙏 감사 인사</h3>
+      <p>티움이 이렇게 새로운 분들을 모시고 새로운 협력을 시작할 수 있는 것은 한 분 한 분의 관심과 후원 덕분입니다. 늘 곁에서 함께해 주시는 마음에 깊이 감사드립니다.</p>
+      <p>11월에도 티움은 한 걸음씩 걸어가겠습니다. 쌀쌀해지는 날씨에 건강 잘 챙기시기 바랍니다.</p>
+
+      <p style="margin-top:24px;">감사합니다.<br><strong>사단법인 티움 사무국장 최주안 드림</strong></p>
+    `,
+  },
+
+  {
     id:      'nl-2026-09',
     issue:   4,
     date:    '2026-09',
