@@ -21,7 +21,7 @@
     <strong style="color:#1a1a2e;">게재지</strong> &nbsp;에듀테인먼트연구 제8권 제5호 (2026), 463–482<br/>
     <strong style="color:#1a1a2e;">저자</strong> &nbsp;김수연(성결대학교) · 고봉익(사단법인 티움 이사장) · 서응교(단국대학교, 교신저자)<br/>
     <strong style="color:#1a1a2e;">ISSN</strong> &nbsp;pISSN 2671-9789 / eISSN 2672-0329<br/>
-    <strong style="color:#1a1a2e;">DOI</strong> &nbsp;<a href="https://doi.org/10.36237/koedus.8.5.463" target="_blank" rel="noopener">10.36237/koedus.8.5.463 ↗</a><br/>
+    <strong style="color:#1a1a2e;">DOI</strong> &nbsp;10.36237/koedus.8.5.463<br/>
     <strong style="color:#1a1a2e;">심사</strong> &nbsp;2026.10.10 투고 · 10.17 심사 · 10.22 수정완료 · 10.23 게재확정
   </p>
 </div>
@@ -78,11 +78,11 @@
 <h4>📚 인용 정보</h4>
 <p style="font-size:14px;color:#4a5568;line-height:1.9;">김수연, 고봉익, 서응교 (2026). AI 활용 디자인씽킹 프로그램 참여자의 미래인식, AI 활용 비판적 사고성향 및 문제해결력의 변화와 변혁적 리더십 및 인공지능 자기효능감 간의 관계 탐색. <em>에듀테인먼트연구, 8</em>(5), 463–482. https://doi.org/10.36237/koedus.8.5.463</p>
 
-<p style="margin-top:22px;">📄 <a href="assets/papers/koedus-2026-8-5-463.pdf" target="_blank" rel="noopener">논문 전문 PDF 보기 ↗</a> &nbsp;·&nbsp; 🔗 <a href="https://doi.org/10.36237/koedus.8.5.463" target="_blank" rel="noopener">DOI로 학술지에서 보기 ↗</a></p>
+<p style="margin-top:22px;color:#5e6b7d;font-size:14px;">📎 논문 원문 링크는 학술지 DOI 등록이 완료되는 대로 연결해 드리겠습니다.</p>
 
 <hr/>
 <p style="color:#5e6b7d;font-size:13.5px;line-height:1.85;">※ 본 연구는 재단법인 대한민국역사와미래가 주최하고 사단법인 티움이 주관한 제1기 미래아카데미 세미나 참여자를 대상으로 수행되었습니다.<br/>
-※ 위 내용은 티움 사무국이 작성한 요약이며, 정확한 내용은 반드시 원문을 확인해 주시기 바랍니다.</p>
+※ 위 내용은 티움 사무국이 작성한 요약이며, 정확한 내용은 반드시 원문을 확인해 주시기 바랍니다. 논문 전문의 저작권은 한국에듀테인먼트학회에 있습니다.</p>
       `,
     },
     {
