@@ -10,6 +10,137 @@
 
 window.WEEKLY_DATA = [
   {
+    id:      'wk-2026-46',
+    issue:   9,
+    period:  '2026-11-09/2026-11-13',
+    label:   '2026년 11월 9일 – 13일',
+    title:   '제9호 — 고를 권리, 배울 시간',
+    summary: '이번 주 국내외 AI·교육 뉴스 70건. 구글의 검색 차단 압박에 학교의 선택권을 요구하는 목소리가 커졌고, AI 안경과 과제 대필로 평가가 흔들렸으며, AI를 쓰는 학생은 많아도 제대로 배운 학생은 절반에 못 미친다는 조사가 나왔습니다.',
+    color:   '#1B4F8A',
+    content: `
+      <p style="color:#718096;font-size:.9rem;margin-bottom:24px;">2026년 11월 9일 – 13일 · 티움 위클리 제9호</p>
+
+      <p>사랑하는 티움 후원자 여러분, 그리고 티움을 찾아 주신 방문자 여러분, 안녕하세요. 티움 사무국장 최주안입니다.</p>
+      <p>이번 주에는 수능을 앞두고, 시험장에 AI 안경을 들고 오면 어떻게 하느냐는 기사가 연일 나왔습니다. 바다 건너에서는 학교가 AI를 끌 수 있느냐를 두고 다툼이 이어졌습니다. 닷새 치 기사를 모아 다시 읽어 보니, 한 가지 물음이 남았습니다. <strong>AI를 고를 권리가 있다면, 그 권리를 쓸 줄 아는 힘은 언제 배우는 걸까요?</strong></p>
+
+      <p style="margin:22px 0 6px;"><img src="assets/images/weekly/wk-2026-46.jpg" alt="일러스트 — 학교 도서관 창가 책상에서 선생님이 학생 곁에 앉아 공책의 한 줄을 가리키고, 학생은 연필을 쥐고 있다. 옆의 노트북은 반쯤 덮여 있다" width="1600" height="900" style="width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">노트북을 잠시 덮고, 곁에 앉아 한 줄씩 함께 읽어 가는 시간이 배움이 됩니다.</p>
+      <h3>📊 이번 주 한눈에</h3>
+      <p>닷새 동안 <strong>70건</strong>의 기사를 읽었습니다. 국내 36건, 해외 34건입니다.</p>
+<svg viewBox="0 0 640 224" width="100%" role="img" aria-label="이번 주 일별 국내·해외 기사 수" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.nm{font-size:12px;fill:#fff;font-weight:700}.lg{font-size:12px;fill:#4a5568}</style>
+<text class="lb" x="68" y="35" text-anchor="end">11/9(월)</text>
+<rect x="78" y="20" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="35" text-anchor="middle">7</text>
+<rect x="324.0" y="20" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="35" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="35">14건</text>
+<text class="lb" x="68" y="69" text-anchor="end">11/10(화)</text>
+<rect x="78" y="54" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="69" text-anchor="middle">7</text>
+<rect x="324.0" y="54" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="69" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="69">14건</text>
+<text class="lb" x="68" y="103" text-anchor="end">11/11(수)</text>
+<rect x="78" y="88" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="103" text-anchor="middle">7</text>
+<rect x="324.0" y="88" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="103" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="103">14건</text>
+<text class="lb" x="68" y="137" text-anchor="end">11/12(목)</text>
+<rect x="78" y="122" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="137" text-anchor="middle">7</text>
+<rect x="324.0" y="122" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="137" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="137">14건</text>
+<text class="lb" x="68" y="171" text-anchor="end">11/13(금)</text>
+<rect x="78" y="156" width="281.1" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="218.6" y="171" text-anchor="middle">8</text>
+<rect x="359.1" y="156" width="210.9" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="464.6" y="171" text-anchor="middle">6</text>
+<text class="lb" x="580.0" y="171">14건</text>
+<rect x="78" y="196" width="12" height="12" rx="2" fill="#1B4F8A"/><text class="lg" x="96" y="206">국내</text>
+<rect x="148" y="196" width="12" height="12" rx="2" fill="#F5A623"/><text class="lg" x="166" y="206">해외</text>
+</svg>
+      <p style="margin-top:18px;">하루에 한 줄씩, 그날의 흐름을 이렇게 정리했습니다.</p>
+      <ul style="font-size:.95em;">
+        <li><strong>월</strong> — 수능장의 AI 안경과 구글의 교실 AI 통제권 다툼이 겹쳤습니다. &lsquo;AI를 얼마나 윤리적으로 쓰는가&rsquo;가 입시와 학교의 새로운 신뢰 기준으로 떠올랐습니다.</li>
+        <li><strong>화</strong> — &lsquo;얼마나 빨리 들이느냐&rsquo;보다 &lsquo;얼마나 안전하고, 고를 수 있게 들이느냐&rsquo;가 더 중요한 질문이 되었습니다.</li>
+        <li><strong>수</strong> — AI 사용은 학생부터 중장년까지 이미 보편이 되었지만, 제대로 배우고 안전하게 쓰는 법은 여전히 빈자리로 남았습니다.</li>
+        <li><strong>목</strong> — 국회와 지역 도서관에서 AI 리터러시가 정책 화두가 되는 사이, 해외에서는 흔들리는 평가와 학교 안전의 공백이 드러났습니다. &lsquo;속도보다 신뢰&rsquo;라는 말이 남았습니다.</li>
+        <li><strong>금</strong> — AI를 얼마나 빨리 교실에 들일지와 어떻게 사람 중심으로 쓸지 사이의 긴장이 국내외에서 함께 커졌습니다.</li>
+      </ul>
+
+      <h3>🔍 이번 주 흐름 세 가지</h3>
+      <ul>
+        <li><strong>끌 수 있어야 고를 수 있습니다</strong> — 지난주에 이어 구글 이야기가 계속되었습니다. 미국의 한 상원의원은 <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1BcHVjcWs1NmlQTm16d1JxM0VudWFGa1dhdU85T2NFWDRodGlja25mTmVkZk1wdUFRaG9wRDJWTGJoWWxYUENuUk1aMzBaOWo2WGU1ZTBiZ1NIR3dhV29YSlpSbWxDQzBPcTBUeEZOY2ZYdWZyUXBJOTRHYmhyd3c?oc=5" target="_blank" rel="noopener">구글에 학교가 검색 안의 AI 기능을 끌 수 있게 허용하라고 요구</a>했습니다. 학부모와 교사들은 AI를 막으면 검색도 끊겠다는 압박을 <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPUDNXM1JPT3JYbHpSbUJ6Tzc5TXpvallaQmxFVHNDSjJNcFQ0T3hhaXM5TW9sWm0wd1FfQjhZWFBRWnhDdTYzUFBQSUV5d0dCMFgtdGI2cVR5WHNfcmZuajJrSkxEQXIxb2k5V2I2ZVY2c3lRVFRqY2x3QjdienlVOFhZOHlJTm9ZOFZhYkxuQUVZbmc?oc=5" target="_blank" rel="noopener">&ldquo;협박&rdquo;이라고 부르며 반발</a>했고, 보스턴에서는 <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE1xc25PQ2txRTBNdzhHTzk5djg2ZlJnWmw4anRVTEVkQkI3OHgwaEFLUUdWdWdmNWQwWXBNU0o3amtNTjZYS1RNek5jeGNxRk9DbEdsemRIakhuZXY4Y0paaVhsRFRzSVdMZ0VHXzYwMTY0aTZWSlRoNHVB?oc=5" target="_blank" rel="noopener">시위대가 학교의 선택권을 요구</a>했습니다. 한편 사우스포틀랜드 교육위원회는 <a href="https://news.google.com/rss/articles/CBMikgJBVV95cUxPRGpPTHVkNGp3Yi1NaG5laFU2QmFsU0dJdlhzVWlpd0RHcXlPd0ttRUtWUkF3SWhkUThjRy01azBNS0RFRzRiWWFmRF90SThuaE5felFsakp5RWVDVFhRSWljS2ZRU2lOcWR4SW1NWk5wQkN5T2tzTEJxbzdIRGRWa0hBWGl5WHBSbVRfZVM5WVpsa3l3Ylo3ZzcwQ1hCclRyeWdydTB5Y2R6d2I3RGFMaFNwTERzSTFiUVFnMVdtQ1E0dVRmR2NZMThSbHQ2aHB6YXplamtSTlk0d3J2R3Mtdkt6MF94SDRuc0NSazdTLWNIdEVUYXBYaTUxX0RxcmdVSm44Ym1mLXRPX3EtUEgxcWV3?oc=5" target="_blank" rel="noopener">찬반이 엇갈린 끝에 교실 내 AI 모라토리엄을 부결</a>했습니다. 막는 쪽도, 들이는 쪽도 결국 &lsquo;누가 정하는가&rsquo;를 묻고 있습니다. 안전의 빈틈도 드러났습니다. <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQYU1DVzZOeHFwTER4TjJyTThrZDBWbnEwUnZPY2ZVOHdCUWI3RWRqLWk5dDJEaU1kYngtZFh5b1J3ZmxiSFpxd19ISFJmWWNkbDVZMk5ucFdWeXVmNE5xdUNmMzBfRW1DMnk2b0ZxNU1Vem9ERzQzdVR6eTVfZVNOd29YbUFVODNwaUNjdXlIVlk5UUFsanRxYWZnNzhjZw?oc=5" target="_blank" rel="noopener">13세 학생이 학교 노트북으로 AI에 자살 관련 질문을 했지만 수주간 아무도 알아차리지 못했다</a>는 보도입니다. 고를 권리는 지킬 책임과 함께 갑니다.<br/><br/></li>
+        <li><strong>평가가 흔들리고 있습니다</strong> — 수능을 앞두고 AI 안경이 큰 화제였습니다. 교육부 전수조사에서 <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBHWHdaZE5yaHptN1c4RXZNa1UxYWJCRWFWdnN4S1VDTURLSC1EdW5zMnRkVERybXFfZG1YU0lZMUZJLW14ZnU2dmFPem1vSzFQczJwdHJfS3BvSXVUMzNjTS1pSlhwSzdDaHRscktscjY?oc=5" target="_blank" rel="noopener">AI 스마트안경을 이용한 내신평가 부정행위 4건이 적발</a>되었고, <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE9HcGxxNG5rdzMwbjV1RXkxOVNYcWIyNUU2eUg0djRjdEdFXzNjMmp2Q3RWckkxdjI0WXFYRFRoc2s0QVp1SjhoUmVRUXpwNTBoSkZYQktnWTlON3Zta1NERFd6Z0Q5Zy1zbEE?oc=5" target="_blank" rel="noopener">AI 안경으로 변호사시험 문제를 풀었더니 정답률이 26%였다</a>는 보도도 나왔습니다. 교실 안의 고민도 깊습니다. <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE1ocVA3OWRkbnVuN1pGbl95VWtGdUd2bVhhY0F6OWxRdWpLR2VMNmZ4Z0cyeFhWUTVDZ253V2V6MzUtb3ZORGZUX3FDQzNiZjZhcVUzTHBUSkFBaGI0SW04OXRqSWZEZmRuYjZodXpR0gFzQVVfeXFMTmpZYlhGZDUwSlRpTFdWeHRkU1lmeUFiclJXX0dhNDlacGlWMGJvdGVlMVVvVm9hNnE3ZEhSSUItME1vUUlGY3dMWXMyQ3JYcXFpV2JRdGM0ekJxNUZnNU91M0JpVVh2bTJabDRRMGFDUlZZMA?oc=5" target="_blank" rel="noopener">학생 100명 중 20명의 답이 똑같아 채점을 어떻게 해야 하느냐</a>는 기사였습니다. 영국 고등교육 규제기관은 <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQcnRuQjZGUU9xbUxieGFPbU9Yal9meFoxVlhVUkVCcm1DRVdrcE5LZzZEQlZJWFk2Y3k1LXNYTmZKOWd3dHh0TjFER0hScGJNUmlwWm9KaU9mOGZRMnV5TU5YeS1pd210Vmk1cUJ0VlJtV3k1aFNid3hvcl9yRlBpRWlVTDlVVVlYS295SUstY3B3Q19YOF8tTU81UkZmaWhZWF9QbkhjRWdKVlpQSXE1Qg?oc=5" target="_blank" rel="noopener">AI 때문에 대학 과제 평가가 &lsquo;거의 불가능&rsquo;해졌다</a>고 밝혔습니다. 한 미국 교사는 <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQd1AwOTZlN29pUThJdEI2cVBvRHV5d1BsTGk5VlRxTGNQZUJjNDZYVml6UmRjYnN6X2hxT00wM2JOWmV4M0oyR3l6bnJBa0dnbzZVdXVwcnVZeXNsdFdfbHg5d1NKQTdRVzMwN1psbURpM0RTUlRQTm1Ca0Q2dVR3RU9PMjk0OEFDNHFfTlV3Y0l4OUxhWUJBMC1seGdSYW4zNWhiSy0tTWRrVXhwZEtHQ2d5M0lCT1JXX0RtcjNnMA?oc=5" target="_blank" rel="noopener">집에서 쓰는 에세이 과제를 접고, 배우는 과정을 수업 안에서 다시 설계한 경험</a>을 나눴습니다. 결과물만으로는 배움을 확인하기 어려워졌습니다.<br/><br/></li>
+        <li><strong>쓰는 사람은 많은데, 배운 사람은 적습니다</strong> — 오픈AI 보고서에 따르면 <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9qM3lvWkhmRUxramwtSjVBR19qSlZhWm5uWmlyS19STkJuWThrczVhT2VkSy1mbjgzNHcxTzJHaEZUMk1kMWQwNXdFLXp2cFlLb0xkR0daSWlPT0hjMnUwUkpOSkltQ1lISG9vZDlmWHc3SUFWemc?oc=5" target="_blank" rel="noopener">학생의 79%가 숙제에 AI를 쓰지만, 사용법을 제대로 배운 학생은 47%</a>에 그쳤습니다. 오픈AI는 학생의 AI 사용이 학교의 가이드라인보다 앞서 간다며 <a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSzNkU0IwWEJwaVhaRHVYR3RZTFQ1YVdqZkwxNnIxMjMtOGpGeVJGWUMwaDU1QWhreHB0R3U0eHJCQnhLZWdyNjNMWm96NTNvbTYwbDFfSS1XN2p6SjFzMWJGQ2VNTHN5UXVpR1gweTd1LTlqLUpZaUNQay1ITkR5SDBveUVBLVRGX21BTUJEV1A0TWxFaGlvT3NwZVFGclhTYnlWWlJCNHJVU0UxbmtFWE12NF9tdVZYME9r?oc=5" target="_blank" rel="noopener">교사 연수를 늘리자고 촉구</a>했습니다. 하버드 연구진은 <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNQU1sZGJSbENuYVI3UllwUV96YnB2SWtRR1JNUF9Ia3JENWlzQ21OdTRHZ3lCWk9BU1Zpc3I1RWlURnpyQmNvSXVkT1EzekxoYVZkZzM1WnJ3dmY5TVNnZE9yNXVXT1BBd2hjZzRMMHJndU5kS19maE9keVNWR1RTRktjTlR5OURGVVVfakhxeUtoZTY4MU9zVFNSMTBFUEMxbUk2SHV2cVFtclFYVXc?oc=5" target="_blank" rel="noopener">5000여 건의 연구를 모아 AI가 학습을 돕는 경우와 방해하는 경우를 나누어</a> 보았습니다. 국내에서는 국회 심포지엄에서 <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE5raXJMbHZzbVBUa0FRd1BEVjlZQ0NsNV83bTFHaHFCZTY1NHdFV0N6Z0VjbVFUWUhfeE9TeGZFTVE0cEFTVGpMeWxSY3F2dk84T3VDOTBnblJ4YmUzVVVjZzIydjlRZmRXLUxV?oc=5" target="_blank" rel="noopener">AI 시대 교육의 핵심은 &lsquo;사람의 판단&rsquo;</a>이라는 말이 나왔습니다. 도구는 이미 손에 있습니다. 비어 있는 것은 배우는 시간입니다.</li>
+      </ul>
+
+      <h3>📊 주제별로 나누어 보면</h3>
+      <p>사무국이 70건을 여덟 가지 주제로 나누어 보았습니다.</p>
+<svg viewBox="0 0 640 260" width="100%" role="img" aria-label="이번 주 기사 주제별 분포" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.ct{font-size:13px;fill:#1a1a2e;font-weight:700}</style>
+<text class="lb" x="140" y="29" text-anchor="end">정책·가이드라인</text>
+<rect x="150" y="15" width="430.0" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="588.0" y="29">19</text>
+<text class="lb" x="140" y="59" text-anchor="end">현장·체험·진로</text>
+<rect x="150" y="45" width="271.6" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="429.6" y="59">12</text>
+<text class="lb" x="140" y="89" text-anchor="end">리터러시 제도화</text>
+<rect x="150" y="75" width="203.7" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="361.7" y="89">9</text>
+<text class="lb" x="140" y="119" text-anchor="end">사고력·정서·의존 경고</text>
+<rect x="150" y="105" width="158.4" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="316.4" y="119">7</text>
+<text class="lb" x="140" y="149" text-anchor="end">교사·리더의 역할</text>
+<rect x="150" y="135" width="135.8" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="293.8" y="149">6</text>
+<text class="lb" x="140" y="179" text-anchor="end">안전·개인정보</text>
+<rect x="150" y="165" width="135.8" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="293.8" y="179">6</text>
+<text class="lb" x="140" y="209" text-anchor="end">기업·직장 AI교육</text>
+<rect x="150" y="195" width="135.8" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="293.8" y="209">6</text>
+<text class="lb" x="140" y="239" text-anchor="end">격차·형평</text>
+<rect x="150" y="225" width="113.2" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="271.2" y="239">5</text>
+</svg>
+      <p style="margin-top:14px;">가장 많은 것은 <strong>정책·가이드라인</strong>으로 19건이었습니다. 세 주 연속 첫째입니다. 둘째는 9건에서 12건으로 늘어난 <strong>현장·체험·진로</strong>입니다. 눈에 띄는 변화는 <strong>안전·개인정보</strong>입니다. 3건에서 6건으로 두 배가 되었습니다. <strong>리터러시 제도화</strong>도 8건에서 9건으로 조금 늘었습니다. 반대로 <strong>기업·직장 AI교육</strong>은 9건에서 6건으로, <strong>교사·리더의 역할</strong>은 8건에서 6건으로 줄었습니다. 사고력·정서·의존 경고는 8건에서 7건, 격차·형평은 지난주와 같은 5건이었습니다. 이번 주에는 규칙 이야기와 함께 안전 이야기가 다시 늘었습니다.</p>
+
+      <h3>💬 사무국장의 생각</h3>
+      <p>세 흐름을 한 줄로 잇는다면 이렇습니다. <strong>AI를 고를 권리도, 믿을 수 있는 평가도, 결국 제대로 배운 사람이 있어야 지켜집니다.</strong></p>
+      <p>고른다는 것은 아는 데서 시작합니다. AI가 무엇을 할 수 있고 무엇을 못 하는지 모르면, 끄는 것도 켜는 것도 고른 것이 아닙니다. 누군가 정해 준 대로 따르는 것입니다. 그래서 &ldquo;쓸까, 말까?&rdquo;보다 먼저 물을 것이 있습니다. &ldquo;나는 이것을 배운 적이 있는가?&rdquo;입니다. 또한, &ldquo;나는 이것에 대하여 어떤 기준을 가지고 있는가?&rdquo;입니다.</p>
+      <p>예를 들어 두 학생이 같은 과제를 AI의 도움을 받아 냈다고 해 봅시다. 한 학생은 왜 그런 답이 나왔는지 설명하지 못합니다. 다른 학생은 어디까지 AI에게 맡겼고 어디부터가 자기 생각인지 말할 수 있습니다. 낸 글은 비슷해도 배움은 다릅니다. 평가가 흔들리는 까닭은 글이 비슷해져서가 아니라, 그 차이를 글만으로는 볼 수 없게 되었기 때문입니다. 또한 AI가 준 답을 선택한다고 할 때, 선택의 기준이 없으면 전체 답변은 일관성도 사라집니다.</p>
+      <p>배움은 혼자서는 잘 자라지 않습니다. 곁에서 &ldquo;여기는 왜 이렇게 썼어요?&rdquo; 하고 물어 주는 사람이 필요합니다. 티움이 협력하는 <a href="https://talentium.co.kr/aiacademy/" target="_blank" rel="noopener">목회자를 위한 AI 아카데미</a> 1기도 11월 3일과 10일, 두 번의 시간을 마치고 셋째 주를 앞두고 있습니다. 저도 강사로 함께하고 있습니다. 매 시간 붙드는 원칙은 같습니다. AI가 만든 결과는 사람이 검토하고 책임진다는 것입니다. 쓰는 법을 서둘러 익히기보다 배우는 시간을 함께 내는 일, 저는 그것이 곁에 앉는 일의 한 모습이라고 생각합니다.</p>
+      <p>그래서 이번 주에는 한 가지만 해 보시면 좋겠습니다. 최근에 AI의 도움을 받아 만든 글이나 답을 하나 골라, 어디까지가 AI의 몫이고 어디부터가 내 생각인지 한 줄로 적어 보십시오. 그 경계가 보이면, 고를 수 있습니다.</p>
+      <p>다음 주에도 이 자리에서 뵙겠습니다.</p>
+
+      <h3>📎 이번 주 출처</h3>
+      <ul style="font-size:.92em;line-height:1.75;">
+        <li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1BcHVjcWs1NmlQTm16d1JxM0VudWFGa1dhdU85T2NFWDRodGlja25mTmVkZk1wdUFRaG9wRDJWTGJoWWxYUENuUk1aMzBaOWo2WGU1ZTBiZ1NIR3dhV29YSlpSbWxDQzBPcTBUeEZOY2ZYdWZyUXBJOTRHYmhyd3c?oc=5" target="_blank" rel="noopener">상원의원, 구글에 학교가 검색 내 AI 기능을 끌 수 있도록 허용하라 요구</a> <span style="color:#718096;font-size:.86em;">· The New York Times · 11/10</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPUDNXM1JPT3JYbHpSbUJ6Tzc5TXpvallaQmxFVHNDSjJNcFQ0T3hhaXM5TW9sWm0wd1FfQjhZWFBRWnhDdTYzUFBQSUV5d0dCMFgtdGI2cVR5WHNfcmZuajJrSkxEQXIxb2k5V2I2ZVY2c3lRVFRqY2x3QjdienlVOFhZOHlJTm9ZOFZhYkxuQUVZbmc?oc=5" target="_blank" rel="noopener">학부모·교사들, 구글의 "검색 기능 중단" 압박에 반발 "이건 협박"</a> <span style="color:#718096;font-size:.86em;">· The Guardian · 11/10</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE1xc25PQ2txRTBNdzhHTzk5djg2ZlJnWmw4anRVTEVkQkI3OHgwaEFLUUdWdWdmNWQwWXBNU0o3amtNTjZYS1RNek5jeGNxRk9DbEdsemRIakhuZXY4Y0paaVhsRFRzSVdMZ0VHXzYwMTY0aTZWSlRoNHVB?oc=5" target="_blank" rel="noopener">구글 AI 거부 학교 검색 차단에 시위대 반발, 선택권 요구</a> <span style="color:#718096;font-size:.86em;">· The Boston Globe · 11/12</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMikgJBVV95cUxPRGpPTHVkNGp3Yi1NaG5laFU2QmFsU0dJdlhzVWlpd0RHcXlPd0ttRUtWUkF3SWhkUThjRy01azBNS0RFRzRiWWFmRF90SThuaE5felFsakp5RWVDVFhRSWljS2ZRU2lOcWR4SW1NWk5wQkN5T2tzTEJxbzdIRGRWa0hBWGl5WHBSbVRfZVM5WVpsa3l3Ylo3ZzcwQ1hCclRyeWdydTB5Y2R6d2I3RGFMaFNwTERzSTFiUVFnMVdtQ1E0dVRmR2NZMThSbHQ2aHB6YXplamtSTlk0d3J2R3Mtdkt6MF94SDRuc0NSazdTLWNIdEVUYXBYaTUxX0RxcmdVSm44Ym1mLXRPX3EtUEgxcWV3?oc=5" target="_blank" rel="noopener">사우스포틀랜드 교육위원회, 찬반 엇갈렸지만 교실 내 AI 모라토리엄 부결</a> <span style="color:#718096;font-size:.86em;">· newscentermaine.com · 11/11</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQYU1DVzZOeHFwTER4TjJyTThrZDBWbnEwUnZPY2ZVOHdCUWI3RWRqLWk5dDJEaU1kYngtZFh5b1J3ZmxiSFpxd19ISFJmWWNkbDVZMk5ucFdWeXVmNE5xdUNmMzBfRW1DMnk2b0ZxNU1Vem9ERzQzdVR6eTVfZVNOd29YbUFVODNwaUNjdXlIVlk5UUFsanRxYWZnNzhjZw?oc=5" target="_blank" rel="noopener">13세 학생, 학교 노트북으로 AI에 자살 관련 질문…수주간 미탐지</a> <span style="color:#718096;font-size:.86em;">· WIRED · 11/12</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBHWHdaZE5yaHptN1c4RXZNa1UxYWJCRWFWdnN4S1VDTURLSC1EdW5zMnRkVERybXFfZG1YU0lZMUZJLW14ZnU2dmFPem1vSzFQczJwdHJfS3BvSXVUMzNjTS1pSlhwSzdDaHRscktscjY?oc=5" target="_blank" rel="noopener">교육부, 전국 중·고교 전수조사 'AI 스마트안경 활용 내신평가 부정행위 4건 적발'</a> <span style="color:#718096;font-size:.86em;">· 한국강사신문 · 11/11</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE9HcGxxNG5rdzMwbjV1RXkxOVNYcWIyNUU2eUg0djRjdEdFXzNjMmp2Q3RWckkxdjI0WXFYRFRoc2s0QVp1SjhoUmVRUXpwNTBoSkZYQktnWTlON3Zta1NERFd6Z0Q5Zy1zbEE?oc=5" target="_blank" rel="noopener">AI 안경, 변호사시험 정답률 26%…수능 부정행위는 이미 현실</a> <span style="color:#718096;font-size:.86em;">· OBC 뉴스 · 11/12</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE1ocVA3OWRkbnVuN1pGbl95VWtGdUd2bVhhY0F6OWxRdWpLR2VMNmZ4Z0cyeFhWUTVDZ253V2V6MzUtb3ZORGZUX3FDQzNiZjZhcVUzTHBUSkFBaGI0SW04OXRqSWZEZmRuYjZodXpR0gFzQVVfeXFMTmpZYlhGZDUwSlRpTFdWeHRkU1lmeUFiclJXX0dhNDlacGlWMGJvdGVlMVVvVm9hNnE3ZEhSSUItME1vUUlGY3dMWXMyQ3JYcXFpV2JRdGM0ekJxNUZnNU91M0JpVVh2bTJabDRRMGFDUlZZMA?oc=5" target="_blank" rel="noopener">100명 중 20명 답 똑같은데 채점은 어떻게? 'AI 딜레마' 빠진 교실</a> <span style="color:#718096;font-size:.86em;">· 한국일보 · 11/9</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQcnRuQjZGUU9xbUxieGFPbU9Yal9meFoxVlhVUkVCcm1DRVdrcE5LZzZEQlZJWFk2Y3k1LXNYTmZKOWd3dHh0TjFER0hScGJNUmlwWm9KaU9mOGZRMnV5TU5YeS1pd210Vmk1cUJ0VlJtV3k1aFNid3hvcl9yRlBpRWlVTDlVVVlYS295SUstY3B3Q19YOF8tTU81UkZmaWhZWF9QbkhjRWdKVlpQSXE1Qg?oc=5" target="_blank" rel="noopener">AI로 대학 과제 평가가 '거의 불가능'해졌다 – 영국 규제기관</a> <span style="color:#718096;font-size:.86em;">· The Guardian · 11/12</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQd1AwOTZlN29pUThJdEI2cVBvRHV5d1BsTGk5VlRxTGNQZUJjNDZYVml6UmRjYnN6X2hxT00wM2JOWmV4M0oyR3l6bnJBa0dnbzZVdXVwcnVZeXNsdFdfbHg5d1NKQTdRVzMwN1psbURpM0RTUlRQTm1Ca0Q2dVR3RU9PMjk0OEFDNHFfTlV3Y0l4OUxhWUJBMC1seGdSYW4zNWhiSy0tTWRrVXhwZEtHQ2d5M0lCT1JXX0RtcjNnMA?oc=5" target="_blank" rel="noopener">집에서 쓰는 에세이 과제가 죽은 날: AI 채점 대신 진짜 학습 설계로</a> <span style="color:#718096;font-size:.86em;">· EdSurge · 11/12</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9qM3lvWkhmRUxramwtSjVBR19qSlZhWm5uWmlyS19STkJuWThrczVhT2VkSy1mbjgzNHcxTzJHaEZUMk1kMWQwNXdFLXp2cFlLb0xkR0daSWlPT0hjMnUwUkpOSkltQ1lISG9vZDlmWHc3SUFWemc?oc=5" target="_blank" rel="noopener">OpenAI 보고서, 학생 79%가 숙제에 AI 사용하지만 제대로 배운 비율은 47%</a> <span style="color:#718096;font-size:.86em;">· BigGo Finance · 11/11</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSzNkU0IwWEJwaVhaRHVYR3RZTFQ1YVdqZkwxNnIxMjMtOGpGeVJGWUMwaDU1QWhreHB0R3U0eHJCQnhLZWdyNjNMWm96NTNvbTYwbDFfSS1XN2p6SjFzMWJGQ2VNTHN5UXVpR1gweTd1LTlqLUpZaUNQay1ITkR5SDBveUVBLVRGX21BTUJEV1A0TWxFaGlvT3NwZVFGclhTYnlWWlJCNHJVU0UxbmtFWE12NF9tdVZYME9r?oc=5" target="_blank" rel="noopener">OpenAI, 학생 AI 숙제 활용 확산 속 교사 연수 확대 촉구</a> <span style="color:#718096;font-size:.86em;">· EdTech Innovation Hub · 11/13</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNQU1sZGJSbENuYVI3UllwUV96YnB2SWtRR1JNUF9Ia3JENWlzQ21OdTRHZ3lCWk9BU1Zpc3I1RWlURnpyQmNvSXVkT1EzekxoYVZkZzM1WnJ3dmY5TVNnZE9yNXVXT1BBd2hjZzRMMHJndU5kS19maE9keVNWR1RTRktjTlR5OURGVVVfakhxeUtoZTY4MU9zVFNSMTBFUEMxbUk2SHV2cVFtclFYVXc?oc=5" target="_blank" rel="noopener">하버드, 5000여 건 연구로 "AI가 학습을 돕는가 방해하는가" 분석</a> <span style="color:#718096;font-size:.86em;">· Education Week · 11/13</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMia0FVX3lxTE5raXJMbHZzbVBUa0FRd1BEVjlZQ0NsNV83bTFHaHFCZTY1NHdFV0N6Z0VjbVFUWUhfeE9TeGZFTVE0cEFTVGpMeWxSY3F2dk84T3VDOTBnblJ4YmUzVVVjZzIydjlRZmRXLUxV?oc=5" target="_blank" rel="noopener">디지털리터러시협회, 국회서 AI 교육정책 심포지엄…"사람의 판단이 핵심"</a> <span style="color:#718096;font-size:.86em;">· 내외경제TV · 11/13</span></li>
+      </ul>
+
+      <p style="margin-top:22px;padding:14px 16px;background:#f7f9fc;border-radius:8px;font-size:.86em;color:#5e6b7d;line-height:1.75;">티움 위클리는 매일 아침 AI가 국내외 뉴스를 추려 정리한 브리핑을, 사무국이 한 주 단위로 다시 읽고 흐름과 생각을 더해 씁니다. 기사 내용은 각 원문을 기준으로 하며, 주제 분류와 판단은 사무국의 것입니다.</p>
+
+      <p style="margin-top:24px;">감사합니다.<br><strong>사단법인 티움 사무국장 최주안 드림</strong></p>
+`,
+  },
+  {
     id:      'wk-2026-45',
     issue:   8,
     period:  '2026-11-02/2026-11-06',
