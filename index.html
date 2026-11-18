@@ -3172,5 +3172,86 @@ function closeProlife2() {
         </div>
       </div>
 
+
+  <!-- ===== STAR 오픈 특강 안내 팝업 (첫 화면) =====
+       STAR_POPUP_UNTIL 날짜(신청 마감일)까지만 뜨고, 다음 날부터 저절로 안 뜹니다.
+       끄려면 STAR_POPUP_ENABLED = false. '오늘 하루 열지 않기'는 브라우저에 날짜를 저장. -->
+  <style>
+    .sp-ov{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(8,20,38,.62);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+    .sp-ov.open{opacity:1;visibility:visible}
+    .sp-box{position:relative;width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);transform:translateY(14px);transition:transform .25s;font-family:inherit}
+    .sp-ov.open .sp-box{transform:none}
+    .sp-img{position:relative;height:190px;background:#0f2848}
+    .sp-img img{width:100%;height:100%;object-fit:cover;object-position:55% 30%;display:block}
+    .sp-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,72,0) 35%,rgba(15,40,72,.85) 100%)}
+    .sp-img .sp-tag{position:absolute;left:18px;bottom:14px;z-index:1;background:#F5A623;color:#1a1a2e;font-weight:800;font-size:.78rem;border-radius:999px;padding:4px 12px}
+    .sp-x{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:1rem;cursor:pointer}
+    .sp-body{padding:20px 22px 6px}
+    .sp-kick{font-size:.78rem;font-weight:800;color:#1B4F8A;letter-spacing:.04em}
+    .sp-body h2{margin:8px 0 10px;font-size:1.28rem;line-height:1.42;font-weight:800;letter-spacing:-.03em;color:#1a1a2e}
+    .sp-body h2 em{font-style:normal;color:#c77d05}
+    .sp-body p{margin:0 0 12px;color:#4a4f5c;font-size:.9rem;line-height:1.7}
+    .sp-info{list-style:none;margin:0 0 14px;padding:12px 14px;background:#f7f9fc;border-radius:12px;font-size:.88rem;color:#1a1a2e}
+    .sp-info li{padding:3px 0}
+    .sp-info b{display:inline-block;min-width:58px;color:#1B4F8A}
+    .sp-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 22px 16px}
+    .sp-acts a{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:13px 10px;font-weight:700;font-size:.93rem;text-decoration:none}
+    .sp-go{background:#F5A623;color:#1a1a2e}
+    .sp-more{background:#0f2848;color:#fff}
+    .sp-foot{display:flex;justify-content:space-between;border-top:1px solid #e2e8f0;padding:10px 16px}
+    .sp-foot button{background:none;border:0;color:#6b7280;font-size:.84rem;cursor:pointer;padding:6px;font-family:inherit}
+  </style>
+  <div class="sp-ov" id="starPopup" aria-hidden="true">
+    <div class="sp-box" role="dialog" aria-modal="true" aria-labelledby="spTitle">
+      <button class="sp-x" type="button" aria-label="닫기" onclick="closeStarPopup()">✕</button>
+      <div class="sp-img"><img src="star/img/semi.jpg" alt="" /><span class="sp-tag">모집 중 · 12월 11일 마감</span></div>
+      <div class="sp-body">
+        <span class="sp-kick">STAR 오픈 특강 · 공익 과학교육</span>
+        <h2 id="spTitle">세계적 한인 과학자의 연구,<br><em>고등학생 누구에게나 열린 특강</em></h2>
+        <p>미국 과학계가 인정한 재미 한인 교수진이 실제 연구 주제를 직접 강의합니다.</p>
+        <ul class="sp-info">
+          <li><b>일시</b>12월 14일(월) 밤 10시 · 온라인</li>
+          <li><b>분야</b>우주물리·재료공학·반도체 택1</li>
+          <li><b>수강료</b>5만 원 · 기회균등 가정 무료</li>
+        </ul>
+      </div>
+      <div class="sp-acts">
+        <a class="sp-more" href="star/">자세히 보기</a>
+        <a class="sp-go" href="https://docs.google.com/forms/d/e/1FAIpQLSeHwA9fpl-YuQPyCOLN1bhala5iRHkgCHJNO8P29wlxzcTjeQ/viewform" target="_blank" rel="noopener">바로 신청하기 →</a>
+      </div>
+      <div class="sp-foot">
+        <button type="button" onclick="dismissStarPopup()">오늘 하루 열지 않기</button>
+        <button type="button" onclick="closeStarPopup()">닫기</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var STAR_POPUP_ENABLED = true;
+    var STAR_POPUP_UNTIL = '2026-12-11';   /* 오픈 특강 신청 마감일 */
+    var KEY = 'tieum-star-popup-dismissed';
+    var ov = document.getElementById('starPopup');
+    if (!ov) return;
+    function today() {
+      var d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+    if (!STAR_POPUP_ENABLED || (STAR_POPUP_UNTIL && today() > STAR_POPUP_UNTIL) || window.self !== window.top) { ov.remove(); return; }
+    var dismissed = null;
+    try { dismissed = localStorage.getItem(KEY); } catch (e) {}
+    window.closeStarPopup = function () { ov.classList.remove('open'); ov.setAttribute('aria-hidden', 'true'); };
+    window.dismissStarPopup = function () { try { localStorage.setItem(KEY, today()); } catch (e) {} closeStarPopup(); };
+    ov.addEventListener('click', function (e) { if (e.target === ov) closeStarPopup(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ov.classList.contains('open')) closeStarPopup(); });
+    if (dismissed === today()) return;
+    function show() {
+      /* 옛 소식 팝업이 같이 떠 있으면 겹치지 않도록 닫음 */
+      var np = document.getElementById('newsPopupOverlay'); if (np) np.classList.remove('np-open');
+      ov.classList.add('open'); ov.setAttribute('aria-hidden', 'false');
+    }
+    if (document.readyState === 'complete') setTimeout(show, 500);
+    else window.addEventListener('load', function () { setTimeout(show, 500); });
+  })();
+  </script>
 </body>
 </html>
