@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAR 오픈 특강 — 세계적 한인 과학자의 연구, 고등학생 누구에게나 열린 특강 | 티움</title>
+  <meta name="description" content="미국 과학계가 인정한 재미 한인 교수진이 실제 연구 주제를 직접 강의하는 온라인 오픈 특강. 고등학생(예비 고1 포함) 누구나, 12월 14일(월) 밤 10시. 기회균등 가정은 수강료 없음." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="ko_KR" />
+  <meta property="og:site_name"   content="사단법인 티움" />
+  <meta property="og:title"       content="STAR 오픈 특강 — 세계적 한인 과학자의 연구, 고등학생 누구에게나 열린 특강" />
+  <meta property="og:description" content="재미 한인 교수진이 실제 연구 주제를 직접 강의하는 온라인 특강. 12월 14일(월) 밤 10시 · 수강료 5만 원 · 기회균등 가정은 무료." />
+  <meta property="og:image"       content="https://tieum.org/star/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url"         content="https://tieum.org/star/" />
+  <link rel="canonical" href="https://tieum.org/star/" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="icon" type="image/png" href="../assets/images/tieum-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/tieum-icon-32.png" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=64" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .st { --gold:#F5A623; --navy:#0f2848; --ink:#1a1a2e; --muted:#5b6475; --line:#e2e8f0; --soft:#f7f9fc; color:var(--ink); }
+    .st * { box-sizing:border-box; }
+    .st-wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+
+    /* 히어로 */
+    .st-hero { position:relative; overflow:hidden; background:var(--navy); color:#fff; }
+    .st-hero > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:62% 30%; }
+    .st-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(10,30,56,.95) 0%, rgba(10,30,56,.86) 44%, rgba(10,30,56,.45) 100%); }
+    .st-hero .st-wrap { position:relative; z-index:1; padding-top:150px; padding-bottom:86px; }
+    .st-badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(245,166,35,.55); background:rgba(245,166,35,.12); color:#ffd27a; border-radius:999px; padding:6px 16px; font-size:.82rem; font-weight:700; letter-spacing:.02em; }
+    .st-hero h1 { margin:22px 0 18px; font-size:clamp(1.9rem,4.4vw,3.05rem); font-weight:800; line-height:1.3; letter-spacing:-.035em; }
+    .st-hero h1 em { font-style:normal; color:#ffd27a; }
+    .st-lede { max-width:620px; font-size:1.06rem; line-height:1.8; color:rgba(255,255,255,.86); }
+    .st-lede strong { color:#fff; }
+    .st-chips { display:flex; flex-wrap:wrap; gap:8px; margin:26px 0 30px; }
+    .st-chips span { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:7px 15px; font-size:.86rem; }
+    .st-chips b { color:#ffd27a; }
+    .st-cta { display:flex; flex-wrap:wrap; gap:12px; }
+    .st-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:10px; padding:15px 24px; font-weight:700; font-size:1rem; text-decoration:none; transition:transform .2s, box-shadow .2s, background .2s; }
+    .st-btn:hover { transform:translateY(-2px); }
+    .st-btn-gold { background:var(--gold); color:#1a1a2e; box-shadow:0 10px 26px rgba(245,166,35,.32); }
+    .st-btn-line { border:1.5px solid rgba(255,255,255,.55); color:#fff; }
+    .st-btn-line:hover { background:rgba(255,255,255,.1); }
+    .st-btn-navy { background:var(--navy); color:#fff; }
+    .st-org { margin-top:34px; font-size:.84rem; color:rgba(255,255,255,.66); }
+    .st-org b { color:rgba(255,255,255,.9); font-weight:600; }
+
+    /* 섹션 공통 */
+    .st-sec { padding:84px 0; }
+    .st-sec.alt { background:var(--soft); }
+    .st-kicker { display:block; color:#1B4F8A; font-size:.8rem; font-weight:800; letter-spacing:.14em; margin-bottom:12px; }
+    .st-h2 { font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; letter-spacing:-.03em; line-height:1.38; margin:0 0 14px; }
+    .st-sub { color:var(--muted); line-height:1.8; max-width:680px; margin:0; }
+
+    /* 공익 3원칙 */
+    .st-values { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
+    .st-value { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 24px; }
+    .st-value .n { display:inline-flex; width:38px; height:38px; border-radius:50%; align-items:center; justify-content:center; background:rgba(245,166,35,.15); color:#b9740a; font-weight:800; margin-bottom:16px; }
+    .st-value h3 { font-size:1.12rem; font-weight:800; margin:0 0 8px; letter-spacing:-.02em; }
+    .st-value p { color:var(--muted); font-size:.94rem; line-height:1.75; margin:0; }
+
+    /* 특강 분야 */
+    .st-topics { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
+    .st-topic { border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#fff; display:flex; flex-direction:column; }
+    .st-topic .bar { height:6px; }
+    .st-topic .in { padding:24px 22px 26px; }
+    .st-topic .field { font-size:.8rem; font-weight:800; letter-spacing:.06em; }
+    .st-topic h3 { font-size:1.1rem; font-weight:800; line-height:1.5; margin:10px 0 12px; letter-spacing:-.02em; }
+    .st-topic p { margin:0; color:var(--muted); font-size:.88rem; }
+    .st-note { margin-top:16px; font-size:.88rem; color:var(--muted); }
+
+    /* 일정 */
+    .st-steps { list-style:none; padding:0; margin:40px 0 0; display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+    .st-steps::before { content:""; position:absolute; left:10%; right:10%; top:19px; height:2px; background:var(--line); }
+    .st-steps li { position:relative; text-align:center; padding:0 8px; }
+    .st-steps .dot { position:relative; z-index:1; width:40px; height:40px; margin:0 auto 14px; border-radius:50%; background:#fff; border:2px solid #1B4F8A; color:#1B4F8A; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; }
+    .st-steps li.key .dot { background:var(--gold); border-color:var(--gold); color:#1a1a2e; }
+    .st-steps .d { font-weight:800; font-size:1rem; }
+    .st-steps .t { color:var(--muted); font-size:.88rem; margin-top:4px; line-height:1.55; }
+
+    /* 신청 안내 */
+    .st-apply { display:grid; grid-template-columns:1.25fr 1fr; gap:28px; margin-top:36px; align-items:start; }
+    .st-dl { margin:0; background:#fff; border:1px solid var(--line); border-radius:16px; padding:8px 26px; }
+    .st-dl div { display:grid; grid-template-columns:96px 1fr; gap:14px; padding:16px 0; border-bottom:1px solid var(--line); }
+    .st-dl div:last-child { border-bottom:0; }
+    .st-dl dt { font-weight:800; color:#1B4F8A; font-size:.92rem; }
+    .st-dl dd { margin:0; line-height:1.7; font-size:.95rem; }
+    .st-dl dd small { display:block; color:var(--muted); font-size:.85rem; }
+    .st-fair { background:linear-gradient(160deg,#fff8ea,#fff); border:1.5px solid rgba(245,166,35,.55); border-radius:16px; padding:28px 26px; }
+    .st-fair .tag { display:inline-block; background:var(--gold); color:#1a1a2e; font-weight:800; font-size:.78rem; border-radius:999px; padding:4px 12px; }
+    .st-fair h3 { font-size:1.2rem; font-weight:800; margin:14px 0 10px; letter-spacing:-.02em; }
+    .st-fair p { margin:0 0 18px; color:#4a4f5c; line-height:1.75; font-size:.94rem; }
+    .st-fair .st-btn { width:100%; }
+
+    /* 연구 과정 연결 */
+    .st-research { position:relative; overflow:hidden; border-radius:20px; background:var(--navy); color:#fff; display:grid; grid-template-columns:1.1fr 1fr; }
+    .st-research .txt { padding:44px 40px; }
+    .st-research .cap { display:inline-flex; align-items:center; gap:8px; background:rgba(245,166,35,.16); border:1px solid rgba(245,166,35,.5); color:#ffd27a; border-radius:999px; padding:6px 14px; font-weight:800; font-size:.86rem; }
+    .st-research h2 { font-size:clamp(1.35rem,2.6vw,1.8rem); font-weight:800; line-height:1.45; margin:18px 0 12px; letter-spacing:-.03em; }
+    .st-research p { color:rgba(255,255,255,.78); line-height:1.8; margin:0 0 8px; font-size:.95rem; }
+    .st-research ul { margin:14px 0 26px; padding:0; list-style:none; }
+    .st-research li { padding:6px 0 6px 22px; position:relative; color:rgba(255,255,255,.88); font-size:.94rem; }
+    .st-research li::before { content:""; position:absolute; left:2px; top:14px; width:8px; height:8px; border-radius:50%; background:var(--gold); }
+    .st-research .ph { position:relative; min-height:300px; }
+    .st-research .ph img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:30% 30%; }
+    .st-research .ph small { position:absolute; right:10px; bottom:8px; font-size:.68rem; color:rgba(255,255,255,.8); background:rgba(10,32,56,.55); padding:2px 8px; border-radius:4px; }
+    .st-research .by { margin-top:14px; font-size:.82rem; color:rgba(255,255,255,.6); }
+
+    /* 문의 */
+    .st-contact { display:flex; flex-wrap:wrap; gap:18px 40px; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:36px; }
+    .st-contact p { margin:4px 0; color:var(--muted); font-size:.92rem; line-height:1.7; }
+    .st-contact strong { color:var(--ink); }
+
+    .st-foot { background:#0b1f38; color:rgba(255,255,255,.62); font-size:.84rem; padding:34px 0; line-height:1.8; }
+    .st-foot a { color:rgba(255,255,255,.82); }
+
+    @media (max-width: 900px) {
+      .st-values, .st-topics { grid-template-columns:1fr; }
+      .st-apply { grid-template-columns:1fr; }
+      .st-research { grid-template-columns:1fr; }
+      .st-research .ph { min-height:220px; order:-1; }
+      .st-steps { grid-template-columns:1fr; gap:18px; }
+      .st-steps::before { left:19px; right:auto; top:10px; bottom:10px; width:2px; height:auto; }
+      .st-steps li { display:grid; grid-template-columns:40px 1fr; gap:4px 16px; text-align:left; padding:0; }
+      .st-steps .dot { margin:0; grid-row:span 2; }
+      .st-steps .t { margin-top:0; }
+    }
+    @media (max-width: 600px) {
+      .st-wrap { padding:0 16px; }
+      .st-hero .st-wrap { padding-top:118px; padding-bottom:60px; }
+      .st-hero::after { background:linear-gradient(180deg, rgba(10,30,56,.82) 0%, rgba(10,30,56,.92) 100%); }
+      .st-btn { width:100%; }
+      .st-sec { padding:60px 0; }
+      .st-research .txt { padding:30px 22px; }
+      .st-dl { padding:4px 18px; }
+      .st-dl div { grid-template-columns:1fr; gap:4px; }
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-t">T</span><span class="logo-rest">IEUM</span>
+        <span class="logo-kr">티움</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item"><a href="../index.html#about">소개</a></li>
+        <li class="nav-item"><a href="../index.html#academy" class="active">아카데미</a></li>
+        <li class="nav-item"><a href="../index.html#outreach">아웃리치</a></li>
+        <li class="nav-item"><a href="../lms.html">러닝센터</a></li>
+        <li class="nav-item"><a href="../news.html">소식</a></li>
+        <li class="nav-item"><a href="../newsletter.html">뉴스레터</a></li>
+        <li class="nav-item"><a href="../index.html#support">후원</a></li>
+      </ul>
+      <a href="../index.html#support" class="btn-donate">후원하기</a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+</header>
+<script>if(window.self!==window.top){document.getElementById('header').style.display='none';}</script>
+
+<main class="st">
+
+  <!-- 히어로 -->
+  <section class="st-hero">
+    <img src="img/semi.jpg" alt="" fetchpriority="high" />
+    <div class="st-wrap">
+      <span class="st-badge">사단법인 티움 · 공익 과학교육 오픈 특강</span>
+      <h1>세계적 한인 과학자의 연구,<br><em>고등학생 누구에게나 열린 특강</em></h1>
+      <p class="st-lede">
+        <strong>미국 과학계가 인정한 재미 한인 교수진이 실제 연구 주제를 직접 강의.</strong><br>
+        사는 곳도, 집안 형편도, 지금의 성적도 묻지 않는 한 시간. 과학을 좋아하는 마음 하나면 충분.
+      </p>
+      <div class="st-chips">
+        <span><b>12월 14일(월)</b> 밤 10시 · 온라인</span>
+        <span>고등학생(예비 고1 포함) · 선발 없음</span>
+        <span>수강료 5만 원 · <b>기회균등 가정 무료</b></span>
+      </div>
+      <div class="st-cta">
+        <a class="st-btn st-btn-gold" href="https://docs.google.com/forms/d/e/1FAIpQLSeHwA9fpl-YuQPyCOLN1bhala5iRHkgCHJNO8P29wlxzcTjeQ/viewform" target="_blank" rel="noopener">오픈 특강 신청하기 →</a>
+        <a class="st-btn st-btn-line" href="#research">실제 연구 과정 참여 안내</a>
+      </div>
+      <p class="st-org">주최·주관 <b>(주)한국인재연구소</b> &nbsp;·&nbsp; 공익교육 협력 <b>사단법인 티움</b></p>
+    </div>
+  </section>
+
+  <!-- 공익 원칙 -->
+  <section class="st-sec">
+    <div class="st-wrap">
+      <span class="st-kicker">WHY TIEUM</span>
+      <h2 class="st-h2">세계 수준의 연구를 만나는 첫 경험,<br>더 많은 학생에게</h2>
+      <p class="st-sub">최고의 과학자를 직접 만나는 기회는 지금까지 일부 학생에게만 주어져 왔습니다. 티움은 그 문을 넓히는 공익교육 협력기관으로 오픈 특강에 함께합니다.</p>
+      <div class="st-values">
+        <div class="st-value">
+          <span class="n">1</span>
+          <h3>열린 문</h3>
+          <p>시험도, 서류 선발도 없는 특강. 고등학생(예비 고1 포함)이면 누구나 신청.</p>
+        </div>
+        <div class="st-value">
+          <span class="n">2</span>
+          <h3>기회균등 참가</h3>
+          <p>기초생활수급·차상위·한부모 가정 학생은 수강료 없이 참가. 비용 때문에 기회를 놓치지 않도록.</p>
+        </div>
+        <div class="st-value">
+          <span class="n">3</span>
+          <h3>다음 걸음까지</h3>
+          <p>강의 뒤 리서치 미션을 제출하면 연구 역량 진단 리포트 제공. 내가 어떤 연구에 맞는지 확인하는 계기.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 특강 분야 -->
+  <section class="st-sec alt" id="topics">
+    <div class="st-wrap">
+      <span class="st-kicker">OPEN LECTURE</span>
+      <h2 class="st-h2">교수진이 직접 여는 세 갈래 특강</h2>
+      <p class="st-sub">세 분야 가운데 하나를 골라 신청. 모두 12월 14일(월) 22:00~23:00(한국 시간), 온라인 진행.</p>
+      <div class="st-topics">
+        <article class="st-topic">
+          <div class="bar" style="background:#3b5bdb"></div>
+          <div class="in">
+            <span class="field" style="color:#3b5bdb">우주물리</span>
+            <h3>우주방사선 관측 데이터 분석</h3>
+            <p>12/14(월) 22:00 · 온라인</p>
+          </div>
+        </article>
+        <article class="st-topic">
+          <div class="bar" style="background:#0c8599"></div>
+          <div class="in">
+            <span class="field" style="color:#0c8599">재료공학</span>
+            <h3>금속 3D 프린팅 개론</h3>
+            <p>12/14(월) 22:00 · 온라인</p>
+          </div>
+        </article>
+        <article class="st-topic">
+          <div class="bar" style="background:#d9480f"></div>
+          <div class="in">
+            <span class="field" style="color:#d9480f">반도체</span>
+            <h3>첨단 반도체 패키징 기술의 필요성과 최신 트렌드</h3>
+            <p>12/14(월) 22:00 · 온라인</p>
+          </div>
+        </article>
+      </div>
+      <p class="st-note">※ 분야가 추가되면 따로 안내.</p>
+    </div>
+  </section>
+
+  <!-- 일정 -->
+  <section class="st-sec">
+    <div class="st-wrap">
+      <span class="st-kicker">SCHEDULE</span>
+      <h2 class="st-h2">신청부터 진단 리포트까지</h2>
+      <ol class="st-steps">
+        <li><span class="dot">1</span><div class="d">11. 30.(월) 20:00</div><div class="t">온라인 설명회<br>(사전 신청)</div></li>
+        <li><span class="dot">2</span><div class="d">12. 11.(금)</div><div class="t">오픈 특강<br>신청 마감</div></li>
+        <li class="key"><span class="dot">3</span><div class="d">12. 14.(월) 22:00</div><div class="t">오픈 특강<br>(온라인 1시간)</div></li>
+        <li><span class="dot">4</span><div class="d">12. 18.(금) 24:00</div><div class="t">리서치 미션<br>제출</div></li>
+        <li><span class="dot">5</span><div class="d">2027년 1월 중순</div><div class="t">연구 역량<br>진단 리포트</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 신청 안내 -->
+  <section class="st-sec alt" id="apply">
+    <div class="st-wrap">
+      <span class="st-kicker">HOW TO JOIN</span>
+      <h2 class="st-h2">오픈 특강 참가 안내</h2>
+      <div class="st-apply">
+        <dl class="st-dl">
+          <div><dt>대상</dt><dd>고등학생 누구나 (예비 고1 포함)<small>선발 없이 신청</small></dd></div>
+          <div><dt>일시</dt><dd>2026년 12월 14일(월) 22:00~23:00 (한국 시간)</dd></div>
+          <div><dt>방식</dt><dd>온라인 · 세 분야 가운데 1개 선택<small>접속 방법은 신청자에게 개별 안내</small></dd></div>
+          <div><dt>수강료</dt><dd>5만 원<small>납부 방법은 신청 확인 후 개별 안내</small></dd></div>
+          <div><dt>신청 마감</dt><dd>2026년 12월 11일(금)</dd></div>
+          <div><dt>제공</dt><dd>리서치 미션 제출자에게 연구 역량 진단 리포트 (2027년 1월 중순)</dd></div>
+        </dl>
+        <div class="st-fair">
+          <span class="tag">기회균등 참가</span>
+          <h3>기초생활수급·차상위·한부모 가정은 수강료 없이</h3>
+          <p>신청서의 ‘기회균등 참가 대상인가요?’ 문항에 ‘해당함’을 고르면 수강료 없이 참가할 수 있습니다. 확인 서류는 신청 후 개별로 안내드립니다.</p>
+          <a class="st-btn st-btn-navy" href="https://docs.google.com/forms/d/e/1FAIpQLSeHwA9fpl-YuQPyCOLN1bhala5iRHkgCHJNO8P29wlxzcTjeQ/viewform" target="_blank" rel="noopener">오픈 특강 신청하기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연구 과정 연결 -->
+  <section class="st-sec" id="research">
+    <div class="st-wrap">
+      <div class="st-research">
+        <div class="txt">
+          <span class="cap">정원 20명</span>
+          <h2>실제 연구 과정 참여<br>(미국 방문 포함) 신청</h2>
+          <p>오픈 특강 다음 단계. 재미 한인 교수진과 매주 연구 미팅을 하며 실제 연구에 참여하는 소규모 연구 과정.</p>
+          <ul>
+            <li>분야별 소규모 연구 · 교수와 매주 연구 미팅</li>
+            <li>2027년 1월 플로리다 현지 연구 방문</li>
+            <li>성과 발표회 · 영문 연구 결과 보고서와 수료증</li>
+          </ul>
+          <a class="st-btn st-btn-gold" href="https://talentium.co.kr/star/#research" target="_blank" rel="noopener">연구 과정 안내·신청 페이지 →</a>
+          <p class="by">연구 과정 운영·신청 접수: (주)한국인재연구소 (STAR 멘토십 안내 페이지로 이동)</p>
+        </div>
+        <div class="ph">
+          <img src="img/semi.jpg" alt="반도체 연구실에서 연구자와 학생들이 웨이퍼를 함께 살펴보는 모습" loading="lazy" />
+          <small>이해를 돕기 위한 이미지</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 설명회·문의 -->
+  <section class="st-sec" style="padding-top:0">
+    <div class="st-wrap">
+      <div class="st-contact">
+        <div>
+          <p><strong>온라인 설명회</strong> · 2026년 11월 30일(월) 오후 8시 · 사전 신청</p>
+          <p><strong>문의</strong> · STAR 멘토십 총괄 장준호 위원 · <a href="mailto:junho@talentium.co.kr">junho@talentium.co.kr</a> · 010-5597-8744</p>
+          <p style="font-size:.84rem">일정 등 세부 내용은 사정에 따라 바뀔 수 있습니다.</p>
+        </div>
+        <a class="st-btn st-btn-navy" href="https://docs.google.com/forms/d/e/1FAIpQLScV3kOiFbjebP5b3heLEnGbYPkNvjx8mxu9nGbn5hgqcbj1pA/viewform" target="_blank" rel="noopener">온라인 설명회 사전 신청</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="st-foot">
+  <div class="st-wrap">
+    STAR 멘토십은 (주)한국인재연구소가 주최·주관하고, 비영리 사단법인 티움이 공익교육 협력 기관으로 참여합니다.<br>
+    &copy; 2026 사단법인 티움(TIEUM) · 고유번호 454-82-00464 · 서울특별시 서초구 효령로 57길 3 ·
+    <a href="../index.html">티움 홈으로</a> · <a href="../privacy.html">개인정보 처리방침</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=7"></script>
+</body>
+</html>
