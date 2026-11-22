@@ -10,6 +10,138 @@
 
 window.WEEKLY_DATA = [
   {
+    id:      'wk-2026-47',
+    issue:   10,
+    period:  '2026-11-16/2026-11-20',
+    label:   '2026년 11월 16일 – 20일',
+    title:   '제10호 — 다 막을 수 없을 때',
+    summary: '이번 주 국내외 AI·교육 뉴스 70건. 수능에서 AI 안경 부정행위가 실제로 적발되며 평가를 다시 설계하자는 목소리가 커졌고, 미국에서는 학교의 구글 사용과 AI 규칙을 두고 학생·학부모·교사가 직접 목소리를 냈습니다.',
+    color:   '#1B4F8A',
+    content: `
+      <p style="color:#718096;font-size:.9rem;margin-bottom:24px;">2026년 11월 16일 – 20일 · 티움 위클리 제10호</p>
+
+      <p>사랑하는 티움 후원자 여러분, 그리고 티움을 찾아 주신 방문자 여러분, 안녕하세요. 티움 사무국장 최주안입니다.</p>
+      <p>이번 주는 수능이 있던 주간이었습니다. 시험 전에는 AI 안경을 어떻게 막느냐는 기사가, 시험 뒤에는 실제로 적발되었다는 기사가 나왔습니다. 바다 건너에서는 학교의 검색창과 AI 규칙을 두고 이야기가 이어졌습니다. 닷새 치 기사를 다시 읽으며 한 가지 물음이 남았습니다. <strong>다 막을 수 없다면, 우리는 무엇을 다시 물어야 할까요?</strong></p>
+
+      <p style="margin:22px 0 6px;"><img src="assets/images/weekly/wk-2026-47.jpg" alt="일러스트 — 방과 후 교실에서 선생님과 학생 세 명이 한 책상에 둘러앉아 큰 종이에 함께 규칙을 적고, 덮인 노트북이 책상 끝에 놓여 있다" width="1600" height="900" style="width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async"></p>
+      <p style="margin:0 0 24px;font-size:13px;color:#718096;">노트북은 잠시 덮어 두고, 함께 지킬 규칙을 한 줄씩 같이 적어 갑니다.</p>
+
+      <h3>📊 이번 주 한눈에</h3>
+      <p>닷새 동안 <strong>70건</strong>의 기사를 읽었습니다. 국내 36건, 해외 34건입니다.</p>
+<svg viewBox="0 0 640 224" width="100%" role="img" aria-label="이번 주 일별 국내·해외 기사 수" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.nm{font-size:12px;fill:#fff;font-weight:700}.lg{font-size:12px;fill:#4a5568}</style>
+<text class="lb" x="68" y="35" text-anchor="end">11/16(월)</text>
+<rect x="78" y="20" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="35" text-anchor="middle">7</text>
+<rect x="324.0" y="20" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="35" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="35">14건</text>
+<text class="lb" x="68" y="69" text-anchor="end">11/17(화)</text>
+<rect x="78" y="54" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="69" text-anchor="middle">7</text>
+<rect x="324.0" y="54" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="69" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="69">14건</text>
+<text class="lb" x="68" y="103" text-anchor="end">11/18(수)</text>
+<rect x="78" y="88" width="281.1" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="218.6" y="103" text-anchor="middle">8</text>
+<rect x="359.1" y="88" width="210.9" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="464.6" y="103" text-anchor="middle">6</text>
+<text class="lb" x="580.0" y="103">14건</text>
+<text class="lb" x="68" y="137" text-anchor="end">11/19(목)</text>
+<rect x="78" y="122" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="137" text-anchor="middle">7</text>
+<rect x="324.0" y="122" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="137" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="137">14건</text>
+<text class="lb" x="68" y="171" text-anchor="end">11/20(금)</text>
+<rect x="78" y="156" width="246.0" height="22" rx="4" fill="#1B4F8A"/>
+<text class="nm" x="201.0" y="171" text-anchor="middle">7</text>
+<rect x="324.0" y="156" width="246.0" height="22" rx="4" fill="#F5A623"/>
+<text class="nm" x="447.0" y="171" text-anchor="middle">7</text>
+<text class="lb" x="580.0" y="171">14건</text>
+<rect x="78" y="196" width="12" height="12" rx="2" fill="#1B4F8A"/><text class="lg" x="96" y="206">국내</text>
+<rect x="148" y="196" width="12" height="12" rx="2" fill="#F5A623"/><text class="lg" x="166" y="206">해외</text>
+</svg>
+      <p style="margin-top:18px;">하루에 한 줄씩, 그날의 흐름을 이렇게 정리했습니다.</p>
+      <ul style="font-size:.95em;">
+        <li><strong>월</strong> — 수능장의 AI 안경과 미국 교실의 구글 AI 논쟁이 겹쳤습니다. &lsquo;AI를 어떻게, 왜 쓰는가&rsquo;가 현장의 쟁점이 되었습니다.</li>
+        <li><strong>화</strong> — 국내는 AI 커닝을 어떻게 막을지에, 해외는 AI를 학교에 얼마나 들일지 규칙을 만드는 데 마음을 썼습니다.</li>
+        <li><strong>수</strong> — 학부모와 학교가 빅테크 의존과 AI 정책을 두고 목소리를 냈습니다. 무게중심이 &lsquo;활용법&rsquo;에서 &lsquo;책임 있는 판단&rsquo;으로 옮겨 갔습니다.</li>
+        <li><strong>목</strong> — 입시에서 어르신 교육, 공직사회까지 AI 리터러시가 함께 쓰는 말이 되었습니다. &lsquo;어떻게 믿고, 어떻게 가르칠까&rsquo;가 남았습니다.</li>
+        <li><strong>금</strong> — 수능 적발 소식과 해외 학교들의 허용 범위 논쟁이 함께 나왔습니다. &lsquo;금지냐 허용이냐&rsquo;를 넘어 &lsquo;어떻게 가르칠까&rsquo;로 질문이 옮겨 갔습니다.</li>
+      </ul>
+
+      <h3>🔍 이번 주 흐름 세 가지</h3>
+      <ul>
+        <li><strong>막을 수 없다면, 다시 설계해야 합니다</strong> — 국회에서 AI 커닝을 100% 잡아낼 수 있느냐는 질문에 교육부 장관은 <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BNS1lSy1mTnd5c29ULUtWWEZQT3RoQU03UjFleFFtc29Mby0yczctOGZxcm9hQll0OVBNM1hBNXdYRVF1dm55NS16TFNwZE0tY0hBZ2lKRXFyUdIBX0FVX3lxTE12c3dudGREUjdvSkVjRmNOeDlQRTdVdW1aQVl5WVMzX3BFc1J3RGU0MW1wVVEtNElFMmd5R0R1UGo2ckdkaHJlUlZES01ha0ZHR1dvMHdMa2xpbmw2Q0xR?oc=5" target="_blank" rel="noopener">&ldquo;못 할 것 같다&rdquo;고 답했습니다</a>. 수능이 끝난 뒤 교육부는 <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE15NFQ0TXB0T1FhNUNtN25MVExjbUVUbl9xS0JsYUdqTlc0VXdaTGVXclhBREtBM3ZMUmZuRjNSWV84N0tFSmV0ejU1TTk4cnZmRFJxZTVvdzBONUFBcmk1atIBeEFVX3lxTE8wdi1fNGFDdW41UHRTX2VLQlI1ZldwdmVDbUdwQUpBbGJWcFVxMzYtMms4SU16WWY3bFBBSGpaOUhIdGNDZmx1b2kxbFJmazNhY09UUFp5MlJ1anVtcWtfbU05QWtqVHJ2MjF3V1V4LVJzdHZMUWVLMg?oc=5" target="_blank" rel="noopener">부정행위자 98명 가운데 5명이 시험 중 AI 안경 등을 썼다</a>고 밝혔습니다. 한겨레는 <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9vSGE1bDRqWXZBSHdZZEpJRVA3a0VWZ0F1SGVqRG1GVmlkc3NZdjdJWXYzbVg0U055YnA0eW12SVZxSlRBZzBIcmdCMmRqOTZGelJPMFdoZ1dMbkQwVVV2bnZMTU94VHM?oc=5" target="_blank" rel="noopener">AI 부정행위가 일상이 되었으니 교육과 평가 방식이 달라져야 한다</a>고 썼고, 동아일보 시론은 <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE12TlpzSTBDT0N4djQzVndOVGxYd3ZtUURuWVJiNnNiQU9zdWFteHdldU11SDl5TElPZGxrVUNiRHNicEVoYW43VGRNN1pEV2VwclI3bmx2OU9QWHdrWG1nWERrcVlZeWM3NldfMXhETFpnakcycFHSAWZBVV95cUxNbVNsazc1dm8zYzZNVzd5ODBYRlNqRFZjaDdZX0VlLTJPc2RYVV85cHRwR3FlN1BPYWlVNnZJdUI4U2xMNlhoT0xaT2FCY0Jpam4wWWRvRE1xdnhmZVg5dkJrUklLV3c?oc=5" target="_blank" rel="noopener">시험과 평가를 다시 설계할 때</a>라고 했습니다. 바다 건너 스탠퍼드에서는 <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQWURLc0tJa1hNYmxJcV9zd2xjem9zaEU0TzhiVEM5TmxhYzlURGlwMy1fSUJsZ2RaemZ1c0lYWWhKWElYc0FrMWlKUW80SmxiSjMxcGlOLXV6WEpkZTJuX1lseEVsR0xMZFJxZFhOQVhHbzduQ3paMDVxS2J5NHBXVS1R?oc=5" target="_blank" rel="noopener">다시 펜과 종이로 돌아가는 움직임</a>이 보였습니다. 감시를 늘리는 것만으로는 답이 되지 않습니다. 이 시험이 무엇을 확인하려는 것인지부터 다시 물어야 합니다.<br/><br/></li>
+        <li><strong>학교의 검색창은 누가 정합니까</strong> — 세 주째 구글 이야기가 이어졌습니다. AI를 쓰지 않으면 검색도 제한하겠다는 방침에 <a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOck10bGJHVUFyUGxSNV9qbEVucW1VZXdsdFBXQnF0OXpkNGJTbGNGQ2l5V3hnYTBuaER5eDA4eU13dnMteF9fN3hxdnNPWlVmU25WLTlWbEZCeHE3dV9peXFJY1lCXzdNNVRPNFhqSFhPZXBQdzJvQVN5UVZNMUJ3RnUzalZRQ1cwU3Q0azVXZ1VSWUFTbG9LSE5UZ1pLeU51dE5WZFFzd1cwSTM5MUNJSmp1dDljaU1VeWU4?oc=5" target="_blank" rel="noopener">뉴저지 주지사가 반발</a>했습니다. The Conversation은 이 일을 두고 <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaC1oQUJxU2hkUVhkTzBNdjVhaTdXT3Y3OG5yWE96ZDZPdElWd0F0cmlyVTRwckprWGwwY2RSZEdGSGVvWk5Ea2lRbEhoN3hXSEVRU0RTOXlpaElUNFJid2RTVFk2VXg1Z2VWaVd4QmtTQmgteDB0Q3NVamVwbVFpOGNYMlo3TXhweDFaQ0pCM0lURWV2YnU2OHFNS1BNTWl1RWtqcDh5V2dwaTQ?oc=5" target="_blank" rel="noopener">학교가 빅테크에 기대는 위험이 드러났다</a>고 분석했습니다. 뉴욕타임스는 <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNaFZTcW1oQlltWWRFUy1hUzY4ODVqZXFKcl9McGNhUDZqam90WE9YQ3RqclV1czZJOVdKZURXeUxpTkRVM2FONklyQ2ZiS215WTBLTE14RFVZOWY1cnZUQTR5cDVNRlJ3bTVrWkJ5aGdxMG83NURiTjk1V0NLclhVM1NFcWctSVA0bUhad2dMYjg0czFSTk1KVUQyZXZTUQ?oc=5" target="_blank" rel="noopener">미국 여러 교육구가 구글과의 관계를 다시 따져 보고 있다</a>고 전했고, 뉴욕시 교육청은 <a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQSl9zWlI1OGhZelFCRHV3LXFrS0tqdjFKNG1WZlh1eE11MHJ0cFZhSHVPWURuWHJSUWc4UmQ0SE9xTVduU01SNFBBckRYbGhkRm5NbHAtLWtQYWJCUk5FQ1FDTDMwbkJkV1VCb2hST0JuODRPQ0J6OU80SlhtRWEwZGNNNy1tRGRSbWE3VE1uYThBY3JBTUtYQ2EzR0puMTRVR1dPVDBaLXNXRW9oVkZXWVZmWXBUS2RabFR2WFE3dC0xTmMydTRxYThtWdIB0wFBVV95cUxOQUl0WnZwU2NscXJrWTNzSnhiNkhDcmJWUko3M05MaGpReEVhYUNXT0gzcThIZ3h2YXhSWGRxVGx4V3N0dEpGM1Q2LU13Sko0S3NPenZwaXFkdFJBLS11bXRWTTBDN3NqX2g4OU1TVnRMTEJaamxLSjhOTlpXeGhIM05sR29mcXd6LWxmeDVuczVJdnZKckJSc2FsOTFacU5NT2RpdWdlcnJULTdQOXQwM3dMM1VaejBSOC1NUndhM0otaTBhaUwtQmFRQ3FFRzExSWo4?oc=5" target="_blank" rel="noopener">학교 안 구글 사용 중단까지 검토</a>하고 있습니다. 어떤 도구를 쓸지 고르는 일이 이제 교육의 일이 되었습니다.<br/><br/></li>
+        <li><strong>규칙을 정하는 자리에 학생과 학부모가 앉았습니다</strong> — 유타주는 <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPMVlJbzJ1b0wzT0pCMDdndUxnMjVod2NtemdiMGRraDc0T1RzVkFGOTR1Tl9CejdzYnp1WS14elpOMkdrQVZ3c2NGRmx2QjdjQVNrVG1WYklQcnd4bUU2N2VsTlFmWl9JWXdCUmpOdXA0RkdBSWFJMmc2TzVXcjgtN084eWRaMWF2ZWFud0M4NUxPM21TVjNB?oc=5" target="_blank" rel="noopener">학생들이 AI 정책을 만드는 데 직접 목소리를 내게</a> 했습니다. 로스앤젤레스 교육구는 <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPRm9kaWg5X2dobzRmZGo1LWVYcUo1eE02blhTRW40aXZ0NEJ2a19NWUJYbHJXTUthbWUwcnJfQ0RSRFM0NjZlaDBpcVRFS2dkZTJfdWFXTjNYNTdUZ0FxSGpHWHRRbVhlS3AxendhQk9hMGtrckx6WHFGUEdDbUFSSTkwU0dvTUxMNFdQY0tRYlZlMEo1d1ZjZHU1Zk9uWnN1bnc?oc=5" target="_blank" rel="noopener">AI를 어떻게 쓸지 학부모 의견을 들었습니다</a>. 새라소타에서는 <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQS0lFd29JTmd0N0ptVDYtMGlmZTJ0SnR1c2VnRHI2amR5cHgteTQ4Rkc5ekVHbzBPLUh4dVNHZjR2WlAyNnBLMGxqdC04N01fNFRkbUdLUGFIMDF1Ujh5cnpySGFhRlZzdUdSWGdRY1RPN0xHbWc0VFhIOG8tblJlZjBnbmZ0QnoxcnlkVHNUdEw1YzJlb1lrd0RCYXo3SlJpOWlBQzdqNzI?oc=5" target="_blank" rel="noopener">학생들이 AI의 위험을 먼저 경고했고, 교육구가 새 정책을 채택</a>했습니다. 앤아런델에서는 <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNazU1NDViSG9uLWR2UUxqSV93ZnRTUlBJVXNTUDRlWFRfbUpYS3JTbVVXZnk3Y3JwZHVHRldmSmg5YlhCWVF2bUJUa0RaajJMTXpNMjFXSENsRWtfOC02bk5pUnRYcjhQS0tSQmw4TEJ3WGhJazhwek1ZOVp1TmIwYklqbTFSQQ?oc=5" target="_blank" rel="noopener">교사와 학생이 직접 AI 금지를 제안</a>했습니다. 한 분석은 <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNTEkxYW9vZjl2c2RXcjZfM1NFT0VpRDNmaUF4OEEyRmZJOXhvSzdHdEptdWVWZTU1VTJjN05pVHhiQll5U1EzZnlfNGJRVzRiVlZJdWZnV2FNcDRsSVhkWWtNd1RBTWUyVi1zeXhVQjNleUl6UXhXRWVpTzJacVBxZGs0NFIyajFWcXZFOGNCcFRvaGN0dnUxQw?oc=5" target="_blank" rel="noopener">AI를 쓰느냐보다 어떻게 쓰느냐가 더 중요하다</a>고 정리했습니다. 위에서 내려온 규칙보다 함께 만든 규칙이 오래갑니다.</li>
+      </ul>
+
+      <h3>📊 주제별로 나누어 보면</h3>
+      <p>사무국이 70건을 여덟 가지 주제로 나누어 보았습니다.</p>
+<svg viewBox="0 0 640 260" width="100%" role="img" aria-label="이번 주 기사 주제별 분포" xmlns="http://www.w3.org/2000/svg" style="font-family:inherit;max-width:640px;display:block;">
+<style>.lb{font-size:13px;fill:#4a5568}.ct{font-size:13px;fill:#1a1a2e;font-weight:700}</style>
+<text class="lb" x="140" y="29" text-anchor="end">정책·가이드라인</text>
+<rect x="150" y="15" width="430.0" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="588.0" y="29">20</text>
+<text class="lb" x="140" y="59" text-anchor="end">교사·리더의 역할</text>
+<rect x="150" y="45" width="215.0" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="373.0" y="59">10</text>
+<text class="lb" x="140" y="89" text-anchor="end">기업·직장 AI교육</text>
+<rect x="150" y="75" width="215.0" height="20" rx="4" fill="#1B4F8A"/>
+<text class="ct" x="373.0" y="89">10</text>
+<text class="lb" x="140" y="119" text-anchor="end">현장·체험·진로</text>
+<rect x="150" y="105" width="193.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="351.5" y="119">9</text>
+<text class="lb" x="140" y="149" text-anchor="end">리터러시 제도화</text>
+<rect x="150" y="135" width="172.0" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="330.0" y="149">8</text>
+<text class="lb" x="140" y="179" text-anchor="end">사고력·정서·의존 경고</text>
+<rect x="150" y="165" width="129.0" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="287.0" y="179">6</text>
+<text class="lb" x="140" y="209" text-anchor="end">격차·형평</text>
+<rect x="150" y="195" width="86.0" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="244.0" y="209">4</text>
+<text class="lb" x="140" y="239" text-anchor="end">안전·개인정보</text>
+<rect x="150" y="225" width="64.5" height="20" rx="4" fill="#7a9cc6"/>
+<text class="ct" x="222.5" y="239">3</text>
+</svg>
+      <p style="margin-top:14px;">가장 많은 것은 이번에도 <strong>정책·가이드라인</strong>으로 20건이었습니다. 네 주 연속 첫째입니다. 눈에 띄는 변화는 둘째 자리입니다. <strong>교사·리더의 역할</strong>과 <strong>기업·직장 AI교육</strong>이 각각 6건에서 10건으로 늘었습니다. 교수와 교사, 공무원과 경영진의 AI 역량을 다룬 기사가 많았습니다. 반대로 <strong>현장·체험·진로</strong>는 12건에서 9건으로, <strong>안전·개인정보</strong>는 6건에서 3건으로 줄었습니다. 리터러시 제도화는 9건에서 8건, 사고력·정서·의존 경고는 7건에서 6건, 격차·형평은 5건에서 4건이었습니다. 이번 주에는 규칙 이야기와 함께 &lsquo;가르치는 사람&rsquo; 이야기가 늘었습니다.</p>
+
+      <h3>💬 사무국장의 생각</h3>
+      <p>세 흐름을 한 줄로 잇는다면 이렇습니다. <strong>다 막을 수 없는 도구 앞에서, 평가도 도구 선택도 규칙도 결국 &ldquo;교육의 본질- 무엇을 배우게 할 것인가&rdquo;라는 같은 질문으로 돌아옵니다.</strong></p>
+      <p>막는 일은 필요합니다. 그러나 막는 것으로 끝나지는 않습니다. 시험장에서 기기를 거두어도, 집에 돌아가면 AI는 다시 손에 있습니다. 그래서 &ldquo;어떻게 막을까?&rdquo;보다 먼저 물을 것이 있습니다. &ldquo;이 공부로 무엇을 길러 주려는가?&rdquo;입니다. 그 답이 분명하면 시험도, 도구도, 규칙도 그 답에 맞추어 다시 짤 수 있습니다.</p>
+      <p>예를 들어 한 반에서 AI 사용 규칙을 정한다고 해 봅시다. 한 반은 선생님이 규칙을 정해 알려 줍니다. 다른 반은 학생들과 함께 &ldquo;여기까지는 AI에게 맡기고, 여기부터는 내가 한다&rdquo;를 적어 봅니다. 종이에 적힌 규칙은 비슷해도, 지키는 모습은 다를 것입니다. 함께 정한 규칙에는 &lsquo;왜&rsquo;가 들어 있기 때문입니다.</p>
+      <p>티움이 협력하는 <a href="https://talentium.co.kr/aiacademy/" target="_blank" rel="noopener">목회자를 위한 AI 아카데미</a> 1기도 11월 17일 셋째 시간을 마치고, 24일 마지막 시간을 앞두고 있습니다. 저도 강사로 함께하고 있습니다. 매 시간 붙드는 원칙은 같습니다. AI가 만든 결과는 사람이 검토하고 책임진다는 것입니다. 도구를 익히는 시간보다, 그 도구를 왜 그렇게 쓰는지 함께 묻는 시간이 더 오래 남는다고 믿습니다.</p>
+      <p>그래서 이번 주에는 한 가지만 해 보시면 좋겠습니다. 가정이나 일터에서 함께 지킬 AI 사용 규칙을 한 줄만 적어 보십시오. 혼자 적지 말고, 함께 쓰는 사람과 같이 적어 보십시오. 그 한 줄에 &lsquo;왜&rsquo;가 들어가면, 막지 않아도 지켜집니다.</p>
+      <p>다음 주에도 이 자리에서 뵙겠습니다.</p>
+
+      <h3>📎 이번 주 출처</h3>
+      <ul style="font-size:.92em;line-height:1.75;">
+        <li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BNS1lSy1mTnd5c29ULUtWWEZQT3RoQU03UjFleFFtc29Mby0yczctOGZxcm9hQll0OVBNM1hBNXdYRVF1dm55NS16TFNwZE0tY0hBZ2lKRXFyUdIBX0FVX3lxTE12c3dudGREUjdvSkVjRmNOeDlQRTdVdW1aQVl5WVMzX3BFc1J3RGU0MW1wVVEtNElFMmd5R0R1UGo2ckdkaHJlUlZES01ha0ZHR1dvMHdMa2xpbmw2Q0xR?oc=5" target="_blank" rel="noopener">“AI 커닝 100% 잡아낼 자신 있나” 묻자 최교진 교육부 장관 “못 할 것 같다”</a> <span style="color:#718096;font-size:.86em;">· 경향신문 · 11/17</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE15NFQ0TXB0T1FhNUNtN25MVExjbUVUbl9xS0JsYUdqTlc0VXdaTGVXclhBREtBM3ZMUmZuRjNSWV84N0tFSmV0ejU1TTk4cnZmRFJxZTVvdzBONUFBcmk1atIBeEFVX3lxTE8wdi1fNGFDdW41UHRTX2VLQlI1ZldwdmVDbUdwQUpBbGJWcFVxMzYtMms4SU16WWY3bFBBSGpaOUhIdGNDZmx1b2kxbFJmazNhY09UUFp5MlJ1anVtcWtfbU05QWtqVHJ2MjF3V1V4LVJzdHZMUWVLMg?oc=5" target="_blank" rel="noopener">교육부 "부정행위자 98명…5명은 시험 중 AI안경 등 활용"(종합)</a> <span style="color:#718096;font-size:.86em;">· 뉴시스 · 11/20</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9vSGE1bDRqWXZBSHdZZEpJRVA3a0VWZ0F1SGVqRG1GVmlkc3NZdjdJWXYzbVg0U055YnA0eW12SVZxSlRBZzBIcmdCMmRqOTZGelJPMFdoZ1dMbkQwVVV2bnZMTU94VHM?oc=5" target="_blank" rel="noopener">일상이 된 AI 부정행위…교육·평가 방식 달라져야</a> <span style="color:#718096;font-size:.86em;">· 한겨레 · 11/19</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE12TlpzSTBDT0N4djQzVndOVGxYd3ZtUURuWVJiNnNiQU9zdWFteHdldU11SDl5TElPZGxrVUNiRHNicEVoYW43VGRNN1pEV2VwclI3bmx2OU9QWHdrWG1nWERrcVlZeWM3NldfMXhETFpnakcycFHSAWZBVV95cUxNbVNsazc1dm8zYzZNVzd5ODBYRlNqRFZjaDdZX0VlLTJPc2RYVV85cHRwR3FlN1BPYWlVNnZJdUI4U2xMNlhoT0xaT2FCY0Jpam4wWWRvRE1xdnhmZVg5dkJrUklLV3c?oc=5" target="_blank" rel="noopener">[동아시론] AI에 흔들린 시험 공화국, 교육과 평가 다시 설계할 때</a> <span style="color:#718096;font-size:.86em;">· 동아일보 · 11/20</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQWURLc0tJa1hNYmxJcV9zd2xjem9zaEU0TzhiVEM5TmxhYzlURGlwMy1fSUJsZ2RaemZ1c0lYWWhKWElYc0FrMWlKUW80SmxiSjMxcGlOLXV6WEpkZTJuX1lseEVsR0xMZFJxZFhOQVhHbzduQ3paMDVxS2J5NHBXVS1R?oc=5" target="_blank" rel="noopener">스탠퍼드, 다시 펜과 종이로</a> <span style="color:#718096;font-size:.86em;">· Minding The Campus · 11/19</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOck10bGJHVUFyUGxSNV9qbEVucW1VZXdsdFBXQnF0OXpkNGJTbGNGQ2l5V3hnYTBuaER5eDA4eU13dnMteF9fN3hxdnNPWlVmU25WLTlWbEZCeHE3dV9peXFJY1lCXzdNNVRPNFhqSFhPZXBQdzJvQVN5UVZNMUJ3RnUzalZRQ1cwU3Q0azVXZ1VSWUFTbG9LSE5UZ1pLeU51dE5WZFFzd1cwSTM5MUNJSmp1dDljaU1VeWU4?oc=5" target="_blank" rel="noopener">구글, 학교에 "AI 안 쓰면 검색도 제한" 방침…뉴저지 주지사 반발</a> <span style="color:#718096;font-size:.86em;">· NJ.com · 11/17</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaC1oQUJxU2hkUVhkTzBNdjVhaTdXT3Y3OG5yWE96ZDZPdElWd0F0cmlyVTRwckprWGwwY2RSZEdGSGVvWk5Ea2lRbEhoN3hXSEVRU0RTOXlpaElUNFJid2RTVFk2VXg1Z2VWaVd4QmtTQmgteDB0Q3NVamVwbVFpOGNYMlo3TXhweDFaQ0pCM0lURWV2YnU2OHFNS1BNTWl1RWtqcDh5V2dwaTQ?oc=5" target="_blank" rel="noopener">구글의 AI 최후통첩, 학교의 빅테크 종속 위험을 드러내다</a> <span style="color:#718096;font-size:.86em;">· The Conversation · 11/18</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNaFZTcW1oQlltWWRFUy1hUzY4ODVqZXFKcl9McGNhUDZqam90WE9YQ3RqclV1czZJOVdKZURXeUxpTkRVM2FONklyQ2ZiS215WTBLTE14RFVZOWY1cnZUQTR5cDVNRlJ3bTVrWkJ5aGdxMG83NURiTjk1V0NLclhVM1NFcWctSVA0bUhad2dMYjg0czFSTk1KVUQyZXZTUQ?oc=5" target="_blank" rel="noopener">미국 교육구들, AI 결합된 구글 검색과의 '관계 재검토' 나서</a> <span style="color:#718096;font-size:.86em;">· The New York Times · 11/19</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQSl9zWlI1OGhZelFCRHV3LXFrS0tqdjFKNG1WZlh1eE11MHJ0cFZhSHVPWURuWHJSUWc4UmQ0SE9xTVduU01SNFBBckRYbGhkRm5NbHAtLWtQYWJCUk5FQ1FDTDMwbkJkV1VCb2hST0JuODRPQ0J6OU80SlhtRWEwZGNNNy1tRGRSbWE3VE1uYThBY3JBTUtYQ2EzR0puMTRVR1dPVDBaLXNXRW9oVkZXWVZmWXBUS2RabFR2WFE3dC0xTmMydTRxYThtWdIB0wFBVV95cUxOQUl0WnZwU2NscXJrWTNzSnhiNkhDcmJWUko3M05MaGpReEVhYUNXT0gzcThIZ3h2YXhSWGRxVGx4V3N0dEpGM1Q2LU13Sko0S3NPenZwaXFkdFJBLS11bXRWTTBDN3NqX2g4OU1TVnRMTEJaamxLSjhOTlpXeGhIM05sR29mcXd6LWxmeDVuczVJdnZKckJSc2FsOTFacU5NT2RpdWdlcnJULTdQOXQwM3dMM1VaejBSOC1NUndhM0otaTBhaUwtQmFRQ3FFRzExSWo4?oc=5" target="_blank" rel="noopener">뉴욕시 교육청, AI 기능 때문에 학교 내 구글 사용 중단 검토</a> <span style="color:#718096;font-size:.86em;">· NBC New York · 11/20</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPMVlJbzJ1b0wzT0pCMDdndUxnMjVod2NtemdiMGRraDc0T1RzVkFGOTR1Tl9CejdzYnp1WS14elpOMkdrQVZ3c2NGRmx2QjdjQVNrVG1WYklQcnd4bUU2N2VsTlFmWl9JWXdCUmpOdXA0RkdBSWFJMmc2TzVXcjgtN084eWRaMWF2ZWFud0M4NUxPM21TVjNB?oc=5" target="_blank" rel="noopener">학생들이 AI 정책에 목소리를 내다…유타주의 실험</a> <span style="color:#718096;font-size:.86em;">· SmartBrief · 11/17</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPRm9kaWg5X2dobzRmZGo1LWVYcUo1eE02blhTRW40aXZ0NEJ2a19NWUJYbHJXTUthbWUwcnJfQ0RSRFM0NjZlaDBpcVRFS2dkZTJfdWFXTjNYNTdUZ0FxSGpHWHRRbVhlS3AxendhQk9hMGtrckx6WHFGUEdDbUFSSTkwU0dvTUxMNFdQY0tRYlZlMEo1d1ZjZHU1Zk9uWnN1bnc?oc=5" target="_blank" rel="noopener">LAUSD, AI 활용 방식에 대해 학부모 의견 수렴</a> <span style="color:#718096;font-size:.86em;">· LAist · 11/18</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQS0lFd29JTmd0N0ptVDYtMGlmZTJ0SnR1c2VnRHI2amR5cHgteTQ4Rkc5ekVHbzBPLUh4dVNHZjR2WlAyNnBLMGxqdC04N01fNFRkbUdLUGFIMDF1Ujh5cnpySGFhRlZzdUdSWGdRY1RPN0xHbWc0VFhIOG8tblJlZjBnbmZ0QnoxcnlkVHNUdEw1YzJlb1lrd0RCYXo3SlJpOWlBQzdqNzI?oc=5" target="_blank" rel="noopener">새라소타 학생들, 학교 내 AI 위험성 경고… 교육구 새 정책 채택</a> <span style="color:#718096;font-size:.86em;">· WUSF · 11/19</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNazU1NDViSG9uLWR2UUxqSV93ZnRTUlBJVXNTUDRlWFRfbUpYS3JTbVVXZnk3Y3JwZHVHRldmSmg5YlhCWVF2bUJUa0RaajJMTXpNMjFXSENsRWtfOC02bk5pUnRYcjhQS0tSQmw4TEJ3WGhJazhwek1ZOVp1TmIwYklqbTFSQQ?oc=5" target="_blank" rel="noopener">미국 앤아런델 교육구, 교사·학생이 직접 AI 금지 제안</a> <span style="color:#718096;font-size:.86em;">· Capital Gazette · 11/20</span></li>
+        <li><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNTEkxYW9vZjl2c2RXcjZfM1NFT0VpRDNmaUF4OEEyRmZJOXhvSzdHdEptdWVWZTU1VTJjN05pVHhiQll5U1EzZnlfNGJRVzRiVlZJdWZnV2FNcDRsSVhkWWtNd1RBTWUyVi1zeXhVQjNleUl6UXhXRWVpTzJacVBxZGs0NFIyajFWcXZFOGNCcFRvaGN0dnUxQw?oc=5" target="_blank" rel="noopener">학생이 AI를 쓰는지 여부보다 '어떻게' 쓰는지가 더 중요하다</a> <span style="color:#718096;font-size:.86em;">· District Administration · 11/20</span></li>
+      </ul>
+
+      <p style="margin-top:22px;padding:14px 16px;background:#f7f9fc;border-radius:8px;font-size:.86em;color:#5e6b7d;line-height:1.75;">티움 위클리는 매일 아침 AI가 국내외 뉴스를 추려 정리한 브리핑을, 사무국이 한 주 단위로 다시 읽고 흐름과 생각을 더해 씁니다. 기사 내용은 각 원문을 기준으로 하며, 주제 분류와 판단은 사무국의 것입니다.</p>
+
+      <p style="margin-top:24px;">감사합니다.<br><strong>사단법인 티움 사무국장 최주안 드림</strong></p>
+`,
+  },
+  {
     id:      'wk-2026-46',
     issue:   9,
     period:  '2026-11-09/2026-11-13',
