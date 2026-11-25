@@ -60,6 +60,7 @@ window.KO2EN = {
  "김수연": "Kim Su-yeon",
  "성결대학교 교수학습지원센터": "Sungkyul University CTL",
  "전임 조교수": "Assistant Professor",
+ "중앙대학교 교양대학 외래교수": "Adjunct Professor, College of General Education, Chung-Ang University",
 
  /* ── 미래아카데미 1기 결산(영상·성과·후기·강사진) ── */
  "🎓 제1기 수료 완료 — 19명 배출 · 만족도 4.36/5": "🎓 Cohort 1 completed — 19 graduates · 4.36/5 satisfaction",
