@@ -14,12 +14,12 @@ window.NEWS_POSTS = [
      원문은 _archive/camp-ssanghaek-2026.html 에 보관 */
   {
     id: 'news-pyex2026', pin: true, category: 'notice', categoryLabel: '공지',
-    title: '국경을 넘는 청년, AI로 함께 문제를 푼다 — 티움, PYEX 2026 서울 서밋 주관',
-    summary: '11월 22~24일, 티움이 태평양아시아협회와 함께 PYEX 2026을 주관했습니다. 아시아·아프리카 8개국 대표단과 청년 AI 교육 협력 모델 ‘PYEX Youth AI Alliance’를 함께 설계하고, 서울 공동선언에 서명한 뒤 국회에서 함께 낭독했습니다.',
+    title: '국경을 넘는 청년, AI로 함께 문제를 푼다 — 티움, 태평양아시아협회와 PYEX 2026 공동 주최',
+    summary: '11월 22~24일, 티움이 태평양아시아협회와 함께 PYEX 2026을 주최했습니다. 아시아·아프리카 8개국 대표단과 청년 AI 교육 협력 모델 ‘PYEX Youth AI Alliance’를 함께 설계하고, 서울 공동선언에 서명한 뒤 국회에서 함께 낭독했습니다.',
     date: '2026.11.24', author: '티움 사무국', views: 0,
     image: 'assets/images/news/pyex2026-03.jpg',
     content: `
-      <p>사단법인 티움(이사장 고봉익)은 11월 22일부터 24일까지 태평양아시아협회(회장 김범수)가 주최한 <strong>&lsquo;PYEX 2026 국제포럼&rsquo;</strong>을 함께 주관했습니다. 아시아·아프리카 8개국의 대학·기관 대표들이 서울에 모여, AI 시대에 청년들이 국경을 넘어 함께 배우고 문제를 푸는 길을 논의했습니다.</p>
+      <p>사단법인 티움(이사장 고봉익)은 11월 22일부터 24일까지 태평양아시아협회(회장 김범수)와 함께 <strong>&lsquo;PYEX 2026 국제포럼&rsquo;</strong>을 주최했습니다. 아시아·아프리카 8개국의 대학·기관 대표들이 서울에 모여, AI 시대에 청년들이 국경을 넘어 함께 배우고 문제를 푸는 길을 논의했습니다.</p>
       <p style="margin:22px 0 6px;"><img src="assets/images/news/pyex2026-03.jpg" alt="PYEX 2026 공동설계 그룹 출범 — 중앙대학교 서울 서밋 참가자 단체사진" style="width:100%;height:auto;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async"></p>
       <p style="margin:0 0 24px;font-size:13px;color:#718096;">PYEX 2026 공동설계 그룹 출범 (11월 23일, 중앙대학교)</p>
 
@@ -35,7 +35,7 @@ window.NEWS_POSTS = [
       <p>23일 오전에는 티움이 주선한 일정으로 대표단이 태재대학교를 방문했습니다. 대표단은 AI를 활용한 혁신 교육 사례를 듣고 캠퍼스를 둘러보며, 오후 서밋에서 나눌 논의의 실마리를 얻었습니다.</p>
 
       <h4>23일 오후 — 중앙대학교 공동설계 서밋</h4>
-      <p>오후 3시부터는 중앙대학교 대학원회의실에서 &lsquo;PYEX 2026 서울 서밋&rsquo;을 태평양아시아협회와 함께 주관했습니다. 중앙대학교 AI교육원이 파트너로 함께했고, 박세현 중앙대학교 총장의 환영사로 문을 열었습니다.</p>
+      <p>오후 3시부터는 중앙대학교 대학원회의실에서 &lsquo;PYEX 2026 서울 서밋&rsquo;이 열렸습니다. 행사 운영은 시넥스(SYNNEX)가 주관했고, 중앙대학교 AI교육원이 파트너로 함께했습니다. 서밋은 박세현 중앙대학교 총장의 환영사로 문을 열었습니다.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0 6px;">
         <img src="assets/images/news/pyex2026-04.jpg" alt="PYEX 2026 서울 서밋 개회 — 중앙대학교 대학원회의실" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
         <img src="assets/images/news/pyex2026-05.jpg" alt="박세현 중앙대학교 총장 환영사" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
@@ -79,7 +79,7 @@ window.NEWS_POSTS = [
         <li><strong>함께 남깁니다.</strong> 각국의 언어와 문화 자료를 AI에 담되, 그 데이터는 언제나 그 나라와 그 공동체의 것입니다.</li>
       </ol>
       <p>네 길의 원칙은 &lsquo;부담 없는 시작&rsquo;입니다. 첫 단계는 비용도 법적 의무도 없으며, 각 기관이 할 수 있는 만큼부터 시작해 신뢰가 쌓이는 만큼 깊어집니다. 고 이사장은 <strong>&ldquo;오늘 발표할 공동선언은 양해각서가 아닙니다. 참가자 모두가 이 길을 함께 설계하겠다는 약속입니다.&rdquo;</strong>라고 강조했습니다. 그리고 국회와 정부에는 청년 국제교류가 AI 시대에 맞게 한 걸음 나아가도록 관심을, 기업과 기관에는 청년들의 첫 프로젝트에 파트너로 함께해 줄 것을 당부했습니다.</p>
-      <p>이어 네팔과 에티오피아 대표가 청년 교류와 디지털 도구에 관한 자국 사례를 발표했습니다. 끝으로 참가자들이 함께 공동선언문을 낭독하고 기념 촬영을 하며, 티움이 주관한 순서를 마쳤습니다.</p>
+      <p>이어 네팔과 에티오피아 대표가 청년 교류와 디지털 도구에 관한 자국 사례를 발표했습니다. 끝으로 참가자들이 함께 공동선언문을 낭독하고 기념 촬영을 하며, 티움이 맡은 순서를 마쳤습니다.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0 6px;">
         <img src="assets/images/news/pyex2026-15.jpg" alt="국회 포럼 — 공동설계 회의 결과를 발표하는 고봉익 이사장" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
         <img src="assets/images/news/pyex2026-16.jpg" alt="이재성 중앙대학교 AI대학원·AI교육원 원장 화답 발언" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
