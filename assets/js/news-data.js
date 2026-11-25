@@ -35,13 +35,13 @@ window.NEWS_POSTS = [
       <p>23일 오전에는 티움이 주선한 일정으로 대표단이 태재대학교를 방문했습니다. 대표단은 AI를 활용한 혁신 교육 사례를 듣고 캠퍼스를 둘러보며, 오후 서밋에서 나눌 논의의 실마리를 얻었습니다.</p>
 
       <h4>23일 오후 — 중앙대학교 공동설계 서밋</h4>
-      <p>오후 3시부터는 중앙대학교 대학원회의실에서 &lsquo;PYEX 2026 서울 서밋&rsquo;이 열렸습니다. 행사 운영은 시넥스(SYNNEX)가 주관했고, 중앙대학교 AI교육원이 파트너로 함께했습니다. 서밋은 박세현 중앙대학교 총장의 환영사로 문을 열었습니다.</p>
+      <p>오후 3시부터는 중앙대학교 대학원회의실에서 &lsquo;PYEX 2026 서울 서밋&rsquo;이 열렸습니다. 행사 운영은 시넥스(SYNNEX)가 주관했고, 중앙대학교 AI교육원이 파트너로 함께했습니다. 서밋은 박세현 중앙대학교 총장의 환영사로 문을 열었습니다. 중앙대학교에서 서밋을 열기까지는 티움 전문위원인 김형주 중앙대학교 교수의 도움이 컸습니다.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0 6px;">
         <img src="assets/images/news/pyex2026-04.jpg" alt="PYEX 2026 서울 서밋 개회 — 중앙대학교 대학원회의실" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
         <img src="assets/images/news/pyex2026-05.jpg" alt="박세현 중앙대학교 총장 환영사" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
       </div>
       <p style="margin:0 0 24px;font-size:13px;color:#718096;">서밋 개회와 박세현 중앙대학교 총장의 환영사</p>
-      <p>고봉익 이사장은 <strong>「AI 시대의 위협과 기회」</strong>를 주제로 비전 스피치를 했습니다. AI는 청년들 사이에 다리를 놓을 수도, 새로운 벽을 세울 수도 있으며, 위협과 기회를 가르는 것은 기술이 아니라 교육이라고 말했습니다. 이어 최주안 사무국장이 <strong>&lsquo;PYEX Youth AI Alliance&rsquo;</strong>를 제안했습니다. AI 전문가 몇 명을 기르는 대신, 자기 전공에 AI를 활용해 지역과 나라의 문제를 푸는 청년을 함께 기르자는 내용으로, 완성된 계획이 아니라 참가국과 함께 다듬어 갈 초안으로 제시되었습니다.</p>
+      <p>고봉익 이사장은 <strong>「AI 시대의 위협과 기회」</strong>를 주제로 비전 스피치를 했습니다. AI는 청년들 사이에 다리를 놓을 수도, 새로운 벽을 세울 수도 있으며, 위협과 기회를 가르는 것은 기술이 아니라 교육이라고 말했습니다. 이어 최주안 사무국장이 <strong>&lsquo;PYEX Youth AI Alliance&rsquo;</strong>를 제안했습니다. AI 전문가 몇 명을 기르는 대신, 자기 전공에 AI를 활용해 지역과 나라의 문제를 푸는 청년을 함께 기르자는 내용으로, 완성된 계획이 아니라 참가국과 함께 다듬어 갈 초안으로 제시되었습니다. 이 협력 모델을 담은 교육협력제안서를 만드는 과정에서는 티움 전문위원인 서응교 단국대학교 교수가 많은 도움을 주었습니다.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:24px 0 6px;">
         <img src="assets/images/news/pyex2026-06.jpg" alt="고봉익 이사장 비전 스피치 「AI 시대의 위협과 기회」" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
         <img src="assets/images/news/pyex2026-07.jpg" alt="최주안 사무국장 PYEX Youth AI Alliance 제안" style="width:100%;height:100%;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;" loading="lazy" decoding="async">
