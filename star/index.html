@@ -66,7 +66,7 @@
     .st-value p { color:var(--muted); font-size:.94rem; line-height:1.75; margin:0; }
 
     /* 특강 분야 */
-    .st-topics { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
+    .st-topics { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:40px; }
     .st-topic { border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#fff; display:flex; flex-direction:column; }
     .st-topic .bar { height:6px; }
     .st-topic .in { padding:24px 22px 26px; }
@@ -120,6 +120,7 @@
     .st-foot { background:#0b1f38; color:rgba(255,255,255,.62); font-size:.84rem; padding:34px 0; line-height:1.8; }
     .st-foot a { color:rgba(255,255,255,.82); }
 
+    @media (max-width: 1100px) { .st-topics { grid-template-columns:repeat(2,1fr); } }
     @media (max-width: 900px) {
       .st-values, .st-topics { grid-template-columns:1fr; }
       .st-apply { grid-template-columns:1fr; }
@@ -222,8 +223,8 @@
   <section class="st-sec alt" id="topics">
     <div class="st-wrap">
       <span class="st-kicker">OPEN LECTURE</span>
-      <h2 class="st-h2">교수진이 직접 여는 세 갈래 특강</h2>
-      <p class="st-sub">세 분야 가운데 하나를 골라 신청. 모두 12월 14일(월) 22:00~23:00(한국 시간), 온라인 진행.</p>
+      <h2 class="st-h2">교수진이 직접 여는 네 갈래 특강</h2>
+      <p class="st-sub">네 분야 가운데 하나를 골라 신청. 모두 12월 14일(월) 22:00~23:00(한국 시간), 온라인 진행.</p>
       <div class="st-topics">
         <article class="st-topic">
           <div class="bar" style="background:#3b5bdb"></div>
@@ -249,8 +250,15 @@
             <p>12/14(월) 22:00 · 온라인</p>
           </div>
         </article>
+        <article class="st-topic">
+          <div class="bar" style="background:#2b8a3e"></div>
+          <div class="in">
+            <span class="field" style="color:#2b8a3e">의공학·AI</span>
+            <h3>레이더와 머신러닝으로 측정하는 비접촉 생체신호</h3>
+            <p>12/14(월) 22:00 · 온라인</p>
+          </div>
+        </article>
       </div>
-      <p class="st-note">※ 분야가 추가되면 따로 안내.</p>
     </div>
   </section>
 
@@ -278,7 +286,7 @@
         <dl class="st-dl">
           <div><dt>대상</dt><dd>고등학생 누구나 (예비 고1 포함)<small>선발 없이 신청</small></dd></div>
           <div><dt>일시</dt><dd>2026년 12월 14일(월) 22:00~23:00 (한국 시간)</dd></div>
-          <div><dt>방식</dt><dd>온라인 · 세 분야 가운데 1개 선택<small>접속 방법은 신청자에게 개별 안내</small></dd></div>
+          <div><dt>방식</dt><dd>온라인 · 네 분야 가운데 1개 선택<small>접속 방법은 신청자에게 개별 안내</small></dd></div>
           <div><dt>수강료</dt><dd>5만 원<small>납부 방법은 신청 확인 후 개별 안내</small></dd></div>
           <div><dt>신청 마감</dt><dd>2026년 12월 11일(금)</dd></div>
           <div><dt>제공</dt><dd>리서치 미션 제출자에게 연구 역량 진단 리포트 (2027년 1월 중순)</dd></div>
@@ -286,7 +294,7 @@
         <div class="st-fair">
           <span class="tag">12월 11일(금) 마감</span>
           <h3>신청서 한 장으로 접수</h3>
-          <p>세 분야 가운데 하나를 골라 신청서를 작성하면 접수됩니다. 납부 방법과 접속 링크는 신청 확인 후 개별로 안내드립니다.</p>
+          <p>네 분야 가운데 하나를 골라 신청서를 작성하면 접수됩니다. 납부 방법과 접속 링크는 신청 확인 후 개별로 안내드립니다.</p>
           <a class="st-btn st-btn-navy" href="https://docs.google.com/forms/d/e/1FAIpQLSeHwA9fpl-YuQPyCOLN1bhala5iRHkgCHJNO8P29wlxzcTjeQ/viewform" target="_blank" rel="noopener">오픈 특강 신청하기 →</a>
         </div>
       </div>
@@ -298,13 +306,13 @@
     <div class="st-wrap">
       <div class="st-research">
         <div class="txt">
-          <span class="cap">총 4개 분야 · 분야별 5~6명</span>
+          <span class="cap">총 4개 분야 · 분야별 5~8명</span>
           <h2>실제 연구 과정 참여<br>(미국 방문 포함) 신청</h2>
           <p>오픈 특강 다음 단계. 재미 한인 교수진과 온라인 연구 미팅 4회를 하며 실제 연구에 참여하는 소규모 연구 과정.</p>
           <ul>
             <li>온라인 연구 미팅 4회 · 12. 14.~1. 11. 매주 월요일 22:00~23:00(미국 동부 오전 8시)</li>
-            <li>총 4개 분야 · 분야별 5~6명 소규모 연구</li>
-            <li>2027년 1월 플로리다 현지 연구 방문</li>
+            <li>총 4개 분야 · 분야별 5~8명 소규모 연구</li>
+            <li>2027년 1월 15일~24일 메릴랜드·플로리다 현지 연구 방문</li>
             <li>성과 발표회 · 영문 연구 결과 보고서와 수료증</li>
             <li>모집 정원에 못 미치는 분야의 개설 여부는 12월 11일(금)까지 개별 안내</li>
           </ul>
